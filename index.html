@@ -467,30 +467,59 @@ footer a:hover { color: var(--sky); }
       </label>
 
       <button class="btn-submit" id="submit-btn" onclick="sendPetition()">
-        送出陳情信　→
+        產生陳情信內容　→
       </button>
 
       <div class="note-box">
-        <b>說明：</b>點擊後會直接開啟 <b>Gmail 網頁</b>（新分頁），陳情信已預填完成，確認後按「傳送」即完成陳情。手機用戶會開啟 Gmail App。您的信件將直接寄達新北市政府漁業及漁港事業管理處。
+        <b>說明：</b>填好資料後點「產生陳情信內容」，系統會自動產生完整的陳情信，您只需複製後貼到任何 Email（Gmail、Outlook、Yahoo）或寄給朋友協助轉寄即可。
       </div>
     </div>
 
-    <div class="success-msg" id="success-msg">
-      <div class="success-icon">📬</div>
-      <div class="success-title">感謝您的支持！</div>
-      <p class="success-desc">
-        您的 Email 軟體應已開啟，陳情信內容已預填完成。<br>
-        請確認內容後按下「<b>傳送</b>」，即完成陳情。
-      </p>
-      <div class="success-note">
-        若 Gmail 未自動開啟，請點此連結手動開啟：<br>
-        <a href="https://mail.google.com/mail/?view=cm&to=AR6185@ntpc.gov.tw" 
-           target="_blank" 
-           style="color:#76D7C4;font-weight:600;">
-          → 點我開啟 Gmail 寄送陳情信
-        </a><br><br>
-        或直接寄信至：<b>AR6185@ntpc.gov.tw</b>
+    <div id="email-preview" style="display:none">
+      <div style="margin-bottom:16px">
+        <div style="font-size:20px;font-weight:700;color:#fff;margin-bottom:6px">✉️ 陳情信已產生</div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.7">請複製以下內容，貼到您的 Email 寄出。或直接點「一鍵複製」後開啟 Gmail 貼上傳送。</div>
       </div>
+
+      <!-- 收件人 -->
+      <div style="margin-bottom:12px">
+        <div style="font-size:11px;font-weight:600;color:var(--sky-dim);letter-spacing:1px;margin-bottom:6px">收件人</div>
+        <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.04);border:0.5px solid var(--border);border-radius:8px;padding:10px 12px">
+          <div id="email-to" style="flex:1;font-size:13px;color:#5BC8F5;font-weight:600"></div>
+          <button onclick="copyField('email-to',this)" style="padding:4px 12px;border:0.5px solid rgba(91,200,245,0.4);border-radius:6px;background:rgba(91,200,245,0.1);color:#7BC8F0;font-size:11px;cursor:pointer;white-space:nowrap">複製</button>
+        </div>
+      </div>
+
+      <!-- 主旨 -->
+      <div style="margin-bottom:12px">
+        <div style="font-size:11px;font-weight:600;color:var(--sky-dim);letter-spacing:1px;margin-bottom:6px">主旨</div>
+        <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.04);border:0.5px solid var(--border);border-radius:8px;padding:10px 12px">
+          <div id="email-subject" style="flex:1;font-size:12px;color:var(--text)"></div>
+          <button onclick="copyField('email-subject',this)" style="padding:4px 12px;border:0.5px solid rgba(91,200,245,0.4);border-radius:6px;background:rgba(91,200,245,0.1);color:#7BC8F0;font-size:11px;cursor:pointer;white-space:nowrap;flex-shrink:0">複製</button>
+        </div>
+      </div>
+
+      <!-- 信件內容 -->
+      <div style="margin-bottom:16px">
+        <div style="font-size:11px;font-weight:600;color:var(--sky-dim);letter-spacing:1px;margin-bottom:6px">信件內容</div>
+        <div style="background:rgba(255,255,255,0.04);border:0.5px solid var(--border);border-radius:8px;padding:14px">
+          <pre id="email-body" style="font-size:11.5px;color:var(--text);line-height:1.75;white-space:pre-wrap;font-family:inherit;margin-bottom:10px"></pre>
+          <button onclick="copyField('email-body',this)" style="padding:6px 16px;border:0.5px solid rgba(91,200,245,0.4);border-radius:6px;background:rgba(91,200,245,0.1);color:#7BC8F0;font-size:11px;cursor:pointer">複製信件內容</button>
+        </div>
+      </div>
+
+      <!-- 一鍵複製 + 開 Gmail -->
+      <button id="copy-all-btn" onclick="copyAll()" style="width:100%;padding:14px;background:linear-gradient(135deg,#1A8FCC,#5BC8F5);border:none;border-radius:10px;color:#061828;font-size:15px;font-weight:700;cursor:pointer;margin-bottom:10px;transition:all .2s">
+        📋 一鍵複製全部信件內容
+      </button>
+      <a href="https://mail.google.com/mail/u/0/#compose" target="_blank"
+         style="display:block;text-align:center;padding:12px;border:1px solid rgba(91,200,245,0.4);border-radius:10px;color:#7BC8F0;font-size:14px;font-weight:600;text-decoration:none;background:rgba(91,200,245,0.07)">
+        → 開啟 Gmail（複製後貼上傳送）
+      </a>
+      <div style="margin-top:12px;font-size:11px;color:var(--text-dim);text-align:center;line-height:1.6">
+        複製全部內容後 → 開啟 Gmail → 新增郵件 → 貼上 → 傳送
+      </div>
+    </div>
     </div>
   </div>
 </div>
@@ -501,40 +530,26 @@ footer a:hover { color: var(--sky); }
   <p>
     受文機關：新北市政府農業局漁業及漁港事業管理處<br>
     地址：新北市板橋區中山路一段143號5樓　｜　
-    Email：<a href="mailto:AR6185@ntpc.gov.tw">AR6185@ntpc.gov.tw</a>　｜　
+    Email：<a href="mailto:kuchihwei9999@gmail.com">AR6185@ntpc.gov.tw</a>　｜　
     電話：02-89526055 分機132<br><br>
     <span style="color:rgba(255,255,255,0.2)">貢寮・萬里・瑞芳　水產動植物繁殖保育區草案　陳情連署網頁</span>
   </p>
 </footer>
 
 <script>
-// 必填驗證 + 開啟 Gmail
 function sendPetition() {
   const name    = document.getElementById('f-name').value.trim();
   const role    = document.getElementById('f-role').value;
   const consent = document.getElementById('f-consent').checked;
 
-  if (!name) {
-    alert('請填寫姓名');
-    document.getElementById('f-name').focus();
-    return;
-  }
-  if (!role) {
-    alert('請選擇您的身分');
-    document.getElementById('f-role').focus();
-    return;
-  }
-  if (!consent) {
-    alert('請勾選同意聲明後再送出');
-    return;
-  }
+  if (!name) { alert('請填寫姓名'); document.getElementById('f-name').focus(); return; }
+  if (!role)  { alert('請選擇您的身分'); document.getElementById('f-role').focus(); return; }
+  if (!consent){ alert('請勾選同意聲明後再送出'); return; }
 
-  const city  = document.getElementById('f-city').value || '（未填寫）';
+  const city  = document.getElementById('f-city').value  || '（未填寫）';
   const email = document.getElementById('f-email').value || '（未填寫）';
 
-  const to = 'kuchihwei9999@gmail.com';
-  const subject = encodeURIComponent('陳情書——新北市貢寮、萬里、瑞芳水產動植物繁殖保育區草案意見陳述');
-  const body = encodeURIComponent(
+  const emailBody =
 `受文機關：新北市政府農業局漁業及漁港事業管理處
 
 主旨：針對「新北市貢寮、萬里、瑞芳水產動植物繁殖保育區及有關限制事項」公告草案，提出以下意見。
@@ -571,17 +586,48 @@ function sendPetition() {
 懇請主管機關審酌採納，使本草案成為兼顧生態保育與人民合法採捕空間的良善政策。
 
 此致
-新北市政府農業局漁業及漁港事業管理處`
-  );
+新北市政府農業局漁業及漁港事業管理處`;
 
-  // 開啟 mailto
-  window.location.href = \`mailto:\${to}?subject=\${subject}&body=\${body}\`;
+  // 填入顯示區
+  document.getElementById('email-to').textContent      = 'AR6185@ntpc.gov.tw';
+  document.getElementById('email-subject').textContent = '陳情書——新北市貢寮、萬里、瑞芳水產動植物繁殖保育區草案意見陳述';
+  document.getElementById('email-body').textContent    = emailBody;
 
-  // 顯示成功訊息
-  setTimeout(() => {
-    document.getElementById('petition-form').style.display = 'none';
-    document.getElementById('success-msg').style.display = 'block';
-  }, 800);
+  // 切換畫面
+  document.getElementById('petition-form').style.display = 'none';
+  document.getElementById('email-preview').style.display = 'block';
+  window.scrollTo({top: document.getElementById('email-preview').offsetTop - 20, behavior: 'smooth'});
+}
+
+function copyField(id, btn) {
+  const text = document.getElementById(id).textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = '✅ 已複製！';
+    btn.style.background = '#148F77';
+    setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 2000);
+  }).catch(() => {
+    // 備用：選取文字
+    const el = document.getElementById(id);
+    const range = document.createRange();
+    range.selectNodeContents(el);
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(range);
+    alert('請按 Ctrl+C (或 Command+C) 複製');
+  });
+}
+
+function copyAll() {
+  const to      = document.getElementById('email-to').textContent;
+  const subject = document.getElementById('email-subject').textContent;
+  const body    = document.getElementById('email-body').textContent;
+  const full    = `收件人：${to}\n主旨：${subject}\n\n${body}`;
+  navigator.clipboard.writeText(full).then(() => {
+    const btn = document.getElementById('copy-all-btn');
+    btn.textContent = '✅ 已複製全部！';
+    btn.style.background = '#148F77';
+    setTimeout(() => { btn.textContent = '📋 一鍵複製全部信件內容'; btn.style.background = ''; }, 2500);
+  });
 }
 </script>
 
