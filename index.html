@@ -466,12 +466,12 @@ footer a:hover { color: var(--sky); }
         </span>
       </label>
 
-      <button class="btn-submit" id="submit-btn" onclick="sendPetition()" disabled>
+      <button class="btn-submit" id="submit-btn" onclick="sendPetition()">
         送出陳情信　→
       </button>
 
       <div class="note-box">
-        <b>說明：</b>點擊後會開啟您的 Email 程式（Gmail / Outlook / Apple Mail 等），陳情信已預填好內容，確認後按「傳送」即完成。您寄出的信件會直接送到新北市政府漁業及漁港事業管理處。
+        <b>說明：</b>點擊後會直接開啟 <b>Gmail 網頁</b>（新分頁），陳情信已預填完成，確認後按「傳送」即完成陳情。手機用戶會開啟 Gmail App。您的信件將直接寄達新北市政府漁業及漁港事業管理處。
       </div>
     </div>
 
@@ -483,9 +483,13 @@ footer a:hover { color: var(--sky); }
         請確認內容後按下「<b>傳送</b>」，即完成陳情。
       </p>
       <div class="success-note">
-        若 Email 未自動開啟，請手動寄信至：<b>AR6185@ntpc.gov.tw</b><br>
-        主旨：陳情——新北市北海岸保育區草案意見陳述<br>
-        並說明您支持以上三項訴求。
+        若 Gmail 未自動開啟，請點此連結手動開啟：<br>
+        <a href="https://mail.google.com/mail/?view=cm&to=AR6185@ntpc.gov.tw" 
+           target="_blank" 
+           style="color:#76D7C4;font-weight:600;">
+          → 點我開啟 Gmail 寄送陳情信
+        </a><br><br>
+        或直接寄信至：<b>AR6185@ntpc.gov.tw</b>
       </div>
     </div>
   </div>
@@ -504,15 +508,11 @@ footer a:hover { color: var(--sky); }
 </footer>
 
 <script>
-// checkbox 控制按鈕
-document.getElementById('f-consent').addEventListener('change', function() {
-  document.getElementById('submit-btn').disabled = !this.checked;
-});
-
-// 必填驗證 + 開啟 mailto
+// 必填驗證 + 開啟 Gmail
 function sendPetition() {
-  const name = document.getElementById('f-name').value.trim();
-  const role = document.getElementById('f-role').value;
+  const name    = document.getElementById('f-name').value.trim();
+  const role    = document.getElementById('f-role').value;
+  const consent = document.getElementById('f-consent').checked;
 
   if (!name) {
     alert('請填寫姓名');
@@ -522,6 +522,10 @@ function sendPetition() {
   if (!role) {
     alert('請選擇您的身分');
     document.getElementById('f-role').focus();
+    return;
+  }
+  if (!consent) {
+    alert('請勾選同意聲明後再送出');
     return;
   }
 
