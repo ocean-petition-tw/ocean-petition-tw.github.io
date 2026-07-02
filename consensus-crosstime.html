@@ -3,175 +3,184 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>跨時共識版 ｜ 2017 抗爭 × 2025-10-31 官方會議 × 2026 連署+FB</title>
+<title>連署書(200人) × lilik FB公開信 ｜ 兩份共識萃取</title>
 <style>
   :root{
     --ink:#16202b; --sub:#5a6470; --line:#dbe1e8; --accent:#0b5c8f; --accent2:#0a4c76;
     --accent-soft:#eaf3f9; --band:#f5f8fa; --ok:#1b7f4b; --ok-soft:#e7f6ee;
-    --hold:#8a5a00; --hold-soft:#fff6e5; --warn:#b3261e; --warn-soft:#fdecea;
+    --hold:#8a5a00; --hold-soft:#fff6e5;
   }
   *{box-sizing:border-box;}
   body{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif;
     color:var(--ink); line-height:1.8; margin:0; background:#eef1f4; font-size:16px;}
-  .page{max-width:1000px; margin:30px auto; background:#fff; padding:50px 56px;
+  .page{max-width:960px; margin:30px auto; background:#fff; padding:50px 56px;
     box-shadow:0 2px 18px rgba(0,0,0,.09); border-radius:6px;}
-  header.doc{border-bottom:3px solid var(--accent); padding-bottom:16px; margin-bottom:12px;}
-  h1{font-size:23px; margin:0 0 12px; letter-spacing:.4px;}
+  header.doc{border-bottom:3px solid var(--accent); padding-bottom:16px; margin-bottom:14px;}
+  h1{font-size:24px; margin:0 0 12px; letter-spacing:.5px;}
   .meta{font-size:13px; color:var(--sub); background:var(--band); border-radius:6px; padding:12px 16px; line-height:1.7;}
   .meta b{color:var(--accent2);}
-  h2{font-size:19px; margin:36px 0 14px; padding:8px 14px; background:var(--accent); color:#fff; border-radius:5px;}
-  h3{font-size:16px; margin:20px 0 9px; color:var(--accent2); border-left:5px solid var(--accent); padding-left:11px;}
-  p{margin:9px 0;} strong{color:#000;}
-  ul{margin:9px 0; padding-left:22px;} li{margin:5px 0;}
-  table{border-collapse:collapse; width:100%; margin:14px 0; font-size:13px; box-shadow:0 1px 3px rgba(0,0,0,.06);}
-  th,td{border:1px solid var(--line); padding:8px 10px; vertical-align:top; text-align:left;}
+  h2{font-size:19px; margin:34px 0 14px; padding:8px 14px; background:var(--accent); color:#fff; border-radius:5px;}
+  table{border-collapse:collapse; width:100%; margin:14px 0; font-size:13.5px; box-shadow:0 1px 3px rgba(0,0,0,.06);}
+  th,td{border:1px solid var(--line); padding:9px 11px; vertical-align:top; text-align:left;}
   thead th{background:var(--accent); color:#fff; font-weight:600;}
-  .y17{background:#7a5b34;} .y25{background:#2f6f8f;} .y26{background:#1b7f4b;}
   tbody tr:nth-child(even){background:var(--band);}
-  td.topic{font-weight:700; color:var(--accent2); background:var(--accent-soft); width:16%;}
-  .summary{background:linear-gradient(180deg,#0b5c8f,#0a4c76); color:#fff; border-radius:8px; padding:22px 26px; margin:14px 0; font-size:16px; line-height:1.9;}
+  .th-a{background:#12658f;} .th-b{background:#3a7ca5;}
+  td.consensus{background:var(--ok-soft); font-weight:600; color:#134e33;}
+  .num{font-weight:700; color:var(--accent); white-space:nowrap;}
+  .summary{background:linear-gradient(180deg,#0b5c8f,#0a4c76); color:#fff; border-radius:8px; padding:22px 26px; margin:14px 0; font-size:16.5px; line-height:1.9;}
   .summary .k{font-size:12px; letter-spacing:2px; opacity:.85; margin-bottom:8px;}
-  .box{border-radius:6px; padding:15px 18px; margin:16px 0; font-size:13.5px;}
-  .box h3{margin-top:0;}
-  .box-lev{background:var(--ok-soft); border:1px solid #bfe3cd; border-left:4px solid var(--ok);}
-  .box-lev h3{color:var(--ok); border-color:var(--ok);}
-  .box-hist{background:var(--hold-soft); border:1px solid #f0dcae; border-left:4px solid var(--hold);}
-  .box-hist h3{color:var(--hold); border-color:var(--hold);}
-  .box-warn{background:var(--warn-soft); border:1px solid #f3c5c1; border-left:4px solid var(--warn);}
-  .box-warn h3{color:var(--warn); border-color:var(--warn);}
-  .tl{display:flex; gap:10px; flex-wrap:wrap; margin:10px 0;}
-  .tl div{flex:1; min-width:200px; border:1px solid var(--line); border-radius:6px; padding:10px 12px; font-size:12.5px;}
-  .tl .yr{font-weight:700; font-size:13.5px; margin-bottom:3px;}
-  .tl .c17{border-top:3px solid #7a5b34;} .tl .c25{border-top:3px solid #2f6f8f;} .tl .c26{border-top:3px solid #1b7f4b;}
-  .note{font-size:12.5px; color:var(--sub); margin-top:32px; border-top:1px solid var(--line); padding-top:12px;}
-  .src{display:block; margin-top:4px; font-size:11px; color:#7a6a3a; line-height:1.5;}
+  .box{border-radius:6px; padding:14px 18px; margin:14px 0; font-size:13.5px;}
+  .box-hold{background:var(--hold-soft); border:1px solid #f0dcae; border-left:4px solid var(--hold);}
+  .box-hold h3{margin-top:0; color:var(--hold);}
+  .box-hold ul{margin:8px 0 0; padding-left:20px;} .box-hold li{margin:6px 0;}
+  .note{font-size:12.5px; color:var(--sub); margin-top:34px; border-top:1px solid var(--line); padding-top:12px;}
   @media print{
-    body{background:#fff; font-size:11.5px;} .page{box-shadow:none; margin:0; max-width:none; padding:0 8mm;}
-    h2,thead th,.summary,.box,td.topic{-webkit-print-color-adjust:exact; print-color-adjust:exact;}
+    body{background:#fff; font-size:12px;} .page{box-shadow:none; margin:0; max-width:none; padding:0 8mm;}
+    h2,thead th,.summary,td.consensus,.box{-webkit-print-color-adjust:exact; print-color-adjust:exact;}
     tr,table,.box{break-inside:avoid;} h2{break-after:avoid;}
   }
-  @media (max-width:640px){.page{padding:24px 14px; margin:0;} table{font-size:11px;} th,td{padding:5px 6px;}}
+  @media (max-width:640px){.page{padding:24px 14px; margin:0;} table{font-size:11.5px;} th,td{padding:6px 6px;}}
 </style>
 </head>
 <body>
 <div class="page">
 
 <header class="doc">
-  <h1>跨時共識版 ｜ 2017 抗爭　×　2025-10-31 官方會議　×　2026 連署書＋FB</h1>
+  <h1>連署書（200 人版） × lilik FB 公開信 ｜ 兩份共識萃取</h1>
   <div class="meta">
-    <b>基底：</b>連署書（200 人已送出）與 lilik FB 公開信之共識（行為分級、器材中性）。<br>
-    <b>新增：</b>① 2017 全國「禁魚槍」抗爭情形與結果；② 2025-10-31 海洋委員會「海域潛水休閒採捕管理討論會議」會議紀錄。<br>
-    <b>用意：</b>證明我方立場<b>從 2017 到 2026 始終如一</b>，且<b>連 2025 官方會議都呼應</b>——這不是新的、自利的主張，而是跨時、跨利害關係人的一貫共識。
+    <b>目的：</b>取兩份「已對外定稿」權威文本之<b>交集</b>——① 200 人已送出的連署書（bluepolicy.eponym.online）、② 發起人 lilik 的 FB 公開定調文。<br>
+    <b>意義：</b>兩者交集＝最無法被質疑的<b>鐵核心</b>，可安心作為記者會、新聞稿、後續文件的共同底線。綠底格＝雙方一致之共識定調。
   </div>
 </header>
 
+<h2>一、共識的一句話總結（大目標）</h2>
 <div class="summary">
-  <div class="k">大 目 標 · 跨 時 一 致 的 一 句 話</div>
-  從 2017 抗爭、到 2025 官方會議、再到 2026 連署——我方立場始終如一：<strong>支持海洋保育、支持嚴懲濫捕與違規販售；反對把守法、自用、不販售、高選擇性的漁獵，與商業濫捕一概而論、一刀切全面禁止。</strong>請以<strong>「依行為分級」的精準科學管理，取代「不分行為性質」的全面禁止。</strong>
+  <div class="k">兩 份 交 集 · 對 外 統 一 口 徑</div>
+  我們支持海洋保育，也支持嚴懲「<strong>濫捕</strong>」與「<strong>違規販售</strong>」等破壞行為；我們接受<strong>尺寸、禁採期、禁販售、違規重罰</strong>等管理。<br>
+  但我們反對把<strong>守法、自用、不販售、高選擇性的漁獵者</strong>，與<strong>濫捕濫售者一概而論、一刀切全面禁止</strong>。<br>
+  請主管機關<strong>公開科學依據、召開公聽會，以「依行為分級」的精準管理，取代「不分行為性質」的全面禁止。</strong>
 </div>
 
-<div class="tl">
-  <div class="c17"><div class="yr" style="color:#7a5b34">2017 · 抗爭</div>漁業署預告 12 海浬全面禁魚槍 → 全國反彈 → <strong>暫緩、未落地</strong></div>
-  <div class="c25"><div class="yr" style="color:#2f6f8f">2025-10-31 · 官方會議</div>海保署召開潛水休閒採捕管理會議 → 官方認同「區分商業/休閒」「回報機制」</div>
-  <div class="c26"><div class="yr" style="color:#1b7f4b">2026 · 連署＋FB</div>200 人連署＋發起人定調：行為分級、器材中性、嚴懲壞人</div>
-</div>
-
-<h2>一、貫穿三個時間點的六大共識核心</h2>
+<h2>二、共識核心（兩份都明確主張）</h2>
 <table>
   <thead>
     <tr>
-      <th style="width:16%">共識主軸</th>
-      <th class="y17" style="width:27%">2017 抗爭</th>
-      <th class="y25" style="width:30%">2025-10-31 海委會會議</th>
-      <th class="y26" style="width:27%">2026 連署書＋FB</th>
+      <th style="width:12%">主題</th>
+      <th class="th-a" style="width:29%">① 連署書 200 人版</th>
+      <th class="th-b" style="width:29%">② lilik FB 公開信</th>
+      <th style="width:30%">🟢 共識定調</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td class="topic">1. 真正問題在「商業／販售」，非選擇性漁法本身</td>
-      <td>蔡政良：禁魚槍無法解決真兇——商業拖網、流刺網大量捕撈<span class="src">來源：蔡政良（台東大學）·關鍵評論網 66551</span></td>
-      <td>漁業署：有無「販售謀利」可作商業／休閒<strong>區分要件之一</strong>、「有必要與商業捕撈進行區分管理」；自潛協會：輿論對商業大量運輸漁獲無感、卻對個人漁獵反應強烈</td>
-      <td>共識：嚴懲「<strong>濫捕</strong>」與「<strong>違規販售</strong>」；守法自用 ≠ 濫捕濫售</td>
+      <td class="num">1 支持保育</td>
+      <td>主張一：支持劃設保育區、維護北海岸海洋資源</td>
+      <td>「我支持海洋保育」</td>
+      <td class="consensus">我們支持海洋保育<br><span style="font-weight:400;color:#8a5a00;font-size:12px">（「支持設這三區」為連署書明確；FB 僅一般性支持保育）</span></td>
     </tr>
     <tr>
-      <td class="topic">2. 反對一刀切，依尺寸／行為分級</td>
-      <td>應科學分區、依魚種尺寸與季節管理，而非一刀切全面禁<span class="src">來源：蔡政良·關鍵評論網 66551（引夏威夷《捕魚規則》：魚種、季節、尺寸、數量）</span></td>
-      <td>永續漁法協會：以<strong>尺寸／物種</strong>為主要管理基準（取代複雜的數量、季節、區域）；自潛協會：先從尺寸／數量、逐步滾動修正</td>
-      <td>接受尺寸／禁採期／禁售／重罰；反對「不分行為性質」的全面禁止</td>
+      <td class="num">2 嚴懲破壞</td>
+      <td>主張二：支持全面禁止 SCUBA 射魚、商業濫捕、電魚毒魚炸魚，支持核心區全禁</td>
+      <td>支持處理：違規販售、濫捕、採捕禁捕物種、破壞棲地</td>
+      <td class="consensus">支持嚴懲「濫捕（含商業濫捕）」與「違規販售」<br><span style="font-weight:400;color:#8a5a00;font-size:12px">（SCUBA、電魚毒炸<strong>只在連署書</strong>；破壞棲地、禁捕物種<strong>只在 FB</strong>——見第三段）</span></td>
     </tr>
     <tr>
-      <td class="topic">3. 各漁法一視同仁（公平／平等）</td>
-      <td>反對單獨針對魚槍此一族群；漁民質疑「政府核發魚槍執照卻又禁用」<span class="src">來源：綠島漁民·自由時報 2027429；蔡政良·關鍵評論網 66551（管理應公平、非僅針對單一族群）</span></td>
-      <td>永續漁法協會：各漁法一視同仁、<strong>尺寸適用釣魚／網具／潛水</strong>；只禁潛水漁獵卻放行釣魚網具＝社會不公</td>
-      <td>差別待遇須科學依據（<strong>平等原則</strong>）；草案允許釣具卻全禁閉氣自潛</td>
+      <td class="num">3 反對一刀切</td>
+      <td>主張三～五：反對齊頭式、不分行為性質之全面禁止</td>
+      <td>「反對把少數違規行為，直接擴張成全面禁止所有自用、守法、選擇性魚槍採捕者」</td>
+      <td class="consensus">反對沒有科學分級、沒有溝通、沒有比例原則的「一刀切」</td>
     </tr>
     <tr>
-      <td class="topic">4. 科學依據＋檢舉／回報／監測</td>
-      <td>批評政策缺科學實證；參考夏威夷科學管理與社區共管（CBNRM）<span class="src">來源：蔡政良·關鍵評論網 66551（夏威夷、CBNRM、達悟／阿美傳統生態知識）；冼義哲·天下獨立評論 5682（治理分散、不管地帶、缺科學實證）</span></td>
-      <td>永續漁法協會：保護區劃設「應建立在科學依據之上」、反對以情緒或輿論作為全面禁止依據；iOcean／歐盟 APP 回報登錄；漁業署建議建立<strong>潛水漁獵回報機制</strong>；民眾建議檢舉獎金</td>
-      <td>要求公開科學依據、資源量調查；（擴充）舉報獎金與多元檢舉管道</td>
+      <td class="num">4 魚槍本質</td>
+      <td>主張三：高度選擇性、低衝擊、非商業自用、受體能天然上限</td>
+      <td>高選擇性、低混獲、低干擾、自用不販售、可被教育與管理之永續漁法</td>
+      <td class="consensus">魚槍在正確規範下＝高選擇性、低衝擊、自用不販售、可管理之永續漁法</td>
     </tr>
     <tr>
-      <td class="topic">5. 保護區內全禁、非保護區多元利用</td>
-      <td>依科學劃設真正需保護的關鍵區域<span class="src">來源：蔡政良·關鍵評論網 66551（依生態調查精確劃設關鍵區域）</span></td>
-      <td>永續漁法協會：保護區內全面禁捕、非保護區多元利用；自潛協會：生態敏感區應全面禁止</td>
-      <td>核心／緩衝保育區維持禁止；資源永續利用區改採分級管制</td>
+      <td class="num">5 可接受管理</td>
+      <td>建議二：體型（尺寸）＋禁漁期＋禁販售等科學化措施</td>
+      <td>可接受：尺寸限制、禁捕物種、禁採期、禁販售、違規重罰</td>
+      <td class="consensus">接受管理手段：尺寸、禁捕物種、禁採期、禁販售、違規重罰</td>
     </tr>
     <tr>
-      <td class="topic">6. 潛水漁獵＝高選擇性、低衝擊、可管理之永續漁法</td>
-      <td>魚槍是選擇性採捕，較拖網、圍網永續<span class="src">來源：綠島漁民·自由時報 2027429（魚槍比拖網圍網永續）；蔡政良·關鍵評論網 66551（傳統生態知識、選擇性）</span></td>
-      <td>自潛協會：高選擇性、非破壞主因；永續漁法協會：多數愛好者守法並具永續觀念</td>
-      <td>高選擇性、低衝擊、自用不販售、可被教育與管理（連署＋FB 一致）</td>
+      <td class="num">6 禁售</td>
+      <td>建議二：明定漁獲不得販售</td>
+      <td>可接受「🚫 禁販售」</td>
+      <td class="consensus">守法自用不販售；支持禁售，並支持嚴懲販售者</td>
+    </tr>
+    <tr>
+      <td class="num">7 科學舉證</td>
+      <td>主張四＋建議：差別待遇須科學依據、公開資源量調查與科學評估</td>
+      <td>要求公開科學依據</td>
+      <td class="consensus">要求主管機關公開科學依據，並負差別待遇之舉證責任（平等原則）</td>
+    </tr>
+    <tr>
+      <td class="num">8 正規程序</td>
+      <td>依行政程序法 §154 提出意見陳述</td>
+      <td>正式陳述意見、參與連署、要求召開公聽會、請民代監督</td>
+      <td class="consensus">走正規程序：陳述意見、連署、要求公聽會、請民意代表監督</td>
+    </tr>
+    <tr>
+      <td class="num">9 切割壞人</td>
+      <td>「商業採捕 vs 守法休閒採捕」本質差異對照，明確切割</td>
+      <td>支持處理違規者；不讓少數人發言變成整個族群被貼標籤</td>
+      <td class="consensus">主動與濫捕濫售者切割：守法自用 ≠ 商業濫捕</td>
+    </tr>
+    <tr>
+      <td class="num">10 論述調性</td>
+      <td>全篇理性論述、逐條針對草案</td>
+      <td>有理、有據、有自律、有替代方案；冤有頭債有主、針對條文、不樹敵不罵人</td>
+      <td class="consensus">有理有據有自律、只打條文與程序、不樹敵不罵人</td>
     </tr>
   </tbody>
 </table>
 
-<h2>二、可直接引用的槓桿：官方自己在 2025-10-31 說過</h2>
-<div class="box box-lev">
-  <h3>💡 出自 2025-10-31 會議紀錄「與會單位發言紀要」原文（可直接引用）</h3>
-  <ul>
-    <li><strong>漁業署</strong>（原文）：「商業捕撈與休閒採捕之衡量基準，有無<strong>『販售謀利』</strong>行為應可作為<strong>區分要件之一</strong>。」</li>
-    <li><strong>漁業署</strong>（原文）：「本署認為<strong>有必要與商業捕撈進行區分管理</strong>。」（理由：休閒海釣人員無需受訓、漁獲亦無回報，與受總量管制之漁船有落差）</li>
-    <li><strong>漁業署</strong>（原文）：屏東縣政府已有依《漁業法》「針對<strong>未經許可從事漁業並於網路上販售</strong>潛水漁獵之漁獲物者裁罰之案例，且該案例經<strong>訴願程序亦經駁回確認</strong>」。</li>
-    <li><strong>漁業署</strong>（原文）：建議「比照友善釣魚垂釣回報機制，<strong>建立潛水漁獵回報機制</strong>」，俾蒐集漁獲資料及訂定管理措施。</li>
-    <li><strong>海保署（結論）</strong>（原文）：「將參考各界寶貴意見<strong>研擬公告規範內容</strong>，並邀集相關中央及地方政府單位……專家學者、利害關係團體等，進行……規範內容<strong>研議與協調事宜</strong>。」</li>
-  </ul>
-  <p><b>我方詮釋（非原文）：</b>連主管機關自己都說「有必要與商業捕撈區分管理」、現行法也「罰得到未經許可的網路販售」、全國規範「仍在研議中」——新北市卻搶先以地方公告一刀切全面禁止，於情、於法、於程序皆有疑義。</p>
-  <p style="margin-bottom:0;font-size:12px;color:var(--sub)">※ 上列為 2025-10-31 會議紀錄「附件：與會單位發言紀要」所載文字（該紀要本身係會議對各單位發言之摘記）。引用時標明出處與日期即可。</p>
+<div class="box" style="background:var(--accent-soft);border:1px solid #bcdcee;border-left:4px solid var(--accent);">
+  <h3 style="margin-top:0;color:var(--accent2);border-left:0;padding-left:0">💡 提示：對外口徑主打「行為分級」，而非「器材分級」</h3>
+  <table style="margin-top:6px">
+    <thead><tr><th class="th-a" style="width:50%">① 連署書</th><th class="th-b" style="width:50%">② lilik FB 公開信</th></tr></thead>
+    <tbody><tr>
+      <td>以<strong>器材</strong>分級（SCUBA vs 閉氣自潛），<strong>明文支持禁 SCUBA</strong></td>
+      <td>只談<strong>行為</strong>好壞（違規販售、濫捕、破壞棲地），<strong>全文不點名 SCUBA</strong>、不對特定器材／族群開刀</td>
+    </tr></tbody>
+  </table>
+  <p style="margin-bottom:0"><strong>啟示：</strong>兩份的嚴格交集裡，真正共同要嚴懲的只有「<strong>行為</strong>」（濫捕、違規販售），不是「<strong>器材</strong>」（SCUBA）。對外主打「<strong>依行為分級：守法自用 ✕ 濫捕濫售</strong>」，比「依器材分級：閉氣 ✕ SCUBA」更貼近共識，也<strong>不會得罪自己人</strong>（SCUBA 打魚人也是圈內人）。器材分級是連署書可保留的<strong>論述</strong>，但不宜當成兩份的「共識口徑」對外。<br><br>🔗 <strong>與後續文件之銜接：</strong>連署書之「禁 SCUBA」係基於<strong>氣瓶消除深水避難所、危害等同商業捕撈</strong>之高危害性，本質仍屬「<strong>依危害分級</strong>」（非針對族群之器材歧視）。故 consensus-crosstime → legal-brief → formal-opinion 依此展開之 SCUBA 管制，與本「依行為／危害分級」口徑<strong>同源、不衝突</strong>。</p>
 </div>
 
-<h2>三、2017 前例與教訓（最後檢視）</h2>
-<div class="box box-hist">
-  <h3>📜 2017 全國「禁魚槍」抗爭情形與結果</h3>
+<h2>三、只在單一方出現（非共識，誠實標註）</h2>
+<div class="box box-hold">
+  <h3>🟡 以下各項不在「嚴格交集」內，使用時要留意</h3>
+  <p style="margin:6px 0 4px"><strong>只在連署書出現（FB 未提）：</strong></p>
   <ul>
-    <li><strong>事件</strong>：2017/3/14 漁業署預告《魚槍採捕水產動物禁漁區管制措施》——12 海浬內全面禁魚槍、魚叉，僅原住民傳統祭儀自用與學術研究例外，意見期至 5/15。<span class="src">來源：政策內容見關鍵評論網 66551、天下獨立評論 5682</span></li>
-    <li><strong>反彈</strong>：4/6 綠島漁民近百人遊行，花蓮、台東、澎湖同步反彈；立委收陳情。核心主張憲法 §22、§23——「政府核發魚槍執照卻又全面禁用，自相矛盾」。<span class="src">來源：自由時報 2017/4/6（news.ltn.com.tw/…/2027429）</span></li>
-    <li><strong>助力</strong>：學者（蔡政良等）與花蓮地檢檢察官論述聲援、社論輿論轉向、漁獵協會成立巡迴宣傳。<span class="src">來源：蔡政良·關鍵評論網 66551、冼義哲·天下獨立評論 5682；檢察官／社論／協會＝參與者陳述（LINE 群 session_3），未經新聞獨立查證</span></li>
-    <li><strong>結果</strong>：全國禁令在強烈反彈下<strong>暫緩、未落地</strong>；魚槍至今於多數海域仍屬合法，海保署遲至 2025-10-31 才重啟全國討論。<span class="src">⚠️ 來源：「暫緩」出自參與者陳述（LINE 群 session_3），未經新聞獨立查證；佐證＝魚槍至今合法、2025 才重啟討論</span></li>
+    <li><strong>【嚴懲對象】SCUBA 射魚、電魚毒魚炸魚</strong>：連署書主張二明列；<strong>lilik FB 全文未提 SCUBA、也未提電魚毒炸</strong>——他的「支持處理」只列違規販售／濫捕／尺寸不分／採捕禁捕物種／破壞棲地。</li>
+    <li><strong>數量／總量管制</strong>：連署書有「每人每日採捕總量上限（依物種訂定）」；FB 可接受清單只列尺寸／禁捕物種／禁採期／禁售／重罰，<strong>未列數量</strong>。</li>
+    <li><strong>支持「設這三個保育區」</strong>：連署書明確支持設區；FB 僅一般性「支持海洋保育」，未明說支持設這三區。</li>
+    <li><strong>SCUBA 科學危害詳述／國際管制對照表</strong>：連署書有完整論述與表格；FB 屬精神性訴求，未展開。</li>
   </ul>
-</div>
-<div class="box" style="background:#fafbfc;border:1px solid var(--line);font-size:12.5px;color:var(--sub)">
-  <strong>📚 2017 段落完整資料來源</strong>
-  <ul style="margin:6px 0 0">
-    <li>① 自由時報〈綠島漁民反對禁用魚槍〉2017/4/6 — news.ltn.com.tw/news/life/breakingnews/2027429</li>
-    <li>② 蔡政良（台東大學）〈禁用魚槍保護生態資源？海洋公民社會將全盤皆輸〉— 關鍵評論網 thenewslens.com/article/66551</li>
-    <li>③ 冼義哲〈一紙魚槍禁令，看見政府對海洋的陌生〉— 天下獨立評論 opinion.cw.com.tw/blog/profile/309/article/5682</li>
-    <li>④ 抗爭經過與「暫緩」結果之細節，部分出自 LINE 群組參與者（酒叔、Chuck、山哥等）之回憶陳述，<strong>屬當事人記憶、未經新聞獨立查證</strong>——正式對外引用「暫緩」結論前，建議另以漁業署後續公告佐證。</li>
-  </ul>
-</div>
-<div class="box box-warn">
-  <h3>⚠️ 這次比 2017 更難——三點必須認清</h3>
+  <p style="margin:10px 0 4px"><strong>只在 FB 出現（連署書主張二未列）：</strong></p>
   <ul>
-    <li><strong>是「地方公告」不是全國案</strong>：新北市依《漁業法》地方自治權出手，可逐縣市「各個擊破」，難以一次全國動員。</li>
-    <li><strong>草案已出、時間壓力大</strong>：不是預告討論，而是已進入意見陳述期（公告刊登起 60 日內）。</li>
-    <li><strong>新北是指標縣市</strong>：一旦通過，其他縣市極可能比照——這是「魚槍休閒漁獵能否被制度承認」的第一道防線。</li>
+    <li><strong>【處理對象】破壞棲地、採捕禁捕物種、尺寸不分</strong>：lilik FB 明列；連署書主張二列的是 SCUBA／商業濫捕／電魚毒炸。</li>
+    <li><strong>請民意代表監督</strong>：FB 有；連署書（法律陳情文本身）未提。</li>
   </ul>
-  <p style="margin-bottom:0"><b>教訓：</b>一刀切<strong>擋得下</strong>，但 2017 靠的是——<strong>科學依據＋團結動員＋精準論述＋不樹敵</strong>。這次更要以「行為分級、器材中性、主動切割壞人」的紀律，避免重蹈被貼標籤的覆轍。</p>
 </div>
 
 <div class="note">
-  本文件為跨時共識整理，供內部對齊與對外論述使用。2017 結果與 2025-10-31 會議發言均依公開報導與會議紀錄整理；引用官方發言前，建議再核對會議紀錄原文之精確措辭。閱讀動線：大目標 → 六大共識核心 → 官方槓桿 → 2017 前例與教訓（最後）。
+  本文件僅萃取「連署書 200 人版」與「lilik FB 公開信」兩份之交集，未納入其他 session、v3 或攻防彈藥（那些見「內部共識整合版 v1」）。綠底＝共識，可直接作為對外統一口徑。
 </div>
+
+<!-- ▼▼▼ 留言討論區（Cusdis）▼▼▼ -->
+<section style="margin-top:34px;border-top:3px solid #0b5c8f;padding-top:18px;font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',system-ui,sans-serif;">
+  <h2 style="border-left:5px solid #0b5c8f;padding-left:10px;font-size:16.5px;color:#0a4c76;margin:0 0 4px;font-weight:800;background:none;border-radius:0;">💬 對這份文件提出意見</h2>
+  <p style="font-size:13px;color:#5a6470;margin:0 0 14px;line-height:1.7;">歡迎針對本頁內容留言討論（填暱稱即可，Email 選填、不公開）。留言將經審核後顯示。請對事不對人、理性交流。</p>
+  <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="ed589513-99a0-4a61-a067-97e171b4ff8a"
+    data-page-id="consensus-crosstime"
+    data-page-url="https://ocean-petition-tw.github.io/consensus-crosstime.html"
+    data-page-title="跨時共識版 ｜ 2017×2025×2026"></div>
+  <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+</section>
+<!-- ▲▲▲ 留言討論區 ▲▲▲ -->
 
 </div>
 </body>
