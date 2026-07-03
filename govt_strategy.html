@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>保育區草案陳情事件 應處策略與決策建議（更新版）</title>
+<style>
+  :root{
+    --ground:#eef2f0;--paper:#fff;--ink:#16211e;--muted:#586460;--faint:#8b958f;
+    --teal:#0d4a45;--teal-deep:#082f2b;--teal-mid:#15625a;--line:#dbe2df;--line-soft:#e8edea;
+    --brass:#9a7b3f;--crit:#a51f28;--crit-bg:#fbf0f0;--warn:#9a6512;--warn-bg:#fbf4e8;--ok:#2c6e49;--ok-bg:#eef6f0;--sci:#2a5a86;--sci-bg:#eef3f9;
+    --shadow:0 1px 2px rgba(8,47,43,.06),0 8px 30px rgba(8,47,43,.07);
+    --sans:"Microsoft JhengHei","微軟正黑體","PingFang TC","Noto Sans TC","Hiragino Sans GB","Segoe UI",system-ui,sans-serif;
+    --mono:"Cascadia Mono","Consolas",monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.75;font-size:16px;letter-spacing:.01em;-webkit-font-smoothing:antialiased}
+  .doc{max-width:1000px;margin:0 auto;padding:0 20px 96px}
+  .sheet{background:var(--paper);box-shadow:var(--shadow);border:1px solid var(--line-soft)}
+  .masthead{background:linear-gradient(150deg,var(--teal-deep),var(--teal) 70%);color:#eaf3f0;padding:36px 44px 30px;position:relative;overflow:hidden}
+  .masthead::after{content:"";position:absolute;right:-60px;bottom:-90px;width:290px;height:290px;border-radius:50%;border:1.5px solid rgba(255,255,255,.08);box-shadow:0 0 0 34px rgba(255,255,255,.04)}
+  .cls{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:#a9cfc7;font-weight:700;margin:0 0 13px}
+  .cls .dot{width:7px;height:7px;border-radius:50%;background:var(--brass);box-shadow:0 0 0 4px rgba(154,123,63,.25)}
+  .masthead h1{font-size:29px;line-height:1.32;margin:0;font-weight:800;letter-spacing:.02em;color:#fff;position:relative;z-index:1;max-width:32ch}
+  .masthead .sub{margin:12px 0 0;color:#bfe0d8;font-size:15px;position:relative;z-index:1}
+  .meta{display:flex;flex-wrap:wrap;gap:0;margin-top:24px;position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.14);padding-top:18px}
+  .meta div{padding-right:30px;margin-right:30px;border-right:1px solid rgba(255,255,255,.14)}
+  .meta div:last-child{border-right:0}
+  .meta .k{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8fbcb2;margin:0 0 3px}
+  .meta .v{font-size:15px;color:#eef6f3;font-weight:600;font-variant-numeric:tabular-nums}
+  .body{padding:40px 44px}
+  @media(max-width:620px){.body{padding:26px 20px}.masthead{padding:28px 22px}}
+
+  .bluf{border:1px solid var(--line);border-left:6px solid var(--teal);background:#f5f9f7;border-radius:5px;padding:22px 26px;margin-bottom:8px}
+  .bluf .t{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--teal-mid);font-weight:700;margin:0 0 9px}
+  .bluf p{margin:0;font-size:16.5px;color:#20302c;line-height:1.85}
+  .bluf .rec{font-weight:800;color:var(--teal-deep)}
+
+  section{margin-top:42px}
+  .eyebrow{display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--brass);font-weight:700;margin:0 0 6px}
+  .eyebrow .num{font-variant-numeric:tabular-nums;color:var(--teal);border:1.5px solid var(--teal);border-radius:50%;width:27px;height:27px;display:grid;place-items:center;font-size:13px;letter-spacing:0}
+  h2{font-size:22px;font-weight:800;margin:0 0 16px;letter-spacing:.01em;color:var(--teal-deep);text-wrap:balance}
+  h3{font-size:16px;font-weight:800;margin:22px 0 8px;color:var(--ink)}
+  p{margin:0 0 14px}
+
+  .pillars{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:6px 0 20px}
+  @media(max-width:720px){.pillars{grid-template-columns:1fr}}
+  .pil{border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:6px;padding:16px 18px;background:var(--paper)}
+  .pil .n{font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--teal);margin:0 0 6px}
+  .pil .h{font-size:15.5px;font-weight:800;margin:0 0 6px;color:var(--ink)}
+  .pil .d{font-size:13.5px;color:var(--muted);line-height:1.6;margin:0}
+  .retire{border:1px solid #e6c4c4;border-left:5px solid var(--crit);background:#fdf6f6;border-radius:5px;padding:14px 20px;margin-top:6px}
+  .retire b{color:var(--crit)}
+  .retire .s{font-size:14px;color:#5a3a3a;line-height:1.7}
+
+  .scroll{overflow-x:auto;border:1px solid var(--line);border-radius:6px}
+  table{border-collapse:collapse;width:100%;min-width:640px;font-size:14.5px}
+  thead th{background:var(--teal-deep);color:#dcece8;text-align:left;font-weight:700;padding:12px 16px;letter-spacing:.05em;font-size:12.5px;text-transform:uppercase}
+  tbody td{padding:12px 16px;border-bottom:1px solid var(--line-soft);vertical-align:top;line-height:1.6}
+  tbody tr:last-child td{border-bottom:0}
+  tbody td:first-child{font-weight:700;color:var(--ink);white-space:nowrap}
+  .p-accept{color:var(--ok);font-weight:800}
+  .p-hold{color:var(--crit);font-weight:800}
+  .p-sci{color:var(--sci);font-weight:800}
+
+  .tl{list-style:none;margin:6px 0 0;padding:0;border-left:2px solid var(--line);margin-left:6px}
+  .tl li{position:relative;padding:2px 0 20px 26px}
+  .tl li:last-child{padding-bottom:0}
+  .tl li::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2.5px solid var(--teal)}
+  .tl li.now::before{background:var(--brass);border-color:var(--brass)}
+  .tl .when{font-weight:800;color:var(--teal-deep);font-size:14px;font-variant-numeric:tabular-nums}
+  .tl .what{color:var(--muted);font-size:14.5px}
+
+  .ask{border-top:1px solid var(--line-soft)}
+  .ask .row{display:grid;grid-template-columns:96px 1fr;gap:22px;padding:15px 0;border-bottom:1px solid var(--line-soft)}
+  .ask .lbl{color:var(--muted);font-weight:800;font-size:14px}
+  .ask .val{color:var(--ink)}
+  @media(max-width:560px){.ask .row{grid-template-columns:1fr;gap:4px}}
+
+  .disc{margin-top:42px;padding:18px 22px;border:1px dashed var(--line);border-radius:6px;font-size:13px;color:var(--muted);line-height:1.7;background:#fafbfa}
+  .disc b{color:var(--ink)}
+  footer{max-width:1000px;margin:22px auto 0;padding:0 20px;color:var(--faint);font-size:12.5px;text-align:center}
+  strong{font-weight:700}
+  @media print{body{background:#fff;font-size:12px}.sheet{box-shadow:none;border:0}.doc{padding:0}section{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div style="max-width:1000px;margin:0 auto;padding:14px 20px 0"><a href="index.html" style="color:#0d4a45;font-weight:800;text-decoration:none;font-size:14px">← 回資料總覽</a></div>
+
+<div class="doc">
+<div class="sheet">
+  <div class="masthead">
+    <p class="cls"><span class="dot"></span>內部參考 · 決策研議用 · 請勿對外散布</p>
+    <h1>三保育區草案陳情事件<br>應處策略與決策建議（更新版）</h1>
+    <p class="sub">因應「守護北海岸・精準保育」連署團體之陳情、遊說與陳抗，並反映對手多次改版後之最新情勢</p>
+    <div class="meta">
+      <div><p class="k">預告文號</p><p class="v">新北府農漁字第1152538607號</p></div>
+      <div><p class="k">意見期截止</p><p class="v">約 115.08.16</p></div>
+      <div><p class="k">研議日期</p><p class="v">2026-07-03</p></div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <div class="bluf">
+      <p class="t">一句話結論（BLUF）</p>
+      <p>對手已進化為<strong>會預判我方招式、備有訴訟三階段路線圖與可跨縣市套用書狀</strong>的專業組織，我方原倚重的兩記主力（釋字711、選擇性傷害論）<strong>已被其預先反制</strong>。建議改採<span class="rec">「三柱定江山」</span>：<strong>核心／緩衝區以空間禁漁邏輯寸步不讓、緊咬對手在氣瓶（SCUBA）上的過度伸張、以科學撐起資源永續利用區之分級管理</strong>；程序（核定、公聽會、科學公開）與罰則/執行鏈為即刻必辦。窗口約 <strong>6 週</strong>。</p>
+    </div>
+
+    <!-- 一 -->
+    <section>
+      <p class="eyebrow"><span class="num">一</span>情勢研判（現況）</p>
+      <h2>對手已是「會迭代、會預判」的專業對手</h2>
+      <div class="scroll"><table>
+        <thead><tr><th>面向</th><th>現況</th></tr></thead>
+        <tbody>
+          <tr><td>組織與火力</td><td>律師操盤、多次改版；已備<strong>訴訟三階段路線圖</strong>（意見期問死程序 → 訴願/行政訴訟/憲法法庭 → 函中央＋民代質詢），書狀做成<strong>可跨縣市套用範本</strong>，並提<strong>建設性提案</strong>（檢舉獎金/專線/海巡聯合）佔「務實保育」高地。</td></tr>
+          <tr><td>變強的一手</td><td>已<strong>預判並備妥反駁</strong>我方之「釋字711職業自由之分」與「魚槍專挑大型母魚」；並將共識第6點改寫，<strong>主動承認「選擇性對大型成熟個體集中壓力」</strong>，轉為要求精準管理（吃掉我方原反擊）。</td></tr>
+          <tr><td>變弱的一手（我方破口）</td><td>氣瓶立場<strong>從「同意禁止」退為「僅需更嚴格管理」</strong>——連其自身都稱氣瓶採捕「效率等同商業濫捕」，卻要求在保育區放行，<strong>過度伸張、自曝弱點</strong>。</td></tr>
+          <tr><td>資安註記</td><td>本案早期草稿曾外流，策略以「<strong>不依賴保密、不依賴對方犯錯</strong>」為原則設計，並另備外洩草稿之切割口徑（「幕僚沙盤推演初稿、非本府決策」）。</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <!-- 二 -->
+    <section>
+      <p class="eyebrow"><span class="num">二</span>核心判斷</p>
+      <h2>三根「拿不走」的地基 ＋ 兩招退場</h2>
+      <div class="pillars">
+        <div class="pil"><p class="n">柱一</p><p class="h">核心／緩衝區＝空間禁漁</p><p class="d">保育區是「劃區讓海休養」，方法無關、對手亦同意「保護區從嚴」。最穩、寸步不讓。</p></div>
+        <div class="pil"><p class="n">柱二</p><p class="h">緊咬 SCUBA 過度伸張</p><p class="d">對手自承氣瓶採捕「效率等同商業濫捕」卻求放行。本府一句定調：保育區不容商業級掠奪工具。</p></div>
+        <div class="pil"><p class="n">柱三</p><p class="h">科學＋程序</p><p class="d">核定、公聽會、資源數據——不因對手改版而動搖，是唯一穩固地基，也是分級的裁判。</p></div>
+      </div>
+      <div class="retire">
+        <p class="s"><b>兩招退場（勿再當必殺）：</b>「釋字711 職業自由之區分」與「選擇性傷害大型母魚」——<b>均已被對手預先反制</b>，正面硬用會撞回馬槍。可保留為輔助論點，但主攻改倚上列三柱。</p>
+      </div>
+    </section>
+
+    <!-- 三 -->
+    <section>
+      <p class="eyebrow"><span class="num">三</span>爭點與新弱點</p>
+      <h2>真爭點只有一個，但冒出一個新弱點</h2>
+      <h3>唯一真爭點（科學裁判）</h3>
+      <p>資源永續<strong>利用</strong>保育區之「<strong>閉氣自潛自用</strong>」該全禁或改分級。此區名稱即含「利用」，對手「行為/危害」框架在此較貼切；維持差別待遇須科學佐證，否則改分級。<strong>科學數據在不在，決定此點守退。</strong></p>
+      <h3>新弱點：罰則與執行（對手新增第柒點攻擊）</h3>
+      <div class="scroll"><table>
+        <thead><tr><th>問題</th><th>本府須預備</th></tr></thead>
+        <tbody>
+          <tr><td>罰鍰加重不能</td><td>漁業法 §65 固定 3–15 萬、地方不得自訂更高（自治條例上限僅 10 萬）。欲加重嚇阻，宜<strong>改走刑責路徑</strong>（依 §44 Ⅰ 第1、2款公告 → §60 Ⅱ ＋沒收），毋須修法且立即可用。</td></tr>
+          <tr><td>氣瓶得否沒入不明</td><td>§68「漁具」是否含潛水器（氣瓶）有解釋爭議，草案宜<strong>明文釐清</strong>。</td></tr>
+          <tr><td>執行斷裂「查得到罰不了」</td><td>海巡查獲、農業局裁罰，移送鏈斷裂。須<strong>預建海巡—農業局即時移送與聯合稽查機制</strong>。</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <!-- 四 -->
+    <section>
+      <p class="eyebrow"><span class="num">四</span>建議處置</p>
+      <h2>接受能接受、守死核心、科學定爭點、搶先收割</h2>
+      <div class="scroll"><table>
+        <thead><tr><th>對手項目</th><th>本府處置</th><th>要旨</th></tr></thead>
+        <tbody>
+          <tr><td>程序三問（核定/科學/公聽會）</td><td class="p-accept">全接受·做滿</td><td>直接拆掉 KO 級程序攻擊</td></tr>
+          <tr><td>建設性提案（獎金/專線/海巡）</td><td class="p-accept">主動採納·搶先宣布</td><td>奪回「務實保育」話語權</td></tr>
+          <tr><td>資源永續區分級大方向</td><td class="p-sci">原則接受</td><td>限額依科學與公聽會訂定</td></tr>
+          <tr><td>核心／緩衝區採捕</td><td class="p-hold">全面禁止·寸步不讓</td><td>空間禁漁，方法無關</td></tr>
+          <tr><td>氣瓶（SCUBA）放行</td><td class="p-hold">拒絕·全區全禁</td><td>其自承效率等同商業濫捕</td></tr>
+          <tr><td>平等/比例攻擊</td><td class="p-sci">科學佐證</td><td>不足則以分級消解，並採其提之「最大可捕體長上限＋總量」</td></tr>
+          <tr><td>罰則/執行（第柒）</td><td class="p-hold">改刑責路徑＋移送鏈</td><td>解決加重不能與執行斷裂</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <!-- 五 -->
+    <section>
+      <p class="eyebrow"><span class="num">五</span>路線建議</p>
+      <h2>實質走 Ｂ（分區分級），公開姿態放硬</h2>
+      <p><strong>建議以 Ｂ 案（分區分級管制）為實質主軸</strong>：核心/緩衝區全禁、氣瓶全禁；資源永續利用區之閉氣自潛，於科學支持下採「總量＋最大及最小可捕體長＋禁漁期＋禁售」分級。</p>
+      <p><strong>惟 Ａ（守到底）與 Ｂ 之最終取捨，繫於科學：</strong>資源數據若支持「潛水採捕危害顯著高於釣具」，差別待遇可守嚴（趨近Ａ）；若不支持，則以分級消解爭議（Ｂ）。因此<strong>公開姿態應放硬</strong>（強調核心區絕對保護、永續區「須有科學依據始可能開放」），讓最終的分級看似<strong>公聽會與科學跑出的結果</strong>，而非起手讓步。</p>
+    </section>
+
+    <!-- 六 -->
+    <section>
+      <p class="eyebrow"><span class="num">六</span>立即行動與時程</p>
+      <h2>未來約 6 週（截止約 115.08.16）</h2>
+      <ul class="tl">
+        <li class="now"><span class="when">即刻</span> — <span class="what">法制單位確認 §44 農業部核定狀態與文號；比對第3款 vs 第4·7·9款法源與罰則。</span></li>
+        <li><span class="when">本週內</span> — <span class="what">盤點現有資源科學評估（決定Ａ/Ｂ地基）；法務評估<strong>罰則刑責路徑</strong>（§44Ⅰ1、2款→§60Ⅱ）。</span></li>
+        <li><span class="when">兩週內</span> — <span class="what">公告召開<strong>公聽會</strong>；<strong>主動宣布建設性提案</strong>（檢舉獎金試辦、專線、海巡聯合）；函原民會、函海保署協調。</span></li>
+        <li><span class="when">四週內</span> — <span class="what">完成草案修正（潛水器定義限縮、原民條款改通報制、資源永續區分級、氣瓶沒入釐清）；備新聞稿與 Q&amp;A；備外洩草稿切割口徑。</span></li>
+        <li><span class="when">截止前</span> — <span class="what">完成意見回應對照表（訴訟防禦）；<strong>取得農業部核定文號後始正式公告</strong>。</span></li>
+      </ul>
+    </section>
+
+    <!-- 七 -->
+    <section>
+      <p class="eyebrow"><span class="num">七</span>敬請核示事項</p>
+      <h2>需長官拍板</h2>
+      <div class="ask">
+        <div class="row"><div class="lbl">決策一</div><div class="val">是否採 <strong>Ｂ案（分區分級）</strong>為主軸、<strong>氣瓶（SCUBA）全區全禁到底</strong>？</div></div>
+        <div class="row"><div class="lbl">決策二</div><div class="val">是否授權即刻辦理 <strong>農業部核定補正＋公聽會＋主動宣布建設性提案</strong>？</div></div>
+        <div class="row"><div class="lbl">決策三</div><div class="val">罰則是否<strong>改走刑責路徑</strong>（§44Ⅰ第1、2款公告→§60Ⅱ）以解決加重不能與執行斷裂？</div></div>
+        <div class="row"><div class="lbl">決策四</div><div class="val">對外口徑是否定調「<strong>核心絕對保護・科學管理・氣瓶不放行・嚴懲真正破壞者</strong>」？</div></div>
+      </div>
+    </section>
+
+    <div class="disc">
+      <b>使用說明與免責：</b>本文件為內部策略研議之幕僚初稿，供決策參考。涉法律定性（§44 款次與核定要件、刑責路徑、差別待遇之科學論證）應由法制／法務單位以現行有效條文最終確認後為準。對手主張係擷取自其公開網站（會即時改版，本文所據為 2026-07-03 版）之照實整理，非本府認可之見解；引用對手材料一律截圖存證並註記日期。配套細部見〈govt_response 逐項答辯〉與〈govt_sources 引註檢核表〉。
+    </div>
+
+  </div>
+</div>
+</div>
+<footer>內部參考文件 · 決策研議用（更新版 2026-07-03）· 請勿對外散布</footer>
+</body>
+</html>
