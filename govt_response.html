@@ -1,0 +1,190 @@
+<title>對手訴求 × 本府回應對照｜逐項答辯底稿</title>
+<style>
+  :root{
+    --ground:#eef2f0;--paper:#fff;--ink:#16211e;--muted:#586460;--faint:#8b958f;
+    --teal:#0d4a45;--teal-deep:#082f2b;--teal-mid:#15625a;--line:#dbe2df;--line-soft:#e8edea;
+    --brass:#9a7b3f;--crit:#a51f28;--crit-bg:#fbf0f0;--warn:#9a6512;--warn-bg:#fbf4e8;--ok:#2c6e49;--ok-bg:#eef6f0;
+    --sci:#2a5a86;--sci-bg:#eef3f9;
+    --shadow:0 1px 2px rgba(8,47,43,.06),0 8px 30px rgba(8,47,43,.07);
+    --sans:"Microsoft JhengHei","微軟正黑體","PingFang TC","Noto Sans TC","Hiragino Sans GB","Segoe UI",system-ui,sans-serif;
+    --mono:"Cascadia Mono","Consolas",monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.75;font-size:15.5px;letter-spacing:.01em;-webkit-font-smoothing:antialiased}
+  .doc{max-width:1060px;margin:0 auto;padding:0 20px 90px}
+  .sheet{background:var(--paper);box-shadow:var(--shadow);border:1px solid var(--line-soft)}
+  .masthead{background:linear-gradient(150deg,var(--teal-deep),var(--teal) 72%);color:#eaf3f0;padding:34px 40px 30px;position:relative;overflow:hidden}
+  .masthead::after{content:"";position:absolute;right:-70px;bottom:-100px;width:300px;height:300px;border-radius:50%;border:1.5px solid rgba(255,255,255,.07);box-shadow:0 0 0 36px rgba(255,255,255,.035)}
+  .cls{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:#a9cfc7;font-weight:700;margin:0 0 12px}
+  .cls .dot{width:7px;height:7px;border-radius:50%;background:var(--brass);box-shadow:0 0 0 4px rgba(154,123,63,.25)}
+  .masthead h1{font-size:28px;line-height:1.3;margin:0;font-weight:800;letter-spacing:.02em;color:#fff;position:relative;z-index:1;max-width:34ch}
+  .masthead .sub{margin:11px 0 0;color:#bfe0d8;font-size:14.5px;position:relative;z-index:1;max-width:62ch}
+  .body{padding:38px 40px}
+  @media(max-width:620px){.body{padding:24px 18px}.masthead{padding:26px 20px}}
+
+  .posture{border:1px solid var(--line);border-left:5px solid var(--teal);background:#f5f9f7;border-radius:4px;padding:20px 24px;margin-bottom:36px}
+  .posture .t{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--teal-mid);font-weight:700;margin:0 0 8px}
+  .posture p{margin:0;font-size:16px;color:#20302c;line-height:1.8}
+  .posture .hl{font-weight:800;color:var(--teal-deep)}
+
+  section{margin-top:40px}
+  .eyebrow{display:flex;align-items:center;gap:11px;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--brass);font-weight:700;margin:0 0 6px}
+  .eyebrow .num{font-variant-numeric:tabular-nums;color:var(--teal);border:1.5px solid var(--teal);border-radius:50%;width:26px;height:26px;display:grid;place-items:center;font-size:13px;letter-spacing:0}
+  h2{font-size:21px;font-weight:800;margin:0 0 14px;letter-spacing:.01em;color:var(--teal-deep)}
+
+  .qa{border:1px solid var(--line);border-radius:6px;overflow:hidden;margin-bottom:14px}
+  .qa .them{background:#faf7f3;padding:13px 18px;border-bottom:1px solid var(--line-soft);display:flex;gap:12px;align-items:flex-start}
+  .qa .them .lab{flex:0 0 auto;font-size:11px;font-weight:800;letter-spacing:.1em;color:var(--plead,#8a3b2e);background:#f4e9e5;padding:3px 9px;border-radius:20px;margin-top:2px}
+  .qa .them .txt{font-size:14.5px;color:#4a4036;line-height:1.6}
+  .qa .them .txt b{color:#2f2a24}
+  .qa .us{padding:15px 18px;display:flex;gap:12px;align-items:flex-start}
+  .qa .us .lab{flex:0 0 auto;font-size:11px;font-weight:800;letter-spacing:.1em;color:var(--teal);background:var(--ok-bg);padding:3px 9px;border-radius:20px;margin-top:2px}
+  .qa .us .txt{font-size:15px;color:var(--ink);line-height:1.75}
+  .qa .us .txt strong{color:var(--teal-deep)}
+  .tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.06em;padding:2px 9px;border-radius:4px;margin-left:8px;vertical-align:middle}
+  .t-accept{color:var(--ok);background:var(--ok-bg)}
+  .t-part{color:var(--warn);background:var(--warn-bg)}
+  .t-sci{color:var(--sci);background:var(--sci-bg)}
+  .t-fix{color:var(--brief,#5b3f86);background:var(--brief-bg,#f2eef8)}
+  .t-reject{color:var(--crit);background:var(--crit-bg)}
+  .sci-flag{margin-top:9px;font-size:13px;color:var(--sci);background:var(--sci-bg);border-radius:4px;padding:8px 12px;line-height:1.55}
+  .sci-flag b{color:#1e4260}
+
+  .mini{width:100%;border-collapse:collapse;font-size:14px;margin-top:4px}
+  .mini th{background:var(--teal-deep);color:#dcece8;text-align:left;padding:10px 14px;font-size:12px;letter-spacing:.05em;text-transform:uppercase;font-weight:700}
+  .mini td{padding:11px 14px;border-bottom:1px solid var(--line-soft);vertical-align:top;line-height:1.6}
+  .mini tr:last-child td{border-bottom:0}
+  .mini td:first-child{font-weight:700;color:var(--ink);white-space:nowrap}
+  .scroll{overflow-x:auto;border:1px solid var(--line);border-radius:6px}
+  .mini{min-width:760px}
+
+  .disc{margin-top:40px;padding:16px 20px;border:1px dashed var(--line);border-radius:6px;font-size:13px;color:var(--muted);line-height:1.7;background:#fafbfa}
+  .disc b{color:var(--ink)}
+  footer{max-width:1060px;margin:20px auto 0;padding:0 20px;color:var(--faint);font-size:12px;text-align:center}
+  @media print{body{background:#fff;font-size:11.5px}.sheet{box-shadow:none;border:0}.doc{padding:0}section{break-inside:avoid}.qa{break-inside:avoid}}
+</style>
+
+<div class="doc">
+<div class="sheet">
+  <div class="masthead">
+    <p class="cls"><span class="dot"></span>內部參考 · 逐項答辯底稿</p>
+    <h1>對手訴求 × 本府回應 對照</h1>
+    <p class="sub">就陳情團體所提每一項主張、法律攻擊、程序要求與建議，逐項擬具本府回應內容。可作為意見回應表、新聞稿、議會答詢之草稿語料。</p>
+  </div>
+
+  <div class="body">
+
+    <div class="posture">
+      <p class="t">回應總基調</p>
+      <p><span class="hl">理性納入，非全面對抗。</span>把對手所提逐項攤開後可見：<strong>程序三問可接受、建設提案可採納、多數法律攻擊可補正或反駁、分級管理的大方向本府亦點頭</strong>。真正需要硬碰的，只有「資源永續利用區閉氣自潛的限額」<strong>一項，且該由科學裁判</strong>。故本府回應應以「接受能接受的、守死核心、以科學決定唯一爭點」為主軸——既大幅抽掉抗爭正當性，核心保育又一寸未退。</p>
+    </div>
+
+    <!-- 1 -->
+    <section>
+      <p class="eyebrow"><span class="num">一</span>對其主要主張／共識之回應</p>
+      <h2>六大主張逐項答辯</h2>
+
+      <div class="qa">
+        <div class="them"><span class="lab">其主張①</span><span class="txt">真正問題在「<b>商業／販售</b>」，非選擇性漁法本身；守法自用 ≠ 濫捕濫售。</span></div>
+        <div class="us"><span class="lab">本府</span><span class="txt">本府認同應嚴懲商業濫捕與違規販售，並將依現行漁業法從嚴追訴。惟<strong>繁殖保育區之立法目的，係劃定特定海域使資源休養、繁殖，其管理標的為「該海域是否禁止採捕」，而非採捕者之商業與否</strong>。於繁殖核心區內，縱屬守法自用之選擇性採捕，累加移除繁殖群體仍與保育目的相悖；且魚槍、潛水採捕鎖定體型最大個體，正為繁殖力最強之親魚。故「商業／自用」之區分適用於一般海域之行為管理，而非繁殖核心區之空間保護。<span class="tag t-part">部分接受</span></span></div>
+      </div>
+
+      <div class="qa">
+        <div class="them"><span class="lab">其主張②</span><span class="txt">反對一刀切，應依<b>尺寸／行為分級</b>；接受尺寸、禁採期、禁售、重罰。</span></div>
+        <div class="us"><span class="lab">本府</span><span class="txt">本府草案<strong>即採分級管理</strong>（核心／緩衝／資源永續利用三級），並已對石花菜、海膽、龍蝦、珊瑚礁魚類訂定體長及禁漁期，<strong>非「不分行為性質之全面禁止」</strong>。核心、緩衝區採區域性全面禁止，係為使關鍵繁殖棲地整體休養；資源永續利用區之管理，本府願依科學評估進一步研議分級。<span class="tag t-accept">方向接受</span></span></div>
+      </div>
+
+      <div class="qa">
+        <div class="them"><span class="lab">其主張③ ★最利</span><span class="txt">平等原則：草案以<b>工具別而非行為危害</b>差別待遇；允許釣具卻全禁魚槍／潛水。</span></div>
+        <div class="us"><span class="lab">本府</span><span class="txt">於核心、緩衝保育區，係對<strong>所有漁法（含釣具）一律禁止</strong>，不生差別待遇問題。於資源永續利用區，本府維持潛水採捕與釣具差別管理之理由在於：<strong>潛水採捕得深入礁區、精準鎖定大型指標物種、單位努力漁獲量高、並可能干擾深水避難所</strong>，與釣具之採捕特性及對資源影響尚有差異。<div class="sci-flag">⚖ <b>科學裁判：</b>本府將提出科學評估以佐證上開差異；<b>如科學認差異不足以支持全面禁止，本府將就該區改採與釣具一致之分級管理（總量、體長、禁漁期、禁售）</b>，以消除差別待遇之爭議。此點成敗繫於資源數據，須優先補足。</div><span class="tag t-sci">科學裁判</span></span></div>
+      </div>
+
+      <div class="qa">
+        <div class="them"><span class="lab">其主張④</span><span class="txt">要求<b>科學依據</b>，反對以情緒或輿論作為全面禁止依據。</span></div>
+        <div class="us"><span class="lab">本府</span><span class="txt">本府將<strong>公開各保育區劃設之科學依據與資源量調查</strong>，不足處委託研究補充。保育區劃設本具<strong>預防原則</strong>基礎（資料未臻完備時傾向從保護），並採<strong>滾動檢討</strong>機制。<span class="tag t-part">部分接受</span></span></div>
+      </div>
+
+      <div class="qa">
+        <div class="them"><span class="lab">其主張⑤</span><span class="txt">保護區內全禁、<b>非保護區多元利用</b>；核心／緩衝維持禁止，資源永續利用區改分級。</span></div>
+        <div class="us"><span class="lab">本府</span><span class="txt">本府認同「保護區從嚴、非保護區多元利用」之原則。<strong>資源永續利用保育區係「具保育目的之較低管理層級」，非完全開放海域</strong>，故採受管制之分級利用，而非全面開放。此定性為雙方認知之關鍵，本府將於公告理由中敘明。<span class="tag t-part">原則接受</span></span></div>
+      </div>
+
+      <div class="qa">
+        <div class="them"><span class="lab">其主張⑥</span><span class="txt">潛水漁獵＝<b>高選擇性、低衝擊、可管理</b>之永續漁法（泛稱，未區分閉氣／氣瓶）。</span></div>
+        <div class="us"><span class="lab">本府</span><span class="txt">應區分器材：<strong>氣瓶輔助潛水採捕效率高、危害大，維持禁止（與陳情人立場一致）</strong>；閉氣自由潛水受體能限制、選擇性較高，本府同意於資源永續利用區納入分級研議。惟於繁殖核心區，「高選擇性」係專取大型親魚，<strong>反不利族群繁衍</strong>，故仍維持全面禁止。<span class="tag t-part">分層回應</span></span></div>
+      </div>
+
+      <div class="qa">
+        <div class="them"><span class="lab">其主張⑦</span><span class="txt"><b>現行法已足夠</b>（澎湖顏睿宏案），不需新禁令。</span></div>
+        <div class="us"><span class="lab">本府</span><span class="txt">澎湖案係揹氣瓶濫採並販售之刑事個案，證明對商業濫採、違規販售現行法得予追訴，本府認同並將據以嚴懲。惟<strong>繁殖保育區之功能係「事前劃區使資源休養、恢復族群」，與「事後個案刑事追訴」為互補而非替代</strong>之工具；刑事追訴無法達成使特定海域整體休養之保育目的。<span class="tag t-reject">不接受其結論</span></span></div>
+      </div>
+    </section>
+
+    <!-- 2 -->
+    <section>
+      <p class="eyebrow"><span class="num">二</span>對其程序三問之回應</p>
+      <h2>程序要求：全數接受，直接拆點</h2>
+      <div class="scroll"><table class="mini">
+        <thead><tr><th>其要求</th><th>本府回應與動作</th><th>對外口徑</th></tr></thead>
+        <tbody>
+          <tr><td>① 農業部核定文號</td><td><b>接受·補辦。</b>正式公告前報農業部核定，取得並公開文號。</td><td>「依法定程序，核定後始公告」</td></tr>
+          <tr><td>② 公開科學依據</td><td><b>接受·必辦。</b>盤點並公開現有資源調查；缺口委託研究補充，佐以預防原則。</td><td>「保育以科學為本，公開評估、滾動檢討」</td></tr>
+          <tr><td>③ 舉行公聽會</td><td><b>接受·主動辦。</b>兩週內公告召開，廣邀漁會、自潛、潛水、生態、在地；意見作成回應紀錄（兼訴訟防禦）。</td><td>「主動擴大溝通、聽取各界」</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <!-- 3 -->
+    <section>
+      <p class="eyebrow"><span class="num">三</span>對其法律攻擊之回應</p>
+      <h2>9 大攻擊點答辯方法</h2>
+      <div class="scroll"><table class="mini">
+        <thead><tr><th>攻擊點</th><th>本府回應方法</th><th>屬性</th></tr></thead>
+        <tbody>
+          <tr><td>①未報核定 ②授權明確性 ⑤條款引用</td><td>由法制單位確認法源（保育區採捕限制得循 §44 第1、4款，非僅第9款概括條款）與罰則對應，必要時修正引用；並完成農業部核定。<b>此三點以「補實」為主，不以言詞爭辯。</b></td><td><span class="tag t-fix">補正</span></td></tr>
+          <tr><td>③比例原則（零例外全禁）</td><td>草案已分級並設學術／養殖例外，非「零例外」；核心區全禁為達繁殖保育目的之必要手段。資源永續利用區改分級後，此點自然消解。</td><td><span class="tag t-part">消解</span></td></tr>
+          <tr><td>④平等原則（工具 vs 危害）</td><td>見第一部分主張③——核心區無差別待遇；資源永續利用區之差別須以科學佐證，否則改分級。</td><td><span class="tag t-sci">科學裁判</span></td></tr>
+          <tr><td>⑥未聽證／未提科學</td><td>召開公聽會、公開科學評估，直接補足。</td><td><span class="tag t-accept">補辦</span></td></tr>
+          <tr><td>⑦信賴保護（持槍證）</td><td>槍砲條例之「管有許可」不等於「於保育區使用之權利」，二者層級不同；保育區之設立為重大公益，並無值得保護之信賴基礎。</td><td><span class="tag t-reject">反駁</span></td></tr>
+          <tr><td>⑧原住民族採捕權</td><td>函詢原住民族委員會協調，將原民採捕之事前逐次申請放寬為<b>通報制</b>，兼顧傳統採捕權與保育。</td><td><span class="tag t-fix">協調修正</span></td></tr>
+          <tr><td>⑨權限競合</td><td>漁業法明文授權地方主管機關劃設保育區，現行有效；與海保署研議之「全國休閒採捕活動規範」屬不同層次。並函海保署協調、留存紀錄。</td><td><span class="tag t-fix">協調</span></td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <!-- 4 -->
+    <section>
+      <p class="eyebrow"><span class="num">四</span>對其核心操作訴求之回應</p>
+      <h2>資源永續利用區改分級（唯一真爭點）</h2>
+      <div class="qa">
+        <div class="them"><span class="lab">其請求</span><span class="txt">將資源永續利用保育區對<b>非商業、自用、閉氣自由潛水</b>採捕之全面禁止，改為依危害分級管理（總量、體長、禁漁期、禁售）；氣瓶及核心、緩衝維持禁止。</span></div>
+        <div class="us"><span class="lab">本府</span><span class="txt">本府就資源永續利用保育區之閉氣自由潛水自用採捕，<strong>願於科學評估支持下，採「每人每日總量上限、最小可捕體長、禁漁期、禁止販售」之分級管理</strong>；核心、緩衝保育區及氣瓶等潛水器採捕，則<strong>維持禁止</strong>。<br>此管理架構與陳情人之請求<strong>大致相符</strong>，且雙方就「<strong>氣瓶維持禁止</strong>」立場一致，可為研議之共識基礎。惟具體限額（總量、體長等）須<strong>依科學評估與公聽會意見訂定</strong>，非逕依陳情人所提。<span class="tag t-sci">科學＋政策</span></span></div>
+      </div>
+      <div class="scroll"><table class="mini">
+        <thead><tr><th>區域</th><th>本府回應之管理方式</th></tr></thead>
+        <tbody>
+          <tr><td>核心保育區</td><td>維持全漁法全面禁止（含閉氣自潛、氣瓶、釣具）——寸步不讓。</td></tr>
+          <tr><td>緩衝保育區</td><td>維持禁止。</td></tr>
+          <tr><td>資源永續利用區</td><td>閉氣自潛自用：<b>科學支持下改分級</b>（總量／體長／禁漁期／禁售）；氣瓶：維持禁止。</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <!-- 5 -->
+    <section>
+      <p class="eyebrow"><span class="num">五</span>對其建設性提案之回應</p>
+      <h2>檢舉獎金／專線／海巡聯合：主動採納、搶先宣布</h2>
+      <div class="qa">
+        <div class="them"><span class="lab">其提案</span><span class="txt">設<b>檢舉獎勵金</b>（按查獲罰鍰 20–30%、上限 10 萬）、<b>24 小時通報專線＋GPS 座標上傳</b>、<b>與海巡聯合稽查</b>。</span></div>
+        <div class="us"><span class="lab">本府</span><span class="txt">所提建議本府<strong>敬表贊同</strong>，將評估<strong>以預算先行試辦檢舉獎勵</strong>（依釋字614，給付行政毋庸法律保留，可先試辦），建置通報專線與座標上傳機制，並與海巡署建立聯合稽查，強化全民監督與精準查緝真正之破壞者。<div class="sci-flag" style="color:var(--ok);background:var(--ok-bg)">✔ <b>戰術效益：</b>此三項本屬良策，本府<b>率先端出並宣布</b>，即可奪回「務實保育」話語權，將「政府與民間共同守護海洋」之敘事收於己方。</div><span class="tag t-accept">主動採納</span></span></div>
+      </div>
+    </section>
+
+    <div class="disc">
+      <b>使用說明：</b>本表為逐項答辯之語料底稿，法律用語與法源引用（尤其 §44 款次、核定要件、差別待遇之科學論證）應由法制／法務單位最終確認後定稿。標「<span style="color:var(--sci);font-weight:700">科學裁判</span>」之項目，其回應強度取決於資源科學評估之結果，須優先補齊數據。對外正式回應（意見回應表）建議依本表改寫為「陳情意見／本府回應」兩欄公文格式。
+    </div>
+
+  </div>
+</div>
+</div>
+<footer>內部參考 · 逐項答辯底稿 · 請勿對外散布</footer>
