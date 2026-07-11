@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>差別待遇／圖利風險 拆彈清單</title>
+<style>
+  :root{
+    --ground:#eef2f0;--paper:#fff;--ink:#16211e;--muted:#586460;--faint:#8b958f;
+    --teal:#0d4a45;--teal-deep:#082f2b;--teal-mid:#15625a;--line:#dbe2df;--line-soft:#e8edea;
+    --brass:#9a7b3f;--crit:#a51f28;--crit-bg:#fbf0f0;--warn:#9a6512;--warn-bg:#fbf4e8;--ok:#2c6e49;--ok-bg:#eef6f0;
+    --shadow:0 1px 2px rgba(8,47,43,.06),0 8px 30px rgba(8,47,43,.07);
+    --sans:"Microsoft JhengHei","微軟正黑體","PingFang TC","Noto Sans TC","Hiragino Sans GB","Segoe UI",system-ui,sans-serif;
+    --mono:"Cascadia Mono","Consolas",monospace;
+  }
+  html{-webkit-text-size-adjust:100%}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.7;font-size:15.5px;-webkit-font-smoothing:antialiased}
+  .doc{max-width:1000px;margin:0 auto;padding:0 20px 90px}
+  .sheet{background:var(--paper);box-shadow:var(--shadow);border:1px solid var(--line-soft)}
+  .masthead{background:linear-gradient(150deg,#3a1414,#7a1f24 75%);color:#f6e9e9;padding:34px 42px 30px;position:relative;overflow:hidden}
+  .masthead::after{content:"";position:absolute;right:-60px;bottom:-90px;width:280px;height:280px;border-radius:50%;border:1.5px solid rgba(255,255,255,.08)}
+  .cls{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:#e6b7b7;font-weight:700;margin:0 0 12px}
+  .cls .dot{width:7px;height:7px;border-radius:50%;background:#f0c04a}
+  .masthead h1{font-size:28px;line-height:1.3;margin:0;font-weight:800;color:#fff;position:relative;z-index:1}
+  .masthead .sub{margin:11px 0 0;color:#f0cccc;font-size:14.5px;position:relative;z-index:1;max-width:60ch}
+  .body{padding:38px 42px}
+  @media(max-width:620px){.body{padding:24px 18px}.masthead{padding:26px 20px}}
+
+  .intro{border:1px solid #e6c4c4;border-left:5px solid var(--crit);background:#fdf6f6;border-radius:5px;padding:18px 22px;margin-bottom:30px;font-size:15px;color:#3a1414;line-height:1.75}
+  .intro b{color:var(--crit)}
+
+  .lm{border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-bottom:18px}
+  .lm .top{display:flex;align-items:center;gap:12px;padding:13px 18px;border-bottom:1px solid var(--line-soft)}
+  .lm.r1 .top{background:#fbeeee}.lm.r2 .top{background:#fbf4e8}.lm.r3 .top{background:#f3f7f4}
+  .sev{font-size:11px;font-weight:800;letter-spacing:.08em;padding:3px 10px;border-radius:20px;white-space:nowrap}
+  .sev.red{color:#fff;background:var(--crit)}.sev.org{color:#fff;background:var(--warn)}.sev.yel{color:var(--teal);background:var(--ok-bg)}
+  .lm .top .n{font-weight:800;font-size:16px;color:var(--ink)}
+  .lm .top .loc{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--muted);background:#fff;border:1px solid var(--line);padding:2px 8px;border-radius:4px}
+  .lm .in{padding:14px 18px;display:grid;grid-template-columns:1fr 1fr;gap:0}
+  @media(max-width:620px){.lm .in{grid-template-columns:1fr;gap:10px}}
+  .lm .in>div{padding:0 16px}
+  .lm .in>div:first-child{border-right:1px solid var(--line-soft)}
+  @media(max-width:620px){.lm .in>div:first-child{border-right:0;border-bottom:1px solid var(--line-soft);padding-bottom:10px}}
+  .lm h4{margin:0 0 5px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:800}
+  .lm .risk h4{color:var(--crit)}.lm .fix h4{color:var(--ok)}
+  .lm p{margin:0;font-size:14px;line-height:1.6;color:#2a332f}
+  .lm .orig{display:block;background:#f5f5f2;border-left:3px solid var(--faint);padding:6px 10px;border-radius:0 4px 4px 0;font-size:13px;color:#444;margin-top:6px}
+
+  .plan{margin-top:32px;border:1px solid var(--line);border-left:5px solid var(--teal);background:#f5f9f7;border-radius:5px;padding:20px 24px}
+  .plan h3{margin:0 0 10px;color:var(--teal-deep);font-size:18px}
+  .plan ol{margin:0;padding-left:20px}
+  .plan li{margin-bottom:8px;font-size:15px;line-height:1.7}
+  .plan b{color:var(--teal-deep)}
+  .disc{margin-top:30px;padding:16px 20px;border:1px dashed var(--line);border-radius:6px;font-size:12.5px;color:var(--muted);line-height:1.7;background:#fafbfa}
+  footer{max-width:1000px;margin:20px auto 0;padding:0 20px;color:var(--faint);font-size:12px;text-align:center}
+  @media print{body{background:#fff}.sheet{box-shadow:none;border:0}.doc{padding:0}.lm{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="doc"><div class="sheet">
+  <div class="masthead">
+    <p class="cls"><span class="dot"></span>內部參考 · 法制風險 · 拆彈清單</p>
+    <h1>差別待遇／圖利風險 拆彈清單</h1>
+    <p class="sub">逐條掃描貢寮、萬里、瑞芳三草案，標出可能構成「圖利特定團體」或「工具別差別待遇」之條文，並附拆彈建議。</p>
+  </div>
+  <div class="body">
+
+    <div class="intro">
+      <b>核心發現：</b>本草案在原文層次，就存在對手整套論述所要撬開的那條縫——<b>「禁潛水／魚槍、卻放行釣魚，並獨厚漁會」</b>。此非抽象指控，而是<b>寫在條文裡的事實</b>。以下逐條拆解；只要依「拆彈總方針」修正，即可同時<b>斷掉平等與圖利兩條攻擊線</b>，並讓「核心區空間禁漁」由虛轉實、成為真正守得住的最強防線。
+    </div>
+
+    <!-- L1 -->
+    <div class="lm r1">
+      <div class="top"><span class="sev red">紅 · 結構性</span><span class="n">L1　全案：禁魚槍/潛水，卻允許釣具</span><span class="loc">三區·各區</span></div>
+      <div class="in">
+        <div class="risk"><h4>風險</h4><p>除萬里核心區外，各區一律「禁魚槍、禁潛水器」，卻<b>允許釣具採捕</b>。此為<b>以「工具別」而非「行為危害」排除單一使用者群體（潛水／自潛）</b>，正是對手平等原則主攻點。無科學證明潛水採捕危害顯著高於釣具時，構成違反平等之差別待遇。<span class="orig">貢寮/瑞芳核心三(二)8「禁止以非釣具類漁具、魚槍…或潛水器採捕」；各區資源永續利用區僅禁魚槍、潛水器</span></p></div>
+        <div class="fix"><h4>拆彈</h4><p>①核心/緩衝區改為<b>對所有漁法（含釣具）一律禁止</b>→ 差別待遇消失；②資源永續利用區改<b>對所有漁法一致</b>之體長/總量/季節管理（釣具、潛水一視同仁）→ 回應「同一把尺」；③維持差別者，須備科學實證。</p></div>
+      </div>
+    </div>
+
+    <!-- L2 -->
+    <div class="lm r1">
+      <div class="top"><span class="sev red">紅 · 圖利</span><span class="n">L2　萬里核心區：石花菜/麒麟菜「漁會會員限定」</span><span class="loc">萬里·三(二)2</span></div>
+      <div class="in">
+        <div class="risk"><h4>風險</h4><p><b>最危險的一條、對手的 Exhibit A。</b>核心區第1款稱「禁止以任何方式採捕」，第2款卻獨開後門讓<b>設籍萬里區漁會會員</b>採海藻——既<b>圖利特定團體</b>，又與前款<b>自我矛盾</b>。坐實「以保育之名行排擠、獨厚漁會之實」。<span class="orig">「採集石花菜或麒麟菜，以設籍萬里區漁會會員為限…由萬里區漁會…造冊函報」</span></p></div>
+        <div class="fix"><h4>拆彈</h4><p><b>刪除會員限定。</b>核心區石花菜/麒麟菜比照貢寮/瑞芳採「全面季節性禁採（對所有人一致）」；若確有開放採集之必要，則<b>對所有人一致開放</b>、不限漁會身分、不由漁會造冊。</p></div>
+      </div>
+    </div>
+
+    <!-- L3 -->
+    <div class="lm r1">
+      <div class="top"><span class="sev red">紅 · 摧毀最強防線</span><span class="n">L3　貢寮/瑞芳核心區：允許釣具＝非真禁漁區</span><span class="loc">貢寮·瑞芳核心</span></div>
+      <div class="in">
+        <div class="risk"><h4>風險</h4><p>核心區允許釣具，代表它<b>不是真正的「無採捕」禁漁區</b>。如此「核心區空間禁漁、方法無關」之最強論述<b>在原文即不成立</b>，平等攻擊直接打進核心區。</p></div>
+        <div class="fix"><h4>拆彈</h4><p>核心區改為<b>真禁漁區：所有漁法、所有人一律禁採</b>（含釣具、含漁會）。如此「空間禁漁」由虛轉實，平等與圖利兩攻擊在核心區同時失效——把最強防線補成真的。</p></div>
+      </div>
+    </div>
+
+    <!-- L4 -->
+    <div class="lm r2">
+      <div class="top"><span class="sev org">橙 · 差別待遇</span><span class="n">L4　原住民採捕：14日逐次申請</span><span class="loc">三區·資源永續利用區</span></div>
+      <div class="in">
+        <div class="risk"><h4>風險</h4><p>要求原民採捕前14日逐次申請並附文件，屬<b>權限錯置</b>（應由中央原民主管機關會商）＋<b>實質過苛</b>（架空原基法§19）。此為差別待遇，但屬「保障不足」型，須修正而非刪除。</p></div>
+        <div class="fix"><h4>拆彈</h4><p>函原民會協調；改<b>事前逐次申請為通報制</b>／放寬，兼顧傳統採捕權與保育。</p></div>
+      </div>
+    </div>
+
+    <!-- L5 -->
+    <div class="lm r3">
+      <div class="top"><span class="sev yel">黃 · 需客觀化</span><span class="n">L5　學術研究／養殖例外</span><span class="loc">三區·各區</span></div>
+      <div class="in">
+        <div class="risk"><h4>風險</h4><p>以「學術/養殖」為目的之例外，屬<b>目的別</b>（非團體別），較可辯；惟「報經本府核准」若無客觀標準，恐生<b>恣意/選擇性核准</b>之爭議。</p></div>
+        <div class="fix"><h4>拆彈</h4><p>訂定<b>客觀核准基準與時限</b>（如審查要件、否准須附理由），避免恣意，並確保各群體平等適用。</p></div>
+      </div>
+    </div>
+
+    <div class="plan">
+      <h3>拆彈總方針（一次解四題）</h3>
+      <ol>
+        <li><b>核心/緩衝區＝真禁漁區：</b>對所有漁法、所有人（含釣具、含漁會）一律禁採 → 斷 L1、L2、L3，並讓「空間禁漁」最強論述成真。</li>
+        <li><b>資源永續利用區＝一致分級：</b>對釣具、潛水一視同仁之體長/總量/季節/禁售管理 → 回應「同一把尺」，消除工具別差別。</li>
+        <li><b>刪漁會會員限定：</b>拔掉圖利鐵證（L2）。</li>
+        <li><b>原民改通報制（L4）、例外客觀化（L5）。</b></li>
+      </ol>
+      <p style="margin:12px 0 0;font-size:14px;color:var(--muted)"><b>戰略效益：</b>四步做完，對手「圖利漁會」與「工具別差別待遇」兩條主攻線同時斷掉；代價是核心區對釣客與漁會亦收緊——這是與漁會溝通的重點（見〈給漁會說帖〉）。</p>
+    </div>
+
+    <div class="disc"><b>免責：</b>條文位置係依草案 PDF 本文整理，實際修正文字應由法制單位對照公報版定稿。「維持差別待遇須科學實證」之判斷，繫於資源評估結果。</div>
+  </div>
+</div></div>
+<footer>內部參考 · 法制風險拆彈清單 · 請勿對外散布</footer>
+<script data-goatcounter="https://kuchihwei9999.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

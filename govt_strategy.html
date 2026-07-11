@@ -81,11 +81,28 @@
   .disc b{color:var(--ink)}
   footer{max-width:1000px;margin:22px auto 0;padding:0 20px;color:var(--faint);font-size:12.5px;text-align:center}
   strong{font-weight:700}
-  @media print{body{background:#fff;font-size:12px}.sheet{box-shadow:none;border:0}.doc{padding:0}section{break-inside:avoid}}
+  .sw{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:6px 0 16px}
+  @media(max-width:720px){.sw{grid-template-columns:1fr}}
+  .sw-col{border:1px solid var(--line);border-radius:8px;padding:2px 18px 14px;background:var(--paper)}
+  .sw-col.strong{border-top:4px solid var(--ok)}
+  .sw-col.weak{border-top:4px solid var(--crit)}
+  .sw-h{font-size:14px;font-weight:800;letter-spacing:.04em;margin:14px 0 2px}
+  .sw-col ol{margin:0;padding:0;list-style:none;counter-reset:sw}
+  .sw-col li{counter-increment:sw;position:relative;padding:12px 0 12px 34px;border-bottom:1px solid var(--line-soft)}
+  .sw-col li:last-child{border-bottom:0}
+  .sw-col li::before{content:counter(sw);position:absolute;left:0;top:12px;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:800;color:#fff}
+  .sw-col.strong li::before{background:var(--ok)}
+  .sw-col.weak li::before{background:var(--crit)}
+  .sw-col li b{display:block;font-size:14.5px;color:var(--ink);margin-bottom:2px}
+  .sw-col li span{display:block;font-size:12.5px;color:var(--muted);line-height:1.5}
+  .sw-col li .tg{display:inline-block;margin-top:5px;font-size:10.5px;font-weight:800;letter-spacing:.06em;padding:2px 8px;border-radius:4px;font-style:normal;color:var(--ok);background:var(--ok-bg)}
+  .sw-col li .tg.red{color:var(--crit);background:var(--crit-bg)}
+  .sw-bottom{border-left:5px solid var(--brass);background:#fbf7ef;border-radius:0 5px 5px 0;padding:14px 18px;font-size:14px;color:#4a4230;line-height:1.75}
+  .sw-bottom b{color:var(--teal-deep)}
+  @media print{body{background:#fff;font-size:12px}.sheet{box-shadow:none;border:0}.doc{padding:0}section{break-inside:avoid}.sw-col{break-inside:avoid}}
 </style>
 </head>
 <body>
-<div style="max-width:1000px;margin:0 auto;padding:14px 20px 0"><a href="index.html" style="color:#0d4a45;font-weight:800;text-decoration:none;font-size:14px">← 回資料總覽</a></div>
 
 <div class="doc">
 <div class="sheet">
@@ -104,8 +121,62 @@
 
     <div class="bluf">
       <p class="t">一句話結論（BLUF）</p>
-      <p>對手已進化為<strong>會預判我方招式、備有訴訟三階段路線圖與可跨縣市套用書狀</strong>的專業組織，我方原倚重的兩記主力（釋字711、選擇性傷害論）<strong>已被其預先反制</strong>。建議改採<span class="rec">「三柱定江山」</span>：<strong>核心／緩衝區以空間禁漁邏輯寸步不讓、緊咬對手在氣瓶（SCUBA）上的過度伸張、以科學撐起資源永續利用區之分級管理</strong>；程序（核定、公聽會、科學公開）與罰則/執行鏈為即刻必辦。窗口約 <strong>6 週</strong>。</p>
+      <p>對手已進化為會預判我方招式、備有訴訟路線圖與可套用書狀的專業組織。<strong>更關鍵的是三項新事證</strong>：核心區在原文<strong>並非真禁漁區</strong>（放行釣魚、萬里獨厚漁會）、本案<strong>真實動機為漁會壓力</strong>、<strong>執法強化難獲內部共識</strong>。<span class="rec">故主軸校準為「去團體化 ＋ 收斂範圍 ＋ 對齊中央」</span>——把一個會被撤銷、恐爆圖利的偏袒案，修正為對所有人公平、真能護漁的中立案，讓潛水客最利的兩把刀（圖利、工具別差別）自行失效。SCUBA 全禁、程序做滿不變。詳見下方「策略校準」。窗口約 <strong>5 週</strong>。</p>
     </div>
+
+    <section style="margin-top:36px">
+      <p class="eyebrow" style="color:var(--teal-mid)">◆ 強弱速覽 · 全局一眼</p>
+      <h2>我方最強與最弱</h2>
+      <div class="sw">
+        <div class="sw-col strong">
+          <p class="sw-h" style="color:var(--ok)">🟢 最強（拿不走）</p>
+          <ol>
+            <li><b>核心／緩衝區＝空間禁漁（須先補實）</b><span>最強論述，但草案原文放行釣魚、萬里獨厚漁會，<b>尚非真禁漁區</b>；修成對所有人真禁採後即不可撼動</span><i class="tg">補實後最強</i></li>
+            <li><b>緊咬 SCUBA 過度伸張</b><span>對手自承氣瓶採捕「效率等同商業濫捕」，卻求在保育區放行——自打嘴巴</span><i class="tg">送分破口</i></li>
+            <li><b>接受多數、爭點剩一個</b><span>程序、建設提案、分級大方向皆可接受，站上理性多數，抽掉抗爭正當性</span><i class="tg">談判優勢</i></li>
+            <li><b>仍在預告期＝可補正</b><span>核定、公聽會、科學都還來得及補，時間在我方（截止約 115.08.16）</span><i class="tg">結構優勢</i></li>
+            <li><b>地方權限明確＋搶收建設提案</b><span>§44 明文授權、屏東案訴願駁回佐證；獎金/專線/海巡聯合可率先宣布</span><i class="tg">穩</i></li>
+          </ol>
+        </div>
+        <div class="sw-col weak">
+          <p class="sw-h" style="color:var(--crit)">🔴 最弱（由最危險起）</p>
+          <ol>
+            <li><b>科學依據薄弱</b><span>一垮多垮：平等、比例、差別待遇、對手備位聲明全靠它</span><i class="tg red">最弱 · 須動手做</i></li>
+            <li><b>§44 未報農業部核定</b><span>未補就公告 → 依 §158 公告無效，實體再有理也白搭</span><i class="tg red">致命 · 可補</i></li>
+            <li><b>條款引用 第3款 vs 第9款</b><span>漁具漁法應掛第3款（刑責），草案掛第9款走罰鍰被指降格</span><i class="tg red">技術 · 待法制</i></li>
+            <li><b>永續區閉氣自潛全禁</b><span>該區名為「利用」卻全禁一漁法；711 與選擇性論已被對手預判反制</span><i class="tg red">須科學/分級</i></li>
+            <li><b>罰則加重不能＋執行斷裂</b><span>罰鍰固定 3–15 萬、地方無權加重；「查得到罰不了」，禁令恐無牙</span><i class="tg red">須刑責路徑</i></li>
+            <li><b>原民條款過苛／權限錯置</b><span>事前 14 日逐次申請架空原基法 §19</span><i class="tg red">須協調原民會</i></li>
+          </ol>
+        </div>
+      </div>
+      <div class="sw-bottom"><b>一句話：</b>最強＝<b>核心區空間禁漁</b>（法理與道德雙贏、連對手都認，拿不走）；最弱＝<b>科學依據</b>（多條防線的共同地基，垮一個垮一片）。<b>關鍵不對稱：</b>最強的兩點對手拿不走；最弱的多數（核定、條款、原民、罰則）都能在數週內「做」起來補掉——<b>唯獨「科學」不是補文件，是要真的去調查取數，也是唯一拖不得又擋不掉的功課。</b></div>
+    </section>
+
+    <section>
+      <p class="eyebrow" style="color:var(--brass)">◆ 策略校準 · 因應新事證（最新主軸）</p>
+      <h2>從「防守草案」轉為「換成守得住的版本」</h2>
+      <div class="bluf" style="border-left-color:var(--brass);background:#fbf7ef">
+        <p class="t" style="color:var(--brass)">為何校準</p>
+        <p>三項新事證動搖了原地基：<strong>① 核心區在原文並非真禁漁區</strong>（放行釣魚、萬里獨厚漁會）→「最強防線」是假的；<strong>② 真實動機為漁會壓力</strong>（排擠潛水客）→「科學」本就不存在；<strong>③ 執法強化難獲內部共識</strong>→「兩手並進」有一手交不出貨。硬守舊案，是守一個守不住的東西。</p>
+      </div>
+      <h3>主軸轉向</h3>
+      <p>目標不再是「打贏潛水客」，而是<strong>把一個會被撤銷、恐爆圖利的偏袒案，修正為對所有人公平、真能護漁的中立案</strong>——順帶讓潛水客最利的兩把刀（圖利、工具別差別）自行失效。<strong>這不是退讓，是止損兼補洞</strong>：放棄一個守不住的偏袒案，換到一個真能護漁、又不反噬自己的保育案。</p>
+      <h3>六個調整</h3>
+      <div class="scroll"><table>
+        <thead><tr><th>調整</th><th>要旨</th></tr></thead>
+        <tbody>
+          <tr><td>① 最強點要「做出來」</td><td>修條文讓<strong>核心/緩衝區對所有人、所有漁法真禁採</strong>（含釣客、含漁會）→「空間禁漁」由虛轉實。<strong>第一要務。</strong></td></tr>
+          <tr><td>② 別賭科學救差別待遇</td><td>差別待遇非科學而來、科學恐救不了。改把規則<strong>對所有漁法一致</strong>→ 根本不需要那個證明。</td></tr>
+          <tr><td>③ 執法承諾縮到做得到</td><td>不公開承諾整套；「執法不力才全禁」改用「<strong>保育區≠執法替代品</strong>」純框架擋；禁令範圍收斂到執行得了，避免「無牙」。</td></tr>
+          <tr><td>④ 真談判對象是漁會</td><td>去團體化後潛水客攻勢自消一半；關鍵折衝在<strong>對漁會</strong>（見〈govt_fishassoc 說帖〉：放棄小碎利換整案存活）。</td></tr>
+          <tr><td>⑤ 收斂範圍、對齊中央</td><td>不硬推速件；<strong>只留守得住的部分</strong>（真中立核心區＋對所有人一致之物種限制），爭議之潛水專禁<strong>暫緩／交科學與海保署全國規範</strong>。把「搶跑」翻成「穩健對齊中央」。</td></tr>
+          <tr><td>⑥ 換成功的定義</td><td>從「論述贏對方」改為「<strong>不被撤銷、不爆醜聞、落地守得住的措施</strong>」。硬打是可能會輸的官司；止損落地優於慘勝或敗訴。</td></tr>
+        </tbody>
+      </table></div>
+      <h3>什麼不變</h3>
+      <p><strong>SCUBA 全禁</strong>（中立版核心區對所有人本就全禁）、<strong>程序做滿</strong>（核定、公聽會）、<strong>「接受多數、爭點縮小」姿態</strong>——去團體化後更站得住。</p>
+    </section>
 
     <!-- 一 -->
     <section>
@@ -177,6 +248,7 @@
       <h2>實質走 Ｂ（分區分級），公開姿態放硬</h2>
       <p><strong>建議以 Ｂ 案（分區分級管制）為實質主軸</strong>：核心/緩衝區全禁、氣瓶全禁；資源永續利用區之閉氣自潛，於科學支持下採「總量＋最大及最小可捕體長＋禁漁期＋禁售」分級。</p>
       <p><strong>惟 Ａ（守到底）與 Ｂ 之最終取捨，繫於科學：</strong>資源數據若支持「潛水採捕危害顯著高於釣具」，差別待遇可守嚴（趨近Ａ）；若不支持，則以分級消解爭議（Ｂ）。因此<strong>公開姿態應放硬</strong>（強調核心區絕對保護、永續區「須有科學依據始可能開放」），讓最終的分級看似<strong>公聽會與科學跑出的結果</strong>，而非起手讓步。</p>
+      <p style="background:#fbf7ef;border-left:4px solid var(--brass);border-radius:0 5px 5px 0;padding:12px 16px;font-size:15px;color:#4a4230;margin-top:4px"><strong>校準後補充：</strong>Ｂ案之分級規則須<strong>對所有漁法一致</strong>（釣具、潛水同一把尺），且<strong>先完成「去團體化」</strong>（核心區對所有人真禁採、刪漁會會員限定）——否則分級本身仍帶差別待遇與圖利瑕疵。見上方「策略校準」與〈govt_landmines 拆彈清單〉。</p>
     </section>
 
     <!-- 六 -->
@@ -197,6 +269,7 @@
       <p class="eyebrow"><span class="num">七</span>敬請核示事項</p>
       <h2>需長官拍板</h2>
       <div class="ask">
+        <div class="row"><div class="lbl" style="color:var(--crit)">先決</div><div class="val">是否將草案<strong>「去團體化」</strong>——核心區改對所有人（含釣客、漁會）真禁採、<strong>刪萬里漁會會員限定</strong>、分級規則對所有漁法一致？<span style="color:var(--muted)">（全案守得住之前提，須最先拍板）</span></div></div>
         <div class="row"><div class="lbl">決策一</div><div class="val">是否採 <strong>Ｂ案（分區分級）</strong>為主軸、<strong>氣瓶（SCUBA）全區全禁到底</strong>？</div></div>
         <div class="row"><div class="lbl">決策二</div><div class="val">是否授權即刻辦理 <strong>農業部核定補正＋公聽會＋主動宣布建設性提案</strong>？</div></div>
         <div class="row"><div class="lbl">決策三</div><div class="val">罰則是否<strong>改走刑責路徑</strong>（§44Ⅰ第1、2款公告→§60Ⅱ）以解決加重不能與執行斷裂？</div></div>
