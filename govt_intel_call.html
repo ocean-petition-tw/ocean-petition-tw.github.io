@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>陳情電話錄音 情資研判｜不利與有利</title>
+<style>
+  :root{
+    --ground:#eef2f0;--paper:#fff;--ink:#16211e;--muted:#586460;--faint:#8b958f;
+    --teal:#0d4a45;--teal-deep:#082f2b;--teal-mid:#15625a;--line:#dbe2df;--line-soft:#e8edea;
+    --brass:#9a7b3f;--crit:#a51f28;--crit-bg:#fbf0f0;--warn:#9a6512;--warn-bg:#fbf4e8;--ok:#2c6e49;--ok-bg:#eef6f0;
+    --shadow:0 1px 2px rgba(8,47,43,.06),0 8px 30px rgba(8,47,43,.07);
+    --sans:"Microsoft JhengHei","微軟正黑體","PingFang TC","Noto Sans TC","Hiragino Sans GB","Segoe UI",system-ui,sans-serif;
+    --mono:"Cascadia Mono","Consolas",monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.7;font-size:15.5px;-webkit-font-smoothing:antialiased}
+  .doc{max-width:1000px;margin:0 auto;padding:0 20px 90px}
+  .sheet{background:var(--paper);box-shadow:var(--shadow);border:1px solid var(--line-soft)}
+  .masthead{background:linear-gradient(150deg,var(--teal-deep),var(--teal) 72%);color:#eaf3f0;padding:34px 42px 30px;position:relative;overflow:hidden}
+  .masthead::after{content:"";position:absolute;right:-60px;bottom:-90px;width:280px;height:280px;border-radius:50%;border:1.5px solid rgba(255,255,255,.08)}
+  .cls{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:#a9cfc7;font-weight:700;margin:0 0 12px}
+  .cls .dot{width:7px;height:7px;border-radius:50%;background:var(--brass)}
+  .masthead h1{font-size:28px;line-height:1.3;margin:0;font-weight:800;color:#fff;position:relative;z-index:1}
+  .masthead .sub{margin:11px 0 0;color:#bfe0d8;font-size:14.5px;position:relative;z-index:1;max-width:62ch}
+  .meta{display:flex;flex-wrap:wrap;gap:0;margin-top:22px;position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.14);padding-top:16px}
+  .meta div{padding-right:26px;margin-right:26px;border-right:1px solid rgba(255,255,255,.14)}
+  .meta div:last-child{border-right:0}
+  .meta .k{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8fbcb2;margin:0 0 3px}
+  .meta .v{font-size:14px;color:#eef6f3;font-weight:600}
+  .body{padding:38px 42px}
+  @media(max-width:620px){.body{padding:24px 18px}.masthead{padding:26px 20px}}
+
+  .bluf{border:1px solid var(--line);border-left:6px solid var(--crit);background:#fdf6f6;border-radius:5px;padding:20px 24px;margin-bottom:34px}
+  .bluf .t{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--crit);font-weight:700;margin:0 0 9px}
+  .bluf p{margin:0;font-size:16px;color:#3a1414;line-height:1.8}
+  .bluf b{color:var(--crit)}
+
+  section{margin-top:38px}
+  .eyebrow{display:flex;align-items:center;gap:11px;font-size:12px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;margin:0 0 6px}
+  h2{font-size:21px;font-weight:800;margin:0 0 16px;letter-spacing:.01em}
+  .bad h2,.bad .eyebrow{color:var(--crit)}
+  .good h2,.good .eyebrow{color:var(--ok)}
+
+  .card{border:1px solid var(--line);border-radius:8px;margin-bottom:14px;overflow:hidden}
+  .card .top{display:flex;align-items:center;gap:10px;padding:11px 16px;border-bottom:1px solid var(--line-soft)}
+  .bad .card .top{background:#fbeeee}.good .card .top{background:#f0f7f2}
+  .sev{font-size:11px;font-weight:800;letter-spacing:.06em;padding:2px 9px;border-radius:20px;white-space:nowrap;color:#fff}
+  .s-hi{background:var(--crit)}.s-md{background:var(--warn)}.s-bg{background:var(--faint)}
+  .s-use{background:var(--ok)}
+  .card .top .n{font-weight:800;font-size:15px}
+  .bad .card .top .n{color:#3a1414}.good .card .top .n{color:#1e4230}
+  .card .top .ln{margin-left:auto;font-family:var(--mono);font-size:11.5px;color:var(--muted);background:#fff;border:1px solid var(--line);padding:2px 7px;border-radius:4px;white-space:nowrap}
+  .card .in{padding:12px 16px}
+  .q{display:block;background:#f5f5f2;border-left:3px solid var(--faint);padding:7px 12px;border-radius:0 4px 4px 0;font-size:13.5px;color:#3a3a3a;margin:0 0 8px;line-height:1.6}
+  .q .who{font-weight:700;color:var(--teal-mid)}
+  .why{margin:0;font-size:14px;line-height:1.6}
+  .why b{color:var(--crit)}
+  .good .why b{color:var(--ok)}
+  .use{margin:7px 0 0;font-size:13.5px;color:var(--ok);background:var(--ok-bg);border-radius:4px;padding:7px 11px;line-height:1.55}
+  .exp{margin:7px 0 0;font-size:13px;color:var(--crit);background:var(--crit-bg);border-radius:4px;padding:6px 11px}
+
+  .assess{margin-top:36px;border:1px solid var(--line);border-left:5px solid var(--brass);background:#fbf7ef;border-radius:5px;padding:20px 24px}
+  .assess h3{margin:0 0 10px;color:var(--teal-deep);font-size:18px}
+  .assess p{margin:0 0 10px;font-size:15px;line-height:1.75}
+  .assess ol{margin:8px 0 0;padding-left:20px}
+  .assess li{margin-bottom:7px;font-size:15px;line-height:1.65}
+  .assess b{color:var(--teal-deep)}
+  .disc{margin-top:28px;padding:14px 18px;border:1px dashed var(--line);border-radius:6px;font-size:12.5px;color:var(--muted);line-height:1.7;background:#fafbfa}
+  footer{max-width:1000px;margin:20px auto 0;padding:0 20px;color:var(--faint);font-size:12px;text-align:center}
+  @media print{body{background:#fff}.sheet{box-shadow:none;border:0}.doc{padding:0}.card{break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<div class="doc"><div class="sheet">
+  <div class="masthead">
+    <p class="cls"><span class="dot"></span>內部參考 · 情資研判 · 敏感</p>
+    <h1>陳情電話錄音 情資研判</h1>
+    <p class="sub">就一名自由潛水漁獵者之陳情電話逐字稿（phone_record.md），研判其中對本府不利與有利之情資，並評估外流風險。</p>
+    <div class="meta">
+      <div><p class="k">來源</p><p class="v">陳情電話逐字稿</p></div>
+      <div><p class="k">對象</p><p class="v">承辦人 vs 守法自潛者</p></div>
+      <div><p class="k">研判日</p><p class="v">2026-07-12</p></div>
+    </div>
+  </div>
+  <div class="body">
+
+    <div class="bluf">
+      <p class="t">研判總結（BLUF）</p>
+      <p>本錄音<b>以不利為主</b>。最大風險是承辦人於錄音中<b>親口承認「依據是漁會開會＋連署」（非科學）</b>——與已知的「萬里漁會會員限定條款」形成<b>動機＋物證＋錄音的完整鏈</b>。陳情人為高可信度守法自潛者、已遞書面意見，<b>研判與連署團體高度可能連結，此錄音應以「對方可能已握有或將取得」來部署</b>。惟錄音內容同時<b>支持本府校準後方向</b>（對方個體承認可禁 SCUBA、雙方皆主張禁售、陳情人自提 managed-access）。</p>
+    </div>
+
+    <!-- 不利 -->
+    <section class="bad">
+      <p class="eyebrow">▼ 不利情資</p>
+      <h2>對本府不利（由重到次）</h2>
+
+      <div class="card">
+        <div class="top"><span class="sev s-hi">極高</span><span class="n">U1　承認依據是「漁會陳情＋聯署」而非科學</span><span class="ln">L84</span></div>
+        <div class="in">
+          <p class="q"><span class="who">陳情人：</span>你如何證明我們打魚的人危害到魚？有證據嗎？<br><span class="who">承辦人：</span>主要是漁會有陳情，漁會的成員然後共同聯署。</p>
+          <p class="why"><b>錄音自白本案為漁會驅動、非科學。</b>直接坐實對手「圖利漁會、缺科學」之核心指控；與萬里會員限定條款相互印證。<b>逐字稿更新後，此點已被列入該檔頂端「重點速覽」（L16：草案主要依據＝漁會陳情、成員聯署、漁會主動推動）——傷害更外顯。</b></p>
+          <p class="exp">外流風險：此為對方訴訟與輿論最想要的一句，殺傷力最大。</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="sev s-hi">高</span><span class="n">U2　承認禁令「抓不到」＝無牙</span><span class="ln">L116</span></div>
+        <div class="in">
+          <p class="q"><span class="who">承辦人：</span>照你這樣講，我們定的這個法案，你們還是會違法下海，他抓不到，是這個意思吧？</p>
+          <p class="why">承辦人自認禁令<b>不可執行</b>，呼應對手第柒點「查得到罰不了」。</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="sev s-hi">高</span><span class="n">U3　承認無法證明釣魚危害（差別待遇不對稱）</span><span class="ln">L80</span></div>
+        <div class="in">
+          <p class="q"><span class="who">承辦人：</span>我們不是執法機關，也沒有辦法證明說那是釣魚造成的，所以也沒辦法做其他處置。</p>
+          <p class="why">一方面<b>禁潛水全面</b>、一方面<b>自認無法證明釣魚危害</b>→ 平等/比例原則之破口，舉證責任問題被當場戳破。</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="sev s-hi">高</span><span class="n">U4　科學依據＝「太平洋一些國家研究」</span><span class="ln">L56</span></div>
+        <div class="in">
+          <p class="q"><span class="who">承辦人：</span>根據太平洋一些國家的研究，發現漁獵、特別是潛水捕魚會造成珊瑚礁魚類數量下降……</p>
+          <p class="why">依據<b>空泛、非本土、非東北角</b>；無在地資源調查佐證，正中「無科學依據」攻擊。</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="sev s-md">中</span><span class="n">U5　承認無法舉證自潛/水肺、「自由心證」</span><span class="ln">L120·124</span></div>
+        <div class="in">
+          <p class="q"><span class="who">承辦人：</span>只有聯絡方式，不一定能證明那些魚貨是他潛水捕撈的……（如何區分水肺或自由潛水）自由（心）證。</p>
+          <p class="why">承認實務上<b>連自潛/水肺都分不清、無法舉證</b>→ 差別管理在執行面站不住。</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="sev s-md">中</span><span class="n">U6　三案核心區寬嚴不一（野柳/萬里禁釣魚、貢寮/瑞芳放行）</span><span class="ln">L52</span></div>
+        <div class="in">
+          <p class="q"><span class="who">承辦人：</span>野柳保育區的核心保育區是完全禁止釣魚的。</p>
+          <p class="why">承辦人以<b>野柳（萬里）核心區</b>為例（該區確實全禁、含釣魚），但陳情人問的是<b>貢寮</b>——而貢寮/瑞芳核心區<b>放行釣魚</b>。三案核心區<b>寬嚴不一</b>，易被指標準浮動、因人而異。<br>（另一面：野柳核心區的「全禁」正是應統一的正確模型——見有利 F2、拆彈清單 L3。）</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="sev s-md">中</span><span class="n">U7　承認販賣難抓（執行落差）</span><span class="ln">L96</span></div>
+        <div class="in"><p class="why"><span class="q"><span class="who">承辦人：</span>我們個人也很反對販賣……只是販賣的部分也很難抓到。</span>再一次自認執行落差。</p></div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="sev s-md">中</span><span class="n">U8　鬆口認同漁獵「可選擇性」</span><span class="ln">L60·L64</span></div>
+        <div class="in">
+          <p class="q"><span class="who">承辦人：</span>你們不能一竿子打翻所有的人……（陳情人：我們可以選大小）……對，我們知道。</p>
+          <p class="why">承辦人於錄音中<b>認同漁獵可選擇性採捕</b>（該檔「重點速覽」L12 亦列為官方鬆口）→ 削弱「潛水採捕危害大」之禁止理由，助長對手「選擇性＝低衝擊」論述。</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="sev s-bg">背景/PR</span><span class="n">U9　口徑失守、語氣風險、對方高可信度</span><span class="ln">全篇·L136</span></div>
+        <div class="in">
+          <p class="why">承辦人全程<b>被陳情人牽著走</b>、屢屢讓步；末句「嗯，所以它叫草案」略帶輕慢，若被剪輯引用有 PR 風險。陳情人具 AIDA 證照、合法魚槍執照、潛三四年、已遞書面——<b>高可信度、極可能連結連署團體</b>。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 有利 -->
+    <section class="good">
+      <p class="eyebrow">▲ 有利情資</p>
+      <h2>對本府有利／可用（由強到次）</h2>
+
+      <div class="card">
+        <div class="top"><span class="sev s-use">可用·強</span><span class="n">F1　陳情人自己承認「SCUBA 可以禁」</span><span class="ln">L86</span></div>
+        <div class="in">
+          <p class="q"><span class="who">陳情人：</span>你們可以禁止，比如說水肺打魚（背氣瓶）這個我可以理解，但自由潛水這樣一竿子禁止很不公平。</p>
+          <p class="why">個別自潛者<b>承認氣瓶採捕該禁</b>。</p>
+          <p class="use">用途：支撐本府「SCUBA 全區全禁」；並凸顯連署團體最新「氣瓶只嚴管別禁」之立場，<b>連自家潛水者都不埋單</b>。</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="sev s-use">可用·強</span><span class="n">F2　野柳/萬里核心區已是「對所有人全禁（含釣魚）」的中立模型</span><span class="ln">L52</span></div>
+        <div class="in">
+          <p class="why">承辦人引野柳（萬里）核心區「完全禁止釣魚」為例——顯示<b>本府已有一個對所有漁法全禁的中立核心區範本</b>，貢寮/瑞芳只是尚未看齊。</p>
+          <p class="use">用途：佐證「把三案核心區統一為真禁漁區」<b>是向本府既有的野柳模型看齊、非讓步</b>（呼應拆彈清單 L3）。</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="sev s-use">可用</span><span class="n">F3　內部對「證照制/managed access」開放</span><span class="ln">L68·L88</span></div>
+        <div class="in">
+          <p class="q"><span class="who">承辦人：</span>針對有申請執照的這部分人，我們會再做研議……自由潛水打魚的部分，我們會再跟長官反映。</p>
+          <p class="use">用途：與本府「中立分級＋證照/總量管理」方向一致，可作為公聽會的協商起點。</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="sev s-use">可用</span><span class="n">F4　陳情人自提替代框架（限額/體長/證照）</span><span class="ln">L114·L118</span></div>
+        <div class="in">
+          <p class="q"><span class="who">陳情人：</span>你們可以加強限制，比如每人限打幾隻魚、有一定標準、證照槍證……</p>
+          <p class="use">用途：對手陣營自己提出的 managed-access，正是本府分級管理的<b>共同基礎</b>——談判時「這是你們提的」。</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="sev s-use">可用</span><span class="n">F5　「無一漁法無害」——連陳情人都承認釣魚致魚死亡</span><span class="ln">L76·L78</span></div>
+        <div class="in">
+          <p class="q"><span class="who">陳情人：</span>丟回去它其實已經受傷了，咬得夠深就不能活……我也有釣過魚，鉤太深魚也直接死掉。</p>
+          <p class="why">（更正：更新版逐字稿中，此語為<b>陳情人</b>所述，非承辦人；承辦人 L74 反而替釣魚辯護「他們會丟回去」。）</p>
+          <p class="use">用途：連陳情人都承認<b>釣魚也致魚死亡</b>→ 支撐「核心區對所有漁法（含釣魚）一律禁採」的中立立場。<b>惟提醒承辦勿再替釣魚辯護，以免強化「只針對潛水」的不對稱印象。</b></p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="sev s-use">可用</span><span class="n">F6　禁售/嚴懲販售為雙方共識、且問題屬實</span><span class="ln">L56·L96·L98</span></div>
+        <div class="in">
+          <p class="why">網路販賣行為存在（L34）；陳情人亦承認有販賣（L76，惟稱來自養殖場）。</p>
+          <p class="use">用途：<b>禁售/嚴懲販售</b>是雙方都支持、且可執行的著力點，本府可率先強化。</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="sev s-use">可用</span><span class="n">F7　程序說明正確、未關門＋拖網已禁</span><span class="ln">L112·L104</span></div>
+        <div class="in">
+          <p class="why">承辦人正確說明 60 日預告、將徵詢農業部/海巡/縣市意見、可能召開公聽會（L90）；並說明<b>拖網已全面禁止</b>（L82，示已管制破壞性最大漁法）。</p>
+          <p class="use">用途：程序尚屬合理、未關門；拖網已禁可佐證本府管制之一致性。</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="assess">
+      <h3>綜合研判與建議動作</h3>
+      <p><b>淨評估：</b>不利大於有利。核心風險是 U1（漁會驅動之錄音自白），與萬里會員限定條款構成「動機＋物證＋錄音」完整鏈；U2–U5 又把「無科學、不可執行、差別待遇」一次招齊。<b>應假設此錄音對方可能已握有或將取得。</b></p>
+      <p><b>但方向一致：</b>F1、F4 顯示連對手陣營的個體都接受「禁 SCUBA＋分級 managed-access」，F2、F5 支持「核心區真禁漁區」。錄音內容<b>反而印證本府校準後路線</b>（去團體化＋中立分級＋SCUBA 全禁＋嚴懲販售）為正解。</p>
+      <ol>
+        <li><b>假設外流、備妥回應：</b>尤其針對 U1，預擬澄清口徑（「漁會意見僅為眾多利害關係人意見之一，最終依科學與公聽會綜合研判」），並加速補科學。</li>
+        <li><b>立即發〈第一線承辦應答守則〉止漏：</b>明訂絕不可說的話（別承認無法證明危害、別歸因漁會連署、別自認抓不到），並給正確答法。</li>
+        <li><b>把有利點納入論述：</b>F1（連自潛者都認同禁 SCUBA）、F4（對方自提分級）作為公聽會與新聞稿素材。</li>
+      </ol>
+    </div>
+
+    <div class="disc"><b>敏感等級：</b>本報告含對本府不利之自評，屬高度敏感內部文件，限決策與法制核心傳閱，切勿外流。引用逐字稿行號係依 phone_record.md 整理版。</div>
+  </div>
+</div></div>
+<footer>內部參考 · 陳情錄音情資研判 · 敏感 · 限核心傳閱</footer>
+<script data-goatcounter="https://kuchihwei9999.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
