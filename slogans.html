@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>記者會五字口號 · 選句板</title>
+<style>
+  :root{--ink:#16202b;--sub:#5a6470;--line:#e0e6ea;--accent:#0b5c8f;--accent2:#0a2f47;
+    --soft:#12673a;--soft-bg:#e7f6ee;--soft-bd:#bfe3cd;--hard:#a5281f;--hard-bg:#fdecea;--hard-bd:#f3c5c1;
+    --gold:#8a5a00;--gold-bg:#fff6e5;--mute:#8b959c;--band:#f4f7f9;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{-webkit-text-size-adjust:100%;}
+  body{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif;color:var(--ink);background:#eef1f4;line-height:1.7;font-size:15.5px;padding-bottom:44px;}
+  .back{max-width:840px;margin:0 auto;padding:14px 20px 0;}
+  .back a{color:var(--accent);font-weight:800;text-decoration:none;font-size:14px;}
+  .page{max-width:840px;margin:8px auto 0;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.1);}
+  header.doc{background:linear-gradient(160deg,#05263f,#0b5c8f 74%);color:#fff;padding:26px 30px 22px;}
+  header .kick{font-size:12.5px;letter-spacing:3px;color:#8fd3e8;font-weight:800;}
+  header h1{font-size:24px;font-weight:900;margin:7px 0 5px;}
+  header p{font-size:13px;color:#cfe4ee;}
+  .body{padding:22px 28px 8px;}
+  @media(max-width:600px){header.doc{padding:22px 18px 18px;}.body{padding:18px 15px 6px;}header h1{font-size:20px;}}
+
+  .rec{background:linear-gradient(160deg,#0a3f39,#0d6e63);border-radius:12px;padding:16px 18px;margin-bottom:22px;color:#fff;}
+  .rec .h{font-size:15px;font-weight:900;color:#ffe08a;margin-bottom:10px;}
+  .rec .row{display:flex;flex-wrap:wrap;gap:8px;}
+  .rec .b{flex:1 1 auto;min-width:130px;text-align:center;background:rgba(255,255,255,.12);border-radius:9px;padding:9px 6px;}
+  .rec .b .w{font-size:19px;font-weight:900;letter-spacing:2px;}
+  .rec .b .t{font-size:11.5px;color:#bfe3d8;margin-top:2px;}
+  .rec .n{font-size:12.5px;color:#cfeae5;margin-top:9px;line-height:1.6;}
+
+  .ref{background:var(--band);border:1px solid var(--line);border-radius:9px;padding:12px 15px;margin-bottom:20px;font-size:13.5px;line-height:1.9;}
+  .ref b{color:var(--accent2);}
+  .ref .num{display:inline-block;width:19px;height:19px;line-height:19px;text-align:center;background:var(--accent);color:#fff;border-radius:50%;font-size:12px;font-weight:800;margin-right:3px;}
+
+  h2{font-size:17px;font-weight:900;margin:22px 0 4px;padding-left:11px;border-left:5px solid;}
+  h2.s{color:var(--soft);border-color:var(--soft);}
+  h2.h{color:var(--hard);border-color:var(--hard);}
+  h2.w{color:var(--gold);border-color:var(--gold);}
+  .grp{margin:10px 0 4px;}
+  .grp .lbl{font-size:12.5px;font-weight:800;color:var(--sub);margin:8px 0 5px;}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{position:relative;display:inline-block;padding:8px 15px;border-radius:22px;font-size:18px;font-weight:800;letter-spacing:1px;border:1.5px solid;}
+  .chip.soft{background:var(--soft-bg);color:var(--soft);border-color:var(--soft-bd);}
+  .chip.hard{background:var(--hard-bg);color:var(--hard);border-color:var(--hard-bd);}
+  .chip.mute{background:#f1f3f4;color:var(--mute);border-color:#e2e6e8;text-decoration:line-through;}
+  .chip .tag{position:absolute;top:-8px;right:-6px;font-size:10px;font-weight:800;padding:1px 6px;border-radius:10px;letter-spacing:0;}
+  .chip .tag.new{background:#ff7a1a;color:#fff;}
+  .chip .tag.org{background:#ffd54a;color:#5c3d00;}
+  .chip .tag.rec{background:#0d6e63;color:#fff;}
+  .warnbox{background:var(--gold-bg);border:1px solid #f0dcae;border-left:5px solid var(--gold);border-radius:8px;padding:11px 15px;margin:8px 0 0;font-size:13px;color:#5c4a1a;line-height:1.7;}
+  .warnbox b{color:var(--gold);}
+  .how{background:#eef3f9;border:1px solid #c5d9ea;border-radius:9px;padding:14px 16px;margin-top:22px;font-size:14px;line-height:1.75;color:#0a2f47;}
+  .how b{color:var(--accent);}
+  .legend{font-size:12px;color:var(--sub);margin-top:8px;}
+  .legend .tag{display:inline-block;font-size:10px;font-weight:800;padding:1px 6px;border-radius:10px;margin:0 2px;}
+</style>
+</head>
+<body>
+<div class="back"><a href="index.html">← 回資料總覽</a></div>
+<div class="page">
+  <header class="doc">
+    <div class="kick">記 者 會 · 五 字 口 號</div>
+    <h1>選句板：軟綠 · 硬紅 · 逐句挑</h1>
+    <p>硬軟軟硬，各格挑一句，盡量覆蓋四大主張 ①②③④</p>
+  </header>
+
+  <div class="body">
+
+    <div class="rec">
+      <div class="h">⭐ 推薦預設組合（反／願／願／反 對稱，句句對得上主張）</div>
+      <div class="row">
+        <div class="b"><div class="w">反濫捕濫售</div><div class="t">硬 · 呼應①</div></div>
+        <div class="b"><div class="w">願科學管理</div><div class="t">軟 · 呼應②</div></div>
+        <div class="b"><div class="w">願守分級制</div><div class="t">軟 · 呼應③</div></div>
+        <div class="b"><div class="w">反對一刀切</div><div class="t">硬 · 呼應④</div></div>
+      </div>
+      <div class="n">該反的反（真兇＋全禁）、該願的願（科學＋分級）——軟中帶硬。想換就從下面的池子挑。</div>
+    </div>
+
+    <div class="ref">
+      <b>四大主張（對照基準）</b><br>
+      <span class="num">1</span>支持保育、反對販售　<span class="num">2</span>支持科學管理　<span class="num">3</span>尊重魚種、體長、季節與棲地規範　<span class="num">4</span>反對一刀切全面禁止
+    </div>
+
+    <h2 class="s">【軟】池 · 擺「軟」的位置</h2>
+    <div class="grp"><div class="lbl">呼應 ① 支持保育</div><div class="chips">
+      <span class="chip soft">支持真保育</span>
+      <span class="chip soft">保育我支持</span>
+      <span class="chip soft">支持護海洋</span>
+    </div></div>
+    <div class="grp"><div class="lbl">呼應 ② 支持科學管理</div><div class="chips">
+      <span class="chip soft">願科學管理</span>
+      <span class="chip soft">挺科學管理</span>
+      <span class="chip soft">管理要科學<span class="tag new">新</span></span>
+    </div></div>
+    <div class="grp"><div class="lbl">呼應 ③ 尊重規範 · 分級</div><div class="chips">
+      <span class="chip soft">願守分級制</span>
+      <span class="chip soft">願依分級管</span>
+      <span class="chip soft">願配合分級</span>
+      <span class="chip soft">願守分級規</span>
+    </div></div>
+    <div class="grp"><div class="lbl">官民協力 · 自律（跨主張）</div><div class="chips">
+      <span class="chip soft">願自律配合</span>
+      <span class="chip soft">願受管受罰</span>
+      <span class="chip soft">官民一起管</span>
+    </div></div>
+
+    <h2 class="h">【硬】池 · 擺「硬」的位置</h2>
+    <div class="grp"><div class="lbl">呼應 ① 反對販售 · 抓真兇</div><div class="chips">
+      <span class="chip hard">反濫捕濫售</span>
+      <span class="chip hard">真兇抓出來<span class="tag new">新</span></span>
+      <span class="chip hard">嚴禁濫捕售</span>
+      <span class="chip hard">禁售不禁人</span>
+      <span class="chip hard">真兇在濫售</span>
+      <span class="chip hard">別禁守法人</span>
+    </div></div>
+    <div class="grp"><div class="lbl">呼應 ④ 反對一刀切</div><div class="chips">
+      <span class="chip hard">反對一刀切</span>
+      <span class="chip hard">反全面禁止</span>
+      <span class="chip hard">反對亂禁槍</span>
+      <span class="chip hard">草案應修正</span>
+    </div></div>
+    <div class="grp"><div class="lbl">科學 · 程序 · 舉證（撐 ② 的實證面）</div><div class="chips">
+      <span class="chip hard">程序欠正義<span class="tag org">原</span></span>
+      <span class="chip hard">科學沒數據<span class="tag org">原</span></span>
+      <span class="chip hard">拿數據再禁</span>
+      <span class="chip hard">禁前先舉證</span>
+      <span class="chip hard">先核定再議</span>
+      <span class="chip hard">要科學程序</span>
+    </div></div>
+
+    <h2 class="w">⚠️ 慎用 · off-script（不建議當主軸）</h2>
+    <div class="chips">
+      <span class="chip mute">魚槍代罪羊<span class="tag org">原</span></span>
+      <span class="chip mute">莫抓代罪羊</span>
+      <span class="chip mute">保育假做樣<span class="tag org">原</span></span>
+    </div>
+    <div class="warnbox"><b>為什麼慎用：</b>「代罪羊」不在四大主張內、屬受害者(喊冤)框架；「保育假做樣」攻擊政府保育誠意，容易讓我們像反保育、傷了「保育同路人」招牌。</div>
+
+    <div class="how">
+      <b>怎麼點：</b>依「<b>硬 → 軟 → 軟 → 硬</b>」各挑一句，四句盡量覆蓋 ①②③④ 四大主張。<br>
+      <span class="legend">圖例：<span class="tag" style="background:#ff7a1a;color:#fff;">新</span>你新增　<span class="tag" style="background:#ffd54a;color:#5c3d00;">原</span>FB原句　綠＝軟　紅＝硬　劃線＝慎用</span>
+    </div>
+
+  </div>
+</div>
+<script data-goatcounter="https://kuchihwei9999.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
