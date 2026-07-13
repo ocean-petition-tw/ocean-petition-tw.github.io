@@ -48,6 +48,16 @@
   .chip .tag.new{background:#ff7a1a;color:#fff;}
   .chip .tag.org{background:#ffd54a;color:#5c3d00;}
   .chip .tag.rec{background:#0d6e63;color:#fff;}
+  .cols{display:flex;gap:12px;align-items:flex-start;margin:6px 0;}
+  .col{flex:1 1 0;min-width:0;border-radius:10px;padding:10px 10px 12px;}
+  .col.softc{background:#f3fbf6;border:1px solid var(--soft-bd);}
+  .col.hardc{background:#fef5f4;border:1px solid var(--hard-bd);}
+  .colh{text-align:center;font-size:16px;font-weight:900;padding:6px;border-radius:8px;margin-bottom:6px;color:#fff;}
+  .colh.soft{background:var(--soft);} .colh.hard{background:var(--hard);}
+  .col .glabel{font-size:11px;font-weight:800;color:var(--sub);margin:10px 2px 6px;border-top:1px dashed rgba(0,0,0,.12);padding-top:7px;}
+  .col .glabel.first{border-top:0;padding-top:2px;margin-top:4px;}
+  .col .chip{display:block;text-align:center;margin:0 0 6px;font-size:16.5px;padding:7px 6px;}
+  @media(max-width:600px){.cols{gap:7px;}.col{padding:8px 6px 10px;}.col .chip{font-size:15px;padding:6px 4px;letter-spacing:0;}.col .glabel{font-size:10.5px;}}
   .warnbox{background:var(--gold-bg);border:1px solid #f0dcae;border-left:5px solid var(--gold);border-radius:8px;padding:11px 15px;margin:8px 0 0;font-size:13px;color:#5c4a1a;line-height:1.7;}
   .warnbox b{color:var(--gold);}
   .how{background:#eef3f9;border:1px solid #c5d9ea;border-radius:9px;padding:14px 16px;margin-top:22px;font-size:14px;line-height:1.75;color:#0a2f47;}
@@ -72,52 +82,51 @@
       <span class="num">1</span>支持保育、反對販售　<span class="num">2</span>支持科學管理　<span class="num">3</span>尊重魚種、體長、季節與棲地規範　<span class="num">4</span>反對一刀切全面禁止
     </div>
 
-    <h2 class="s">【軟】池 · 擺「軟」的位置</h2>
-    <div class="grp"><div class="lbl">呼應 ① 支持保育</div><div class="chips">
-      <span class="chip soft">支持真保育</span>
-      <span class="chip soft">保育我支持</span>
-      <span class="chip soft">支持護海洋</span>
-    </div></div>
-    <div class="grp"><div class="lbl">呼應 ② 支持科學管理</div><div class="chips">
-      <span class="chip soft">願科學管理</span>
-      <span class="chip soft">挺科學管理</span>
-      <span class="chip soft">管理要科學<span class="tag new">新</span></span>
-    </div></div>
-    <div class="grp"><div class="lbl">呼應 ③ 尊重規範 · 分級</div><div class="chips">
-      <span class="chip soft">願守分級制</span>
-      <span class="chip soft">願依分級管</span>
-      <span class="chip soft">願配合分級</span>
-      <span class="chip soft">願守分級規</span>
-    </div></div>
-    <div class="grp"><div class="lbl">官民協力 · 自律（跨主張）</div><div class="chips">
-      <span class="chip soft">願自律配合</span>
-      <span class="chip soft">願受管受罰</span>
-      <span class="chip soft">官民一起管</span>
-    </div></div>
-
-    <h2 class="h">【硬】池 · 擺「硬」的位置</h2>
-    <div class="grp"><div class="lbl">呼應 ① 反對販售 · 抓真兇</div><div class="chips">
-      <span class="chip hard">反濫捕濫售</span>
-      <span class="chip hard">真兇抓出來<span class="tag new">新</span></span>
-      <span class="chip hard">嚴禁濫捕售</span>
-      <span class="chip hard">禁售不禁人</span>
-      <span class="chip hard">真兇在濫售</span>
-      <span class="chip hard">別禁守法人</span>
-    </div></div>
-    <div class="grp"><div class="lbl">呼應 ④ 反對一刀切</div><div class="chips">
-      <span class="chip hard">反對一刀切</span>
-      <span class="chip hard">反全面禁止</span>
-      <span class="chip hard">反對亂禁槍</span>
-      <span class="chip hard">草案應修正</span>
-    </div></div>
-    <div class="grp"><div class="lbl">科學 · 程序 · 舉證（撐 ② 的實證面）</div><div class="chips">
-      <span class="chip hard">程序欠正義<span class="tag org">原</span></span>
-      <span class="chip hard">科學沒數據<span class="tag org">原</span></span>
-      <span class="chip hard">拿數據再禁</span>
-      <span class="chip hard">禁前先舉證</span>
-      <span class="chip hard">先核定再議</span>
-      <span class="chip hard">要科學程序</span>
-    </div></div>
+    <p style="font-size:13px;color:var(--sub);margin:2px 0 8px;">左右對照、同時看軟硬——各挑一句，湊出你的「硬軟軟硬」。</p>
+    <div class="cols">
+      <div class="col softc">
+        <div class="colh soft">【軟】</div>
+        <div class="glabel first">① 支持保育</div>
+        <span class="chip soft">支持真保育</span>
+        <span class="chip soft">保育我支持</span>
+        <span class="chip soft">支持護海洋</span>
+        <div class="glabel">② 支持科學管理</div>
+        <span class="chip soft">願科學管理</span>
+        <span class="chip soft">挺科學管理</span>
+        <span class="chip soft">管理要科學<span class="tag new">新</span></span>
+        <div class="glabel">③ 尊重規範 · 分級</div>
+        <span class="chip soft">願守分級制</span>
+        <span class="chip soft">願依分級管</span>
+        <span class="chip soft">願配合分級</span>
+        <span class="chip soft">願守分級規</span>
+        <div class="glabel">官民協力 · 自律</div>
+        <span class="chip soft">願自律配合</span>
+        <span class="chip soft">願受管受罰</span>
+        <span class="chip soft">官民一起管</span>
+      </div>
+      <div class="col hardc">
+        <div class="colh hard">【硬】</div>
+        <div class="glabel first">① 反對販售 · 抓真兇</div>
+        <span class="chip hard">反濫捕濫售</span>
+        <span class="chip hard">真兇抓出來<span class="tag new">新</span></span>
+        <span class="chip hard">嚴禁濫捕售</span>
+        <span class="chip hard">禁售不禁人</span>
+        <span class="chip hard">真兇在濫售</span>
+        <span class="chip hard">別禁守法人</span>
+        <div class="glabel">④ 反對一刀切</div>
+        <span class="chip hard">反對一刀切</span>
+        <span class="chip hard">反全面禁止</span>
+        <span class="chip hard">反對亂禁槍</span>
+        <span class="chip hard">草案應修正</span>
+        <div class="glabel">科學 · 程序 · 舉證</div>
+        <span class="chip hard">程序欠正義<span class="tag org">原</span></span>
+        <span class="chip hard">科學沒數據<span class="tag org">原</span></span>
+        <span class="chip hard">拿數據再禁</span>
+        <span class="chip hard">禁前先舉證</span>
+        <span class="chip hard">先核定再議</span>
+        <span class="chip hard">要科學程序</span>
+      </div>
+    </div>
 
     <h2 class="w">⚠️ 慎用 · off-script（不建議當主軸）</h2>
     <div class="chips">
