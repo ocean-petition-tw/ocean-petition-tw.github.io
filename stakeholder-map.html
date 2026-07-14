@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全盤立場分析 · 誰站哪一邊（內部戰略）</title>
+<style>
+  :root{--ink:#16202b;--sub:#5a6470;--line:#e0e6ea;--accent:#0b5c8f;--accent2:#0a2f47;--band:#f4f7f9;
+    --us:#1b7f4b;--us-bg:#e7f6ee;--ally:#0d6e63;--ally-bg:#e6f5f1;--swing:#c76a00;--swing-bg:#fff3e3;
+    --neu:#6b7680;--neu-bg:#eef1f3;--gov:#0b5c8f;--gov-bg:#eaf2f8;--foe:#b3261e;--foe-bg:#fdecea;--hold:#8a5a00;--hold-bg:#fff6e5;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{-webkit-text-size-adjust:100%;}
+  body{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif;color:var(--ink);background:#eef1f4;line-height:1.75;font-size:15.5px;padding-bottom:44px;}
+  .back{max-width:860px;margin:0 auto;padding:14px 20px 0;}
+  .back a{color:var(--accent);font-weight:800;text-decoration:none;font-size:14px;}
+  .page{max-width:860px;margin:8px auto 0;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.1);}
+  header.doc{background:linear-gradient(160deg,#05263f,#0a2f47 60%,#0b5c8f);color:#fff;padding:28px 30px 24px;}
+  header .kick{font-size:12.5px;letter-spacing:2px;color:#8fd3e8;font-weight:800;}
+  header h1{font-size:24px;font-weight:900;margin:8px 0 8px;line-height:1.32;}
+  header p{font-size:13.5px;color:#cfe4ee;}
+  .body{padding:24px 30px 8px;}
+  @media(max-width:600px){header.doc{padding:24px 18px 20px;}.body{padding:18px 15px 6px;}header h1{font-size:20px;}}
+
+  .tldr{background:#fff8e8;border:1.5px solid #f0dcae;border-radius:12px;padding:18px 20px;margin-bottom:22px;}
+  .tldr .h{font-size:19px;font-weight:900;color:#5c4a1a;margin-bottom:14px;}
+  .tldr .item{display:flex;gap:11px;align-items:flex-start;margin-bottom:15px;}
+  .tldr .item:last-child{margin-bottom:0;}
+  .tldr .item .ic{flex:0 0 auto;font-size:23px;line-height:1.25;}
+  .tldr .item .big{display:block;font-size:19px;font-weight:900;color:#0a3f39;line-height:1.4;}
+  .tldr .item .sub{font-size:14.5px;color:#5a5340;line-height:1.55;}
+  @media(max-width:600px){.tldr .h{font-size:18px;}.tldr .item .ic{font-size:21px;}.tldr .item .big{font-size:17.5px;}}
+
+  h2{font-size:19px;font-weight:900;color:var(--accent2);margin:28px 0 6px;border-left:5px solid var(--accent);padding-left:11px;}
+  .lead{font-size:13.5px;color:var(--sub);margin:0 0 12px;padding-left:12px;}
+
+  .spec{border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:12px 0 6px;}
+  .spec .bar{display:flex;font-size:12px;font-weight:800;color:#fff;text-align:center;}
+  .spec .bar>div{padding:7px 4px;}
+  .spec .z1{background:var(--foe);flex:1;} .spec .z2{background:var(--gov);flex:1;}
+  .spec .z3{background:var(--neu);flex:1.2;} .spec .z4{background:var(--ally);flex:1;} .spec .z5{background:var(--us);flex:1;}
+  .spec .zones{display:flex;}
+  .spec .zc{flex:1;padding:10px 9px;font-size:12.5px;line-height:1.6;border-right:1px dashed var(--line);}
+  .spec .zc:last-child{border-right:0;}
+  .spec .zc b{display:block;font-size:12px;margin-bottom:4px;}
+  @media(max-width:600px){.spec .zones{flex-direction:column;}.spec .zc{border-right:0;border-bottom:1px dashed var(--line);}.spec .bar{display:none;}}
+
+  .act{border:1px solid var(--line);border-radius:10px;padding:13px 15px;margin:11px 0;box-shadow:0 1px 3px rgba(0,0,0,.05);}
+  .act .top{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:7px;}
+  .act .nm{font-size:16.5px;font-weight:900;color:var(--accent2);}
+  .st{font-size:11.5px;font-weight:800;color:#fff;border-radius:14px;padding:2px 11px;white-space:nowrap;}
+  .st.us{background:var(--us);}.st.ally{background:var(--ally);}.st.swing{background:var(--swing);}
+  .st.neu{background:var(--neu);}.st.gov{background:var(--gov);}.st.foe{background:var(--foe);}
+  .act .grid{font-size:14px;line-height:1.65;}
+  .act .grid .r{margin-bottom:3px;}
+  .act .grid .k{display:inline-block;min-width:52px;font-weight:800;color:var(--sub);font-size:12.5px;}
+  .act .grid b{color:var(--accent2);}
+  .act.swingcard{border-left:5px solid var(--swing);background:#fffaf3;}
+
+  .final{background:linear-gradient(160deg,#0a2f47,#0b5c8f);color:#fff;border-radius:12px;padding:18px 20px;margin:24px 0 6px;}
+  .final h3{color:#ffe08a;font-size:17px;margin-bottom:8px;}
+  .final p{font-size:14.5px;line-height:1.8;margin-bottom:8px;}
+  .final b{color:#ffe08a;}
+  .final ul{list-style:none;margin:6px 0;}
+  .final li{position:relative;padding-left:20px;margin-bottom:6px;font-size:14.5px;line-height:1.65;}
+  .final li::before{content:"▸";position:absolute;left:2px;color:#8fd3e8;}
+  .note{max-width:860px;margin:16px auto 0;padding:0 30px;}
+  .note .box{background:#fafbfc;border:1px dashed var(--line);border-radius:8px;padding:13px 16px;font-size:12.5px;color:var(--sub);line-height:1.7;}
+  @media(max-width:600px){.note{padding:0 16px;}}
+</style>
+</head>
+<body>
+<div class="back"><a href="internal.html">← 回內部工作台</a></div>
+<div class="page">
+  <header class="doc">
+    <div class="kick">內 部 戰 略 · 全 盤 立 場 分 析</div>
+    <h1>誰站哪一邊？<br>公部門 · 民間 · 關係人 全解析</h1>
+    <p>新北貢寮／萬里／瑞芳保育區禁魚槍草案——各方立場、動機、對我方、施力點。內部研判，滾動修訂。</p>
+  </header>
+
+  <div class="body">
+    <div class="tldr">
+      <div class="h">⚡ 懶人卡 · 一眼看完全局</div>
+      <div class="item"><span class="ic">🎭</span><div><span class="big">真正的對立：科學分級 vs 粗暴全禁</span><span class="sub">不是「我方 vs 政府」——這樣框，才拉得到盟友。</span></div></div>
+      <div class="item"><span class="ic">🏛️</span><div><span class="big">公部門不是鐵板一塊</span><span class="sub">新北推全禁、漁業署要「區分管理」、海保署重程序——有縫可撬。</span></div></div>
+      <div class="item"><span class="ic">🎣</span><div><span class="big">漁會是關鍵變數，不是當然盟友</span><span class="sub">可能是「推動禁令、排除潛水客」的一方（且拿了萬里海藻專採後門）——要經營。</span></div></div>
+      <div class="item"><span class="ic">🤿</span><div><span class="big">天然盟友：釣魚磯釣＋潛水社群</span><span class="sub">「禁魚槍卻放釣魚」＝差別待遇，他們跟我們同一條船。</span></div></div>
+      <div class="item"><span class="ic">🌊</span><div><span class="big">保育端是分裂的</span><span class="sub">藍色脈動挺我們（要科學配套）、黑潮可能相左——用科學贏保育圈。</span></div></div>
+      <div class="item"><span class="ic">🎯</span><div><span class="big">共同敵人：商業濫捕、違規販售</span><span class="sub">把火力對準真兇，是團結各方、建立公信力的鑰匙。</span></div></div>
+      <div class="item"><span class="ic">🔑</span><div><span class="big">入場券：我方願意接受科學配套</span><span class="sub">承認選擇性風險＋slot limit＋執法——才收得攏所有盟友。</span></div></div>
+    </div>
+
+    <h2>立場光譜</h2>
+    <div class="lead">由「挺全禁」到「挺科學分級（我方）」，各方大致位置：</div>
+    <div class="spec">
+      <div class="bar"><div class="z1">挺全禁</div><div class="z2">提案方</div><div class="z3">中立／重程序</div><div class="z4">偏我方</div><div class="z5">我方核心</div></div>
+      <div class="zones">
+        <div class="zc"><b style="color:var(--foe);">挺全禁／推動</b>部分在地漁會（推禁、排除潛水客）；保育硬派（黑潮？）</div>
+        <div class="zc"><b style="color:var(--gov);">提案方</b>新北市府／漁業處（程序薄弱、承辦有彈性）</div>
+        <div class="zc"><b style="color:var(--neu);">中立／重程序</b>海保署、海巡署、海漁基金會(半官方)、海洋公民、多數學界</div>
+        <div class="zc"><b style="color:var(--ally);">偏我方（有條件）</b>藍色脈動、農業部漁業署（區分管理）、釣魚磯釣團體、蔡政良</div>
+        <div class="zc"><b style="color:var(--us);">我方核心</b>永續漁法漁獵協會、潛水／自潛社群、連署民眾</div>
+      </div>
+    </div>
+
+    <h2>A. 公部門</h2>
+    <div class="act"><div class="top"><span class="nm">新北市政府 · 農業局漁業處</span><span class="st gov">提案方</span></div>
+      <div class="grid">
+        <div class="r"><span class="k">立場</span>草案提案者，名義主張全面禁魚槍；但<b>程序與科學薄弱</b>，承辦電話中對自潛部分「會跟長官反映」、坦言販賣難抓。</div>
+        <div class="r"><span class="k">動機</span>保育政績＋<b>回應漁會陳情與聯署</b>＋全禁最省事（無需科學分級）。</div>
+        <div class="r"><span class="k">對我方</span>名義對手，<b>但可爭取修正</b>、非鐵板。</div>
+        <div class="r"><span class="k">施力點</span><b>程序三問</b>（農業部核定文號／科學數據／公聽會）；承辦已鬆口；核定未必到位。</div>
+      </div>
+    </div>
+    <div class="act"><div class="top"><span class="nm">農業部漁業署</span><span class="st ally">潛在槓桿</span></div>
+      <div class="grid">
+        <div class="r"><span class="k">立場</span>2025/10/31 會議主張「<b>與商業捕撈區分管理</b>」＝傾向分級、非全禁；且握有《漁業法》§44 III <b>核定權</b>。</div>
+        <div class="r"><span class="k">動機</span>全國一致管理、資源永續、避免地方各自為政。</div>
+        <div class="r"><span class="k">對我方</span><b>相對友善、可借力</b>。</div>
+        <div class="r"><span class="k">施力點</span>引用其「區分管理」立場；新北公告須報其核定＝可卡關。</div>
+      </div>
+    </div>
+    <div class="act"><div class="top"><span class="nm">海洋委員會海洋保育署</span><span class="st neu">中立·重程序</span></div>
+      <div class="grid">
+        <div class="r"><span class="k">立場</span>10/31 會議召集人，協調 19 個協會；引用「潛水捕魚使珊瑚礁魚類下降」研究，但採<b>多方協調、全國規範研議中</b>。</div>
+        <div class="r"><span class="k">動機</span>海洋保育＋建立全國一致規範＋程序正當。</div>
+        <div class="r"><span class="k">對我方</span>中立偏保育，<b>但重程序＝對我方有利</b>；我方是正式受文協會＝正當利害關係人。</div>
+        <div class="r"><span class="k">施力點</span>「全國規範仍研議中→新北不該搶跑」；要求納入多方對話。</div>
+      </div>
+    </div>
+    <div class="act"><div class="top"><span class="nm">海巡署</span><span class="st neu">執法·中立</span></div>
+      <div class="grid">
+        <div class="r"><span class="k">立場</span>海上執法機關，非提案方；<b>市府沒有海上執法量能</b>。</div>
+        <div class="r"><span class="k">對我方</span>中立。<b>執法量能反成我方加分點</b>。</div>
+        <div class="r"><span class="k">施力點</span>主張「市府＋海巡<b>聯合執法</b>」＝承認難點、把責任交回規劃方（藍色脈動建議）。</div>
+      </div>
+    </div>
+    <div class="act"><div class="top"><span class="nm">原住民族／原民會</span><span class="st ally">潛在盟友</span></div>
+      <div class="grid">
+        <div class="r"><span class="k">立場</span>傳統採捕權；草案「14 日逐次申請」被批權限錯置＋過苛。</div>
+        <div class="r"><span class="k">對我方</span>共同反對過苛限制，<b>可副知、可串聯</b>。</div>
+      </div>
+    </div>
+
+    <h2>B. 民間 · 我方陣營</h2>
+    <div class="act"><div class="top"><span class="nm">台灣永續漁法漁獵推廣協會（發起）</span><span class="st us">我方核心</span></div>
+      <div class="grid">
+        <div class="r"><span class="k">立場</span>支持保育、反對一刀切、<b>器材中性、科學分級、願自律配合</b>。</div>
+        <div class="r"><span class="k">課題</span>尚未正式立案（影響募款與公開勸募能力）；「怎麼管」實作面待補強。</div>
+      </div>
+    </div>
+    <div class="act"><div class="top"><span class="nm">潛水／自由潛水社群 · 連署民眾</span><span class="st us">我方主體</span></div>
+      <div class="grid">
+        <div class="r"><span class="k">立場</span>直接受衝擊者；連署（bluepolicy）＋FB 動員。</div>
+        <div class="r"><span class="k">內部課題</span><b>願不願意接受更多科學限制</b>（每日上限、禁夜、slot limit）＝收攏盟友的關鍵，需先對齊。</div>
+      </div>
+    </div>
+
+    <h2>C. 潛在盟友（要經營／爭取）</h2>
+    <div class="act swingcard"><div class="top"><span class="nm">東北角在地漁會（貢寮／萬里／瑞芳等）</span><span class="st swing">關鍵變數</span></div>
+      <div class="grid">
+        <div class="r"><span class="k">立場</span><b>複雜、可能不是盟友。</b>證據：承辦稱「主要是漁會陳情、成員聯署」＝<b>漁會可能是推動禁令的一方</b>；且萬里核心區草案給<b>漁會會員海藻專採後門</b>（圖利疑慮）。</div>
+        <div class="r"><span class="k">動機</span>排除潛水客競爭、保住自家海域與碎利。</div>
+        <div class="r"><span class="k">對我方</span><b>潛在對手／需要翻轉或中和的一方</b>——別當理所當然的盟友。</div>
+        <div class="r"><span class="k">施力點</span>〈對漁會說帖〉：<b>去團體化＋「真禁漁區＝資源銀行、溢出效益」</b>；共同對付外來拖網濫捕；拆掉會員專採（那是會炸到漁會自己的未爆彈）。</div>
+      </div>
+    </div>
+    <div class="act"><div class="top"><span class="nm">釣魚／磯釣／海釣團體（台灣釣權會等）</span><span class="st ally">天然盟友</span></div>
+      <div class="grid">
+        <div class="r"><span class="k">立場</span>反對政府對垂釣過度管制、主張公共海域全民使用。</div>
+        <div class="r"><span class="k">對我方</span><b>天然盟友</b>——「禁魚槍卻放釣魚」是差別待遇，他們也在同一管制壓力下。</div>
+        <div class="r"><span class="k">注意</span>訴求要用「<b>同一把科學的尺</b>」，<b>別打成「去禁釣魚」</b>（會得罪盟友）。</div>
+      </div>
+    </div>
+    <div class="act"><div class="top"><span class="nm">其他潛水／水域運動協會、工會</span><span class="st ally">偏盟友</span></div>
+      <div class="grid">
+        <div class="r"><span class="k">立場</span>同社群（浮潛、自潛、SUP、職業潛水工會等）。</div>
+        <div class="r"><span class="k">對我方</span>擴大陣線，勞權／生計論述可對接。</div>
+      </div>
+    </div>
+
+    <h2>D. 保育端（分裂 · 用科學決勝）</h2>
+    <div class="act"><div class="top"><span class="nm">藍色脈動（BlueTrend）</span><span class="st ally">有條件盟友</span></div>
+      <div class="grid">
+        <div class="r"><span class="k">立場</span>保育端媒體，<b>挺我方「科學管理取代一刀切」</b>；條件＝我方須正面承認選擇性風險、採 slot limit 等科學配套。</div>
+        <div class="r"><span class="k">對我方</span><b>通往保育圈的橋樑＋擴音器</b>，戰略價值高。</div>
+        <div class="r"><span class="k">施力點</span>接下其「開放討論、找最大公約數」的邀請；採納配套＝把它變成正式盟友。</div>
+      </div>
+    </div>
+    <div class="act"><div class="top"><span class="nm">白尚儒／臺灣永續鱻漁發展協會</span><span class="st ally">偏盟友</span></div>
+      <div class="grid"><div class="r"><span class="k">立場</span>永續利用而非禁絕、食魚教育；理念相近（窗口待確認）。</div></div>
+    </div>
+    <div class="act"><div class="top"><span class="nm">海漁基金會(TOFF) · 海洋公民 · TAMEE</span><span class="st neu">中立·先探口風</span></div>
+      <div class="grid"><div class="r"><span class="k">立場</span>TOFF 半官方（政府捐助過半），恐配合主管機關；其餘立場溫和、未對魚槍表態。接觸前先探。</div></div>
+    </div>
+    <div class="act"><div class="top"><span class="nm">黑潮海洋文教基金會</span><span class="st swing">可能相左</span></div>
+      <div class="grid"><div class="r"><span class="k">立場</span>指標性 NGO、保育傾向鮮明，<b>可能同情加強管制</b>。接觸前務必先探立場，避免踩雷。</div></div>
+    </div>
+
+    <h2>E. 學界</h2>
+    <div class="act"><div class="top"><span class="nm">學者／漁業科學</span><span class="st neu">中性·可雙引</span></div>
+      <div class="grid">
+        <div class="r"><span class="k">偏我方</span>蔡政良（傳統生態知識、選擇性）；「魚槍較拖網圍網選擇性」的相對優勢。</div>
+        <div class="r"><span class="k">保育端引</span>太平洋研究（潛水捕魚使珊瑚礁魚類下降）；BOFFF、漁撈誘發演化。</div>
+        <div class="r"><span class="k">對我方</span>科學<b>整體支持「精準管理」而非「全禁或放任」</b>——正是我方立場，善用即為助力。</div>
+      </div>
+    </div>
+
+    <h2>F. 場外 · 共同敵人</h2>
+    <div class="act"><div class="top"><span class="nm">商業濫捕 · 違規販售 · 電毒炸魚者</span><span class="st foe">真兇</span></div>
+      <div class="grid">
+        <div class="r"><span class="k">定位</span>資源真正的殺手，<b>我方與保育端共同的敵人</b>。</div>
+        <div class="r"><span class="k">戰略</span>把火力對準他們＝<b>團結各方、建立我方公信力的鑰匙</b>（我們最想檢舉的就是他們）。</div>
+      </div>
+    </div>
+
+    <div class="final">
+      <h3>戰略總結：怎麼贏</h3>
+      <p><b>把戰場從「開放 vs 禁止」改寫成「科學分級管理 vs 粗暴全禁」</b>——這個框架下，我方能結最大的盟。</p>
+      <ul>
+        <li><b>結盟：</b>潛水＋自潛＋釣魚磯釣＋守法漁民（經營後）＋保育端接受管理者（藍色脈動）＋學界（精準管理）→ 圍繞「科學分級＋真執法」的<b>最大公約數</b>。</li>
+        <li><b>撬公部門：</b>用漁業署「區分管理」＋海保署「全國研議」＋§44 核定關卡，對新北的全禁施壓。</li>
+        <li><b>中和漁會：</b>去團體化＋資源銀行論述，拆掉會員專採未爆彈。</li>
+        <li><b>孤立真兇：</b>把商業濫捕販售者切出去、一致對付＝我方公信力來源。</li>
+        <li><b>入場券：</b>我方願意接受科學配套（承認風險、slot limit、每日上限、禁夜、氣瓶禁只准自潛、實名證照＋回報＋聯合執法）——這是換取所有盟友的門票，但<b>內部須先對齊願不願意</b>。</li>
+      </ul>
+      <p style="margin-bottom:0;"><b>一句話：對真兇硬、對盟友軟、對全禁硬、對科學低頭——站在「全禁與放任之間、多數人都能點頭」的那個位置。</b></p>
+    </div>
+  </div>
+</div>
+<div class="note"><div class="box">
+  ※ 本頁為內部戰略研判，立場係依公開資訊、會議紀錄、陳情電話、往來訊息與草案條文綜合推斷，非各方正式表態；尤其漁會、黑潮、TOFF 等標「複雜／可能相左／中立」者，實際接觸前務必再確認。滾動修訂。內部參考，請勿對外散布。
+</div></div>
+<script data-goatcounter="https://kuchihwei9999.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
