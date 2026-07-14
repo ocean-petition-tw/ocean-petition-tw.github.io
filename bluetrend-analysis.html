@@ -19,12 +19,14 @@
   header p{font-size:13.5px;color:#cbe7f0;line-height:1.7;}
   .body{padding:24px 30px 8px;}
   @media(max-width:600px){header.doc{padding:24px 18px 20px;}.body{padding:18px 16px 6px;}header h1{font-size:20px;}}
-  .tldr{background:#fff8e8;border:1.5px solid #f0dcae;border-radius:12px;padding:16px 18px;margin-bottom:20px;}
-  .tldr .h{font-size:16.5px;font-weight:900;color:#5c4a1a;margin-bottom:11px;}
-  .tldr .item{display:flex;gap:9px;align-items:flex-start;font-size:14.5px;line-height:1.62;margin-bottom:9px;color:#4a4230;}
+  .tldr{background:#fff8e8;border:1.5px solid #f0dcae;border-radius:12px;padding:18px 20px;margin-bottom:22px;}
+  .tldr .h{font-size:19px;font-weight:900;color:#5c4a1a;margin-bottom:14px;}
+  .tldr .item{display:flex;gap:11px;align-items:flex-start;margin-bottom:15px;}
   .tldr .item:last-child{margin-bottom:0;}
-  .tldr .item .ic{flex:0 0 auto;font-size:16px;line-height:1.5;}
-  .tldr .item b{color:#0a3f39;}
+  .tldr .item .ic{flex:0 0 auto;font-size:23px;line-height:1.25;}
+  .tldr .item .big{display:block;font-size:19px;font-weight:900;color:#0a3f39;line-height:1.4;}
+  .tldr .item .sub{font-size:14.5px;color:#5a5340;line-height:1.55;}
+  @media(max-width:600px){.tldr .h{font-size:18px;}.tldr .item .ic{font-size:21px;}.tldr .item .big{font-size:17.5px;}}
   .who{background:var(--sea-bg);border:1px solid #bcdfeb;border-left:5px solid var(--sea);border-radius:9px;padding:15px 17px;margin-bottom:22px;font-size:14.5px;line-height:1.75;color:#0a3f52;}
   .who b{color:var(--sea);}
   h2{font-size:18px;font-weight:900;color:var(--accent2);margin:26px 0 10px;border-left:5px solid var(--accent);padding-left:11px;}
@@ -61,14 +63,13 @@
 
   <div class="body">
     <div class="tldr">
-      <div class="h">⚡ 懶人卡 · 30 秒看完</div>
-      <div class="item"><span class="ic">🤝</span><div>對方是<b>保育端</b>媒體，卻挺我們「<b>科學管理取代一刀切</b>」——難得的盟友，要爭取。</div></div>
-      <div class="item"><span class="ic">🕳️</span><div>他們點破我們最大破口：<b>「怎麼管」太空</b>，會被政府用「<b>無從落實</b>」打成全面禁止。</div></div>
-      <div class="item"><span class="ic">🛠️</span><div>他們的配套（跟我們幾乎一致）：<b>海巡＋市府聯合執法、實名證照＋規費專用、禁售＋每日上限＋漁獲回報</b>。</div></div>
-      <div class="item"><span class="ic">⭐</span><div>最關鍵科學修正：<b>要保護大魚（上限／區間體長 slot limit），不是只設最小體長</b>；脆弱種（龍王鯛）禁採、護產卵場、禁夜射、氣瓶禁只准自潛。</div></div>
-      <div class="item"><span class="ic">🎯</span><div>他們的提醒：魚槍「<b>專挑最大個體</b>」是真風險，要<b>正面承認、別逃避</b>（逃避＝送對方全禁的理由）。</div></div>
-      <div class="item"><span class="ic">⚖️</span><div>內部取捨：要<b>接受更多科學限制</b>，換這項活動繼續合法——<b>內部先對齊願不願意</b>。</div></div>
-      <div class="item"><span class="ic">💡</span><div><b>一句話：這是保育端遞來的「怎麼讓你們贏」藍圖，全力爭取為盟友。</b></div></div>
+      <div class="h">⚡ 懶人卡 · 一眼看完</div>
+      <div class="item"><span class="ic">🤝</span><div><span class="big">保育端，也挺我們</span><span class="sub">支持「科學管理取代一刀切」，難得的盟友。</span></div></div>
+      <div class="item"><span class="ic">🕳️</span><div><span class="big">破口＝「怎麼管」太空</span><span class="sub">否則被政府用「無從落實」打成全面禁止。</span></div></div>
+      <div class="item"><span class="ic">⭐</span><div><span class="big">保護大魚，不是只禁小魚</span><span class="sub">上限／區間體長（slot limit）＋脆弱種禁採，才叫科學。</span></div></div>
+      <div class="item"><span class="ic">🎯</span><div><span class="big">選擇性＝真風險，別逃避</span><span class="sub">魚槍專挑最大個體；逃避＝送對方全禁的理由。</span></div></div>
+      <div class="item"><span class="ic">⚖️</span><div><span class="big">代價：接受更多限制</span><span class="sub">換活動繼續合法——內部先對齊願不願意。</span></div></div>
+      <div class="item"><span class="ic">💡</span><div><span class="big">這是「怎麼讓你們贏」的藍圖</span><span class="sub">全力爭取為盟友。</span></div></div>
     </div>
 
     <div class="who"><b>對方是誰、為什麼重要：</b>藍色脈動是<b>保育端</b>的海洋媒體。難得的是，他們對魚槍選擇性有保留，<b>卻明確支持我們「以科學管理取代一刀切」的方向</b>，還主動提議「把討論打開、找最大公約數」。這等於是<b>保育圈伸出的一座橋</b>——爭取到他們，就拿到保育端的背書與媒體擴音。以下看看他們的完整思路。</div>
