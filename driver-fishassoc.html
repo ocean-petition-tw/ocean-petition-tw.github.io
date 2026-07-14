@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>草案背後的推手：漁會（內部戰略）</title>
+<style>
+  :root{--ink:#16202b;--sub:#5a6470;--line:#e0e6ea;--accent:#0b5c8f;--accent2:#0a2f47;--band:#f4f7f9;
+    --red:#a5281f;--red-bg:#fdecea;--gold:#8a5a00;--gold-bg:#fff6e5;--ok:#1b7f4b;--ok-bg:#e7f6ee;--us:#0d6e63;--us-bg:#e9f6f3;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{-webkit-text-size-adjust:100%;}
+  body{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif;color:var(--ink);background:#eef1f4;line-height:1.78;font-size:15.5px;padding-bottom:44px;}
+  .back{max-width:840px;margin:0 auto;padding:14px 20px 0;}
+  .back a{color:var(--accent);font-weight:800;text-decoration:none;font-size:14px;}
+  .page{max-width:840px;margin:8px auto 0;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.1);}
+  header.doc{background:linear-gradient(160deg,#3a1414,#7a1f24 82%);color:#fff;padding:28px 30px 24px;}
+  header .kick{font-size:12.5px;letter-spacing:2px;color:#eab8b8;font-weight:800;}
+  header h1{font-size:24px;font-weight:900;margin:8px 0 8px;line-height:1.32;}
+  header p{font-size:13.5px;color:#f0cccc;}
+  .body{padding:24px 30px 8px;}
+  @media(max-width:600px){header.doc{padding:24px 18px 20px;}.body{padding:18px 15px 6px;}header h1{font-size:20px;}}
+
+  .tldr{background:#fff8e8;border:1.5px solid #f0dcae;border-radius:12px;padding:18px 20px;margin-bottom:22px;}
+  .tldr .h{font-size:19px;font-weight:900;color:#5c4a1a;margin-bottom:14px;}
+  .tldr .item{display:flex;gap:11px;align-items:flex-start;margin-bottom:15px;}
+  .tldr .item:last-child{margin-bottom:0;}
+  .tldr .item .ic{flex:0 0 auto;font-size:23px;line-height:1.25;}
+  .tldr .item .big{display:block;font-size:19px;font-weight:900;color:#7a1f24;line-height:1.4;}
+  .tldr .item .sub{font-size:14.5px;color:#5a5340;line-height:1.55;}
+  @media(max-width:600px){.tldr .h{font-size:18px;}.tldr .item .ic{font-size:21px;}.tldr .item .big{font-size:17.5px;}}
+
+  h2{font-size:19px;font-weight:900;color:var(--accent2);margin:28px 0 8px;border-left:5px solid var(--red);padding-left:11px;}
+  .ev{border:1px solid var(--line);border-left:5px solid var(--red);border-radius:9px;padding:13px 16px;margin:11px 0;background:#fffafa;}
+  .ev .t{font-size:16px;font-weight:900;color:var(--red);margin-bottom:5px;}
+  .ev .src{font-size:12px;color:var(--sub);font-weight:700;margin-bottom:6px;}
+  .ev .q{border-left:3px solid #c9a0a0;background:#faf3f3;padding:8px 12px;border-radius:0 5px 5px 0;font-size:14px;color:#5a2020;margin:6px 0;line-height:1.6;}
+  .ev p{font-size:14.5px;line-height:1.68;}
+  .ev b{color:var(--accent2);}
+
+  .mask{display:flex;gap:12px;margin:12px 0;flex-wrap:wrap;}
+  .mask>div{flex:1 1 260px;border-radius:10px;padding:13px 15px;font-size:14px;line-height:1.68;}
+  .mask .say{background:var(--ok-bg);border:1px solid #bfe3cd;}
+  .mask .real{background:var(--red-bg);border:1px solid #f0c5c1;}
+  .mask .lbl{font-size:12.5px;font-weight:900;margin-bottom:5px;}
+  .mask .say .lbl{color:var(--ok);} .mask .real .lbl{color:var(--red);}
+  .mask b{color:var(--accent2);}
+
+  .do{background:var(--us-bg);border:1px solid #bfe3db;border-left:5px solid var(--us);border-radius:9px;padding:13px 16px;margin:10px 0;font-size:14.5px;line-height:1.72;}
+  .do .t{font-size:15px;font-weight:900;color:var(--us);margin-bottom:4px;}
+  .do b{color:var(--us);}
+  .warn{background:var(--gold-bg);border:1px solid #f0dcae;border-left:5px solid var(--gold);border-radius:9px;padding:14px 16px;margin:14px 0;font-size:14.5px;line-height:1.75;color:#5c4a1a;}
+  .warn b{color:var(--gold);}
+  .final{background:linear-gradient(160deg,#3a1414,#7a1f24);color:#fff;border-radius:12px;padding:18px 20px;margin:24px 0 6px;font-size:15px;line-height:1.85;}
+  .final b{color:#ffd9a0;}
+  .note{max-width:840px;margin:16px auto 0;padding:0 30px;}
+  .note .box{background:#fafbfc;border:1px dashed var(--line);border-radius:8px;padding:13px 16px;font-size:12.5px;color:var(--sub);line-height:1.7;}
+  @media(max-width:600px){.note{padding:0 16px;}}
+</style>
+</head>
+<body>
+<div class="back"><a href="internal.html">← 回內部工作台</a></div>
+<div class="page">
+  <header class="doc">
+    <div class="kick">內 部 戰 略 · 深 度 推 想</div>
+    <h1>草案背後的推手，是漁會<br>——「保育」只是外衣</h1>
+    <p>綜合陳情電話逐字稿、拆彈清單與草案條文的推論。內部研判，接觸前務必再確認。</p>
+  </header>
+
+  <div class="body">
+    <div class="tldr">
+      <div class="h">⚡ 懶人卡 · 一眼看穿</div>
+      <div class="item"><span class="ic">🎯</span><div><span class="big">真正推手是漁會，不是保育</span><span class="sub">「保育」是包裝，實質是排除競爭者、圖利自己。</span></div></div>
+      <div class="item"><span class="ic">🔍</span><div><span class="big">鐵證一：依據是「漁會陳情」不是科學</span><span class="sub">承辦被問到證據時，親口說「主要是漁會有陳情、成員聯署」。</span></div></div>
+      <div class="item"><span class="ic">📜</span><div><span class="big">鐵證二：條文獨留漁會會員採海藻</span><span class="sub">萬里核心區「禁所有人」，卻開後門只准漁會會員採石花菜／麒麟菜。</span></div></div>
+      <div class="item"><span class="ic">🚫</span><div><span class="big">手法：禁魚槍潛水、放釣具</span><span class="sub">精準拔掉競爭者（潛水客），不是真的無差別禁採。</span></div></div>
+      <div class="item"><span class="ic">⚖️</span><div><span class="big">這是我方最強把柄</span><span class="sub">「圖利特定團體＋差別待遇」＝可撤銷整部草案。</span></div></div>
+      <div class="item"><span class="ic">🧭</span><div><span class="big">但要巧用，別自爆</span><span class="sub">打「假保育、真圖利」，別打成「漁會 vs 潛水客」私鬥；給守法在地漁民留台階。</span></div></div>
+    </div>
+
+    <h2>一、證據鏈：為什麼說漁會是推手</h2>
+
+    <div class="ev"><div class="t">① 官方自己說：依據是漁會，不是科學</div>
+      <div class="src">來源：陳情電話逐字稿（phone-record）</div>
+      <p>當陳情人追問「你如何證明我們打魚危害生態？」——承辦沒有拿出科學，而是回答：</p>
+      <div class="q">「主要是漁會有陳情，漁會的成員然後共同聯署。」</div>
+      <p>➡ 這句話等於承認：<b>草案的真正動力來源是漁會的陳情與聯署，科學（太平洋研究、網路販賣）只是事後補的說法。</b></p>
+    </div>
+
+    <div class="ev"><div class="t">② 條文鐵證：核心區獨厚漁會會員</div>
+      <div class="src">來源：拆彈清單 L2（govt_landmines）· 萬里草案三(二)2</div>
+      <p>萬里核心區第 1 款說「禁止以任何方式採捕」，第 2 款卻開後門：</p>
+      <div class="q">「採集石花菜或麒麟菜，以設籍萬里區漁會會員為限…由萬里區漁會…造冊函報。」</div>
+      <p>➡ <b>一個號稱「完全禁採」的保育核心區，卻獨留漁會會員採海藻——圖利直接寫進條文。</b>誰會在草案裡替漁會爭到這個專屬權利？答案不言可喻。</p>
+    </div>
+
+    <div class="ev"><div class="t">③ 手法：精準拔掉競爭者，不是無差別保育</div>
+      <div class="src">來源：拆彈清單 L1／L3 · 各區條文</div>
+      <p>各區「禁魚槍、禁潛水器」，<b>卻允許釣具採捕</b>；貢寮／瑞芳「核心區」也允許釣具——<b>根本不是真正的無採捕禁漁區</b>。</p>
+      <p>➡ 真保育會「對所有人一致」；這部草案卻<b>只挑掉「潛水／魚槍」這一群</b>，剛好就是跟漁會搶同一片近岸資源（石花菜、九孔、龍蝦、魚）的競爭者。</p>
+    </div>
+
+    <div class="ev"><div class="t">④ 動機：近岸資源的地盤之爭</div>
+      <div class="src">推論</div>
+      <p>潛水採捕與在地漁會漁民，<b>採的是同一片岸邊、同一批高價值資源</b>。把潛水客用「保育」之名清出去、再替漁會會員保留海藻專採——<b>這是資源分配與地盤之爭，被包裝成保育議題。</b></p>
+    </div>
+
+    <h2>二、外衣 vs 真相</h2>
+    <div class="mask">
+      <div class="say"><div class="lbl">🟢 官方／漁會說的（外衣）</div>為了<b>海洋保育</b>、水產資源永續，所以設保育區、禁魚槍。</div>
+      <div class="real"><div class="lbl">🔴 條文與電話透露的（真相）</div>依據是<b>漁會陳情</b>非科學；核心區<b>獨留漁會會員採海藻</b>；只禁潛水／魚槍、放行釣具——<b>排除競爭者＋圖利自己</b>。</div>
+    </div>
+
+    <h2>三、這對我方是危機還是轉機？——是「利器」</h2>
+    <p style="font-size:14.5px;">漁會是推手，反而給了我方<b>一把最鋒利的武器</b>：因為它讓政府宣稱的「保育高地」變成<b>致命弱點</b>。</p>
+    <div class="do"><div class="t">1. 法律戰：最強的撤銷點</div>「<b>圖利特定團體（漁會會員海藻專採）＋工具別差別待遇（禁槍放釣）</b>」違反平等原則、程序正義——這是律師戰線能<b>把整部草案打掉</b>的最強一擊（見拆彈清單 L1／L2／L3）。</div>
+    <div class="do"><div class="t">2. 贏保育端：戳破假保育</div>對藍色脈動等保育端說清楚：「<b>這根本不是科學保育，是圖利漁會、借保育之名的地盤戰。</b>」——真正的保育者最反感這種掛羊頭賣狗肉，這會把保育端推向我方。</div>
+    <div class="do"><div class="t">3. 撬公部門：新北只是在執行漁會的請託</div>新北的依據<b>薄弱（只有漁會陳情）又圖利</b>；而農業部漁業署、海保署<b>不會樂見圖利地方漁會</b>破壞全國一致與公平——§44 核定可據此卡關。</div>
+
+    <h2>四、但要巧用——三個校準（別自爆）</h2>
+    <div class="warn"><b>⚠ 校準一：打「假保育、真圖利」，不打「漁會 vs 潛水客」。</b><br>若對外變成「漁會跟潛水客搶地盤」的私鬥，我方會顯得<b>自利、格局小</b>，也會得罪在地社會。要把它框成「<b>反對圖利、要求對所有人公平的『真保育』</b>」——我們站的是公平與科學，不是搶食。</div>
+    <div class="warn"><b>⚠ 校準二：區分「漁會幹部／推手」與「守法在地漁民」。</b><br>爭到專採、推動禁令的是少數幹部；多數在地漁民未必知情、也未必得利。<b>別把在地漁民全推成敵人</b>——他們可能因外來拖網濫捕跟我方是同一陣線。</div>
+    <div class="warn"><b>⚠ 校準三：給漁會一個下台階。</b><br>用〈對漁會說帖〉：那條「會員專採」是<b>會炸到漁會自己的未爆彈</b>（一旦被訴，整個保育區連同漁會的期待一起被撤）；<b>拆掉它、改真中立禁漁區＝資源銀行溢出效益</b>，長期漁獲反而更多。給退路，比逼到牆角更容易讓草案轉彎。</div>
+
+    <div class="final"><b>一句話總結：</b>這部草案不是「保育 vs 我們」，是<b>漁會借『保育』之名，行『排除潛水競爭者＋圖利會員』之實</b>。看穿這點，我方最強的打法就浮現了——<b>用「圖利＋差別待遇」在法律戰打掉草案、用「假保育」把保育端拉過來、用「去團體化＋資源銀行」給漁會下台階；全程站在「公平、科學、真保育」的高地，而不是跳進地盤私鬥。</b></div>
+  </div>
+</div>
+<div class="note"><div class="box">
+  ※ 本頁為內部深度研判，係綜合陳情電話逐字稿、拆彈清單與草案條文之<b>推論</b>，非漁會或主管機關之正式表態；「漁會為推手」為高度合理之推斷，對外主張或法律行動前，請由律師就事證再行確認。內部參考，請勿對外散布。
+</div></div>
+<script data-goatcounter="https://kuchihwei9999.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
