@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>保育區調查案 完整事證與談判參考｜兩案 400 萬</title>
+<style>
+  :root{--ink:#16202b;--sub:#5a6470;--line:#e0e6ea;--accent:#0b5c8f;--accent2:#0a2f47;
+    --ok:#1b7f4b;--ok-soft:#e7f6ee;--warn:#b3261e;--warn-soft:#fdecea;--band:#f5f8fa;--hold:#8a5a00;--hold-soft:#fff6e5;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif;color:var(--ink);background:#eef1f4;line-height:1.7;font-size:16px;}
+  .back{max-width:860px;margin:0 auto;padding:14px 22px 0;}
+  .back a{color:var(--accent);font-weight:800;text-decoration:none;font-size:14px;}
+  .page{max-width:860px;margin:10px auto 40px;background:#fff;padding:0 0 30px;box-shadow:0 4px 24px rgba(0,0,0,.1);border-radius:12px;overflow:hidden;}
+  header.doc{background:linear-gradient(160deg,#05263f,#0b5c8f 70%);color:#fff;padding:32px 40px 26px;}
+  header .kick{font-size:13px;letter-spacing:3px;color:#8fd3e8;font-weight:700;}
+  header h1{font-size:26px;font-weight:900;margin:8px 0 12px;line-height:1.34;}
+  header .lead{font-size:16px;color:#eaf4f9;line-height:1.75;}
+  header .lead b{color:#fff;background:rgba(255,255,255,.18);padding:1px 6px;border-radius:4px;}
+  .body{padding:26px 40px 0;}
+  @media(max-width:600px){header{padding:24px 20px 20px;}.body{padding:20px 18px 0;}header h1{font-size:21px;}body{font-size:15.5px;}}
+
+  .divider{margin:34px -40px 0;padding:11px 40px;background:var(--accent2);color:#fff;font-size:15px;font-weight:900;letter-spacing:2px;}
+  @media(max-width:600px){.divider{margin:30px -18px 0;padding:10px 18px;}}
+  h2{font-size:20px;color:var(--accent2);font-weight:900;margin:28px 0 12px;border-left:6px solid var(--accent);padding-left:12px;}
+  h3{font-size:16px;color:var(--accent2);font-weight:800;margin:18px 0 7px;}
+  strong{color:var(--accent2);}
+  p{margin:9px 0;} .lede{color:var(--sub);font-size:14px;margin:-2px 0 10px;}
+  .law{background:#eef3f9;border-radius:4px;padding:0 6px;font-size:14px;color:#0a4c76;white-space:nowrap;}
+
+  .stat{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0;}
+  @media(max-width:600px){.stat{grid-template-columns:repeat(2,1fr);}}
+  .stat .s{background:#fff;border:2px solid var(--line);border-radius:12px;padding:16px 10px;text-align:center;}
+  .stat .s .big{font-size:32px;font-weight:900;color:var(--warn);line-height:1.05;}
+  .stat .s .cap{font-size:12.5px;color:var(--sub);margin-top:5px;font-weight:600;}
+
+  .big{background:linear-gradient(120deg,#e7f6ee,#f2fbf6);border:2px solid #bfe3cd;border-left:8px solid var(--ok);border-radius:12px;padding:18px 22px;margin:16px 0;}
+  .big .t{font-size:22px;font-weight:900;color:#15613c;line-height:1.4;}
+  .big .t em{color:var(--warn);font-style:normal;}
+  .big .s{font-size:15px;color:#335141;margin-top:7px;line-height:1.7;}
+  .big .s b{color:#15613c;}
+
+  .keyline{background:var(--accent2);color:#fff;border-radius:12px;padding:20px 24px;margin:22px 0;text-align:center;font-size:20px;font-weight:900;line-height:1.55;}
+  .keyline .hl{color:#ffe08a;}
+
+  table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13.5px;box-shadow:0 1px 3px rgba(0,0,0,.05);}
+  th,td{border:1px solid var(--line);padding:8px 11px;vertical-align:top;text-align:left;}
+  thead th{background:var(--accent);color:#fff;font-weight:600;}
+  td.k{font-weight:800;color:var(--accent2);white-space:nowrap;}
+  .x{color:var(--warn);font-weight:900;} .ck{color:var(--ok);font-weight:900;}
+  .wrap{overflow-x:auto;}
+
+  .quote{background:#fbfcfd;border:1px solid var(--line);border-left:4px solid #90a4b0;border-radius:0 8px 8px 0;padding:12px 16px;margin:11px 0;font-size:14.5px;color:#33414e;}
+  .quote .src{display:block;margin-top:5px;font-size:12.5px;color:var(--sub);}
+  .rebut{margin:9px 0;padding:0;list-style:none;}
+  .rebut li{position:relative;padding:6px 0 6px 24px;border-bottom:1px dashed var(--line);font-size:14.5px;}
+  .rebut li::before{content:"▸";position:absolute;left:3px;top:6px;color:var(--ok);font-weight:900;}
+  .rebut li:last-child{border-bottom:none;}
+
+  .ask{counter-reset:ask;}
+  .ask .item{position:relative;padding:12px 16px 12px 46px;margin:9px 0;background:var(--band);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:9px;font-size:15.5px;counter-increment:ask;}
+  .ask .item::before{content:counter(ask);position:absolute;left:12px;top:12px;width:26px;height:26px;background:var(--accent);color:#fff;border-radius:50%;text-align:center;line-height:26px;font-weight:900;}
+  .ask .item b{color:var(--accent2);}
+
+  .qa{margin:10px 0;border:1px solid var(--line);border-radius:9px;overflow:hidden;}
+  .qa .q{background:#fdecea;padding:9px 14px;font-weight:800;color:#7d1a15;font-size:14.5px;}
+  .qa .a{padding:10px 14px;font-size:14.5px;} .qa .a b{color:var(--ok);}
+
+  .holdbox{background:var(--hold-soft);border:1px solid #f0dcae;border-left:5px solid var(--hold);border-radius:9px;padding:13px 16px;margin:16px 0;font-size:13.5px;color:#5c4a1a;line-height:1.7;}
+  .holdbox b{color:var(--hold);}
+  .okbox{background:var(--ok-soft);border:1px solid #bfe3cd;border-left:5px solid var(--ok);border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14px;color:#1b4d33;}
+  .okbox b{color:var(--ok);}
+  a.ext{color:var(--accent);font-weight:700;word-break:break-all;}
+  .note{font-size:12.5px;color:var(--sub);margin-top:22px;border-top:1px solid var(--line);padding-top:12px;}
+</style>
+</head>
+<body>
+<div class="back"><a href="index.html">← 回資料總覽</a></div>
+<div class="page">
+  <header class="doc">
+    <div class="kick">完 整 事 證 · 談 判 參 考 · 全 據 政 府 公 開 資 料</div>
+    <h1>政府 2026 年委託近 400 萬科學調查，<br>卻一份都沒做完就先禁</h1>
+    <div class="lead">新北市要以「保育」全面禁止在貢寮、萬里、瑞芳採捕，並已公開表示<b>未來要增修「潛水魚槍、魚叉」的採捕管制</b>。本文件把所有查得的事實與來源整理齊全：<b>上半速覽、下半完整事證</b>，全部可逐一查證、後續可直接引用。</div>
+  </header>
+
+  <div class="body">
+
+    <!-- ===================== 速覽 ===================== -->
+    <div class="stat">
+      <div class="s"><div class="big">400<span style="font-size:18px">萬</span></div><div class="cap">2026 委託海大<br>兩案調查</div></div>
+      <div class="s"><div class="big">0<span style="font-size:18px">份</span></div><div class="cap">草案預告前<br>完成的調查</div></div>
+      <div class="s"><div class="big">6→12</div><div class="cap">6 月先禁、<br>12 月科學才做完</div></div>
+      <div class="s"><div class="big">0</div><div class="cap">報告提到<br>魚槍的次數</div></div>
+    </div>
+
+    <h2>四個對我方最有利的事實</h2>
+
+    <div class="big">
+      <div class="t">① 近 400 萬的科學，<em>一份都沒做完就先禁</em></div>
+      <div class="s">政府 2026 年委託海大做<b>兩案調查</b>，涵蓋草案要管的<b>全部海域</b>——野柳、萬里、瑞芳（300 萬）＋貢寮卯澳灣（95 萬）。兩案<b>都做到 2026 年 11 月底、12 月初才結束</b>；草案卻在 <b>6/17 就預告全面禁令</b>。<br>→ 如果早知道答案，近 400 萬要調查什麼？如果還不知道，憑什麼禁？</div>
+    </div>
+    <div class="big">
+      <div class="t">② 既有報告<em>從沒替「禁魚槍」背書</em></div>
+      <div class="s">前一份（113 年）報告<b>全文沒有「魚槍」二字</b>，只是一份物種名錄；科學調查<b>只編 10 萬元</b>，114 年還因缺錢<b>整年停擺</b>。<br>→ 用一份被廉價對待、又中斷過、沒提魚槍的報告，撐不起全面禁令。</div>
+    </div>
+    <div class="big">
+      <div class="t">③ 保育對象是<em>九孔、海膽、龍蝦、石花菜</em>——不是魚槍打的魚</div>
+      <div class="s">貢寮（卯澳灣）保育區保護的是九孔、海膽、龍蝦、石花菜，<b>靠潛水徒手、海女採集的定著性物種</b>；魚槍採的是游動的魚。<br>→ 要保護九孔、石花菜，卻拿「禁魚槍」開刀，<b>不是對症下藥</b>。</div>
+    </div>
+    <div class="big">
+      <div class="t">④ 執行的都是<em>海大學術團隊</em>，不是禁漁政策派</div>
+      <div class="s">貢寮卯澳灣（案 B）由<b>海洋環境與生態研究所</b>得標；野柳／萬里／瑞芳（案 A）得標亦為海洋大學——<b>兩案主持人政府都未公開</b>。更早 2024 年（113 年）已完成的野柳、萬里調查，報告載明由海生所<b>陳義雄教授</b>團隊執行。公開資料<b>查無這些學術團隊對禁魚槍的任何立場</b>。<br>→ 科學家沒喊要禁，是行政要禁。</div>
+    </div>
+
+    <div class="keyline">
+      管的是你<span class="hl">拿走了什麼、拿去幹嘛</span>——<br>不是你怎麼下水。<span class="hl">一把尺，量所有人。</span>
+    </div>
+
+    <h2>我們要什麼</h2>
+    <div class="ask">
+      <div class="item"><b>公開科學資料</b>——兩案調查的期中資料與結果，加 113 年報告全文。</div>
+      <div class="item"><b>等科學做完再議</b>——調查 11、12 月才結束，請在結果公開後再談管制。</div>
+      <div class="item"><b>說清楚科學依據</b>——保育對象是九孔、石花菜，禁魚槍的理由與科學是什麼？</div>
+      <div class="item"><b>依危害分級、不依工具全禁</b>——走 <span class="law">漁業法 §44</span> 完整程序，以行為（超量、販售、抓母魚、破壞棲地）分級，各漁法一視同仁。</div>
+    </div>
+
+    <h2>談判時對方會說 → 我方回應</h2>
+    <div class="qa"><div class="q">對方：我們已委託海大做科學調查，保育有憑有據。</div>
+      <div class="a"><b>那就請公開，並等它做完。</b>你們 2026 年一口氣發包兩案、近 400 萬，涵蓋全部海域——但兩案都做到 11、12 月才結束，草案卻 6 月就預告。科學還沒做完，怎麼會先有結論？</div></div>
+    <div class="qa"><div class="q">對方：貢寮也做了卯澳灣調查，不是沒有科學。</div>
+      <div class="a"><b>對，正好證明我們的重點：</b>那份卯澳灣調查 2026/4/23 才決標、做到 12/1 才結束，草案 6/17 就預告——調查還在進行，禁令已經先下。請等它做完、公開，再談。</div></div>
+    <div class="qa"><div class="q">對方：報告說「採捕干擾多的地方魚較少」，證明要管。</div>
+      <div class="a">那句<b>沒有採捕壓力實測、沒區分漁法</b>，且對照站是距岸最遠處（距離本身造成差異）。它反而證明保護區有效；要指向魚槍，舉證責任在主管機關。</div></div>
+    <div class="qa"><div class="q">對方：魚槍效率高、傷害大，本來就該禁。</div>
+      <div class="a">若是效率與傷害問題，就以<b>行為與結果</b>管理（數量上限、保護母魚、禁售、禁破壞棲地），各漁法一視同仁。單獨用「工具名稱」把守法自用者整類排除，欠缺科學與比例基礎。</div></div>
+    <div class="qa"><div class="q">對方：正式公告前自然會報農業部核定。</div>
+      <div class="a">那就<b>請於公告前承諾報核定並揭示文號</b>。核定前提是科學與比例站得住——目前科學未完成、依據未公開。</div></div>
+
+    <!-- ===================== 完整事證 ===================== -->
+    <div class="divider">完 整 事 證（後續引用用，可逐一查證）</div>
+
+    <h2>壹、兩個標案完整資料</h2>
+    <p class="lede">均取自政府電子採購網決標公告（見<a href="#src">來源①②</a>）。</p>
+    <div class="wrap">
+    <table>
+      <thead><tr><th style="width:20%"></th><th>案 A：野柳／萬里／瑞芳</th><th>案 B：卯澳灣（貢寮）</th></tr></thead>
+      <tbody>
+        <tr><td class="k">標案案號</td><td>Fishery11501-1</td><td>Fishery11503-3</td></tr>
+        <tr><td class="k">標案名稱</td><td>115 年新北市野柳、萬里及瑞芳水產動植物繁殖保育區物種生態調查</td><td>115 年新北市卯澳灣物種生態調查</td></tr>
+        <tr><td class="k">機關</td><td colspan="2">新北市政府漁業及漁港事業管理處（代碼 3.82.27.3；板橋區中山路一段 143 號 5 樓）</td></tr>
+        <tr><td class="k">承辦人</td><td>詹先生 02-8952-6055 #132</td><td>蕭先生 02-2499-1270 #22</td></tr>
+        <tr><td class="k">標的分類</td><td>〈勞務類〉882 附帶於漁業之服務</td><td>〈勞務類〉882 附帶於漁業之服務</td></tr>
+        <tr><td class="k">招標方式</td><td>限制性招標（<span class="law">採購法 §22Ⅰ⑨</span>）</td><td>公開取得報價單或企劃書</td></tr>
+        <tr><td class="k">決標方式</td><td>準用最有利標</td><td>參考最有利標精神</td></tr>
+        <tr><td class="k">投標家數</td><td>1 家</td><td>1 家</td></tr>
+        <tr><td class="k">得標廠商</td><td>國立臺灣海洋大學（代碼 00501503；<br>公開頁未列所別與主持人）</td><td>國立臺灣海洋大學<strong>海洋環境與生態研究所</strong>（代碼 00501503）</td></tr>
+        <tr><td class="k">預算 / 決標</td><td>300 萬 / <strong>300 萬（100%）</strong></td><td>100 萬 / <strong>95.2 萬（952,381 元）</strong></td></tr>
+        <tr><td class="k">原公告</td><td>115/01/28</td><td>115/03/11</td></tr>
+        <tr><td class="k">開標</td><td>115/02/10</td><td>115/03/18</td></tr>
+        <tr><td class="k">決標</td><td>115/03/05</td><td>115/04/23</td></tr>
+        <tr><td class="k">決標公告</td><td>115/03/11</td><td>115/05/13</td></tr>
+        <tr><td class="k">履約期間</td><td>115/04/01 ～ <strong>11/30</strong></td><td>115/04/23 ～ <strong>12/01</strong></td></tr>
+        <tr><td class="k">履約地點</td><td>新北市全區</td><td>新北市全區</td></tr>
+        <tr><td class="k">評選委員</td><td>7 人（見貳）</td><td>公開頁未顯示</td></tr>
+        <tr><td class="k">計畫主持人</td><td class="x">公開頁未列</td><td class="x">公開頁未列</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="font-size:14px;"><strong>關鍵共同點：</strong>草案預告日 <strong>2026/06/17，早於兩案完工日（11/30、12/01）</strong>；兩案皆<strong>僅海大 1 家投標</strong>；<strong>計畫主持人與詳細工作內容公開頁未列</strong>，須向漁業處申請政府資訊公開。</p>
+
+    <h2>貳、案 A 評選委員會（7 人）</h2>
+    <div class="wrap">
+    <table>
+      <thead><tr><th>委員</th><th>身分</th><th>出席</th></tr></thead>
+      <tbody>
+        <tr><td class="k">曾萬年</td><td>台大漁業科學研究所退休教授、東京大學博士</td><td class="ck">出席</td></tr>
+        <tr><td class="k">方天熹</td><td>海洋大學教授（海域環境調查）</td><td class="x">缺席</td></tr>
+        <tr><td class="k">陳仲吉</td><td>師範大學生命科學系教授</td><td class="ck">出席</td></tr>
+        <tr><td class="k">蕭莉芳</td><td><strong>漁業處秘書</strong></td><td class="ck">出席</td></tr>
+        <tr><td class="k">張鴻鈞</td><td><strong>漁業處技士</strong></td><td class="ck">出席</td></tr>
+        <tr><td class="k">胡惠鈞</td><td><strong>漁業處所長</strong></td><td class="ck">出席</td></tr>
+        <tr><td class="k">李曉玲</td><td><strong>漁業處專員</strong></td><td class="ck">出席</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>專家學者 3/7 ＝ 42.9%，<span class="ck">符合《政府採購法》§94「不得少於三分之一」，形式合法</span>；可觀察的事實：<strong>機關內部人員佔 4/7 過半</strong>，故其結果<strong>更應公開受檢視</strong>。（案 B 評選委員公開頁未顯示。）</p>
+
+    <h2>參、113 年前一份調查（已完成，可完整引用）</h2>
+    <p class="lede">《113 年新北市海洋保護區水下光傳輸生態監控系統維護及推廣暨海域魚類生態調查計畫》期末報告（編號 113 海保-061-綜-A-08；海保署補助、漁業處主辦、海大海生所陳義雄團隊執行）。見<a href="#src">來源③</a>。</p>
+    <ul class="rebut">
+      <li><strong>經費：</strong>全案 250 萬（中央 175 萬＋地方 75 萬）。依工作項目表：直播攝影系統 140 萬、影像推廣 10 萬、<strong>魚類生態調查僅 10 萬（佔全案 4%，為直播系統的 1/14）</strong>。</li>
+      <li><strong>停擺：</strong>報告原文「海域魚類生態調查是一項需要長期推動的工作，惟因本市經費有限<strong>且明年未獲貴署補助，因此該項調查工作只能暫停執行，實屬遺憾</strong>」＝<strong>114 年整年未做</strong>。</li>
+      <li><strong>範圍：</strong>樣站＝野柳 2 點＋萬里 2 點＋區外對照 3 點（無瑞芳、無貢寮）。</li>
+      <li><strong>結果：</strong>36 科 78 屬 128 種、23,478 尾次，經濟魚種佔 26.5%，最優勢＝霓虹雀鯛、六線雀鯛（小型雀鯛，非魚槍目標魚種）。<strong>全文無「魚槍」「潛水採捕」。</strong></li>
+    </ul>
+    <p>報告裡唯一可能被拿來支持禁令的一句：</p>
+    <div class="quote">「海岸距離最遠之萬里外對照區（OU-W），各季別則明顯未受明顯保護<strong>且民眾採捕之干擾較多</strong>，海域魚類多樣性及群聚總量皆明顯較低。」<span class="src">— 113 年計畫期末報告</span></div>
+    <ul class="rebut">
+      <li>沒量測採捕壓力（「採捕干擾較多」是推論、非數據）。</li>
+      <li>沒區分漁法（釣魚／網具／潛水／魚槍都沒分開）。</li>
+      <li>OU-W 是距岸最遠的站，距離／深度本身就造成差異（混淆變項）。</li>
+      <li>反證保護區有效 → 支持「保護區從嚴、非保護區分級」，非全域全禁。</li>
+    </ul>
+
+    <h2>肆、執行者：陳義雄教授與 IMEE</h2>
+    <div class="quote">「經國立臺灣海洋大學<strong>陳義雄教授團隊</strong>執行本計畫後發現，⋯⋯共現場調查記錄到共 36 科 78 屬 128 種⋯⋯」<span class="src">— 113 年期末報告（逐字）</span></div>
+    <ul class="rebut">
+      <li><strong>陳義雄</strong>（海大海生所教授、英國布里斯托大學博士）＝魚類系統分類學者，2024 年於 <em>Zootaxa</em> 發 29 篇，著《澎湖南方四島魚類生態圖鑑》等；<strong>查無其對禁魚槍的公開立場</strong>。其具名執行者身分<strong>僅見於 2024 年（113 年）這份已完成報告</strong>——<strong>115 年兩案（案 A、案 B）主持人政府未公開，不可將此兩案歸給陳義雄。</strong></li>
+      <li><strong>案 A（Fishery11501-1）</strong>得標＝國立臺灣海洋大學；<strong>公開頁未列所別與主持人</strong>。</li>
+      <li><strong>案 B（Fishery11503-3，卯澳灣／貢寮）</strong>得標＝海洋大學<strong>海洋環境與生態研究所（IMEE）</strong>；主持人公開頁未列。</li>
+    </ul>
+    <div class="okbox"><b>研判：</b>兩案都是海大學術團隊，其數據支持「保護區有效、分級管理」，<b>從未替全面禁魚槍背書</b>。接觸時宜以「請教、把數據還給他看」為調性。<b>115 年兩案主持人政府未公開，尚未證實，不指名。</b></div>
+    <div class="holdbox"><b>別搞混兩條線：</b>另一波「海膽／珊瑚復育」新聞裡具名的海大人是<b>副校長冉繁華、學者徐德華</b>（貢寮海洋資源復育，自 2019 起）——<b>與魚類生態調查、與陳義雄、與 IMEE 這兩案無關</b>。</div>
+
+    <h2>伍、政府「要禁魚槍」是既定方向（兩則新聞，逐字）</h2>
+    <p class="lede">2026/6/25，市長侯友宜出席貢寮「海膽苗放流＋距岸三海浬禁刺網」記者會，會中釋出下一步管制方向，<strong>兩家獨立媒體都記錄到</strong>：</p>
+    <div class="wrap">
+    <table>
+      <thead><tr><th style="width:24%">媒體</th><th>逐字原文</th></tr></thead>
+      <tbody>
+        <tr><td class="k">臺灣郵報<br>（王志成 2026/6/25；<br>蕃新聞轉載）</td><td>「未來更規劃<strong>擴大保育區範圍並增修潛水魚槍、魚叉的採捕管制規範</strong>」</td></tr>
+        <tr><td class="k">自由時報<br>（俞肇福 2026/6/25）</td><td>「未來將<strong>擴大保育區並增修潛水魚槍等採捕管制規範</strong>」</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>兩家用字不同＝各自採訪、非照抄新聞稿，<strong>相互印證</strong>。同場另有 UDN、新頭條報導「<strong>貢寮 2026/1/1 起距岸 3 海浬全面禁刺網、違者最高罰 15 萬</strong>」；記者會現場同框者尚有<strong>貢寮區漁會理事長陳國光、總幹事林麗美</strong>。</p>
+    <div class="okbox"><b>意義：</b>「禁魚槍」是政府<b>已對外表明的既定方向</b>，不是民間臆測——這正是我方主張「先公開科學、走完程序」的理由：<b>方向都定了，科學卻還沒做完</b>。</div>
+
+    <h2>陸、貢寮保育區範圍與保育對象</h2>
+    <ul class="rebut">
+      <li><strong>範圍：</strong>貢寮區福連里<strong>卯澳（A）至洋寮鼻（D）</strong>，由 A、D 為基點距岸 300 公尺之 B、C 兩點以南海域（101/4/5 北府農漁字第10142435241號）。<strong>→ 卯澳灣＝貢寮保育區本身，故案 B 就是貢寮保育區的調查。</strong></li>
+      <li><strong>保育對象：</strong>九孔、海膽、龍蝦、石花菜等（定著性無脊椎動物與藻類，靠潛水徒手、海女採集）——<strong>非魚槍所採之游動魚類</strong>。</li>
+    </ul>
+
+    <h2 id="src">柒、完整來源連結</h2>
+    <div class="wrap">
+    <table>
+      <tbody>
+        <tr><td class="k">① 案 A 決標公告</td><td><a class="ext" href="https://web.pcc.gov.tw/tps/atm/AtmAwardWithoutSso/QueryAtmAwardDetailHist?pkAtmMain=&fkPmsMainHist=OTYzMzg2MDY%3D&tenderCaseNo=Fishery11501-1&contentMode=0" target="_blank" rel="noopener">web.pcc.gov.tw／Fishery11501-1</a></td></tr>
+        <tr><td class="k">② 案 B 決標公告</td><td><a class="ext" href="https://web.pcc.gov.tw/tps/atm/AtmAwardWithoutSso/QueryAtmAwardDetailHist?fkPmsMainHist=OTY2Mjg3MDE%3D&userType=" target="_blank" rel="noopener">web.pcc.gov.tw／Fishery11503-3（卯澳灣）</a></td></tr>
+        <tr><td class="k">③ 113 年期末報告</td><td><a class="ext" href="https://mpa.oca.gov.tw/Files/Knowledge/6bfc2886cf084cb1b6a4412f1150f73a.pdf" target="_blank" rel="noopener">mpa.oca.gov.tw／113 年報告 PDF</a></td></tr>
+        <tr><td class="k">④ 陳義雄教授</td><td><a class="ext" href="https://imb.ntou.edu.tw/p/412-1075-8544.php?Lang=zh-tw" target="_blank" rel="noopener">imb.ntou.edu.tw／陳義雄教授</a>　│　IMEE：<a class="ext" href="https://imee.ntou.edu.tw/" target="_blank" rel="noopener">imee.ntou.edu.tw</a></td></tr>
+        <tr><td class="k">⑤ 新聞（臺灣郵報）</td><td><a class="ext" href="https://taiwanpost.net/2026/local/147594/" target="_blank" rel="noopener">taiwanpost.net／147594</a>（蕃新聞轉載：<a class="ext" href="https://n.yam.com/Article/20260625122300" target="_blank" rel="noopener">n.yam.com</a>）</td></tr>
+        <tr><td class="k">⑥ 新聞（自由時報）</td><td><a class="ext" href="https://news.ltn.com.tw/news/life/breakingnews/5483650" target="_blank" rel="noopener">news.ltn.com.tw／5483650</a></td></tr>
+        <tr><td class="k">⑦ 貢寮保育區範圍</td><td><a class="ext" href="https://www.fa.gov.tw/view.php?theme=web_structure&id=428" target="_blank" rel="noopener">漁業署／貢寮水產動植物繁殖保育區</a></td></tr>
+        <tr><td class="k">⑧ 草案／法條</td><td><a class="ext" href="https://fishery.ntpc.gov.tw/upload/cht/attachment/6b3aa51467c74c9800b6a5bdfc9fd1fa.pdf" target="_blank" rel="noopener">草案 PDF</a>　│　漁業法§44、採購法§22/§94（law.moj.gov.tw）</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="holdbox"><b>守分寸（我方紀律）：</b>① 兩件採購案<b>形式合法</b>，<b>不指控違法或圖利</b>；② <b>不主張「政府沒有科學」</b>——政府確有委託兩案，我們打的正是「科學都還沒做完就先禁」；③ 兩案<b>計畫主持人政府未公開、尚未證實，故不指名</b>；④ 詳細工作內容為招標文件內容，凡屬推估之處均已標明。全部依政府公開資料與具名報導，如官方補件願據以修正。</div>
+
+    <div class="note">※ 本文件為政策倡議之事實整理與談判參考，整併自本站「科學依據的真相」與「事證懶人包」並補入卯澳灣（案 B）事證；金額、日期、範圍、引文均可依上列連結逐一查證。實際法律主張前請由委任律師確認。2026 年 7 月。</div>
+  </div>
+</div>
+<script data-goatcounter="https://kuchihwei9999.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
