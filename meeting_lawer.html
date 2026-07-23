@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>法律備戰 · 私人（僅發起人）</title>
+<style>
+  :root{--bg:#0d141a;--panel:#15222c;--panel2:#1a2b36;--ink:#e6eef2;--sub:#9fb2bc;--faint:#6d818c;
+    --line:#25373f;--gold:#e6b352;--teal:#43b0c4;--red:#e0685f;--red-soft:#3a1917;--ok:#3ec07a;--main:#f2b84b;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;font-size:15.5px;padding-bottom:44px;}
+  a{text-decoration:none;color:inherit;}
+  header{background:linear-gradient(160deg,#0a1319,#14313d 92%);border-bottom:2px solid var(--gold);padding:26px 18px 22px;}
+  .in{max-width:820px;margin:0 auto;}
+  .tag{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.2em;color:#12181a;background:var(--gold);border-radius:20px;padding:4px 14px;}
+  header h1{font-size:25px;font-weight:900;margin:12px 0 6px;color:#fff;}
+  header p{font-size:13.5px;color:var(--sub);}
+  .wrap{max-width:820px;margin:0 auto;padding:0 18px;}
+  .private{background:var(--red-soft);border:1px solid #6a2b28;border-left:5px solid var(--red);border-radius:9px;padding:13px 16px;margin:20px 0;font-size:13.5px;color:#f0c9c5;line-height:1.7;}
+  .private b{color:var(--red);}
+  .situ{background:var(--panel);border:1px solid var(--line);border-left:5px solid var(--teal);border-radius:9px;padding:13px 16px;margin:14px 0;font-size:14px;color:#cfe0e6;}
+  .situ b{color:var(--gold);}
+  h2{font-size:16px;font-weight:900;color:var(--gold);margin:26px 0 12px;letter-spacing:.03em;display:flex;align-items:center;gap:8px;}
+  /* timeline */
+  .tl{position:relative;margin:10px 0 6px;padding-left:30px;}
+  .tl::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:3px;background:var(--line);}
+  .ev{position:relative;margin:0 0 18px;}
+  .ev::before{content:"";position:absolute;left:-25px;top:3px;width:15px;height:15px;border-radius:50%;background:var(--bg);border:3px solid var(--teal);}
+  .ev.now::before{border-color:var(--gold);background:var(--gold);}
+  .ev.act::before{border-color:var(--red);background:var(--red);}
+  .ev .st{font-weight:900;color:#fff;font-size:15px;}
+  .ev .st .dl{font-size:12px;font-weight:800;color:var(--gold);margin-left:6px;}
+  .ev .do{font-size:13.5px;color:var(--sub);margin-top:3px;}
+  .ev .do b{color:#cfe0e6;}
+  /* doc cards */
+  a.card{display:block;background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:15px 17px;margin:11px 0;transition:background .15s,border-color .15s;}
+  a.card:hover{background:var(--panel2);border-color:var(--teal);}
+  .card .t{font-size:16.5px;font-weight:800;color:#fff;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .card .t .file{font-size:11px;font-weight:600;color:var(--faint);font-family:Consolas,monospace;}
+  .card .t .badge{font-size:10.5px;font-weight:800;padding:1px 8px;border-radius:12px;}
+  .b-now{background:#3a3411;color:var(--gold);} .b-main{background:#3a2a0f;color:var(--main);} .b-late{background:#1c2b33;color:var(--teal);}
+  .card .when{font-size:13px;color:var(--gold);font-weight:800;margin-top:6px;}
+  .card .d{font-size:13px;color:var(--sub);margin-top:4px;line-height:1.6;}
+  .card .d b{color:#cfe0e6;}
+  .card .go{font-size:13px;color:var(--teal);font-weight:700;margin-top:7px;}
+  .foot{max-width:820px;margin:26px auto 0;padding:0 18px;}
+  .foot .box{border:1px dashed var(--line);border-radius:8px;padding:13px 16px;font-size:12.5px;color:var(--faint);line-height:1.75;}
+  .foot .box b{color:var(--sub);}
+</style>
+</head>
+<body>
+<header><div class="in">
+  <span class="tag">🔒 私 人 · 僅 發 起 人</span>
+  <h1>法律備戰</h1>
+  <p>後續司法救濟之文件與使用時機　｜　供發起人個人掌握全局，未連結於任何頁面</p>
+</div></header>
+
+<div class="wrap">
+  <div class="private"><b>⚠ 這一頁只給你自己看。</b>本頁彙整完整訴訟部署與各文件之使用時機，含策略與底牌。<b>未從首頁、內部索引或夥伴頁（meeting.html）連結任何一處</b>；但 GitHub Pages 屬「有網址即可開」之公開靜態站，<b>並非密碼上鎖</b>——請只留給自己、勿外流本頁網址。</div>
+
+  <div class="situ"><b>總策略：</b>現階段（預告期至 8/17）主打「陳情＋施壓＋公信」，先不興訟；<b>若新北市府正式公告</b>，則依下列時間軸逐棒接力。每一份文件都是範本，交劉律師填當事人／文號／日期即可提出。核心武器＝<b>§44 III 未報中央核定</b>（程序）＋<b>停止執行</b>（保護夥伴不被罰、爭取時間等科學完成）。</div>
+
+  <h2>🕐 使用時機時間軸</h2>
+  <div class="tl">
+    <div class="ev now">
+      <div class="st">① 現在 · 預告期<span class="dl">至 2026/8/17</span></div>
+      <div class="do"><b>可做（不興訟）：</b>送陳情函（漁業署主力打核定＋海保署副本）、政資法申請、書面意見；7/28 記者會。<b>此階段草案僅預告、尚無處分，訴願／訴訟均「未成熟」不能提。</b></div>
+    </div>
+    <div class="ev act">
+      <div class="st">② 若正式公告（處分成立）</div>
+      <div class="do">處分一經公告即<b>生效、可裁罰</b>（3～15 萬＋沒入漁獲漁具）。救濟時鐘開始跑。</div>
+    </div>
+    <div class="ev act">
+      <div class="st">③ 公告後<span class="dl">30 日內</span> · 提訴願＋停止執行</div>
+      <div class="do">提 <b>訴願書</b>（向農業部、經新北市府）＋<b>併請停止執行</b>（訴願法 §93，門檻含「合法性顯有疑義」＝§44 III 未核定正中）。<b>逾 30 日＝喪失救濟，最硬期限。</b></div>
+    </div>
+    <div class="ev act">
+      <div class="st">④ 訴願駁回後<span class="dl">2 個月內</span> · 提行政訴訟</div>
+      <div class="do">向<b>臺北高等行政法院</b>提 <b>撤銷訴訟起訴狀</b> ＋ 另具 <b>停止執行聲請狀</b>（行訴 §116；起訴前亦可先聲請）。</div>
+    </div>
+    <div class="ev">
+      <div class="st">⑤ 一審敗訴後<span class="dl">20 日內</span> · 上訴</div>
+      <div class="do">上訴最高行政法院（行訴 §241）。停止執行之保護可延續。</div>
+    </div>
+    <div class="ev">
+      <div class="st">⑥ 用盡審級 · 確定敗訴後<span class="dl">6 個月內</span> · 憲法法庭</div>
+      <div class="do">聲請憲法法庭法規範審查（憲訴法 §59）。<b>後手，非近期武器。</b></div>
+    </div>
+  </div>
+
+  <h2>📑 文件（範本 · 待公告後由劉律師定稿）</h2>
+
+  <a class="card" href="petition-appeal.html">
+    <div class="t">訴願書 <span class="badge b-main">第 3 棒</span> <span class="file">petition-appeal.html</span></div>
+    <div class="when">時機：正式公告後 30 日內（訴願法 §14）· 向農業部、經新北市府</div>
+    <div class="d">進法院前的<b>強制第一關</b>（不訴願不能起訴）。打到農業部＝正好是該「核定」本案的機關，一石二鳥。<b>已內含「併請停止執行」</b>（訴願法 §93，可即刻凍結處分）。</div>
+    <div class="go">開啟範本 →</div>
+  </a>
+
+  <a class="card" href="motion-stay.html">
+    <div class="t">停止執行聲請狀 <span class="badge b-main">保護傘</span> <span class="file">motion-stay.html</span></div>
+    <div class="when">時機：訴訟起訴前／繫屬中（行訴 §116）· 向臺北高等行政法院</div>
+    <div class="d">處分「不因你救濟而停止」——不聲請，打官司期間<b>禁令照禁、罰鍰照罰</b>，夥伴隨時被裁。這份把處分<b>凍結到判決確定</b>：保護採捕者、爭取時間等近 400 萬科學調查做完。要件本案都很足。</div>
+    <div class="go">開啟範本 →</div>
+  </a>
+
+  <a class="card" href="pleading-revocation.html">
+    <div class="t">行政訴訟起訴狀（撤銷訴訟） <span class="badge b-late">第 4 棒</span> <span class="file">pleading-revocation.html</span></div>
+    <div class="when">時機：訴願駁回後 2 個月內（行訴 §4）· 向臺北高等行政法院</div>
+    <div class="d">正式進法院、請求<b>撤銷禁魚槍潛水部分</b>。打程序（§44 III 未核定／未聽證）＋實體（比例／平等／未查證）。附「公務員責任」附論與附表（<b>責任架構，非犯罪指控</b>）。已標定性 caveat（一般處分為前提）。</div>
+    <div class="go">開啟範本 →</div>
+  </a>
+
+  <h2>🔗 相關（現階段先用）</h2>
+  <a class="card" href="petition-fisheries.html">
+    <div class="t">陳情函 · 農業部漁業署 <span class="badge b-now">現在可送</span> <span class="file">petition-fisheries.html</span></div>
+    <div class="when">時機：現在（預告期）· 主力打 §44 III 核定</div>
+    <div class="d">由聯盟具名。要求揭示是否已報核定、核定文號，於科學完成前建請暫緩核定。（此為夥伴頁 meeting.html 亦有之文件。）</div>
+    <div class="go">開啟 →</div>
+  </a>
+  <a class="card" href="petition-oca.html">
+    <div class="t">陳情函 · 海洋保育署 <span class="badge b-now">現在可送</span> <span class="file">petition-oca.html</span></div>
+    <div class="when">時機：現在 · 副本／留紀錄（海保署已談過、無好解方）</div>
+    <div class="d">打「全國一致、地方不宜搶跑」＋差別待遇。價值主要在留書面紀錄，可作漁業署函之副本一併送。</div>
+    <div class="go">開啟 →</div>
+  </a>
+</div>
+
+<div class="foot"><div class="box"><b>※ 私人法律備戰頁。</b>本頁及所連結之訴訟文件均為<b>範本</b>，須待正式公告後、由委任律師依實際情形定稿始得提出；所引法條（漁業法 §44、訴願法 §4／§14／§58／§93、行政訴訟法 §4／§116、行政程序法 §6／§7／§9／§36／§154／§155／§158、國家賠償法 §2、公務員懲戒法 §9／§13）均經全國法規資料庫核對現行原文。<b>公務員責任僅列法制架構，不對特定人為犯罪指控。請勿外流本頁網址。</b></div></div>
+</body>
+</html>
