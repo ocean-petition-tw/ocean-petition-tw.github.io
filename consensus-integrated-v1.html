@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新北市保育區草案 ｜ 內部共識整合版 v1</title>
+<style>
+  :root{
+    --ink:#16202b; --sub:#5a6470; --line:#dbe1e8; --accent:#0b5c8f; --accent2:#0a4c76;
+    --accent-soft:#eaf3f9; --band:#f5f8fa;
+    --ok:#1b7f4b; --ok-soft:#e7f6ee;
+    --warn:#b3261e; --warn-soft:#fdecea;
+    --hold:#8a5a00; --hold-soft:#fff6e5;
+    --lock:#334155; --lock-soft:#eef1f5;
+  }
+  *{box-sizing:border-box;}
+  body{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif;
+    color:var(--ink); line-height:1.85; margin:0; background:#eef1f4; font-size:16px;}
+  .page{max-width:920px; margin:30px auto; background:#fff; padding:52px 58px;
+    box-shadow:0 2px 18px rgba(0,0,0,.09); border-radius:6px;}
+  header.doc{border-bottom:3px solid var(--accent); padding-bottom:16px; margin-bottom:10px;}
+  h1{font-size:25px; margin:0 0 12px; letter-spacing:.5px;}
+  .meta{font-size:13px; color:var(--sub); line-height:1.75; background:var(--band);
+    border-radius:6px; padding:12px 16px;}
+  .meta b{color:var(--accent2);}
+  h2{font-size:19px; margin:38px 0 14px; padding:8px 14px; background:var(--accent);
+    color:#fff; border-radius:5px; letter-spacing:.5px;}
+  h3{font-size:16.5px; margin:22px 0 10px; color:var(--accent2);
+    border-left:5px solid var(--accent); padding-left:11px;}
+  p{margin:9px 0;} strong{color:#000;}
+  ul,ol{margin:9px 0 9px 2px; padding-left:22px;} li{margin:5px 0;}
+  table{border-collapse:collapse; width:100%; margin:14px 0; font-size:13.5px;
+    box-shadow:0 1px 3px rgba(0,0,0,.06);}
+  th,td{border:1px solid var(--line); padding:8px 10px; vertical-align:top; text-align:left;}
+  thead th{background:var(--accent); color:#fff; font-weight:600;}
+  tbody tr:nth-child(even){background:var(--band);}
+  td strong{color:var(--accent2);}
+  .badge{display:inline-block; font-size:11px; font-weight:700; padding:2px 10px;
+    border-radius:20px; margin-left:8px; vertical-align:middle; letter-spacing:.3px;}
+  .b-ok{background:var(--ok-soft); color:var(--ok);}
+  .b-warn{background:var(--warn-soft); color:var(--warn);}
+  .b-hold{background:var(--hold-soft); color:var(--hold);}
+  .b-lock{background:var(--lock-soft); color:var(--lock);}
+  .b-con{background:var(--accent-soft); color:var(--accent);}
+  .box{border-radius:6px; padding:14px 18px; margin:16px 0; font-size:14px;}
+  .box p:first-child{margin-top:0;} .box p:last-child{margin-bottom:0;} .box h3{margin-top:0;}
+  .box-ok{background:var(--ok-soft); border:1px solid #bfe3cd; border-left:4px solid var(--ok);}
+  .box-ok h3{color:var(--ok); border-color:var(--ok);}
+  .box-warn{background:var(--warn-soft); border:1px solid #f3c5c1; border-left:4px solid var(--warn);}
+  .box-warn h3{color:var(--warn); border-color:var(--warn);}
+  .box-hold{background:var(--hold-soft); border:1px solid #f0dcae; border-left:4px solid var(--hold);}
+  .box-hold h3{color:var(--hold); border-color:var(--hold);}
+  .box-lock{background:var(--lock-soft); border:1px solid #cdd5df; border-left:4px solid var(--lock);}
+  .box-lock h3{color:var(--lock); border-color:var(--lock);}
+  .anchor{background:linear-gradient(180deg,#0b5c8f,#0a4c76); color:#fff; border-radius:8px;
+    padding:18px 22px; margin:14px 0 4px;}
+  .anchor .k{font-size:12px; letter-spacing:2px; opacity:.85;}
+  .anchor .v{font-size:18px; font-weight:700; margin-top:4px; line-height:1.6;}
+  .legend{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 0;}
+  .divider{margin:34px 0 4px; padding:9px 16px; background:#fbeee0; border-left:5px solid var(--hold);
+    border-radius:6px; font-weight:700; color:var(--hold); font-size:15px;}
+  .note{font-size:12.5px; color:var(--sub); margin-top:36px; border-top:1px solid var(--line); padding-top:12px;}
+  .rev{background:#fff9e9; border-left:3px solid var(--hold); padding:2px 8px; border-radius:3px; font-size:12px; color:var(--hold);}
+  @media print{
+    body{background:#fff; font-size:12px;} .page{box-shadow:none; margin:0; max-width:none; padding:0 8mm;}
+    h2,thead th,.anchor,.badge,.box,.divider{-webkit-print-color-adjust:exact; print-color-adjust:exact;}
+    tr,li,table,.box{break-inside:avoid;} h2,h3{break-after:avoid;}
+  }
+  @media (max-width:640px){.page{padding:26px 16px; margin:0;} table{font-size:12px;} th,td{padding:6px 7px;}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="doc">
+  <h1>新北市保育區草案 ｜ 內部共識整合版 <span style="color:var(--accent)">v1</span></h1>
+  <div class="meta">
+    <b>基準：</b>以「陳情書連署版」（bluepolicy.eponym.online，<b>約 200 人已送出</b>）為地基——不可自打嘴巴，後續文件須與之一致。<br>
+    <b>來源：</b>草案 PDF、陳情書 v3、四份討論紀錄（酒叔四大訴求、LINE 群、lilik FB 定調文、Roy、劉得煒、Chuck、研究生華…せいか、Duncan）。<br>
+    <b>條文：</b>全部已比對《漁業法》《刑法》《行政罰法》《海洋保育法》現行條文。
+    <span class="rev">閱讀動線：大目標 → 核心 → 待處理/待決策</span>
+    <div class="legend">
+      <span class="badge b-con">🟢 共識</span>
+      <span class="badge b-lock">🔒 已鎖定/已送出</span>
+      <span class="badge b-ok">✅ 好消息</span>
+      <span class="badge b-warn">⚠️ 待處理</span>
+      <span class="badge b-hold">🟡 待決策</span>
+    </div>
+  </div>
+</header>
+
+<div class="anchor">
+  <div class="k">大 目 標 · 已 送 出 的 基 準 線</div>
+  <div class="v">200 人送出的連署版＝<u>單一核心訴求</u>：資源永續利用保育區「勿將閉氣自由潛水與 SCUBA 一概而論」，改採分級管制。</div>
+</div>
+<p style="font-size:13.5px;color:var(--sub)">這是最有紀律的打法——單一清楚訴求，好動員、政府難迴避。後續所有文件（正式陳情、記者會、談判）必須與此一致。</p>
+
+<h2>零、一句話立場（大目標）<span class="badge b-con">🟢 共識</span></h2>
+<p><strong>我們支持海洋保育、支持設保育區、支持嚴懲濫捕濫售；我們反對的是——沒有科學分級、沒有充分溝通、沒有比例原則的「魚槍一刀切全面禁止」。</strong></p>
+
+<h2>壹、已送出連署版的訴求 <span class="badge b-lock">🔒 現行基準</span></h2>
+<h3>五點主張</h3>
+<ol>
+  <li>支持保育、支持設保育區。</li>
+  <li>支持<strong>全面禁止 SCUBA 射魚、商業濫捕、電魚毒魚炸魚</strong>等高破壞行為，支持核心保育區全面禁止。</li>
+  <li>閉氣自由潛水漁獵<strong>性質迥異於 SCUBA</strong>（在地文化、非商業自用、高選擇性、低衝擊、受體能天然上限）。</li>
+  <li><strong>差別待遇須有科學依據（平等原則）</strong>：草案允許釣具、卻全禁閉氣自潛魚槍，未證兩者危害顯著不同。</li>
+  <li>資源永續利用保育區應改採差異化管制。</li>
+</ol>
+<h3>核心建議（僅一項）——資源永續利用保育區依採捕方式分級</h3>
+<table>
+  <thead><tr><th style="width:34%">分區／行為</th><th>建議管制</th></tr></thead>
+  <tbody>
+    <tr><td><strong>SCUBA 射魚</strong></td><td>維持禁止（與草案一致）</td></tr>
+    <tr style="background:var(--ok-soft)"><td><strong>閉氣自潛持魚槍</strong>（非商業自用）</td><td><strong>每人每日採捕總量上限（依物種訂定）＋體型（最小可捕長度）＋禁漁期＋禁販售</strong>；以精準管制取代全面禁止</td></tr>
+    <tr><td><strong>核心保育區、緩衝保育區</strong></td><td>維持禁止</td></tr>
+    <tr><td>＋ 資料公開</td><td>公開東北角物種資源量調查、採捕統計、科學評估資料</td></tr>
+  </tbody>
+</table>
+<p style="font-size:13px;color:var(--sub)"><b>已送出之法律依據：</b>憲法 §7（平等）、§15（工作／財產權）、§23（比例）；漁業法 §44、§45；行政程序法 §7、§154。</p>
+
+<h2>貳、先前「待定調」的結果</h2>
+<div class="box box-lock">
+  <h3>【數量】🔒 已定案</h3>
+  <p>送出版已含「每人每日採捕總量上限（<strong>依物種訂定</strong>）」——分物種、科學化、<strong>未報具體數字</strong>、<strong>僅適用閉氣自潛（不含釣魚）</strong>。此即先前建議之折衷形態；為與 200 封一致，<strong>維持</strong>。Roy「別主動報數字」之慮，已被「依物種訂定、科學化」吸收。</p>
+</div>
+<div class="box box-hold">
+  <h3>【執照制度】🟡 長期倡議</h3>
+  <p>是否要求廢準則 §23（1989 停發潛水器執照）、建休閒採捕登記制——未在送出版，維持列為<strong>長期倡議</strong>，不影響本案。</p>
+</div>
+
+<h2>參、好消息：先前擔心的法律引用錯誤並未送出 <span class="badge b-ok">✅</span></h2>
+<div class="box box-ok">
+  <p>送出版<strong>不含</strong>建議一（SCUBA 罰則／沒入／刑責），法律依據<strong>未引 §65／§66／§68</strong>。故 v3 的「§66 不得沒入」「§65 第 9 款」「60 萬罰鍰」等錯誤<strong>未隨連署版送出</strong>，既送紀錄無須更正。</p>
+</div>
+
+<h2>肆、公信力主軸（貫穿全部）<span class="badge b-con">🟢 共識</span></h2>
+<div class="box box-ok">
+  <p>FB 留言區的共識警訊——連同情者與反對者都說：「先證明你們會檢舉自己的害群之馬，我們才挺。」<br>
+  → <strong>主動切割高調濫捕濫售者＋支持檢舉＋重罰壞人＝整場運動公信力的核心鑰匙。</strong>守法自用打魚人與濫捕濫售者不是同一群人。調性：有理、有據、有自律、有替代方案；只打條文與程序，不樹敵。</p>
+</div>
+
+<h2>伍、可強化論述的攻防彈藥 <span class="badge b-con">供記者會／後續訴訟</span></h2>
+<table>
+  <thead><tr><th style="width:26%">攻防點</th><th>內容</th></tr></thead>
+  <tbody>
+    <tr><td><strong>§44 III 中央核定</strong></td><td>新北引漁業法 §44 公告，公告前應報農業部核定——完成了嗎？</td></tr>
+    <tr><td><strong>澎湖判例（已更正）</strong></td><td>澎湖地院 108易64／109易10（顏睿宏案）：澎湖<strong>有</strong>合法且經刑事法院採認之 §44 I 款1 禁採公告；被告揹氣瓶採捕保育貝類，經依 §44 I 款1＋§60 II 判刑、並依刑法 §38／§38-1 沒收裝備與漁獲。→ 正證「§44 款1→§60 II 刑責＋沒收」重罰路線可行，並反襯新北「全面＋罰鍰」兩軸皆錯。<strong>對外勿主張「無縣市曾合法公告」</strong>；程序攻擊改集中於「新北是否取得 §44 III 農業部核定」。</td></tr>
+    <tr><td><strong>海保法競合</strong></td><td>休閒採捕本應循海保法（海保署正研擬休閒採捕辦法）；「永續利用」區全禁魚槍牴觸海保法永續利用精神，後續行政訴訟較有利。</td></tr>
+    <tr><td><strong>魚槍漁獲本即不得販售</strong></td><td>1989 停發潛水器執照、販售須符執照登記漁法 → 反向支持「嚴懲販售者」，凸顯守法者只自用。</td></tr>
+  </tbody>
+</table>
+
+<div class="divider">⬇ 以下為「待處理／待決策」事項，最後檢視</div>
+
+<h2>陸、需立即處理：送出版「科學文獻」引用有誤 <span class="badge b-warn">⚠️ 200 封已送出</span></h2>
+<div class="box box-warn">
+  <table>
+    <thead><tr><th>送出版（錯）</th><th>正確</th></tr></thead>
+    <tbody>
+      <tr><td>Williams et al. (2014)</td><td><strong>Lindfield, McIlwain &amp; Harvey (2014)</strong>，PLOS ONE 9(3):e92628（DOI 對、作者名錯）</td></tr>
+      <tr><td>Frisch et al. (2016) Biological Conservation</td><td><strong>Frisch et al. (2012)</strong>，PLOS ONE 7(12):e51938</td></tr>
+      <tr><td>Conservation Evidence Journal (2022)</td><td>Conservation Evidence <strong>資料庫頁面</strong>（非單篇論文）</td></tr>
+      <tr><td>北馬里亞納群島「2003 年起」</td><td>2002 年實施（部分文獻記 2003），引用時加註</td></tr>
+    </tbody>
+  </table>
+  <p><b>起因：</b>Duncan 網站用了文獻更正前的舊版，v3 的更正未同步上網。<br>
+  <b>風險：</b>若保育派學者抓「Williams 2014 沒這樣說」，傷公信力。<br>
+  <b>處理：</b>① 立即請 Duncan 更新網站為正確引用（後續送出即正確）；② 既送 200 封不必逐一補件，但<strong>正式團體陳情／記者會新聞稿一律用正確引用</strong>，必要時附一句「補充更正文獻標註」。</p>
+</div>
+
+<h2>柒、一致但「尚未送出」的擴充項 <span class="badge b-hold">🟡 可選後續加碼</span></h2>
+<p>非共識分歧，而是送出版為求聚焦暫略，可用於後續補充陳情、記者會、談判：</p>
+<ul>
+  <li><strong>分級重罰高破壞行為</strong>（SCUBA 商業／電魚／hookah／漁船組織性掃蕩／商業販售）＋沒入＋刑責路徑（§44 I 款1/款2 → §60 II；刑法 §38／§38-1 沒收）。</li>
+  <li><strong>舉報獎金＋多元檢舉管道</strong>（⭐公信力鑰匙，強烈建議至少在記者會主打）。</li>
+  <li>農業局 × 海巡署聯合即時執法（解決「查得到、罰不了」）。</li>
+  <li>原住民 14 日申請簡化（原基法傳統領域）。</li>
+</ul>
+<div class="box box-hold">
+  <p><strong>決策點：</strong>正式團體陳情要維持「單一核心訴求」的紀律（Roy 路線），還是加碼上列？<br>
+  <strong>建議：</strong>正式陳情<strong>維持聚焦</strong>；但<strong>記者會／新聞稿主打「我們自己在抓壞人」（舉報＋重罰壞人＋主動切割）</strong>，直接回應 FB 留言區「先證明你們管得住自己人」的公信力質疑。</p>
+</div>
+
+<div class="note">
+  本文件為內部對齊用整合稿，非最終對外文本；標「🟡 待決策」處尚未拍板。所引條文以全國法規資料庫現行版本為準。遞件前請再確認草案正式刊登公報之日期以計算 60 日意見陳述期限。閱讀動線：<b>大目標（頂部藍框＋零）→ 核心（壹～伍）→ 待處理／待決策（陸、柒）</b>。
+</div>
+
+</div>
+</body>
+</html>
