@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新北草案 × 基隆潮境　制度對照</title>
+<meta name="description" content="新北市貢寮萬里瑞芳保育區草案，與基隆市望海巷潮境海灣水產動植物繁殖保育區現行制度之逐項對照。">
+<style>
+  :root{
+    --bg:#f4f1ea; --paper:#fffdf8; --ink:#1f2b33; --sub:#55636c; --faint:#8b969e;
+    --line:#ded7c9; --navy:#1a3a4a; --gold:#b07d2b; --gold-bg:#f8f0dd; --sea:#12303e;
+    --a:#8a3d24; --a-bg:#fbeee9; --b:#1f5f7a; --b-bg:#e9f2f6;
+    --ok:#2f7d55; --ok-bg:#e8f4ed;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.8;font-size:16px;padding-bottom:60px;-webkit-font-smoothing:antialiased}
+  .w{max-width:960px;margin:0 auto;padding:0 18px}
+
+  header{background:linear-gradient(165deg,#0f2733,#1f4658);color:#fff;padding:44px 18px 38px;border-bottom:4px solid var(--gold)}
+  header .in{max-width:960px;margin:0 auto}
+  header .k{font-size:11.5px;font-weight:800;letter-spacing:.24em;color:#e8bf72}
+  header h1{font-size:clamp(24px,4.6vw,34px);font-weight:900;margin:13px 0 8px;line-height:1.3}
+  header .sub{font-size:15px;color:#c9dde5;line-height:1.8}
+
+  .sheet{background:var(--paper);border:1px solid var(--line);border-radius:4px;
+    padding:30px 32px 36px;margin-top:24px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+
+  h2{font-size:19.5px;font-weight:900;color:var(--navy);margin:34px 0 12px;
+     padding-bottom:8px;border-bottom:2px solid var(--navy)}
+  h2:first-child{margin-top:0}
+  p{margin:0 0 12px}
+  b,strong{font-weight:800;color:var(--sea)}
+
+  .lede{font-size:17px;font-weight:700;color:var(--sea);background:var(--gold-bg);
+    border-left:4px solid var(--gold);padding:14px 18px;border-radius:0 4px 4px 0;margin:0 0 18px;line-height:1.8}
+
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 14px}
+  table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:640px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  thead th{background:var(--navy);color:#fff;font-weight:800;font-size:14px}
+  thead th.a{background:#7a3520}
+  thead th.b{background:#1b5570}
+  td.k{background:#f3efe5;font-weight:700;white-space:nowrap;width:1%;color:var(--navy)}
+  td.a{background:var(--a-bg)}
+  td.b{background:var(--b-bg)}
+  .no{color:var(--a);font-weight:800}
+  .yes{color:var(--ok);font-weight:800}
+
+  .find{background:var(--ok-bg);border:1px solid #bcdcca;border-left:4px solid var(--ok);
+    padding:14px 18px;border-radius:0 4px 4px 0;margin:16px 0;line-height:1.85;font-size:15.5px}
+  .find b{color:#20613f}
+  .caut{background:var(--a-bg);border:1px solid #e8c6ba;border-left:4px solid var(--a);
+    padding:14px 18px;border-radius:0 4px 4px 0;margin:16px 0;line-height:1.85;font-size:15.5px}
+  .caut b{color:#7a3520}
+
+  ol.key{list-style:none;padding:0;counter-reset:k}
+  ol.key>li{counter-increment:k;position:relative;padding-left:2.5em;margin-bottom:16px}
+  ol.key>li:before{content:counter(k);position:absolute;left:0;top:.1em;
+    width:1.7em;height:1.7em;line-height:1.7em;text-align:center;border-radius:50%;
+    background:var(--gold);color:#fff;font-size:13px;font-weight:800}
+  ol.key>li .t{font-weight:800;color:var(--sea);font-size:16.5px;display:block;margin-bottom:3px}
+
+  .src{margin-top:28px;padding-top:16px;border-top:1px solid var(--line);
+    font-size:13px;color:var(--faint);line-height:1.9}
+  .src a{color:var(--gold)}
+
+  @media(max-width:640px){
+    body{font-size:15.5px}
+    .sheet{padding:22px 15px 28px}
+    h2{font-size:18px}
+    table{font-size:13.5px}
+  }
+  @media print{
+    body{background:#fff;padding:0;font-size:9.5pt}
+    header{background:#fff;color:#000;border-bottom:2px solid #000;padding:0 0 10px}
+    header h1{color:#000} header .sub,header .k{color:#333}
+    .sheet{border:0;box-shadow:none;padding:0;margin-top:12px}
+    .w{max-width:none;padding:0}
+    .scroll{overflow:visible}
+    table{min-width:0;font-size:8.5pt}
+    thead th{background:#ddd!important;color:#000!important;-webkit-print-color-adjust:exact}
+    thead th.a,thead th.b{background:#ddd!important;color:#000!important}
+    @page{size:A4;margin:14mm 12mm}
+    h2{page-break-after:avoid} table,tr{page-break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="in">
+    <div class="k">制 度 對 照</div>
+    <h1>新北草案　×　基隆潮境</h1>
+    <div class="sub">
+      新北市貢寮、萬里、瑞芳水產動植物繁殖保育區草案（115.6.17 預告）<br>
+      基隆市望海巷潮境海灣水產動植物繁殖保育區（105 年設立，現行版 113.4.1 生效）
+    </div>
+  </div>
+</header>
+
+<div class="w">
+<div class="sheet">
+
+  <h2>一句話</h2>
+  <div class="lede">
+    同一片北海岸、同一部漁業法、相鄰的兩個直轄市：<br>
+    基隆<b>用區域與許可管理，禁令對徒手、垂釣、魚槍一視同仁</b>；新北<b>點名魚槍與潛水器，放過釣具</b>。
+  </div>
+
+  <h2>一、基本架構</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr><th style="width:1%"></th><th class="a">新北草案</th><th class="b">基隆潮境（現行）</th></tr></thead>
+    <tbody>
+      <tr><td class="k">法源款次</td>
+        <td class="a">草案未載明款次<br><span style="font-size:13px;color:#7a5040">（罰則掛 §65⑥）</span></td>
+        <td class="b">漁業法 <b>§44Ⅰ④（漁區、漁期）</b>及<b>⑨（其他必要事項）</b>、§45Ⅰ、§65⑥<br><span style="font-size:13px;color:#456">未使用 §44Ⅰ③（漁具、漁法）</span></td></tr>
+      <tr><td class="k">面積</td>
+        <td class="a">核心區為貼岸小塊；<b>資源永續利用區為外海 3 浬（約 5.5 公里）</b>，橫跨貢寮、萬里、瑞芳</td>
+        <td class="b">核心區 <b>15 公頃</b>＋永續利用區 <b>3.6 公頃</b><br>全區 18.6 公頃</td></tr>
+      <tr><td class="k">分區</td>
+        <td class="a">核心保育區／緩衝保育區（僅萬里）／資源永續利用保育區</td>
+        <td class="b">核心區／永續利用區</td></tr>
+      <tr><td class="k">罰則</td>
+        <td class="a">§65⑥　3 萬～15 萬</td>
+        <td class="b">§65⑥　3 萬～15 萬</td></tr>
+      <tr><td class="k">實施年資</td>
+        <td class="a">尚未公告</td>
+        <td class="b"><b>已滿 8 年</b>，期間經一次修正擴大</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>二、最大分區的管制方式</h2>
+  <p style="font-size:15px;color:var(--sub)">兩案面積最大、最多人使用的分區，管制邏輯完全相反。</p>
+  <div class="scroll">
+  <table>
+    <thead><tr><th style="width:1%">項目</th><th class="a">新北｜資源永續利用保育區</th><th class="b">基隆潮境｜核心區</th></tr></thead>
+    <tbody>
+      <tr><td class="k">管制邏輯</td>
+        <td class="a"><b>指名工具</b>：禁魚槍、潛水器</td>
+        <td class="b"><b>全面許可</b>：非經許可禁止<b>以任何方式</b>採捕</td></tr>
+      <tr><td class="k">徒手採捕</td><td class="a">不限</td><td class="b"><b>明文納管</b></td></tr>
+      <tr><td class="k">沿岸垂釣</td><td class="a">不限</td><td class="b"><b>明文納管</b></td></tr>
+      <tr><td class="k">一般漁具</td><td class="a">不限</td><td class="b">納管</td></tr>
+      <tr><td class="k">魚槍</td><td class="a"><span class="no">禁</span></td><td class="b">納管（與其他方式相同）</td></tr>
+      <tr><td class="k">潛水器</td><td class="a"><span class="no">禁</span></td><td class="b">納管（與其他方式相同）</td></tr>
+      <tr><td class="k">物種尺寸</td><td class="a">不限</td><td class="b">不適用（原則禁採）</td></tr>
+      <tr><td class="k">繁殖季節</td><td class="a">不限</td><td class="b">不適用（原則禁採）</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="caut">
+    <b>必須誠實面對的一點：</b>潮境的<b>永續利用區</b>寫的是「僅可從事<b>經許可經營之漁業</b>」——休閒採捕並不在允許之列。
+    因此潮境<b>不能</b>用來主張「保育區應開放休閒採捕」。它能證明的是<b>管理方法</b>（工具中性、許可制、分區、適應性調整），不是寬鬆度。
+  </div>
+
+  <h2>三、草案自己的內部矛盾</h2>
+  <p>草案在<b>核心保育區</b>已經採用尺寸與季節的分級管理，證明市府認為分級管理可行且可執行：</p>
+  <div class="scroll">
+  <table>
+    <thead><tr><th style="width:1%">物種</th><th class="a">核心保育區</th><th class="a">資源永續利用保育區</th></tr></thead>
+    <tbody>
+      <tr><td class="k">九孔</td><td class="a">&lt; 5 cm 禁採</td><td class="a"><b>不限</b></td></tr>
+      <tr><td class="k">海膽</td><td class="a">&lt; 8 cm 禁；馬糞海膽 9/1–6/15 禁</td><td class="a"><b>不限</b></td></tr>
+      <tr><td class="k">龍蝦</td><td class="a">&lt; 20 cm 禁；3/1–7/31 禁</td><td class="a"><b>不限</b></td></tr>
+      <tr><td class="k">珊瑚礁魚類</td><td class="a">&lt; 20 cm 禁</td><td class="a"><b>不限</b></td></tr>
+      <tr><td class="k">石花菜</td><td class="a">10/1–4/15 禁採</td><td class="a"><b>不限</b></td></tr>
+      <tr><td class="k">麒麟菜</td><td class="a">9/1–3/15 禁採</td><td class="a"><b>不限</b></td></tr>
+      <tr><td class="k">大法螺</td><td class="a">禁採</td><td class="a"><b>不限</b></td></tr>
+      <tr><td class="k">魚槍・潛水器</td><td class="a"><span class="no">禁</span></td><td class="a"><span class="no">禁</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="find">
+    <b>觀察：</b>在面積最大的資源永續利用保育區內，<b>抱卵龍蝦可以抓、未達尺寸的九孔海膽可以撿、繁殖季的石花菜可以採</b>——唯一被禁的是兩種工具。
+    <b>市府在核心區證明了分級管理做得到，卻在最大的海域裡一項都沒有用。</b>
+  </div>
+
+  <h2>四、許可制怎麼運作（潮境實例）</h2>
+  <p style="font-size:15px;color:var(--sub)">漁業處詢問的「許可制、實名制」，隔壁已運作八年，有現成流程。</p>
+  <div class="scroll">
+  <table>
+    <thead><tr><th style="width:1%">類別</th><th>申請與管理流程</th></tr></thead>
+    <tbody>
+      <tr><td class="k">採捕<br>經濟型海藻</td><td>
+        資格限<b>設籍基隆市民（含漁民）及基隆區漁會會員</b>　→　每年 10/31 前向<b>漁會</b>申請　→　漁會造冊（<b>含身分證字號</b>）於 11/30 前函報市府　→　市府審核並<b>副知海岸巡防機關備查</b>　→　翌年全年度有效。<b>僅限徒手</b>，且不得採捕海藻以外之水產動植物</td></tr>
+      <tr><td class="k">學術研究<br>資源調查</td><td>採集前檢具計畫書（載明種類、期間、方式、人員）報請核准；進入時<b>應隨身攜帶許可文件備查</b></td></tr>
+      <tr><td class="k">生態潛水<br>教育・攝影</td><td>申請許可；<b>水域須檢附潛水能力證明</b>；<b>總量管制</b>（陸域及潮間帶 200 人/日；水域平日 200、假日 400，上下午分流）；由<b>指定出入口</b>進出；水域須配戴<b>市府核准之證件套</b>；陸域須由<b>認證解說員帶領</b>。設籍當地六里居民不計入總量</td></tr>
+      <tr><td class="k">開放時段</td><td>核心區每年 <b>4/1–10/31、每日 07:00–18:00</b>，其餘時段禁止進入</td></tr>
+      <tr><td class="k">彈性條款</td><td>颱風、海嘯警報或危害安全之特殊情形得禁止進入；<b>市府得視保育成效或管理需要調整範圍、人數，必要時禁止所有人員進入</b></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>五、成效</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr><th style="width:1%"></th><th class="a">新北草案</th><th class="b">基隆潮境</th></tr></thead>
+    <tbody>
+      <tr><td class="k">生態數據</td>
+        <td class="a">草案未提出區內資源調查數據</td>
+        <td class="b"><b>區內生物量優於區外 5～27 倍</b>（112 年度生態調查）</td></tr>
+      <tr><td class="k">物種紀錄</td><td class="a">—</td><td class="b">記錄 <b>151 種</b>魚類</td></tr>
+      <tr><td class="k">執法協力</td><td class="a">未見機制</td><td class="b">名冊<b>副知海巡備查</b>；市府、海巡、在地居民合作</td></tr>
+      <tr><td class="k">公民科學</td><td class="a">未見機制</td><td class="b">海洋公民科學家、潛水志工參與監測</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>六、五個可以直接用的觀察</h2>
+  <ol class="key">
+    <li><span class="t">基隆刻意避開了「漁具、漁法」那一款</span>
+      漁業法 §44Ⅰ③ 就是「漁具、漁法之限制或禁止」，基隆大可用它禁魚槍，但沒有。他們選擇 §44Ⅰ④（漁區、漁期）與⑨（其他必要事項）——<b>用區域和許可管理，而非工具名稱</b>。</li>
+
+    <li><span class="t">潮境的採捕禁令明文包含徒手與垂釣</span>
+      「非經本府許可，禁止以<b>任何方式</b>採捕（<b>含徒手及沿岸垂釣等</b>）」。新北草案在最大分區只禁魚槍與潛水器、放過釣具——與相鄰最成功的先例在管制邏輯上相反。</li>
+
+    <li><span class="t">規模差三個數量級，決定了可行的管理密度</span>
+      潮境全區 18.6 公頃，能做到指定出入口、證件套、解說員帶領、每日人數管制。<b>把這套放大到三浬海域，執法上不可能。</b>反過來說：新北若要學潮境，應是劃設<b>小面積的高強度管理區</b>，而非把整片海掛上單一工具禁令。</li>
+
+    <li><span class="t">許可制不必從零設計</span>
+      潮境的三軌流程（漁會造冊 → 市府審核 → <b>副知海巡備查</b>）已運作八年。這正是「登記制如何解決執法成本」的實證答案——不必增加巡邏人力，海巡手上就有名單。</li>
+
+    <li><span class="t">適應性管理有現成條文</span>
+      「本府得視保育成效或管理需要，予以調整」。先以較寬鬆的分級管理起步、依監測結果調整，在同一部法律下已有先例。</li>
+  </ol>
+
+  <div class="caut">
+    <b>會議上要留意：</b>潮境同時存在<b>總量管制、潛水證照要求、設籍限制</b>。若對方以此要求我方比照，
+    須說明區別——潮境那些要求是針對<b>進入核心區從事遊憩</b>（安全與承載量考量），與<b>永續利用區的採捕資格登記</b>性質不同。
+  </div>
+
+  <div class="src">
+    <b>資料來源</b><br>
+    新北市草案：115 年 6 月 17 日預告之公告草案條文與座標。<br>
+    基隆潮境：<a href="https://www.klcg.gov.tw/tw/economy/2627-278188.html" target="_blank" rel="noopener">基隆市政府公告修正「基隆市望海巷潮境海灣水產動植物繁殖保育區及有關限制事宜」（113 年 4 月 1 日生效）</a>、
+    <a href="https://mpa.klcg.gov.tw/cp.aspx?n=7486" target="_blank" rel="noopener">基隆市海洋保護區專頁</a>、
+    <a href="https://www.fa.gov.tw/view.php?theme=web_structure&amp;id=427" target="_blank" rel="noopener">農業部漁業署資源保育區資料</a>。<br>
+    法條：<a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=M0050001&amp;flno=44" target="_blank" rel="noopener">漁業法第 44 條</a>。<br>
+    生態數據引自基隆市 112 年度海洋保護區經營管理計畫成果與公開報導；引用前建議向原單位查證。<br><br>
+    製表：台灣海洋永續休閒採捕聯盟
+  </div>
+
+</div>
+</div>
+
+</body>
+</html>
