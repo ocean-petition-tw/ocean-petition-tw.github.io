@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>關係人全圖．9/8 協調會（內部）</title>
+<style>
+  :root{
+    --bg:#f4f1ea; --paper:#fffdf8; --ink:#1f2b33; --sub:#55636c; --faint:#8b969e;
+    --line:#ded7c9; --navy:#1a3a4a; --gold:#b07d2b; --gold-bg:#f8f0dd; --sea:#12303e;
+    --ok:#2f7d55; --ok-bg:#e8f4ed; --warn:#a8442a; --warn-bg:#fbeee9;
+    --info:#1f5f7a; --info-bg:#e9f2f6;
+    --us:#1b5570; --us-bg:#e6eff4; --mid:#7a5a1e; --mid-bg:#f8f1e0;
+    --them:#5a4a6e; --them-bg:#efeaf4;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.82;font-size:16px;padding-bottom:60px;-webkit-font-smoothing:antialiased}
+  .w{max-width:980px;margin:0 auto;padding:0 20px}
+  header{background:linear-gradient(165deg,#0f2733,#1f4658);color:#fff;padding:42px 20px 36px;border-bottom:4px solid var(--gold)}
+  header .in{max-width:980px;margin:0 auto}
+  .stamp{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.2em;
+    color:#3a1d16;background:#e8bf72;padding:4px 12px;border-radius:3px}
+  header h1{font-size:clamp(24px,4.6vw,34px);font-weight:900;margin:14px 0 8px;line-height:1.3}
+  header .sub{font-size:15px;color:#c9dde5;line-height:1.8}
+  .sheet{background:var(--paper);border:1px solid var(--line);border-radius:4px;
+    padding:32px 34px 38px;margin-top:26px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+  h2{font-size:20px;font-weight:900;color:var(--navy);margin:38px 0 14px;
+     padding-bottom:8px;border-bottom:2px solid var(--navy)}
+  h2:first-child{margin-top:0}
+  h2 .n{color:var(--gold);margin-right:8px}
+  h3{font-size:17px;font-weight:800;color:var(--sea);margin:24px 0 8px}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 12px;padding-left:1.4em}
+  li{margin-bottom:6px}
+  b,strong{font-weight:800;color:var(--sea)}
+
+  .lede{font-size:17px;font-weight:700;color:var(--sea);background:var(--gold-bg);
+    border-left:4px solid var(--gold);padding:15px 19px;border-radius:0 4px 4px 0;margin:0 0 18px;line-height:1.8}
+
+  /* 三欄陣營圖 */
+  .map{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:18px 0 6px}
+  .col{border-radius:6px;padding:14px 14px 16px;border:1.5px solid}
+  .col.us{background:var(--us-bg);border-color:#a8c4d4}
+  .col.mid{background:var(--mid-bg);border-color:#dcc79a}
+  .col.them{background:var(--them-bg);border-color:#c3b6d2}
+  .col h4{font-size:15px;font-weight:900;letter-spacing:.06em;margin-bottom:4px;text-align:center}
+  .col.us h4{color:var(--us)} .col.mid h4{color:var(--mid)} .col.them h4{color:var(--them)}
+  .col .cap{font-size:12.5px;color:var(--faint);text-align:center;margin-bottom:10px;line-height:1.5}
+  .grp{margin-bottom:11px}
+  .grp .t{font-size:12px;font-weight:800;color:var(--sub);letter-spacing:.08em;
+    border-bottom:1px solid rgba(0,0,0,.12);padding-bottom:3px;margin-bottom:5px}
+  .grp .n{font-size:13.5px;line-height:1.75}
+  .grp .n b{color:inherit;font-weight:800}
+  .star{color:#b07d2b;font-weight:900}
+
+  .scroll{overflow-x:auto;margin:0 0 14px}
+  table{width:100%;border-collapse:collapse;font-size:14.5px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:#f0ece1;font-weight:800;color:var(--navy);font-size:13.5px}
+  td.k{white-space:nowrap;font-weight:700;width:1%;background:#f7f4ec}
+
+  .ok{background:var(--ok-bg);border:1px solid #bcdcca;border-left:4px solid var(--ok);
+    padding:14px 18px;border-radius:0 4px 4px 0;margin:14px 0;font-size:15px;line-height:1.82}
+  .ok b{color:#20613f}
+  .warn{background:var(--warn-bg);border:1px solid #e8c6ba;border-left:4px solid var(--warn);
+    padding:14px 18px;border-radius:0 4px 4px 0;margin:14px 0;font-size:15px;line-height:1.82}
+  .warn b{color:#8b3a22}
+  .info{background:var(--info-bg);border:1px solid #bcd4e0;border-left:4px solid var(--info);
+    padding:14px 18px;border-radius:0 4px 4px 0;margin:14px 0;font-size:15px;line-height:1.82}
+  .info b{color:#164a61}
+
+  ol.br{list-style:none;padding:0;counter-reset:b}
+  ol.br>li{counter-increment:b;position:relative;padding-left:2.7em;margin-bottom:16px}
+  ol.br>li:before{content:"橋" counter(b);position:absolute;left:0;top:.15em;
+    font-size:12px;font-weight:800;color:#fff;background:var(--gold);padding:2px 7px;border-radius:4px}
+  ol.br>li .t{font-weight:900;color:var(--sea);font-size:16.5px;display:block;margin-bottom:3px}
+
+  .src{font-size:13px;color:var(--faint);margin-top:26px;padding-top:16px;border-top:1px solid var(--line);line-height:1.9}
+
+  @media(max-width:760px){
+    .map{grid-template-columns:1fr}
+  }
+  @media(max-width:640px){
+    body{font-size:15.5px}
+    .sheet{padding:22px 16px 28px}
+    h2{font-size:18.5px}
+    table{font-size:13.5px;min-width:560px}
+    td.k{white-space:normal}
+  }
+  @media print{
+    body{background:#fff;padding:0;font-size:9.5pt}
+    header{background:#fff;color:#000;border-bottom:2px solid #000;padding:0 0 12px}
+    header h1{color:#000} header .sub{color:#333}
+    .stamp{background:#000;color:#fff}
+    .sheet{border:0;box-shadow:none;padding:0;margin-top:12px}
+    .w{max-width:none;padding:0}
+    .map{grid-template-columns:1fr 1fr 1fr}
+    .col{border:1px solid #999!important;background:#fff!important;-webkit-print-color-adjust:exact}
+    .scroll{overflow:visible} table{min-width:0}
+    @page{size:A4;margin:13mm 11mm}
+    h2{page-break-after:avoid} table,tr,.col{page-break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="in">
+    <div class="stamp">內 部 文 件 ・ 請 勿 外 傳</div>
+    <h1>關係人全圖　9/8 協調會</h1>
+    <div class="sub">
+      整合黃向文、陳義雄、陳徵蔚、陳映伶四份盡職調查，與我方既有人脈<br>
+      <span class="star">★</span> 標示者為 9 月 8 日確認或高度可能與會
+    </div>
+  </div>
+</header>
+
+<div class="w">
+<div class="sheet">
+
+  <h2><span class="n">壹</span>一句話</h2>
+
+  <div class="lede">
+    這不是「我方 vs 保育方」的兩軍對壘——<b>中間那一欄的人比兩邊加起來還多</b>，
+    而 9/8 的勝負，取決於中間那些人怎麼看我方。
+  </div>
+
+  <h2><span class="n">貳</span>三欄陣營圖</h2>
+
+  <div class="map">
+
+    <div class="col us">
+      <h4>我　方</h4>
+      <div class="cap">主張分級管理、行為管制</div>
+
+      <div class="grp"><div class="t">核心</div><div class="n">
+        <b>台灣海洋永續休閒採捕聯盟</b> <span class="star">★</span><br>
+        台灣永續漁法漁獵推廣協會（發起單位）<br>
+        聯絡人 李亞鑫<br>
+        845 位連署人
+      </div></div>
+
+      <div class="grp"><div class="t">聲援單位</div><div class="n">
+        台灣釣權團結聯盟<br>
+        台灣開放水域聯盟<br>
+        花蓮縣海洋生態保育協會<br>
+        <b>基隆市潮境理海生態保育協會</b><br>
+        澎湖潛水協會
+      </div></div>
+
+      <div class="grp"><div class="t">聲援學者</div><div class="n">
+        曹校章（海大・海洋休閒產業暨遊艇發展中心主任）<br>
+        許甘霖（東海・社會系副教授）<br>
+        蘇楠傑（海大・環境生物與漁業科學系副教授）
+      </div></div>
+
+      <div class="grp"><div class="t">研討會與談</div><div class="n">
+        陳昭倫（中研院生多中心研究員）<br>
+        溫國彰（東海・生命科學系教授）<br>
+        <b>蔡政良</b>（史前館館長／臺東大學教授）<br>
+        徐承堉（湧升海洋創辦人）
+      </div></div>
+
+      <div class="grp"><div class="t">在地關係</div><div class="n">
+        貢寮區漁會 理事長陳國光、總幹事林麗美<br>
+        福連里（卯澳）里長 吳文益<br>
+        <span style="color:#8b969e">8/10 拜會、8/1 遶境交流</span>
+      </div></div>
+
+      <div class="grp"><div class="t">其他</div><div class="n">
+        林柏辰律師（環境法律人協會副理事）<br>
+        蘇錦雄議員（新北市議員）<br>
+        台灣自由潛水發展協會（研討會共同主辦）
+      </div></div>
+    </div>
+
+    <div class="col mid">
+      <h4>中　間</h4>
+      <div class="cap">未歸邊、可爭取、或雙邊皆有連結</div>
+
+      <div class="grp"><div class="t">主管機關</div><div class="n">
+        <b>新北市漁業及漁港事業管理處</b> <span class="star">★</span><br>
+        農業部漁業署（§44Ⅲ 核定）<br>
+        海洋委員會／海保署<br>
+        海巡署（實際執法者）
+      </div></div>
+
+      <div class="grp"><div class="t">關鍵學者</div><div class="n">
+        <b>黃向文</b>（海大・前海保署長、前海委會副主委）<br>
+        <span style="color:#20613f;font-size:12.5px">公開主張差別管理優於工具禁止，立場最接近我方</span><br>
+        李明安（海大副校長）<br>
+        <span style="color:#8b969e;font-size:12.5px">支持方向但要求更多科學佐證</span>
+      </div></div>
+
+      <div class="grp"><div class="t">媒體</div><div class="n">
+        <b>BlueTrend 藍色脈動</b>（趙健舜創辦）<br>
+        <span style="color:#8b969e;font-size:12.5px">全文刊登我方新聞稿；亦為陳徵蔚書推薦人</span><br>
+        麥覺明（生態紀錄片導演）<br>
+        廖鴻基（海洋文學作家）
+      </div></div>
+
+      <div class="grp"><div class="t">原住民族</div><div class="n">
+        <b>新北市原住民議員</b> <span class="star">★</span><br>
+        <b>原住民團體代表</b> <span class="star">★</span><br>
+        <span style="color:#20613f;font-size:12.5px">最可能爭取的盟友</span>
+      </div></div>
+
+      <div class="grp"><div class="t">雙邊皆有人</div><div class="n">
+        <b>環境法律人協會</b><br>
+        <span style="color:#8b3a22;font-size:12.5px">我方：林柏辰（副理事）<br>對方：鍾孟勳（副祕書長）</span>
+      </div></div>
+
+      <div class="grp"><div class="t">立場未明</div><div class="n">
+        <b>貢寮區漁會</b> <span class="star">★</span><br>
+        <span style="color:#8b969e;font-size:12.5px">8/10 已拜會，立場未表態</span>
+      </div></div>
+    </div>
+
+    <div class="col them">
+      <h4>保　育　方</h4>
+      <div class="cap">主張禁用魚槍、潛水器</div>
+
+      <div class="grp"><div class="t">科學基礎</div><div class="n">
+        <b>陳義雄</b>（海大・海洋生物研究所教授）<br>
+        <span style="color:#8b3a22;font-size:12.5px">受市府長期委託研究；主張管制潛水魚槍、「留影不留魚」</span>
+      </div></div>
+
+      <div class="grp"><div class="t">連署發起團體</div><div class="n">
+        自然保育與環境資訊基金會（TNF）<br>
+        <b>台灣山海天使環境保育協會</b> <span class="star">★</span><br>
+        海湧工作室<br>
+        臺灣湛藍海洋聯盟
+      </div></div>
+
+      <div class="grp"><div class="t">關鍵人物</div><div class="n">
+        <b>陳映伶</b>（山海天使秘書長・「珊瑚媽媽」）<br>
+        <span style="color:#8b3a22;font-size:12.5px">貢寮三口九孔池、和美漁港苗圃、龍洞灣外海種植點；50 名潛水教練志工</span><br>
+        郭芙（海湧工作室副執行長）
+      </div></div>
+
+      <div class="grp"><div class="t">潛水倡議</div><div class="n">
+        陳徵蔚（潛水教練、台灣淨海協會創會理事長，已離開）<br>
+        <span style="color:#8b969e;font-size:12.5px">著《海洋在哭》；價值上反狩獵；與東北角潛店密切</span>
+      </div></div>
+
+      <div class="grp"><div class="t">主流環團</div><div class="n">
+        黑潮海洋文教基金會（張卉君）<br>
+        荒野保護協會（李偉文）<br>
+        台灣動物社會研究會（陳玉敏）<br>
+        綠色和平
+      </div></div>
+
+      <div class="grp"><div class="t">產業</div><div class="n">
+        陳琦恩（台灣潛水執行長）<br>
+        東北角潛店網絡
+      </div></div>
+    </div>
+
+  </div>
+
+  <h2><span class="n">參</span>七座橋——真正決定 9/8 的地方</h2>
+
+  <ol class="br">
+    <li><span class="t">蔡政良：雙方都尊敬的人</span>
+      他是我方研討會的與談學者；同時，黑潮基金會董事張卉君為陳徵蔚《海洋在哭》寫的推薦序，
+      <b>整篇以蔡政良的海洋人類學著作《第五道浪之後》與都蘭阿美族語「Aka la lima」貫穿</b>。<br>
+      而陳映伶也主動談過阿美族的海洋資源觀，說「<b>是人類受到海洋的照顧</b>」——
+      與蔡政良轉述的「<b>你要照顧海，海才會照顧你</b>」幾乎是同一句話。<br>
+      <b>這是最穩固的一座橋。9/8 若要找共同語言，從這裡開始。</b></li>
+
+    <li><span class="t">海洋大學：一校五人，橫跨全場</span>
+      曹校章（我方聲援・海洋休閒產業暨遊艇發展中心主任，亦為研討會共同主辦單位）<br>
+      蘇楠傑（我方聲援・環境生物與漁業科學系）<br>
+      黃向文（中間偏我方・海洋事務與資源管理研究所）<br>
+      李明安（中間・副校長）<br>
+      陳義雄（對方科學基礎・海洋生物研究所）<br>
+      <b>同一所大學的五個單位站在三個位置。</b>這代表「學界共識」並不存在，
+      任何一方宣稱「學者支持我們」都站不住腳——<b>這對我方有利，因為我方不需要學界背書，只需要程序公正。</b></li>
+
+    <li><span class="t">環境法律人協會：兩邊都有人</span>
+      我方研討會出席貴賓<b>林柏辰律師（副理事）</b>；陳徵蔚《海洋在哭》推薦人<b>鍾孟勳（副祕書長）</b>。<br>
+      <b>這既是橋，也是通道。</b>可作為溝通管道，但也意味著我方內部文件的散布必須極度謹慎。</li>
+
+    <li><span class="t">BlueTrend：目前唯一完整刊登我方稿件的媒體</span>
+      創辦人趙健舜是陳徵蔚的書推薦人（屬保育社群），但該媒體立場<b>中立偏程序</b>——
+      整理正反雙方主張，結論落在「台灣不缺保護區，缺的是把保護區守住的執法量能」，
+      與我方第三點呼籲一致。單篇報導可觸及 30 萬人。<br>
+      <b>待辦：他們刊的是我方修正前的版本，三處需要更正函。</b></li>
+
+    <li><span class="t">潮境：我方聲援單位就在那裡</span>
+      <b>基隆市潮境理海生態保育協會是我方聲援單位</b>，而潮境正是全國公認最成功的保育區。<br>
+      同時 BlueTrend 指出：基隆另一處 1999 年依漁業法劃設、外延 1,000 公尺、海岸線 20 公里的保育區，
+      <b>因範圍過大、執法難及，長年形同虛設</b>。<br>
+      <b>成功與失敗的兩個案例都在基隆，而成功那一個的在地團體支持我方。</b>這是極有份量的一張牌。</li>
+
+    <li><span class="t">海保署經費網絡：黃向文任內建立的社群</span>
+      「潛海戰將」「在地守護計畫」是陳徵蔚、山海天使等團體的共同資源來源，
+      而黃向文正是 2018.4–2024.5 的海保署長。<b>這個網絡的人幾乎確定彼此認識。</b><br>
+      但關鍵在於：<b>黃向文本人對本案的立場，與這個網絡的價值語言並不一致</b>——
+      她主張差別管理、肯認漁民自主管理與 OECM。<b>她是網絡的建立者，卻不是網絡價值的代言人。</b></li>
+
+    <li><span class="t">貢寮的地面：三方都在同一個村</span>
+      山海天使有三口九孔池與龍洞灣外海種植點；貢寮區漁會理事長與總幹事我方 8/10 已拜會；
+      福連里長吳文益 8/1 邀我方參與遶境。<br>
+      <b>這片海的地面上，只有三種人真的常在：漁會、保育團體、我們。</b>
+      9/8 桌上的其他人都是外來者。<b>這個事實應該被講出來。</b></li>
+  </ol>
+
+  <h2><span class="n">肆</span>五個人的立場光譜</h2>
+
+  <div class="scroll">
+  <table>
+    <thead><tr><th style="width:1%">人物</th><th>對「禁魚槍」的立場</th><th>可爭取程度</th><th>接觸方式</th></tr></thead>
+    <tbody>
+      <tr><td class="k">黃向文</td>
+        <td>公開主張「與其禁止特定工具，不如針對不同漁業、釣客與魚槍特性<b>差別管理</b>」；
+          並要求完整管理計畫（監測、管制、執法、定期檢討）</td>
+        <td><b style="color:#20613f">最高</b><br>立場已近我方</td>
+        <td>只講有出處的話。她能拆穿任何誇大。<b>不要當盟友對待，當專業裁判</b></td></tr>
+      <tr><td class="k">李明安</td>
+        <td>支持擴大保育區方向，但<b>要求更多科學資料佐證</b>；提及可思考總可採捕量</td>
+        <td><b style="color:#20613f">高</b></td>
+        <td>他要的是證據。我方要求公開委託研究報告，與他立場一致</td></tr>
+      <tr><td class="k">陳映伶</td>
+        <td>所屬協會為連署共同發起團體（訴求禁用魚槍、潛水器）；
+          但個人論述<b>未主張不吃海鮮</b>，而是「選擇永續、安全的食物」</td>
+        <td><b style="color:#7a5a1e">中</b><br>價值可對話</td>
+        <td><b>提供淨海與廢漁具清除的人力</b>。她要乾淨海床，我方會下水</td></tr>
+      <tr><td class="k">陳徵蔚</td>
+        <td>著作主張「<b>避免食用珊瑚礁魚，走入海洋去觀賞牠們</b>」，
+          引 Cousteau「以培植代替狩獵」——價值上反狩獵</td>
+        <td><b style="color:#8b3a22">低</b><br>價值層次分歧</td>
+        <td>不辯價值。<b>只談共同點</b>：廢漁具、執法失能</td></tr>
+      <tr><td class="k">陳義雄</td>
+        <td>明確主張管制沿岸 3 浬潛水魚槍採捕、鼓勵「留影不留魚」；
+          為市府委託研究的執行者</td>
+        <td><b style="color:#8b3a22">低</b><br>但方法可質疑</td>
+        <td><b>不質疑資格，只問方法。</b>正式函請市府提供完整報告與調查設計</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2><span class="n">伍</span>三個必須避開的地雷</h2>
+
+  <div class="warn">
+    <b>地雷一　陳昭倫那句「北部種不出珊瑚礁生態系」。</b><br>
+    直指陳映伶十年的心血、也是山海天使的核心工作。在她面前講這句，等於宣告談判結束。<br><br>
+
+    <b>地雷二　用陳映伶提到的「釣線、釣鉤」去打釣客。</b><br>
+    會直接破壞與台灣釣權團結聯盟（我方聲援單位）的關係，也會被看穿是轉移焦點。
+    只能講「廢棄漁具是物理性威脅、魚槍不產生遺留物」的對比，不要逐項點名其他漁法使用者。<br><br>
+
+    <b>地雷三　主張「資源沒有下降」。</b><br>
+    陳昭倫說「一定是下降」、徐承堉說「幾乎都變少」。
+    在這一點上與市府對立，等於同時與我方自己邀請的講者對立。<br>
+    <b>我方該站的位置是：資源確實在下降，但下降的歸因需要證據，管制手段應與歸因相稱。</b>
+  </div>
+
+  <h2><span class="n">陸</span>桌上的位置決定策略</h2>
+
+  <div class="ok">
+    <b>九成的共識已經存在，只是沒人講出來。</b><br>
+    對方連署的訴求包含：擴大保育面積、預警原則、<b>三區分級管理</b>、<b>物種禁採期</b>、
+    <b>體長限制</b>、<b>保留原住民族文化採捕權</b>。<br>
+    <b>這六項我方全部同意。</b>真正的分歧只剩一項：工具要不要禁。<br><br>
+    <b>9/8 的開場，應該先把這六項共同點逐一講出來、確認雙方一致，再處理那一項分歧。</b>
+    讓桌上先建立「其實我們同意大部分」的認知——這比一開場就爭工具有效得多。
+  </div>
+
+  <div class="info">
+    <b>我方唯一無可取代的資產：會下水的人。</b><br>
+    山海天使有 50 名潛水教練志工，但海底垃圾「撿不完，是一場沒有終點的戰役」；
+    陳徵蔚說龍洞海底有「死亡長城」；BlueTrend 說所有人都繞不開執法量能；
+    陳昭倫說「只有法、沒有能量」；黃向文說要「確實執法」。<br><br>
+    <b>全場每一個人都在說同一個字：人力不足。而我方就是人。</b><br>
+    主動提出協助淨海、廢漁具通報、監測協力——這是唯一一件<b>不需要任何人先讓步、今天就能開始做</b>的事。
+  </div>
+
+  <div class="src">
+    <b>本圖整合之調查文件</b><br>
+    dd-huang-hsiangwen.html（黃向文）　·　dd-chen-yihsiung.html（陳義雄）<br>
+    dd-chen-chengwei.html（陳徵蔚暨保育方網絡）　·　dd-chen-yingling.html（陳映伶）<br>
+    bluetrend-two-articles.html（BlueTrend 兩篇報導）　·　compare-chaojing.html（新北草案 × 潮境對照）<br>
+    meeting-0908-brief.html（9/8 情勢研判與建議立場）<br><br>
+    <b>查核狀態：</b>所有人物資料均取自公開媒體、官方頁面或具名報導。
+    陳徵蔚與本案之關聯、以及部分人士是否與會，<b>仍屬未證實之推測</b>；
+    9/8 前應向漁業處確認正式與會名單與代表單位。
+  </div>
+
+</div>
+</div>
+
+</body>
+</html>

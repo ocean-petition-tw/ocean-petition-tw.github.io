@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>黃向文．盡職調查與兵推（內部）</title>
+<style>
+  :root{
+    --bg:#f4f1ea; --paper:#fffdf8; --ink:#1f2b33; --sub:#55636c; --faint:#8b969e;
+    --line:#ded7c9; --navy:#1a3a4a; --gold:#b07d2b; --gold-bg:#f8f0dd; --sea:#12303e;
+    --ok:#2f7d55; --ok-bg:#e8f4ed; --warn:#a8442a; --warn-bg:#fbeee9;
+    --info:#1f5f7a; --info-bg:#e9f2f6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.85;font-size:16.5px;padding-bottom:60px;-webkit-font-smoothing:antialiased}
+  .w{max-width:900px;margin:0 auto;padding:0 20px}
+
+  header{background:linear-gradient(165deg,#0f2733,#1f4658);color:#fff;padding:42px 20px 36px;border-bottom:4px solid var(--gold)}
+  header .in{max-width:900px;margin:0 auto}
+  .stamp{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.2em;
+    color:#3a1d16;background:#e8bf72;padding:4px 12px;border-radius:3px}
+  header h1{font-size:clamp(24px,4.6vw,33px);font-weight:900;margin:14px 0 8px;line-height:1.3}
+  header .sub{font-size:15px;color:#c9dde5;line-height:1.8}
+
+  .sheet{background:var(--paper);border:1px solid var(--line);border-radius:4px;
+    padding:32px 34px 38px;margin-top:26px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+
+  h2{font-size:20px;font-weight:900;color:var(--navy);margin:36px 0 12px;
+     padding-bottom:8px;border-bottom:2px solid var(--navy)}
+  h2:first-child{margin-top:0}
+  h2 .n{color:var(--gold);margin-right:8px}
+  h3{font-size:17px;font-weight:800;color:var(--sea);margin:24px 0 8px}
+  p{margin:0 0 12px}
+  ul{margin:0 0 12px;padding-left:1.35em}
+  li{margin-bottom:5px}
+  b,strong{font-weight:800;color:var(--sea)}
+
+  .lede{font-size:17.5px;font-weight:700;color:var(--sea);background:var(--gold-bg);
+    border-left:4px solid var(--gold);padding:15px 19px;border-radius:0 4px 4px 0;margin:0 0 18px;line-height:1.8}
+
+  .scroll{overflow-x:auto;margin:0 0 14px}
+  table{width:100%;border-collapse:collapse;font-size:15px}
+  th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+  th{background:#f0ece1;font-weight:800;color:var(--navy);font-size:14px}
+  td.k{white-space:nowrap;font-weight:700;width:1%;background:#f7f4ec}
+
+  .ok{background:var(--ok-bg);border:1px solid #bcdcca;border-left:4px solid var(--ok);
+    padding:14px 18px;border-radius:0 4px 4px 0;margin:14px 0;font-size:15.5px;line-height:1.82}
+  .ok b{color:#20613f}
+  .warn{background:var(--warn-bg);border:1px solid #e8c6ba;border-left:4px solid var(--warn);
+    padding:14px 18px;border-radius:0 4px 4px 0;margin:14px 0;font-size:15.5px;line-height:1.82}
+  .warn b{color:#8b3a22}
+  .info{background:var(--info-bg);border:1px solid #bcd4e0;border-left:4px solid var(--info);
+    padding:14px 18px;border-radius:0 4px 4px 0;margin:14px 0;font-size:15.5px;line-height:1.82}
+  .info b{color:#164a61}
+  .quote{border-left:3px solid var(--gold);padding:6px 0 6px 16px;margin:14px 0;
+    color:#3a4750;font-size:15.5px;line-height:1.85}
+
+  .src{font-size:13px;color:var(--faint);margin-top:26px;padding-top:16px;border-top:1px solid var(--line);line-height:1.9}
+  .src a{color:var(--gold)}
+
+  @media(max-width:640px){
+    body{font-size:16px}
+    .sheet{padding:22px 16px 28px}
+    h2{font-size:18.5px}
+    table{font-size:14px;min-width:520px}
+    td.k{white-space:normal}
+  }
+  @media print{
+    body{background:#fff;padding:0;font-size:10pt}
+    header{background:#fff;color:#000;border-bottom:2px solid #000;padding:0 0 12px}
+    header h1{color:#000} header .sub{color:#333}
+    .stamp{background:#000;color:#fff}
+    .sheet{border:0;box-shadow:none;padding:0;margin-top:14px}
+    .w{max-width:none;padding:0}
+    .scroll{overflow:visible} table{min-width:0}
+    @page{size:A4;margin:15mm 13mm}
+    h2{page-break-after:avoid} table,tr{page-break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="in">
+    <div class="stamp">內 部 文 件 ・ 請 勿 外 傳</div>
+    <h1>黃向文　盡職調查與兵推</h1>
+    <div class="sub">
+      為 9 月 8 日新北市漁業處協調會所作之人物與立場分析<br>
+      資料來源均為公開資訊；部分引述取自媒體報導摘要，正式引用前應核對原文。
+    </div>
+  </div>
+</header>
+
+<div class="w">
+<div class="sheet">
+
+  <h2><span class="n">壹</span>一句話結論</h2>
+
+  <div class="lede">
+    她不是對手。她公開表達過的立場，比我方任何一份文件都更接近我方主張——而且<b>整部海洋保育法的分區架構是她任內建立的，那套架構在關鍵點上不支持新北草案的做法</b>。
+  </div>
+
+  <div class="warn">
+    <b>但她也是全場最危險的人。</b>她的專長是漁業資源評估與國際漁業管理，任何誇大、無據或轉述錯誤的說法，她一眼就能拆穿。
+    對她講話必須<b>比對其他任何人都更精準</b>。
+  </div>
+
+  <h2><span class="n">貳</span>人物檔案</h2>
+
+  <div class="scroll">
+  <table>
+    <tr><td class="k">現職</td><td>國立臺灣海洋大學海洋事務與資源管理研究所教授</td></tr>
+    <tr><td class="k">2024.5–2026.1</td><td><b>海洋委員會政務副主任委員</b>（今年 1 月卸任）</td></tr>
+    <tr><td class="k">2018.4–2024.5</td><td><b>海洋保育署首任署長</b>（六年）</td></tr>
+    <tr><td class="k">2014–2017</td><td>海大海洋事務與資源管理研究所所長</td></tr>
+    <tr><td class="k">1999–2008</td><td>行政院農委會漁業署遠洋漁業組科長</td></tr>
+    <tr><td class="k">1999</td><td>臺灣省政府農林廳漁業局技佐</td></tr>
+    <tr><td class="k">1994–1999</td><td><b>臺北縣政府農業局漁業課技士</b>　←　新北市漁業處之前身</td></tr>
+    <tr><td class="k">學歷</td><td>臺大動物學系學士 → 臺大漁業科學研究所碩士 → <b>臺大海洋研究所博士</b></td></tr>
+    <tr><td class="k">研究專長</td><td>海洋政策、海洋事務、<b>漁業資源評估</b>、國際漁業政策與管理、漁業混獲物種保育、海洋廢棄物治理、<b>海洋保護區管理</b>、海洋污染防治</td></tr>
+  </table>
+  </div>
+
+  <div class="info">
+    <b>三個必須理解的意涵：</b><br>
+    一、<b>她在新北市漁業處的前身工作過五年</b>，與該體系可能有長期人脈。<br>
+    二、<b>她管過漁業署遠洋組九年、又當了六年海保署長</b>——保育與漁業兩邊的內部運作她都熟。<br>
+    三、<b>她剛卸任副主委七個月</b>。以現任學者身分出席，說話沒有官方包袱，但份量仍在。
+  </div>
+
+  <h2><span class="n">參</span>她對本案的公開立場</h2>
+
+  <p>她已經在媒體上評論過本案，立場如下（引自媒體報導摘要，<b>正式引用前務必核對原文</b>）：</p>
+
+  <div class="quote">
+    提醒新北市政府還需要完整的管理計畫，包含<b>持續科學監測、訂定適當管制措施、確實執法，以及視成效定期檢討調整</b>，才能增加成功的機會。<br>
+    <span style="font-size:14px;color:#8b969e">—— 中央社，2026.08.17</span>
+  </div>
+
+  <div class="quote">
+    與其禁止特定工具、或將資源減少歸因於特定漁法，<b>針對不同漁業、釣客與魚槍特性進行差別管理更為重要</b>。<br>
+    <span style="font-size:14px;color:#8b969e">—— 上下游新聞（報導摘要，原文待核）</span>
+  </div>
+
+  <h3>更早的政策紀錄</h3>
+  <ul>
+    <li><b>對 30×30 目標務實</b>：「30×30 是全球目標，並非每個國家皆需如此，<b>應因地制宜</b>。」</li>
+    <li><b>公開肯認使用者自主管理</b>：漁民自主管理、原住民傳統海域經由傳統知識達到資源保育，「皆可引用 <b>OECM</b> 概念，<b>不須繁文縟節劃設保護區</b>」。</li>
+    <li><b>要求劃設須有研究支持</b>：第一個海洋庇護區要劃在哪裡，「需相關的研究支持」。</li>
+  </ul>
+
+  <div class="ok">
+    <b>判讀：</b>「差別管理優於工具禁止」「使用者自主管理是有效保育」「劃設須有研究支持」——這三點<b>正是我方全部論述的核心</b>。
+    她不需要被說服，她已經在說了。
+  </div>
+
+  <h2><span class="n">肆</span>她建立的法律架構，是我方最強的武器</h2>
+
+  <p>海洋保育法於 115 年（2024）7 月 31 日公布，正是她擔任海保署長任內完成。該法的「海洋庇護區」分區，就是<b>核心區／緩衝區／永續利用區</b>——與新北草案的分區命名同源。</p>
+
+  <p>但兩者的<b>意涵完全不同</b>：</p>
+
+  <div class="scroll">
+  <table>
+    <thead><tr><th style="width:1%">分區</th><th>海洋保育法怎麼規定</th><th>新北草案怎麼規定</th></tr></thead>
+    <tbody>
+      <tr><td class="k">核心區</td>
+        <td>§10　任何人禁止進入（公務、科研等除外）</td>
+        <td>禁止採捕；萬里另留漁會會員徒手採石花菜之例外</td></tr>
+      <tr><td class="k">緩衝區</td>
+        <td>§11　非經許可禁止：水產養殖、<b>採捕海洋生物</b>、航道工程、鋪設纜管、探礦採礦<br>
+            §11Ⅱ　但符合公告之<b>「一定種類、數量、方式、範圍或期間」</b>者，<b>免申請許可</b></td>
+        <td>僅禁魚槍與潛水器；其餘漁具漁法不設限</td></tr>
+      <tr><td class="k">永續利用區</td>
+        <td>§12　非經許可禁止：<b>航道工程、鋪設纜管、探礦採礦</b><br>
+            <b>完全沒有「採捕海洋生物」這一款</b></td>
+        <td>禁魚槍與潛水器</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="ok">
+    <b>核心論點：</b>新北草案借用了海洋保育法的分區名稱，卻沒有採用它的分區意涵。<br>
+    在該法架構下，<b>「永續利用區」的管制對象是海洋工程、電纜與採礦，根本不及於採捕行為</b>；
+    連管制較嚴的緩衝區，都明文保留「符合一定種類、數量、方式、範圍或期間即免許可」的彈性——<b>那正是分級管理</b>。<br>
+    新北卻在一個名為「資源永續利用」的區域裡，對特定工具全面禁止採捕，<b>比中央法律的緩衝區還嚴</b>。
+  </div>
+
+  <h3>該法還有四處對我方有利</h3>
+  <div class="scroll">
+  <table>
+    <tr><td class="k">§8Ⅱ</td><td>劃設海洋庇護區之審議會，<b>不具官方身分代表不得少於 1/2</b>；<b>原住民及漁民團體代表不得少於 1/3</b>；決議須出席委員 <b>2/3 同意</b>。<br>
+      → 這是她親手訂下的參與標準。新北的「預告＋說明會」與此相距甚遠。</td></tr>
+    <tr><td class="k">§9</td><td>保育計畫應<b>公開展覽 30 日並舉行公聽會</b>。</td></tr>
+    <tr><td class="k">§14</td><td>「於海洋使用<b>採捕器具</b>之限制、禁止」屬<b>中央主管機關會商公告</b>事項。</td></tr>
+    <tr><td class="k">§17</td><td>民眾、法人或團體協助取締舉發者<b>得予獎勵，身分應予保密</b>。<br>
+      → 直接回應「執法能量不足」，也支撐使用者社群協力。</td></tr>
+    <tr><td class="k">§6、§7Ⅳ</td><td>「水產動植物繁殖保育區」本身即為海洋保護區之一種，<b>應納入整體海洋保護區管理政策方針</b>。<br>
+      → 可要求說明本案與中央政策方針的一致性。</td></tr>
+  </div>
+
+  <h2><span class="n">伍</span>真正的對手是誰</h2>
+
+  <div class="scroll">
+  <table>
+    <thead><tr><th>人物</th><th>身分與立場</th></tr></thead>
+    <tbody>
+      <tr><td class="k">陳義雄</td><td>
+        國立臺灣海洋大學海洋生物研究所教授。<b>長期受新北市府委託進行海洋魚類生態研究</b>——本案的科學基礎來自他。<br>
+        主張：新北海域石斑、鸚哥魚、笛鯛、粗皮鯛、寒鯛等中大型經濟魚種<b>已逐漸稀缺</b>，非保育區沿岸採捕壓力大；保育區內群聚優於區外，顯示保育有成效。
+        <b>明確主張應管制沿岸 3 浬潛水魚槍採捕，鼓勵「留影不留魚」。</b><br>
+        <b>這才是需要準備的對象。</b></td></tr>
+      <tr><td class="k">李明安</td><td>
+        國立臺灣海洋大學副校長。溫和派——認為劃設方向是好的、有助復育，<b>但相關管制仍需更多科學資料佐證</b>；若能證明資源或特定物種明顯減少，再據此採取措施會更具說服力。<br>
+        也提到可思考<b>總可採捕量</b>等管理方式。</td></tr>
+      <tr><td class="k">黃向文</td><td>如前述。<b>立場最接近我方。</b></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>市府的正式理由（逐字）</h3>
+  <div class="quote">
+    考量魚槍、魚叉採捕往往<b>鎖定海洋食物網營養階層較高的魚類</b>，此類<b>高精準度</b>之採捕行為已對沿岸特定魚種造成顯著壓力。
+    <span style="font-size:14px;color:#8b969e">—— 新北市漁業處，中央社 2026.07.23</span>
+  </div>
+  <p>注意：市府的論點<b>不是「魚槍抓得多」，而是「魚槍選擇性強、專打大魚」</b>。這是完全不同的命題，我方的回應必須對準它。</p>
+
+  <h2><span class="n">陸</span>我方有一個說法必須立刻修正</h2>
+
+  <div class="warn">
+    <b>「除魚槍與潛水器外，其餘漁具漁法均未設限制」——這句話會被打。</b><br>
+    市府新聞稿明白寫著：「除市府現行已實施<b>東北角 3 浬禁止刺網漁船作業</b>措施外，也應管制沿岸 3 浬潛水魚槍採捕行為。」<br>
+    也就是說，<b>刺網早已在同一片海域被禁</b>。對方只要拿出這一句，我方的平等原則論述就會被說成「你們沒做功課」。
+  </div>
+
+  <div class="ok">
+    <b>正確的說法應改為：</b>市府已就<b>商業性刺網</b>採取管制，本次再就<b>魚槍與潛水器</b>採取管制；
+    但在同一區域內，<b>休閒性釣具及其他漁具漁法仍未設任何限制</b>，物種、體長、季節、數量亦均無規範。
+    差別待遇的問題不在「有沒有管別人」，而在<b>管制標準不一致</b>。
+  </div>
+
+  <h2><span class="n">柒</span>兵推：她可能怎麼出招</h2>
+
+  <h3>情境一（最可能）　她要求「完整的管理計畫」</h3>
+  <p>依其公開發言，她最可能主張：光有禁令不夠，必須有監測、管制、執法、定期檢討的完整配套。</p>
+  <div class="ok">
+    <b>對我方是順風。</b>這正是我方主張。回應要點：表態全力支持建立管理計畫，並<b>主動提出我方可以負擔的部分</b>——登記、回報、社群巡守。
+    可援引海保法 §17 的舉發獎勵與身分保密機制作為現成工具。<br>
+    <b>切勿</b>把「需要完整計畫」解讀成「所以現在不要公告」——她說的是要做得更完整，不是不要做。
+  </div>
+
+  <h3>情境二　她主張差別管理，但差別的方式不是我方想的那樣</h3>
+  <p>「針對不同漁業、釣客與魚槍特性進行差別管理」——這句話也可以推導出「魚槍因其選擇性強，本來就該受較嚴管制」。</p>
+  <div class="warn">
+    <b>這是最需要準備的一擊。</b>她可能同意「不該用工具名稱一刀切」，同時認為「魚槍的特性確實需要較嚴規範」。<br>
+    <b>回應方向：</b>接受「依特性差別管理」的原則，把爭點從「該不該管魚槍」轉為<b>「該用什麼方式管」</b>——
+    夜間限制、體長規範、禁售、登記回報，而非全面禁止。並指出全面禁止會讓行為地下化，反而失去監測資料。
+  </div>
+
+  <h3>情境三　她把爭點拉到「這個區該不該用漁業法劃」</h3>
+  <p>她可能指出：本案是漁業法保育區，但用了海保法的分區語彙；或主張應納入整體海洋保護區管理政策方針一併檢討。</p>
+  <div class="info">
+    <b>對我方有利。</b>一旦進入海保法架構的比較，永續利用區不禁採捕、緩衝區有免許可彈性、審議會須有 1/3 漁民與原住民代表——全部是我方的論據。
+    但要小心：她也可能主張<b>應改由中央劃設海洋庇護區</b>，那會使戰場轉移、時程拉長，對我方未必是壞事，但要即時判斷。
+  </div>
+
+  <h3>情境四　她質疑我方的科學說法</h3>
+  <div class="warn">
+    她的專長就是<b>漁業資源評估</b>。任何「魚槍影響很小」「資源沒有下降」之類的說法，她會立刻要求出處。<br>
+    <b>我方應完全避免主張資源沒有下降。</b>陳昭倫在座談中已明說東北角沿海珊瑚礁魚類「一定是下降」；徐承堉也說「所有的魚類資源幾乎都變少」。
+    我方要站的位置是<b>「資源確實在下降，但下降的歸因需要證據，而管制手段應與歸因相稱」</b>。
+  </div>
+
+  <h2><span class="n">捌</span>建議</h2>
+
+  <ul>
+    <li><b>不要把她當敵人，也不要把她當盟友。</b>她是專業裁判。對她只講有出處的話，不講立場話。</li>
+    <li><b>準備的是陳義雄的資料，不是黃向文的立場。</b>本案的科學基礎來自陳義雄受市府委託的研究——
+      建議會前正式函請市府<b>提供該研究的完整報告與方法</b>（調查點位、頻度、樣本數、是否區分漁法）。這是最關鍵的一份文件。</li>
+    <li><b>把「刺網已禁」納入我方論述</b>，改以「管制標準不一致」取代「只管魚槍」。</li>
+    <li><b>對準市府的真實論點</b>：他們主張的是魚槍「選擇性強、專打高營養階層大魚」，不是總量。我方需要對這個命題有具體回應
+      （例如：體長與物種規範正是針對選擇性的精準工具，全面禁止反而無法區分守法與違法者）。</li>
+    <li><b>海保法分區對照是本次最有力的新材料</b>，建議整理成一頁書面資料於會中提出——由中央法律說話，比由我方說話有力得多。</li>
+  </ul>
+
+  <div class="src">
+    <b>資料來源</b><br>
+    <a href="https://imarm.ntou.edu.tw/p/412-1054-7748.php?Lang=zh-tw" target="_blank" rel="noopener">國立臺灣海洋大學海洋事務與資源管理研究所．黃向文教授個人頁（經歷、學歷、專長）</a><br>
+    <a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0090073" target="_blank" rel="noopener">海洋保育法（全國法規資料庫，§6–§17 條文經逐條查核）</a><br>
+    <a href="https://www.cna.com.tw/news/aloc/202607230339.aspx" target="_blank" rel="noopener">中央社 2026.07.23．新北擬擴大設 3 浬帶狀保育區</a>（市府理由、陳義雄發言、刺網既有管制）<br>
+    <a href="https://udn.com/news/story/7323/9646555" target="_blank" rel="noopener">聯合報 2026.07.23．學者：有助資源復育但須科學佐證</a>（李明安、陳義雄）<br>
+    <a href="https://www.cna.com.tw/news/ahel/202608170049.aspx" target="_blank" rel="noopener">中央社 2026.08.17．新北擬擴大 3 浬海保區　學者籲兼顧科學監測執法</a>（黃向文發言，<b>原文待核</b>）<br>
+    <a href="https://www.newsmarket.com.tw/blog/241206/" target="_blank" rel="noopener">上下游新聞．新北擬擴大保育區禁漁槍，引發永續保育論戰</a>（黃向文「差別管理」發言，<b>原文待核，該站拒絕程式擷取</b>）<br>
+    <a href="https://e-info.org.tw/node/238784" target="_blank" rel="noopener">環境資訊中心．海保法草案公聽會「30×30」</a>（30×30 因地制宜、OECM 與漁民自主管理）<br><br>
+    <b>查核提醒：</b>標示「原文待核」之兩處引述係取自搜尋結果摘要，尚未取得原始報導全文。
+    <b>對外引用或於會議中援引前，務必自行開啟原文確認用字。</b>
+  </div>
+
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BlueTrend 兩篇報導分析（內部）</title>
+<style>
+  :root{
+    --bg:#f4f1ea; --paper:#fffdf8; --ink:#1f2b33; --sub:#55636c; --faint:#8b969e;
+    --line:#ded7c9; --navy:#1a3a4a; --gold:#b07d2b; --gold-bg:#f8f0dd; --sea:#12303e;
+    --ok:#2f7d55; --ok-bg:#e8f4ed; --warn:#a8442a; --warn-bg:#fbeee9;
+    --info:#1f5f7a; --info-bg:#e9f2f6; --urgent:#8f1f1f; --urgent-bg:#fbe9e9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.85;font-size:16.5px;padding-bottom:60px;-webkit-font-smoothing:antialiased}
+  .w{max-width:900px;margin:0 auto;padding:0 20px}
+  header{background:linear-gradient(165deg,#0f2733,#1f4658);color:#fff;padding:42px 20px 36px;border-bottom:4px solid var(--gold)}
+  header .in{max-width:900px;margin:0 auto}
+  .stamp{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.2em;
+    color:#3a1d16;background:#e8bf72;padding:4px 12px;border-radius:3px}
+  header h1{font-size:clamp(24px,4.6vw,33px);font-weight:900;margin:14px 0 8px;line-height:1.3}
+  header .sub{font-size:15px;color:#c9dde5;line-height:1.8}
+  .sheet{background:var(--paper);border:1px solid var(--line);border-radius:4px;
+    padding:32px 34px 38px;margin-top:26px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+  h2{font-size:20px;font-weight:900;color:var(--navy);margin:36px 0 12px;
+     padding-bottom:8px;border-bottom:2px solid var(--navy)}
+  h2:first-child{margin-top:0}
+  h2 .n{color:var(--gold);margin-right:8px}
+  h3{font-size:17px;font-weight:800;color:var(--sea);margin:24px 0 8px}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 12px;padding-left:1.4em}
+  li{margin-bottom:6px}
+  b,strong{font-weight:800;color:var(--sea)}
+  .lede{font-size:17.5px;font-weight:700;color:var(--sea);background:var(--gold-bg);
+    border-left:4px solid var(--gold);padding:15px 19px;border-radius:0 4px 4px 0;margin:0 0 18px;line-height:1.8}
+  .scroll{overflow-x:auto;margin:0 0 14px}
+  table{width:100%;border-collapse:collapse;font-size:15px}
+  th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+  th{background:#f0ece1;font-weight:800;color:var(--navy);font-size:14px}
+  td.k{white-space:nowrap;font-weight:700;width:1%;background:#f7f4ec}
+  .ok{background:var(--ok-bg);border:1px solid #bcdcca;border-left:4px solid var(--ok);
+    padding:14px 18px;border-radius:0 4px 4px 0;margin:14px 0;font-size:15.5px;line-height:1.82}
+  .ok b{color:#20613f}
+  .warn{background:var(--warn-bg);border:1px solid #e8c6ba;border-left:4px solid var(--warn);
+    padding:14px 18px;border-radius:0 4px 4px 0;margin:14px 0;font-size:15.5px;line-height:1.82}
+  .warn b{color:#8b3a22}
+  .urgent{background:var(--urgent-bg);border:2px solid #d9a3a3;border-left:5px solid var(--urgent);
+    padding:16px 20px;border-radius:0 4px 4px 0;margin:16px 0;font-size:15.5px;line-height:1.85}
+  .urgent b{color:var(--urgent)}
+  .info{background:var(--info-bg);border:1px solid #bcd4e0;border-left:4px solid var(--info);
+    padding:14px 18px;border-radius:0 4px 4px 0;margin:14px 0;font-size:15.5px;line-height:1.82}
+  .info b{color:#164a61}
+  .quote{border-left:3px solid var(--gold);padding:6px 0 6px 16px;margin:14px 0;
+    color:#3a4750;font-size:15.5px;line-height:1.85}
+  .src{font-size:13px;color:var(--faint);margin-top:26px;padding-top:16px;border-top:1px solid var(--line);line-height:1.9}
+  .src a{color:var(--gold)}
+  @media(max-width:640px){
+    body{font-size:16px}
+    .sheet{padding:22px 16px 28px}
+    h2{font-size:18.5px}
+    table{font-size:14px;min-width:520px}
+    td.k{white-space:normal}
+  }
+  @media print{
+    body{background:#fff;padding:0;font-size:10pt}
+    header{background:#fff;color:#000;border-bottom:2px solid #000;padding:0 0 12px}
+    header h1{color:#000} header .sub{color:#333}
+    .stamp{background:#000;color:#fff}
+    .sheet{border:0;box-shadow:none;padding:0;margin-top:14px}
+    .w{max-width:none;padding:0}
+    .scroll{overflow:visible} table{min-width:0}
+    @page{size:A4;margin:15mm 13mm}
+    h2{page-break-after:avoid} table,tr{page-break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="in">
+    <div class="stamp">內 部 文 件 ・ 請 勿 外 傳</div>
+    <h1>BlueTrend 兩篇報導分析</h1>
+    <div class="sub">
+      ①〈海洋保育，不只是禁止利用：中研院研討會談臺灣沿岸海洋治理〉<br>
+      ②〈新北海洋保護區擴大禁魚槍，貢寮萬里瑞芳掀正反論戰與執法課題〉
+    </div>
+  </div>
+</header>
+
+<div class="w">
+<div class="sheet">
+
+  <h2><span class="n">壹</span>兩句話</h2>
+
+  <div class="lede">
+    第一篇：他們幾乎全文照登我方新聞稿，連免責聲明都完整保留——<b>但用的是修正前的版本，需要立刻請他們更新。</b><br>
+    第二篇：他們自己整理出<b>基隆兩處保育區的成與敗</b>，那是目前為止最強的一份論據，而且不是我方說的。
+  </div>
+
+  <h2><span class="n">貳</span>要立刻處理：BlueTrend 刊的是我方修正前的版本</h2>
+
+  <div class="urgent">
+    <b>該篇文末寫著「本文由主辦單位之一台灣海洋永續休閒採捕聯盟整理發布，摘錄與編排均為本聯盟所為，文責自負」。</b><br>
+    也就是說，<b>文責在我方</b>。而其中三處，我方後來已經自行修正，但 BlueTrend 版本仍是舊的。
+  </div>
+
+  <div class="scroll">
+  <table>
+    <thead><tr><th style="width:1%">#</th><th>BlueTrend 現行版本</th><th>我方已修正為</th><th>為什麼要改</th></tr></thead>
+    <tbody>
+      <tr><td class="k">1</td>
+        <td>「徐承堉先生於座談中所述魚槍數量與釣魚人口推估，<b>係其查詢所得</b>」</td>
+        <td>「係<b>詢問 AI 工具所得</b>，並非官方統計」</td>
+        <td><b>最重要的一項。</b>他在座談中明確說「我就回去問了我的 AI」。
+          寫成「查詢所得」等於替他把 AI 生成的數字包裝成查證過的資料，
+          記者一比對錄影就會發現。這對他不公平，也會反噬我方可信度。</td></tr>
+      <tr><td class="k">2</td>
+        <td>「並以鏢旗魚為例，<b>同樣是以魚槍原理捕撈</b>，卻長期被視為最友善的漁法之一」</td>
+        <td>刪除該推論——他只是<b>反問</b>「那算不算魚槍？」</td>
+        <td>鏢旗魚是手擲鏢刺，並非魚槍發射機構。這句是我方替他加的斷言，他沒有這樣說。</td></tr>
+      <tr><td class="k">3</td>
+        <td>蔡政良職稱寫「國立臺東大學<b>南島文化博士班</b>教授」</td>
+        <td>「國立臺東大學<b>公共與文化事務學系</b>教授」</td>
+        <td>依臺東大學官方頁面（pca.nttu.edu.tw），其所屬為公共與文化事務學系。</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="warn">
+    <b>建議做法：</b>寫一封簡短、客氣的更正函給 BlueTrend（信箱見其網站），
+    說明我方於發布後自行複核錄影，發現上述三處需要更正，並附上我方已更新的頁面連結。<br>
+    <b>主動更正比被人指出好得多</b>，而且會讓 BlueTrend 更願意持續合作——他們是目前唯一完整刊登我方稿件的媒體。
+  </div>
+
+  <h2><span class="n">參</span>第二篇挖出的最強論據：基隆兩處保育區，一成一敗</h2>
+
+  <div class="quote">
+    基隆現有兩處海洋保護區。一是 2016 年劃設的「<b>望海巷潮境海灣保育區</b>」，面積僅約 15 公頃，
+    後擴為 18.6 公頃並實施分區管理。二是 <b>1999 年依漁業法劃設、範圍大得多的「基隆市水產動植物保育區」</b>，
+    涵蓋基隆市所有沿岸、由低潮線向外延伸 1,000 公尺，海岸線長達約 20 公里。<br><br>
+    潮境保育區之所以能成為海洋保育署評比中少數達到「完全保護」成效的保護區，
+    <b>關鍵之一在於範圍夠小，有限的執法量能足以覆蓋</b>、確實推動管理。
+    相對地，<b>另一處範圍過大的保育區因執法能量難以觸及，長年幾近無法有效執行，形同虛設。</b>
+    <span style="font-size:14px;color:#8b969e">—— BlueTrend 藍色脈動</span>
+  </div>
+
+  <div class="ok">
+    <b>這段話的價值極高，原因有三：</b><br><br>
+    <b>一、它是保育方媒體自己整理的</b>，不是我方主張。在協調會上引用，對方無法說這是採捕者的說詞。<br>
+    <b>二、失敗案例的性質與新北草案完全相同</b>——同樣依漁業法劃設、同樣是沿岸帶狀、同樣範圍很大。
+    基隆那一處外延 <b>1,000 公尺</b>、海岸線 <b>20 公里</b>，已經「形同虛設」二十七年；
+    新北草案是外延 <b>3 浬（約 5,556 公尺）</b>、橫跨貢寮萬里瑞芳，<b>範圍遠大於那個失敗案例</b>。<br>
+    <b>三、BlueTrend 自己下了結論：</b>「三海浬帶狀保育區範圍遠大於潮境，若缺乏相應的執法量能與分區設計，
+    <b>保護面積的擴大未必等於保育成效的提升</b>。」
+  </div>
+
+  <div class="info">
+    <b>與先前潮境對照表的關係：</b>我方已完成的〈新北草案 × 基隆潮境制度對照〉指出潮境用區域與許可管理、
+    未使用漁具漁法款次。現在再加上<b>基隆同市另一處大範圍保育區失敗</b>的對照，
+    論證就完整了：<b>成功的是小範圍高強度管理，失敗的是大範圍低強度禁令。</b>
+  </div>
+
+  <h2><span class="n">肆</span>對手陣營的正式名單，這篇也給了</h2>
+
+  <div class="quote">
+    「一起成為海洋的後盾，支持新北市擴大海洋保護區」連署，由<b>自然保育與環境資訊基金會（TNF）</b>、
+    <b>台灣山海天使環境保育協會</b>、<b>海湧工作室</b>、<b>臺灣湛藍海洋聯盟</b>等團體共同發起。
+  </div>
+
+  <p>其訴求為：擴大保育面積、採預警原則、落實三區分級管理、<b>明確規範採捕工具（禁用魚槍、潛水器）</b>、
+    設物種禁採期與體長限制、呼應《昆明蒙特婁生物多樣性框架》，同時<b>保留原住民族的文化採捕權</b>。</p>
+
+  <div class="ok">
+    <b>關鍵判讀：雙方的共同點比想像中多得多。</b><br>
+    他們也要<b>物種禁採期</b>、也要<b>體長限制</b>、也要<b>三區分級管理</b>、也<b>保留原住民族權益</b>。<br>
+    <b>真正的分歧只剩一項：工具要不要禁。</b><br><br>
+    這對協調會的策略有直接意涵——<b>我方應該先把所有共同點講出來、講清楚、講在前面</b>，
+    讓桌上先建立「其實我們同意九成」的認知，再處理那一成的分歧。
+    這比一開場就爭工具有效得多。
+  </div>
+
+  <div class="info">
+    <b>網絡交叉確認：</b>連署發起團體中的<b>台灣山海天使環境保育協會</b>是 9/8 協調會與會方，且在貢寮有九孔池據點；
+    <b>海湧工作室</b>副執行長郭芙是陳徵蔚《海洋在哭》的推薦人。與先前調查完全吻合。
+  </div>
+
+  <h2><span class="n">伍</span>他們的執法論，是對我方分級管理最強的攻擊</h2>
+
+  <div class="warn">
+    <b>「管理愈精細，愈吃執法能力：全面禁止相對容易目視判定違規，分級管理則需逐尾秤量、辨種、
+    查證來源與流向，所需執法量能遠高於現況。」</b><br><br>
+    這句話與你朋友那份 AI 分析完全一致，而且現在<b>白紙黑字出現在保育方媒體上</b>。
+    9/8 對方一定會用。
+  </div>
+
+  <p>他們同時列出的執法課題：</p>
+  <ul>
+    <li>海上巡查、攔檢與查獲權責<b>主要在中央海巡署</b>，地方漁業主管機關實質缺乏量能</li>
+    <li><b>搜證困難</b>：持有、攜帶魚槍本身不違法，回港後器具與漁獲一經收藏便難以舉證</li>
+    <li>界線與規範需清楚標示（他們以潮境的公告牌為正面例子）</li>
+    <li>中央與地方協力：建立海域聯合執法或委託查緝機制</li>
+  </ul>
+
+  <div class="ok">
+    <b>我方的回應方向（三層）：</b><br>
+    <b>一、承認</b>——分級管理確實比全面禁止更吃執法量能，這一點不必辯。<br>
+    <b>二、反問</b>——但基隆那處大範圍保育區證明，<b>全面禁止在大範圍下同樣執行不了</b>，
+    「容易目視判定」的前提是有人在那裡看。三浬帶狀海域，誰去看？<br>
+    <b>三、補位</b>——我方八點主張中，真正需要逐尾量測的只有體長一項，
+    其餘（禁販售、禁抱卵龍蝦、禁氣瓶、夜間禁魚槍、禁電毒炸）都是<b>看到就成立</b>；
+    而登記制加社群回報，正是補上執法量能的方式。
+  </div>
+
+  <h2><span class="n">陸</span>其他值得注意的事</h2>
+
+  <ul>
+    <li><b>他們正面記錄了我方的協力意願：</b>「值得注意的是，該聯盟也表示願協助政府取締收證與收集科學資料，
+      把重點放在強化管理與執法。」——<b>這是我方在保育方媒體上最正面的一段描述，應該持續強化。</b></li>
+    <li><b>傳播能量的量級：</b>他們 7 月 8 日一篇相關報導<b>瀏覽逾 46.6 萬次、觸及約 30 萬人、互動逾 3,000 次</b>。
+      這遠超過我方任何一則貼文。與他們維持良好關係，價值極高。</li>
+    <li><b>他們的立場其實是「中立偏程序」：</b>整篇並列正反雙方主張，結論落在
+      「台灣不缺保護區，缺的是把保護區守住的執法量能」——<b>這與我方第三點呼籲完全一致</b>。
+      他們不是敵人，是這場爭議裡少數願意整理雙方論點的媒體。</li>
+    <li><b>三篇值得回頭讀的相關報導：</b>〈基隆鋼鐵礁潛水客帶魚槍下海，法條一次看清楚〉、
+      〈龍洞漁民集結抗議與潛水客衝突，揭開台灣海洋治理的羅生門〉、
+      〈海洋保護區大調查，潮境勝深澳！〉——最後一篇可能含保護區管理強度評比資料。</li>
+  </ul>
+
+  <h2><span class="n">柒</span>建議的三個動作</h2>
+
+  <ol>
+    <li><b>立刻發更正函給 BlueTrend</b>（三處，如第貳節）。這是義務，也是維繫關係的機會。</li>
+    <li><b>把基隆失敗案例加進協調會書面資料</b>——與既有的潮境對照表合併，
+      形成「小範圍成功 vs 大範圍失敗」的完整論證。</li>
+    <li><b>9/8 開場先講共同點。</b>依連署訴求，雙方在物種禁採期、體長限制、三區分級、
+      原住民族權益上立場一致。先確立九成的共識，再談那一成。</li>
+  </ol>
+
+  <div class="src">
+    <b>資料來源</b><br>
+    <a href="https://bluetrend.media/marine-governance-seminar-academia-sinica/" target="_blank" rel="noopener">BlueTrend．海洋保育，不只是禁止利用：中研院研討會談臺灣沿岸海洋治理</a><br>
+    <a href="https://bluetrend.media/new-taipei-marine-protected-area-enforcement/" target="_blank" rel="noopener">BlueTrend．新北海洋保護區擴大禁魚槍，貢寮萬里瑞芳掀正反論戰與執法課題</a><br><br>
+    BlueTrend 藍色脈動＝躍入深藍股份有限公司（統編 52868328），主編自稱「布魯陳」。
+    創辦人趙健舜亦為陳徵蔚《海洋在哭》推薦人之一。
+  </div>
+
+</div>
+</div>
+
+</body>
+</html>
