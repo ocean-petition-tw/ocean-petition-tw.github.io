@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>論文解析．北海岸潮池魚類 20 年監測（Scientific Data 2020）</title>
+<style>
+  :root{
+    --bg:#f4f1ea; --paper:#fffdf8; --ink:#1f2b33; --sub:#55636c; --faint:#8b969e;
+    --line:#ded7c9; --navy:#1a3a4a; --gold:#b07d2b; --gold-bg:#f8f0dd; --sea:#12303e;
+    --ok:#2f7d55; --ok-bg:#e8f4ed; --warn:#a8442a; --warn-bg:#fbeee9;
+    --info:#1f5f7a; --info-bg:#e9f2f6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.85;font-size:16.5px;padding-bottom:60px;-webkit-font-smoothing:antialiased}
+  .w{max-width:920px;margin:0 auto;padding:0 20px}
+  header{background:linear-gradient(165deg,#0f2733,#1f4658);color:#fff;padding:44px 20px 38px;border-bottom:4px solid var(--gold)}
+  header .in{max-width:920px;margin:0 auto}
+  header .k{font-size:11.5px;font-weight:800;letter-spacing:.24em;color:#e8bf72}
+  header h1{font-size:clamp(23px,4.4vw,32px);font-weight:900;margin:14px 0 8px;line-height:1.32}
+  header .sub{font-size:15px;color:#c9dde5;line-height:1.8}
+  .sheet{background:var(--paper);border:1px solid var(--line);border-radius:4px;
+    padding:32px 34px 38px;margin-top:26px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+  h2{font-size:20px;font-weight:900;color:var(--navy);margin:38px 0 14px;
+     padding-bottom:8px;border-bottom:2px solid var(--navy)}
+  h2:first-child{margin-top:0}
+  h2 .n{color:var(--gold);margin-right:8px}
+  h3{font-size:17px;font-weight:800;color:var(--sea);margin:24px 0 8px}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 12px;padding-left:1.4em}
+  li{margin-bottom:6px}
+  b,strong{font-weight:800;color:var(--sea)}
+  .lede{font-size:17px;font-weight:700;color:var(--sea);background:var(--gold-bg);
+    border-left:4px solid var(--gold);padding:15px 19px;border-radius:0 4px 4px 0;margin:0 0 18px;line-height:1.8}
+  .scroll{overflow-x:auto;margin:0 0 14px}
+  table{width:100%;border-collapse:collapse;font-size:15px}
+  th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+  th{background:#f0ece1;font-weight:800;color:var(--navy);font-size:14px}
+  td.k{white-space:nowrap;font-weight:700;width:1%;background:#f7f4ec}
+  td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .ok{background:var(--ok-bg);border:1px solid #bcdcca;border-left:4px solid var(--ok);
+    padding:14px 18px;border-radius:0 4px 4px 0;margin:14px 0;font-size:15.5px;line-height:1.82}
+  .ok b{color:#20613f}
+  .warn{background:var(--warn-bg);border:1px solid #e8c6ba;border-left:4px solid var(--warn);
+    padding:14px 18px;border-radius:0 4px 4px 0;margin:14px 0;font-size:15.5px;line-height:1.82}
+  .warn b{color:#8b3a22}
+  .info{background:var(--info-bg);border:1px solid #bcd4e0;border-left:4px solid var(--info);
+    padding:14px 18px;border-radius:0 4px 4px 0;margin:14px 0;font-size:15.5px;line-height:1.82}
+  .info b{color:#164a61}
+  .quote{border-left:3px solid var(--gold);padding:6px 0 6px 16px;margin:14px 0;
+    color:#3a4750;font-size:15.5px;line-height:1.85}
+  .quote .en{font-family:Georgia,serif;font-style:italic;color:#4a5760;font-size:15px}
+  .src{font-size:13px;color:var(--faint);margin-top:26px;padding-top:16px;border-top:1px solid var(--line);line-height:1.9}
+  .src a{color:var(--gold)}
+  @media(max-width:640px){
+    body{font-size:16px}
+    .sheet{padding:22px 16px 28px}
+    h2{font-size:18.5px}
+    table{font-size:14px;min-width:540px}
+    td.k{white-space:normal}
+  }
+  @media print{
+    body{background:#fff;padding:0;font-size:10pt}
+    header{background:#fff;color:#000;border-bottom:2px solid #000;padding:0 0 12px}
+    header h1{color:#000} header .sub,header .k{color:#333}
+    .sheet{border:0;box-shadow:none;padding:0;margin-top:14px}
+    .w{max-width:none;padding:0}
+    .scroll{overflow:visible} table{min-width:0}
+    @page{size:A4;margin:15mm 13mm}
+    h2{page-break-after:avoid} table,tr{page-break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="in">
+    <div class="k">論 文 解 析 ・ 內 部 參 考</div>
+    <h1>北海岸岩石潮池魚類群聚<br>20 年長期監測資料集</h1>
+    <div class="sub">
+      Ho, Wang, Shao, <b>Chen I-S.</b> &amp; Chen H. (2020)．<i>Scientific Data</i> 7:84<br>
+      本文為該論文之解讀與本案關聯分析，非對作者或其研究之批評。
+    </div>
+  </div>
+</header>
+
+<div class="w">
+<div class="sheet">
+
+  <h2><span class="n">壹</span>一句話</h2>
+
+  <div class="lede">
+    這是一份<b>紮實、公開、方法完整</b>的 20 年資料——而且測站就在<b>野柳與澳底</b>。<br>
+    但它研究的是<b>潮間帶潮池的小型魚類</b>，與魚槍採捕的目標魚種幾乎沒有重疊，
+    因此<b>無法回答「魚槍是否造成中大型經濟魚種稀缺」這個問題</b>。
+  </div>
+
+  <h2><span class="n">貳</span>論文基本資料</h2>
+
+  <div class="scroll">
+  <table>
+    <tr><td class="k">篇名</td><td>A long-term monitoring dataset of fish assemblages in rocky tidepools on the northern coast of Taiwan</td></tr>
+    <tr><td class="k">作者</td><td>Lin-Tai Ho（海科館／海大海生所）、Shen-Chih Wang（海科館）、
+      <b>Kwang-Tsao Shao 邵廣昭</b>（中研院生多中心／海大卓越海洋中心）、
+      <b>I-Shiung Chen 陳義雄</b>（海科館／海大海生所）、Hungyen Chen（臺大農藝系，通訊作者）</td></tr>
+    <tr><td class="k">期刊</td><td><i>Scientific Data</i>（Nature 系列）7:84，2020 年 3 月 9 日<br>
+      DOI 10.1038/s41597-020-0425-7　·　PMID 32152315　·　PMCID PMC7063039</td></tr>
+    <tr><td class="k">授權</td><td><b>CC BY 4.0 開放取用</b>；資料集以 CC0 公開於 figshare</td></tr>
+    <tr><td class="k">論文類型</td><td><b>Data Descriptor（資料描述論文）</b>——目的在公開並描述資料集，
+      <b>不進行假設檢驗，也不做因果推論</b></td></tr>
+    <tr><td class="k">經費</td><td>科技部（MOST 107-2313-B-002-010-MY3），撥予臺大 H. Chen。
+      <b>非新北市政府委託</b></td></tr>
+  </table>
+  </div>
+
+  <h2><span class="n">參</span>三個測站，兩個在本案保育區內</h2>
+
+  <div class="scroll">
+  <table>
+    <thead><tr><th style="width:1%">測站</th><th>位置</th><th>座標（WGS84）</th><th>期間</th><th class="num">樣本</th><th class="num">物種</th></tr></thead>
+    <tbody>
+      <tr><td class="k">YL</td><td><b>野柳</b>　新北市萬里</td><td>25°11′60″N, 121°43′31″E</td>
+        <td>1999.10–2018.11</td><td class="num">47</td><td class="num">65</td></tr>
+      <tr><td class="k">BDZ</td><td>八斗子　基隆市</td><td>25°08′35″N, 121°48′13″E</td>
+        <td>1999.01–2018.10</td><td class="num">50</td><td class="num">82</td></tr>
+      <tr><td class="k">AD</td><td><b>澳底</b>　新北市貢寮</td><td>25°03′29″N, 121°55′38″E</td>
+        <td>1999.10–2018.12</td><td class="num">47</td><td class="num">64</td></tr>
+      <tr><td class="k">合計</td><td colspan="3">每年四季各採樣一次，跨越 20 年</td>
+        <td class="num"><b>144</b></td><td class="num"><b>106</b></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="info">
+    <b>野柳＝萬里保育區所在地；澳底＝貢寮。</b><br>
+    也就是說，<b>本案三個保育區中的兩個，其潮間帶都有連續二十年的公開監測資料</b>——
+    而且資料集完整上傳、可自由下載。這件事本身就很重要。
+  </div>
+
+  <h2><span class="n">肆</span>他們怎麼做的——方法決定了資料能回答什麼</h2>
+
+  <div class="quote">
+    <span class="en">The anesthetic used in the intertidal fish collection was clove oil mixed with alcohol in a ratio of 1:2
+    … diluted to a concentration of 100 ppm. The anesthetic was poured into the tidepool and well mixed.
+    After the anesthetic took effect, three laboratory members used fishing nets to catch fishes that were swimming slowly.
+    Fifteen minutes later, fishes that remained hidden in the cracks of the rock or at the bottom of the pool were collected by hand carefully.</span>
+  </div>
+
+  <p>翻譯：以<b>丁香油與酒精 1:2 混合、稀釋至 100 ppm 的麻醉劑</b>倒入潮池均勻混合；
+    麻醉生效後由三名成員以網具撈捕游動變慢的魚，十五分鐘後再以手工採集躲在岩縫與池底的個體。
+    作業於<b>退潮時</b>進行，每次約<b>一小時</b>。潮池在漲潮時會被完全沖刷，魚類約在兩三天內重新進入。</p>
+
+  <div class="warn">
+    <b>這個方法只能用在封閉的潮池。</b><br>
+    麻醉劑需要在有限水體中維持濃度，<b>在亞潮帶開放礁區完全無法施用</b>。
+    因此這套二十年的資料，<b>本質上就只涵蓋潮間帶潮池</b>——
+    這不是研究的缺點，是研究設計的範圍。
+  </div>
+
+  <h2><span class="n">伍</span>資料裡有什麼魚</h2>
+
+  <p>論文列出的各站優勢種為：</p>
+
+  <div class="scroll">
+  <table>
+    <thead><tr><th style="width:1%">測站</th><th>優勢種（論文 Fig. 4–6）</th><th>類群與體型</th></tr></thead>
+    <tbody>
+      <tr><td class="k">YL 野柳</td>
+        <td><i>Bathygobius fuscus</i>、<i>Abudefduf vaigiensis</i>、<i>Istiblennius edentulus</i></td>
+        <td rowspan="3"><b>鰕虎科、雀鯛科、鳚科</b><br>
+          均為<b>小型潮池定居性或幼魚期</b>魚類，成魚體長多在十公分上下</td></tr>
+      <tr><td class="k">BDZ 八斗子</td>
+        <td><i>Bathygobius fuscus</i>、<i>Abudefduf vaigiensis</i>、<i>Istiblennius edentulus</i></td></tr>
+      <tr><td class="k">AD 澳底</td>
+        <td><i>Bathygobius fuscus</i>、<i>Istiblennius dussumieri</i>、<i>Istiblennius lineatus</i></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="ok">
+    <b>關鍵對照：</b>陳義雄教授在媒體上指出稀缺的魚種是
+    <b>石斑、鸚哥魚、笛鯛、粗皮鯛、寒鯛</b>——全部是<b>亞潮帶中大型經濟魚種</b>。<br>
+    而這份二十年資料的主角是<b>褐吻鰕虎、豆娘魚、鳚科</b>——潮池小型魚類。<br><br>
+    <b>兩者幾乎沒有重疊。潮池不是魚槍作業的場域，魚槍的目標也不住在潮池裡。</b>
+  </div>
+
+  <h2><span class="n">陸</span>論文自己說了一句對本案極重要的話</h2>
+
+  <div class="quote">
+    <span class="en">To date, Taiwan’s investment in long-term ecological monitoring of fish communities has proven inadequate.
+    The surveys and collected data are usually <b>short-term, fragmented, incomplete, and improperly archived</b>,
+    resulting in a <b>dearth of baseline ecological data</b>.</span>
+  </div>
+
+  <p>翻譯：<b>迄今台灣對魚類群聚長期生態監測的投入明顯不足。調查與資料多屬短期、破碎、不完整且保存不當，
+    導致基線生態資料匱乏。</b></p>
+
+  <div class="ok">
+    <b>這句話出自一篇陳義雄教授共同署名的論文。</b><br>
+    它與陳昭倫在 8/15 研討會所說的「翻遍漁業年報找不到珊瑚礁漁業的分類，
+    各種捕撈方式的強度<b>完完全全沒有資料</b>」，是同一個判斷。<br><br>
+    <b>「台灣缺乏基線生態資料」不是我方的主張，是台灣魚類學界的共識。</b>
+  </div>
+
+  <h2><span class="n">柒</span>對本案的三層意義</h2>
+
+  <h3>第一層　資料缺口有了學界背書</h3>
+  <p>本案最核心的爭點是「管制是否有科學依據」。這篇論文由<b>邵廣昭、陳義雄</b>等人共同署名，
+    明白指出台灣長期生態監測不足、基線資料匱乏。<b>這一點不必再爭論。</b></p>
+
+  <h3>第二層　這份資料回答不了「魚槍」的問題</h3>
+  <p>不是因為資料不好——這是台灣北海岸最完整的潮間帶長期資料之一——
+    而是因為<b>研究對象不同</b>：潮池小型魚 ≠ 亞潮帶中大型經濟魚種。<br>
+    因此，若有人以這份資料支持「魚槍造成資源稀缺」，在方法上並不成立。</p>
+
+  <div class="warn">
+    <b>第三層　必須誠實面對的一點</b><br>
+    <b>這篇論文並不是陳義雄教授對本案主張的資料來源。</b>
+    他在媒體上談的是「新北海域中大型經濟魚種稀缺」「保育區內群聚優於區外」——
+    那應該來自<b>新北市府委託的另一份研究</b>，與本篇無關。<br><br>
+    因此本篇<b>不能用來直接反駁他對本案的主張</b>。若這樣使用，會被立刻指出張冠李戴，
+    反而傷害我方可信度。<b>本篇的正確用途在下一節。</b>
+  </div>
+
+  <h2><span class="n">捌</span>最有力的用法：以他自己的公開標準，要求市府比照</h2>
+
+  <div class="ok">
+    這篇論文做到了以下每一件事：<br><br>
+    · <b>三個測站的精確座標全部公開</b><br>
+    · <b>採樣期間、頻度、每站樣本數逐一揭露</b><br>
+    · <b>採集方法寫到藥劑配方與濃度</b>（丁香油：酒精 1:2、100 ppm）<br>
+    · <b>每站的物種數、個體數、標準差全部列出</b><br>
+    · <b>原始資料集以 CC0 公開於 figshare，任何人可下載重分析</b><br>
+    · 論文本身<b>開放取用</b>，無付費牆
+  </div>
+
+  <div class="info">
+    <b>因此我方可以這樣說：</b><br><br>
+    「陳義雄教授參與的《Scientific Data》論文，將北海岸潮池二十年的原始資料完整公開，
+    調查點位座標、方法、樣本數、藥劑濃度均逐一揭露，任何人都能下載重分析。<br>
+    <b>本聯盟希望市府委託之魚類生態研究，也能比照這個標準公開。</b>」<br><br>
+    這是<b>以他自身的學術實踐為標準</b>提出的請求——既尊重，又難以拒絕。
+  </div>
+
+  <h2><span class="n">玖</span>會議上可以問的三個問題</h2>
+
+  <ol>
+    <li>市府委託之調查，其<b>點位座標、調查頻度、樣本數與方法</b>，是否可比照《Scientific Data》該篇的規格公開？</li>
+    <li>該委託調查採用何種方法？<b>潮間帶採用麻醉法，亞潮帶則須潛水目視普查</b>——
+      兩者的偵測能力與可比較性如何處理？</li>
+    <li>保育區內外的比較，對照點是否就<b>棲地型態、水深、可及性</b>進行過配對？</li>
+  </ol>
+
+  <div class="warn">
+    <b>三件不要做的事</b><br>
+    一、<b>不要說這篇論文「證明魚槍沒有影響」</b>——它沒有研究魚槍，這樣講會被當場指正。<br>
+    二、<b>不要質疑麻醉採集的正當性</b>。丁香油是國際通用的魚類麻醉劑，屬標準科學方法，
+    且該研究說明潮池在漲潮時會完全沖刷、魚類兩三天內重新進入。拿這個做文章只會顯得外行。<br>
+    三、<b>不要拿論文的數字瑕疵做文章</b>。若逐項核對，該篇對「個體數」的敘述與各站合計存在
+    對不上的情形，但那是資料描述論文常見的敘述疏漏，與本案毫無關係。
+    在桌上挑這種毛病，只會讓我方看起來在找碴。
+  </div>
+
+  <div class="src">
+    <b>資料來源</b><br>
+    <a href="https://www.nature.com/articles/s41597-020-0425-7" target="_blank" rel="noopener">Nature：Scientific Data 7, 84 (2020)</a>　·
+    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7063039/" target="_blank" rel="noopener">PMC 全文（開放取用）</a>　·
+    <a href="https://pubmed.ncbi.nlm.nih.gov/32152315/" target="_blank" rel="noopener">PubMed</a><br>
+    資料集：figshare，metadata DOI 10.6084/m9.figshare.11898174<br><br>
+    <b>另有姊妹作</b>：Ho et al. (2022)《Long-term monitoring dataset of fish assemblages in rocky tidepools on the
+    <b>southern</b> coast of Taiwan》，<i>Scientific Data</i>（PMC9586931）——同一研究團隊、同一方法，
+    測站在台灣南部。<br><br>
+    <b>本文性質：</b>本文係就公開論文所為之解讀與適用性分析，
+    <b>不涉及對作者學術能力或研究品質之評價</b>。該論文為一份設計嚴謹、資料公開的長期監測研究。
+  </div>
+
+</div>
+</div>
+
+</body>
+</html>
