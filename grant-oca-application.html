@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海保署補助申請評估．多元協作計畫（內部）</title>
+<style>
+  :root{
+    --bg:#f4f1ea; --paper:#fffdf8; --ink:#1f2b33; --sub:#55636c; --faint:#8b969e;
+    --line:#ded7c9; --navy:#1a3a4a; --gold:#b07d2b; --gold-bg:#f8f0dd; --sea:#12303e;
+    --ok:#2f7d55; --ok-bg:#e8f4ed; --warn:#a8442a; --warn-bg:#fbeee9;
+    --info:#1f5f7a; --info-bg:#e9f2f6; --urgent:#8f1f1f; --urgent-bg:#fbe9e9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.85;font-size:16.5px;padding-bottom:60px;-webkit-font-smoothing:antialiased}
+  .w{max-width:920px;margin:0 auto;padding:0 20px}
+  header{background:linear-gradient(165deg,#0f2733,#1f4658);color:#fff;padding:42px 20px 36px;border-bottom:4px solid var(--gold)}
+  header .in{max-width:920px;margin:0 auto}
+  .stamp{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.2em;
+    color:#3a1d16;background:#e8bf72;padding:4px 12px;border-radius:3px}
+  header h1{font-size:clamp(24px,4.6vw,33px);font-weight:900;margin:14px 0 8px;line-height:1.3}
+  header .sub{font-size:15px;color:#c9dde5;line-height:1.8}
+  .sheet{background:var(--paper);border:1px solid var(--line);border-radius:4px;
+    padding:32px 34px 38px;margin-top:26px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+  h2{font-size:20px;font-weight:900;color:var(--navy);margin:38px 0 14px;
+     padding-bottom:8px;border-bottom:2px solid var(--navy)}
+  h2:first-child{margin-top:0}
+  h2 .n{color:var(--gold);margin-right:8px}
+  h3{font-size:17px;font-weight:800;color:var(--sea);margin:24px 0 8px}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 12px;padding-left:1.4em}
+  li{margin-bottom:6px}
+  b,strong{font-weight:800;color:var(--sea)}
+  .lede{font-size:17px;font-weight:700;color:var(--sea);background:var(--gold-bg);
+    border-left:4px solid var(--gold);padding:15px 19px;border-radius:0 4px 4px 0;margin:0 0 18px;line-height:1.8}
+  .scroll{overflow-x:auto;margin:0 0 14px}
+  table{width:100%;border-collapse:collapse;font-size:15px}
+  th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+  th{background:#f0ece1;font-weight:800;color:var(--navy);font-size:14px}
+  td.k{white-space:nowrap;font-weight:700;width:1%;background:#f7f4ec}
+  td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .ok{background:var(--ok-bg);border:1px solid #bcdcca;border-left:4px solid var(--ok);
+    padding:14px 18px;border-radius:0 4px 4px 0;margin:14px 0;font-size:15.5px;line-height:1.82}
+  .ok b{color:#20613f}
+  .warn{background:var(--warn-bg);border:1px solid #e8c6ba;border-left:4px solid var(--warn);
+    padding:14px 18px;border-radius:0 4px 4px 0;margin:14px 0;font-size:15.5px;line-height:1.82}
+  .warn b{color:#8b3a22}
+  .urgent{background:var(--urgent-bg);border:2px solid #d9a3a3;border-left:5px solid var(--urgent);
+    padding:16px 20px;border-radius:0 4px 4px 0;margin:16px 0;font-size:15.5px;line-height:1.85}
+  .urgent b{color:var(--urgent)}
+  .info{background:var(--info-bg);border:1px solid #bcd4e0;border-left:4px solid var(--info);
+    padding:14px 18px;border-radius:0 4px 4px 0;margin:14px 0;font-size:15.5px;line-height:1.82}
+  .info b{color:#164a61}
+  .quote{border-left:3px solid var(--gold);padding:6px 0 6px 16px;margin:14px 0;
+    color:#3a4750;font-size:15.5px;line-height:1.85;background:#fbf8f0}
+  ol.step{list-style:none;padding:0;counter-reset:s}
+  ol.step>li{counter-increment:s;position:relative;padding-left:2.5em;margin-bottom:12px}
+  ol.step>li:before{content:counter(s);position:absolute;left:0;top:.15em;
+    width:1.7em;height:1.7em;line-height:1.7em;text-align:center;border-radius:50%;
+    background:var(--navy);color:#fff;font-size:12.5px;font-weight:800}
+  .src{font-size:13px;color:var(--faint);margin-top:26px;padding-top:16px;border-top:1px solid var(--line);line-height:1.9}
+  .src a{color:var(--gold)}
+  @media(max-width:640px){
+    body{font-size:16px}
+    .sheet{padding:22px 16px 28px}
+    h2{font-size:18.5px}
+    table{font-size:14px;min-width:540px}
+    td.k{white-space:normal}
+  }
+  @media print{
+    body{background:#fff;padding:0;font-size:10pt}
+    header{background:#fff;color:#000;border-bottom:2px solid #000;padding:0 0 12px}
+    header h1{color:#000} header .sub{color:#333}
+    .stamp{background:#000;color:#fff}
+    .sheet{border:0;box-shadow:none;padding:0;margin-top:14px}
+    .w{max-width:none;padding:0}
+    .scroll{overflow:visible} table{min-width:0}
+    @page{size:A4;margin:15mm 13mm}
+    h2{page-break-after:avoid} table,tr{page-break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="in">
+    <div class="stamp">內 部 文 件 ・ 請 勿 外 傳</div>
+    <h1>海保署補助申請評估<br>海洋保護區域網絡多元協作計畫</h1>
+    <div class="sub">
+      依海保署 115.07.30 版徵件須知（9 頁）與 115.07.14 公告逐條核對<br>
+      申請期限：<b>115.8.31（115-116 年計畫）</b>　／　<b>115.10.30（116 年度計畫）</b>
+    </div>
+  </div>
+</header>
+
+<div class="w">
+<div class="sheet">
+
+  <h2><span class="n">壹</span>結論先講</h2>
+
+  <div class="lede">
+    <b>這條路走得通，而且補助項目的官方定義幾乎是為本案量身寫的。</b><br>
+    但<b>不建議趕 8/31</b>——建議走 <b>10/30 那一梯（116 年度計畫）</b>，
+    原因是 115 年度採「先執行、後撥付」，且須於 12/20 前核銷完畢，現金流與時程風險過高。
+  </div>
+
+  <h2><span class="n">貳</span>這個補助是什麼</h2>
+
+  <div class="scroll">
+  <table>
+    <tr><td class="k">法源</td><td>海洋保育法 §1、§4、§6、§7、§18；海洋庇護區劃定辦法 §4；
+      海洋保護區以外海洋其他有效保育措施之區域認定辦法 §7；整體海洋保護區域管理政策方針</td></tr>
+    <tr><td class="k">總預算</td><td>2,000 萬元（115 年度 600 萬、116 年度 1,400 萬）</td></tr>
+    <tr><td class="k">單案上限</td><td>每提案單位<b>每年度至多申請一案</b>；每案至多 <b>300 萬元</b>，
+      且<b>以計畫總經費 95% 為上限</b>（即須自籌至少 5%）</td></tr>
+    <tr><td class="k">申請資格</td><td>各海洋保護區之中央目的事業主管機關或管理機關、
+      <b>政府立案之法人或非法人團體</b>、國內公私立大專校院、國立研究機構</td></tr>
+    <tr><td class="k">審查</td><td><b>隨到隨審</b>，書面審查，得邀專家學者、管理單位及有關機關參與</td></tr>
+    <tr><td class="k">收件</td><td>806 高雄市前鎮區成功二路 25 號 7 樓　海保署「海洋保護區域網絡多元協作計畫」徵件小組收<br>
+      聯絡人：靳小姐　07-3382057 轉 262130</td></tr>
+  </table>
+  </div>
+
+  <div class="ok">
+    <b>貢寮保育區符合調查範圍。</b>須知第八點明定調查範圍包含
+    「經中央主管機關核定之<b>海洋保護區（MPAs）及其周圍海域與毗鄰陸域</b>」——
+    水產動植物繁殖保育區依海洋保育法 §6 第 5 款即為海洋保護區之一種。
+  </div>
+
+  <h2><span class="n">參</span>兩個項目的官方定義——逐字看</h2>
+
+  <h3>社會經濟因子・局部基礎調查（最高 100 萬）</h3>
+  <div class="quote">
+    利用<b>訪談、問卷、田野調查、在地深入輔導、工作坊、共識營</b>等方式，
+    調查對海洋保護區域規範之<b>理解與支持度</b>；參與<b>在地巡守管理及生態監測</b>等程度；
+    瞭解海洋保護區域對<b>漁業行為、觀光遊憩等經濟活動與傳統文化知識之互動</b>，最高補助 100 萬元。
+  </div>
+
+  <div class="ok">
+    <b>這段話幾乎逐項命中本聯盟已經在做的事：</b><br>
+    · 「對規範之理解與支持度」→ 我方有 <b>845 位連署人、159 則留言</b>，是現成的問卷母體<br>
+    · 「參與在地巡守管理及生態監測等程度」→ 正是路徑 A 要做的事<br>
+    · 「對漁業行為、觀光遊憩……與傳統文化知識之互動」→ 卯澳的海女文化、石花菜、
+      漁村導覽產業，以及本案爭點本身
+  </div>
+
+  <h3>保護區巡守（最高 100 萬）</h3>
+  <div class="quote">
+    針對海洋保護區<b>成立在地巡守隊或執行巡護工作</b>，培養巡護人員必要知能，
+    並引導其以<b>公民科學方式蒐集海洋保護區內物種及棲地資料</b>，
+    以凝聚地方共識共同保護海洋保護區生態環境與資源，倡導海洋永續經營與發展，最高補助 100 萬元。
+  </div>
+
+  <div class="info">
+    注意用語是「<b>成立在地巡守隊<u>或</u>執行巡護工作</b>」——
+    <b>支援既有的卯澳海陸域巡守隊也在範圍內</b>，不必另立新隊。
+    這正好對應路徑 A 的作法。
+  </div>
+
+  <h3>其他項目（供參）</h3>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>項目</th><th>範圍</th><th class="num">上限</th></tr></thead>
+    <tbody>
+      <tr><td>生態因子・局部基礎調查</td><td>單一出海口、特定小面積海域之特定物種盤點或基礎生態調查</td><td class="num">150 萬</td></tr>
+      <tr><td>生態因子・區域進階調查</td><td>特定海域或 2–3 種不同特性複合型棲地之系統性調查與群聚分析</td><td class="num">300 萬</td></tr>
+      <tr><td>社經因子・區域進階調查</td><td>同局部但涵蓋 2–3 種不同特性之保護區或棲地</td><td class="num">200 萬</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2><span class="n">肆</span>應備文件（五項）</h2>
+
+  <ol>
+    <li>補（捐）助申請表　<span style="color:#8b969e">附件三（.odt 空白表）</span></li>
+    <li>提案工作計畫書　<span style="color:#8b969e">附件四（.odt 空白表）</span></li>
+    <li><b>登記立案及負責人之證明文件影本</b>　<span style="color:#8b3a22">← 第一個卡點</span></li>
+    <li>公職人員利益衝突迴避事項聲明書（含身分關係事前揭露表）　<span style="color:#8b969e">附件五</span></li>
+    <li>其他與提案工作計畫有關之資料</li>
+  </ol>
+
+  <div class="warn">
+    <b>立案身分是先決條件。</b>須知明文要求「登記立案及負責人之證明文件影本」。<br>
+    · <b>台灣海洋永續休閒採捕聯盟</b>目前應為非法人團體，須確認是否具備「<b>政府立案</b>」之證明文件<br>
+    · <b>台灣永續漁法漁獵推廣協會</b>（本聯盟發起單位）若已依人民團體法完成立案，
+      <b>可直接作為申請人</b><br><br>
+    <b>這是今天就要確認的第一件事。</b>沒有這份文件，其餘都不用談。
+  </div>
+
+  <h2><span class="n">伍</span>審查基準與權重</h2>
+
+  <div class="scroll">
+  <table>
+    <thead><tr><th style="width:1%">權重</th><th>基準</th><th>須知原文重點</th></tr></thead>
+    <tbody>
+      <tr><td class="k">30%</td><td>計畫結構之完整性</td>
+        <td>須符合海保署「<b>潔淨海水</b>」「<b>健康棲地</b>」「<b>永續資源</b>」施政願景，
+          助於提升 MPA 管理效能，達成「迎向韌性」「自然為本」「<b>公平包容</b>」整體目標</td></tr>
+      <tr><td class="k">20%</td><td>計畫執行之永續性</td>
+        <td>以「棲地復育」「物種保育及復育」「<b>海洋保護區生態、社經調查</b>」為核心，
+          提升公眾海洋保育意識</td></tr>
+      <tr><td class="k">20%</td><td>計畫價值及影響力</td>
+        <td>有益於傳達海洋生物多樣性重要性，創造生態面、科學面、經濟面或社會面之價值</td></tr>
+      <tr><td class="k">15%</td><td>計畫團隊之執行力</td>
+        <td>組織分工完整度、執行方式、專業能力、時程規劃、可行性、
+          <b>過去執行相關績效</b>及行政配合情形</td></tr>
+      <tr><td class="k">15%</td><td>創新性、策略性或政策性</td>
+        <td>計畫具創意、創新表現，或具備策略性、政策性</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="warn">
+    <b>我方的相對弱項是「過去執行相關績效」（15%）。</b>
+    聯盟成立時間短、無政府補助計畫執行紀錄。<br>
+    <b>解方：與有績效的單位共同提案或列為協力單位</b>——
+    例如福連里社區發展協會、既有巡守隊，或已有在地守護計畫執行經驗的團體。
+  </div>
+
+  <div class="ok">
+    <b>我方的強項是「公平包容」與「政策性」。</b>
+    海保署三大整體目標之一就是「<b>公平包容</b>」；而本案正是一個
+    「保護區規範對特定使用者群體造成差別影響」的活生生案例。<br>
+    <b>全國目前沒有任何漁獵或魚槍團體在這個補助體系裡</b>——
+    第一個提案本身就具備須知第十三點第五款所稱的「創新性、策略性」。
+  </div>
+
+  <h2><span class="n">陸</span>錢怎麼撥——這是最大的財務風險</h2>
+
+  <div class="urgent">
+    <b>115 年度是「先執行、後撥付」。</b><br>
+    申請單位應依核定工作計畫實際執行，於 <b>115 年 12 月 20 日前</b>檢送核定公文影本、
+    階段性成果報告、支出明細、<b>原始憑證（收據或發票）</b>，經審核通過後
+    「<b>依實際支用數撥付</b>」。<br><br>
+    也就是說：<b>錢要自己先墊，做完、核銷、審核通過才拿得到。</b>
+    若 9 月才核定，等於三個月內要花完並取得全部憑證。<br>
+    <b>逾期未請款結案者，本署得終止補助，並追繳尚未執行之補助費用。</b>
+  </div>
+
+  <div class="scroll">
+  <table>
+    <thead><tr><th style="width:1%">年度</th><th>撥款方式</th><th>期限</th></tr></thead>
+    <tbody>
+      <tr><td class="k">115 年</td><td>執行後憑實際支用數撥付</td><td>115.12.20 前檢送核銷</td></tr>
+      <tr><td class="k">116 年</td><td>第一期 <b>40%</b>（預撥）</td><td>116.1.31 前檢送申請</td></tr>
+      <tr><td class="k"></td><td>第二期 <b>30%</b>（憑 40% 原始憑證申請）</td><td>—</td></tr>
+      <tr><td class="k"></td><td>第三期尾款（憑執行 100% 之憑證）</td><td>計畫結束後一個月內核銷，最遲不逾 116.12.20</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="ok">
+    <b>這正是建議走 116 年度那一梯的理由：116 年度有 40% 預撥款，115 年度沒有。</b>
+  </div>
+
+  <h2><span class="n">柒</span>五個容易忽略的義務</h2>
+
+  <div class="scroll">
+  <table>
+    <tr><td class="k">行政中立</td><td>辦理計畫或活動期間<b>不得懸掛、張貼、穿戴或標示特定政黨、
+      其他政治團體或公職候選人之旗幟、徽章或服飾</b><br>
+      <span style="color:#8b3a22">→ 我方有議員支持，執行補助計畫期間須切割清楚</span></td></tr>
+    <tr><td class="k">政府採購法</td><td>補助金額占採購金額半數以上，且達公告金額（150 萬）以上者，
+      <b>適用政府採購法</b>並受監督</td></tr>
+    <tr><td class="k">配合義務</td><td>應配合派員參與海保署工作或協調會議、教育訓練、工作坊、
+      成果發表或研討會及<b>執行訪視作業</b></td></tr>
+    <tr><td class="k">成果權利</td><td>海保署基於非營利推廣需要，<b>享有成果（含報告書、照片、影片）之使用權</b>；
+      須簽著作權授權同意書。<span style="color:#20613f">須知第七點另載明「計畫執行成果應由雙方共享」</span></td></tr>
+    <tr><td class="k">其他</td><td>辦活動須辦<b>公共意外責任險</b>；文宣須附註海保署為指導或補助單位；
+      應留意<b>活動參與人數之性別比例</b>；遵守學術倫理與智慧財產權規範</td></tr>
+  </table>
+  </div>
+
+  <h2><span class="n">捌</span>一條可能繞過期限的例外</h2>
+
+  <div class="quote">
+    五、<b>如具重大海洋保育意義或與本署業務關聯具指標性，則視實際需求經審查核定，
+    不適用前述申請期間之限制。</b>
+    <span style="font-size:14px;color:#8b969e">—— 徵件須知第五點</span>
+  </div>
+
+  <div class="info">
+    這一條給了審查單位彈性。若我方的提案能被認定為「具重大海洋保育意義」或
+    「與海保署業務關聯具指標性」——例如<b>全國第一個由潛水採捕者社群主動提出的
+    保護區社經調查與巡守協力計畫</b>——理論上可不受 8/31 或 10/30 的限制。<br>
+    <b>但這是審查單位的裁量，不能當成規劃前提。</b>建議仍以 10/30 為目標，
+    並在事前致電靳小姐時一併詢問此條的實務運用。
+  </div>
+
+  <h2><span class="n">玖</span>建議的提案設計</h2>
+
+  <div class="ok">
+    <b>一案、兩個項目、上限 200 萬。</b>（每單位每年度至多一案，故不能拆成兩案）<br><br>
+    <b>主軸：社會經濟因子・局部基礎調查（100 萬）</b><br>
+    · 以 845 位連署人為基礎母體，進行保護區規範理解度與支持度之問卷調查<br>
+    · 對貢寮在地漁民、海女、潛水採捕者、釣客、潛店、觀光業者進行深度訪談<br>
+    · 辦理工作坊與共識營，就分級管理方案凝聚在地共識<br>
+    · 記錄卯澳海女採集、石花菜等傳統文化知識與現行規範之互動<br><br>
+    <b>副軸：保護區巡守（100 萬）</b><br>
+    · <b>支援卯澳既有海陸域巡守隊</b>（須知明文含「執行巡護工作」，不必另立新隊）<br>
+    · 培訓巡護人員必要知能（含水下作業安全、物種辨識、蒐證與通報程序）<br>
+    · 以公民科學方式蒐集保護區內物種與棲地資料，依海保署「生態調查表格」填報<br>
+    · 廢棄漁具通報與清除紀錄
+  </div>
+
+  <div class="warn">
+    <b>提案書中必須明確處理的兩件事：</b><br>
+    一、<b>巡守隊沒有公權力。</b>應寫明工作內容為勸導、記錄、蒐證、通報（118／1999），
+    不涉盤查或扣留。誠實界定反而增加可行性評分。<br>
+    二、<b>與社區的關係。</b>卯澳巡守隊屬於社區，提案應載明已取得社區同意或協力意向，
+    最好附上<b>福連里或社區發展協會之協力同意函</b>。這同時能補強「過去執行績效」的弱項。
+  </div>
+
+  <h2><span class="n">拾</span>時間表（以 10/30 為目標）</h2>
+
+  <ol class="step">
+    <li><b>本週（8/22–8/31）</b>　確認立案身分與負責人證明文件；下載附件三、四、五空白表；
+      致電靳小姐（07-3382057 轉 262130）確認非法人團體之文件要求與須知第五點之適用</li>
+    <li><b>8 月底前</b>　拜訪吳文益里長，說明協助巡守隊之意願，探詢社區協力同意之可能</li>
+    <li><b>9/8 協調會</b>　於桌上正式表達：本聯盟正研擬向海保署提出保護區巡守與社經調查計畫申請
+      <span style="color:#20613f">（此時已是行動，不是承諾）</span></li>
+    <li><b>9 月</b>　撰寫提案工作計畫書；確認協力單位；取得社區協力同意函；
+      逐項對應「海洋保護區經營管理成效評分指標對照說明表」</li>
+    <li><b>10 月上旬</b>　內部定稿、法律與經費審閱；填具利益衝突迴避聲明書</li>
+    <li><b>10/30 前</b>　備齊五項文件函送高雄海保署徵件小組</li>
+  </ol>
+
+  <div class="urgent">
+    <b>若決定仍要趕 8/31，只剩十天，必須今天啟動：</b>立案證明、申請表、
+    提案工作計畫書三件同步進行，並立即致電海保署確認可否先送後補。<br>
+    <b>但請務必評估 115 年度「先墊款、12/20 前核銷完畢」的現金流負擔。</b>
+  </div>
+
+  <div class="warn">
+    <b>一份尚未讀到的關鍵文件：</b>「海洋保護區經營管理成效評分指標對照說明表」
+    （附件 PDF，8 頁）。須知第九點要求提案<b>必須具體對應該表之指標</b>。<br>
+    該檔的中文內容<b>無法以程式擷取</b>（僅能讀出 A1–A4、B1–B2、C1–C3、D1–D5 之編號架構、
+    0–3 分級距、以及 CPUE、MPA index、30x30 等關鍵詞）。<br>
+    <b>撰寫計畫書前，務必人工開啟該 PDF 逐項研讀</b>——它決定提案要對應哪些指標、怎麼寫。
+  </div>
+
+  <div class="src">
+    <b>資料來源</b>（均已逐條核對原始檔）<br>
+    <a href="https://www.oca.gov.tw/ch/home.jsp?id=244&amp;parentpath=0,2&amp;mcustomize=bulletin_view.jsp&amp;dataserno=202607140001" target="_blank" rel="noopener">海保署 115.07.14 公告．海洋保護區域網絡多元協作計畫補助計畫（更新 115.07.30）</a><br>
+    「補助徵件須知」115.07.30 版，共 9 頁——本評估之主要依據<br>
+    附件三 補（捐）助申請表、附件四 提案執行計畫書、附件五 利益衝突迴避聲明書、
+    附件十 經費編列基準表、附件 海洋保護區經營管理成效評分指標對照說明表、附件 生態調查資料填報格式說明<br>
+    另參 <a href="https://sites.google.com/view/ocean-protect-project/" target="_blank" rel="noopener">海洋保育在地守護計畫官網</a>（另一條補助管道）<br><br>
+    <b>查核狀態：</b>期限、額度、資格、應備文件、撥款方式、審查權重、附帶義務
+    均取自須知原文，可信。<b>評分指標對照說明表之內容尚未讀取，須人工確認。</b>
+    聯盟之立案身分亦待確認。
+  </div>
+
+</div>
+</div>
+
+</body>
+</html>
