@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>關係人全圖．9/8 協調會（內部）</title>
+<style>
+  :root{
+    --bg:#f4f1ea; --paper:#fffdf8; --ink:#1f2b33; --sub:#55636c; --faint:#8b969e;
+    --line:#ded7c9; --navy:#1a3a4a; --gold:#b07d2b; --gold-bg:#f8f0dd; --sea:#12303e;
+    --ok:#2f7d55; --ok-bg:#e8f4ed; --warn:#a8442a; --warn-bg:#fbeee9;
+    --info:#1f5f7a; --info-bg:#e9f2f6;
+    --us:#1b5570; --us-bg:#e6eff4; --mid:#7a5a1e; --mid-bg:#f8f1e0;
+    --them:#5a4a6e; --them-bg:#efeaf4; --gov:#5c3a1e; --gov-bg:#f3e9dc;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.82;font-size:16px;padding-bottom:60px;-webkit-font-smoothing:antialiased}
+  .w{max-width:980px;margin:0 auto;padding:0 20px}
+  header{background:linear-gradient(165deg,#0f2733,#1f4658);color:#fff;padding:42px 20px 36px;border-bottom:4px solid var(--gold)}
+  header .in{max-width:980px;margin:0 auto}
+  .stamp{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.2em;
+    color:#3a1d16;background:#e8bf72;padding:4px 12px;border-radius:3px}
+  header h1{font-size:clamp(24px,4.6vw,34px);font-weight:900;margin:14px 0 8px;line-height:1.3}
+  header .sub{font-size:15px;color:#c9dde5;line-height:1.8}
+  .sheet{background:var(--paper);border:1px solid var(--line);border-radius:4px;
+    padding:32px 34px 38px;margin-top:26px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+  h2{font-size:20px;font-weight:900;color:var(--navy);margin:38px 0 14px;
+     padding-bottom:8px;border-bottom:2px solid var(--navy)}
+  h2:first-child{margin-top:0}
+  h2 .n{color:var(--gold);margin-right:8px}
+  h3{font-size:17px;font-weight:800;color:var(--sea);margin:24px 0 8px}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 12px;padding-left:1.4em}
+  li{margin-bottom:6px}
+  b,strong{font-weight:800;color:var(--sea)}
+
+  .lede{font-size:17px;font-weight:700;color:var(--sea);background:var(--gold-bg);
+    border-left:4px solid var(--gold);padding:15px 19px;border-radius:0 4px 4px 0;margin:0 0 18px;line-height:1.8}
+
+  .chain{background:var(--gov-bg);border:1.5px solid #d3b48c;border-radius:6px;padding:16px 18px;margin:16px 0}
+  .chain h4{font-size:14px;font-weight:900;color:var(--gov);letter-spacing:.08em;margin-bottom:9px}
+  .chain .row{font-size:14.5px;line-height:1.9}
+  .arrow{color:var(--gold);font-weight:900;margin:0 6px}
+
+  .map{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:18px 0 6px}
+  .col{border-radius:6px;padding:14px 14px 16px;border:1.5px solid}
+  .col.us{background:var(--us-bg);border-color:#a8c4d4}
+  .col.mid{background:var(--mid-bg);border-color:#dcc79a}
+  .col.them{background:var(--them-bg);border-color:#c3b6d2}
+  .col h4{font-size:15px;font-weight:900;letter-spacing:.06em;margin-bottom:4px;text-align:center}
+  .col.us h4{color:var(--us)} .col.mid h4{color:var(--mid)} .col.them h4{color:var(--them)}
+  .col .cap{font-size:12.5px;color:var(--faint);text-align:center;margin-bottom:10px;line-height:1.5}
+  .grp{margin-bottom:11px}
+  .grp .t{font-size:12px;font-weight:800;color:var(--sub);letter-spacing:.08em;
+    border-bottom:1px solid rgba(0,0,0,.12);padding-bottom:3px;margin-bottom:5px}
+  .grp .n{font-size:13.5px;line-height:1.75}
+  .grp .n b{color:inherit;font-weight:800}
+  .grp .n .m{color:#8b969e;font-size:12.5px;display:block;line-height:1.55}
+  .grp .n .g{color:#20613f;font-size:12.5px;display:block;line-height:1.55}
+  .grp .n .r{color:#8b3a22;font-size:12.5px;display:block;line-height:1.55}
+  .star{color:#b07d2b;font-weight:900}
+
+  .scroll{overflow-x:auto;margin:0 0 14px}
+  table{width:100%;border-collapse:collapse;font-size:14.5px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:#f0ece1;font-weight:800;color:var(--navy);font-size:13.5px}
+  td.k{white-space:nowrap;font-weight:700;width:1%;background:#f7f4ec}
+  .yes{color:#8b3a22;font-weight:800} .no{color:#20613f;font-weight:800} .mid2{color:#7a5a1e;font-weight:800}
+
+  .ok{background:var(--ok-bg);border:1px solid #bcdcca;border-left:4px solid var(--ok);
+    padding:14px 18px;border-radius:0 4px 4px 0;margin:14px 0;font-size:15px;line-height:1.82}
+  .ok b{color:#20613f}
+  .warn{background:var(--warn-bg);border:1px solid #e8c6ba;border-left:4px solid var(--warn);
+    padding:14px 18px;border-radius:0 4px 4px 0;margin:14px 0;font-size:15px;line-height:1.82}
+  .warn b{color:#8b3a22}
+  .info{background:var(--info-bg);border:1px solid #bcd4e0;border-left:4px solid var(--info);
+    padding:14px 18px;border-radius:0 4px 4px 0;margin:14px 0;font-size:15px;line-height:1.82}
+  .info b{color:#164a61}
+  .quote{border-left:3px solid var(--gold);padding:6px 0 6px 16px;margin:14px 0;
+    color:#3a4750;font-size:15px;line-height:1.85}
+  .cite{font-size:13.5px;color:var(--faint)}
+
+  ol.br{list-style:none;padding:0;counter-reset:b}
+  ol.br>li{counter-increment:b;position:relative;padding-left:2.7em;margin-bottom:16px}
+  ol.br>li:before{content:"橋" counter(b);position:absolute;left:0;top:.15em;
+    font-size:12px;font-weight:800;color:#fff;background:var(--gold);padding:2px 7px;border-radius:4px}
+  ol.br>li .t{font-weight:900;color:var(--sea);font-size:16.5px;display:block;margin-bottom:3px}
+
+  .src{font-size:13px;color:var(--faint);margin-top:26px;padding-top:16px;border-top:1px solid var(--line);line-height:1.9}
+
+  @media(max-width:760px){.map{grid-template-columns:1fr}}
+  @media(max-width:640px){
+    body{font-size:15.5px}.sheet{padding:22px 16px 28px}h2{font-size:18.5px}
+    table{font-size:13.5px;min-width:560px}td.k{white-space:normal}}
+  @media print{
+    body{background:#fff;padding:0;font-size:9.5pt}
+    header{background:#fff;color:#000;border-bottom:2px solid #000;padding:0 0 12px}
+    header h1{color:#000} header .sub{color:#333}
+    .stamp{background:#000;color:#fff}
+    .sheet{border:0;box-shadow:none;padding:0;margin-top:12px}
+    .w{max-width:none;padding:0}
+    .map{grid-template-columns:1fr 1fr 1fr}
+    .col,.chain{border:1px solid #999!important;background:#fff!important;-webkit-print-color-adjust:exact}
+    .scroll{overflow:visible} table{min-width:0}
+    @page{size:A4;margin:13mm 11mm}
+    h2{page-break-after:avoid} table,tr,.col{page-break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="in">
+    <div class="stamp">內 部 文 件 ・ 請 勿 外 傳</div>
+    <h1>關係人全圖　9/8 協調會</h1>
+    <div class="sub">
+      第三版．整合十三份盡職調查　·　2026 年 8 月 25 日<br>
+      <span class="star">★</span> 標示者為 9 月 8 日確認或高度可能與會
+    </div>
+  </div>
+</header>
+
+<div class="w">
+<div class="sheet">
+
+  <h2><span class="n">壹</span>一句話</h2>
+
+  <div class="lede">
+    第一版把這件事看成「我方 vs 保育方」。第二版改成「一份比任何保育學者主張都更嚴格的草案」。<br>
+    <b>做完議會調查後，第三版要再修一次：這份草案沒有政治驅動力，只有行政慣性。</b><br>
+    <b>它是一個機關把既有圖層與既有程序，套用到一個沒人在議會問過的議題上。</b>
+  </div>
+
+  <div class="warn">
+    <b>本版三處判斷修正</b><br>
+    ① 第二版推測「簡明雄的壓力來自議會要他交出政績」——<b>議事錄檢索證明沒有</b>。
+      本案在市議會<b>從未被質詢過</b>，議員對漁業處的關切全在漁港工程與經費重複編列。<br>
+    ② 第二版把巡守隊定位為「我方可協力的方向」——現在確認<b>「漁業巡守」是編列預算的既有科目，
+      補助對象明文是「本市漁會」</b>。制度接口在漁會，不在市府。<br>
+    ③ 第二版未列陳明義議員——<b>他是本案最有價值的潛在盟友，本版新增。</b>
+  </div>
+
+  <h2><span class="n">貳</span>決策鏈：誰真正決定</h2>
+
+  <div class="chain">
+    <h4>本 案 的 正 式 路 徑</h4>
+    <div class="row">
+      <b>新北市漁業及漁港事業管理處</b>（處長簡明雄・漁業管理課承辦）<span class="star">★</span>
+      <span class="arrow">→</span> 公告草案
+      <span class="arrow">→</span> <b>報農業部漁業署核定</b>（漁業法 §44Ⅲ）
+      <span class="arrow">→</span> 發布施行
+    </div>
+    <div class="row" style="margin-top:8px;color:var(--sub);font-size:13.5px">
+      上級：新北市政府<b>農業局</b>（局長諶錫輝，於議會代表漁業處答詢）<br>
+      旁支：<b>海洋委員會海保署</b>（署長陸曉筠）——不決定本草案，但掌握補助資源與海保法架構；我方「路徑 B」對口。<br>
+      執法端：<b>海巡署</b>（漁業法 §49Ⅰ 檢查權）；現場巡守：<b>地方漁會岸際巡守隊</b>（市府編列預算補助）。
+    </div>
+  </div>
+
+  <div class="ok">
+    <b>兩個關鍵事實，決定了我方的談判定位：</b><br>
+    ① <b>這份草案還沒過中央這一關。</b>依漁業法 §44Ⅲ，直轄市公告前應報中央主管機關核定。<br>
+    ② <b>而議會沒有給他任何時程壓力。</b>議事錄全文檢索顯示，海洋保育區議題在市議會零紀錄。<br><br>
+    <b>合起來的意思是：他唯一的壓力是「報上去站不站得住」。</b>
+    凡是能讓他在報核時更有說服力的東西，對他是幫助而非阻力；
+    <b>凡是暗示這個公告有程序瑕疵、可能被打回或事後遭行政救濟的，才是壓力。</b>
+  </div>
+
+  <h2><span class="n">參</span>三欄陣營圖</h2>
+
+  <div class="map">
+
+    <div class="col us">
+      <h4>我　方</h4>
+      <div class="cap">主張分級管理、行為管制</div>
+
+      <div class="grp"><div class="t">核心</div><div class="n">
+        <b>台灣海洋永續休閒採捕聯盟</b> <span class="star">★</span><br>
+        台灣永續漁法漁獵推廣協會（發起單位）<br>
+        845 位連署人
+      </div></div>
+
+      <div class="grp"><div class="t">聲援單位</div><div class="n">
+        台灣釣權團結聯盟<br>
+        台灣開放水域聯盟<br>
+        花蓮縣海洋生態保育協會<br>
+        <b>基隆市潮境理海生態保育協會</b><br>
+        澎湖潛水協會<br>
+        台灣自由潛水發展協會
+      </div></div>
+
+      <div class="grp"><div class="t">聲援學者</div><div class="n">
+        曹校章（海大・海洋休閒產業暨遊艇發展中心主任）<br>
+        許甘霖（東海・社會系副教授）<br>
+        蘇楠傑（海大・環境生物與漁業科學系副教授）
+      </div></div>
+
+      <div class="grp"><div class="t">已公開表態</div><div class="n">
+        <b>溫國彰</b>（東海・生命科學系教授）<br>
+        <span class="r">已自行公開利益聲明：因支持魚槍平權，現為台灣永續漁法漁獵推廣協會理監事；
+        並協助執行東北角暨宜蘭海岸風管處生態調查案。引用其意見時務必一併說明。</span>
+      </div></div>
+
+      <div class="grp"><div class="t">產業界</div><div class="n">
+        <b>徐承堉</b>（湧升海洋／責任漁業指標創辦人）<br>
+        <span class="g">上下游特約作者，2026.08.13 專文主張分級管理、反對只禁單一漁具</span>
+      </div></div>
+
+      <div class="grp"><div class="t">其他</div><div class="n">
+        林柏辰律師（環境法律人協會副理事）<br>
+        蘇錦雄議員（新北市議員）
+      </div></div>
+    </div>
+
+    <div class="col mid">
+      <h4>中　間</h4>
+      <div class="cap">機關、裁判、實質中性者</div>
+
+      <div class="grp"><div class="t">決策機關</div><div class="n">
+        <b>新北市漁業處　處長簡明雄</b> <span class="star">★</span><br>
+        <span class="m">臺北縣農業局技士出身之科班文官；海大水產養殖碩士。
+        <b>壓力來自報中央核定，不是議會</b></span>
+        農業局長諶錫輝<span class="m">漁業處上級，議會答詢者</span>
+        農業部漁業署<span class="m">§44Ⅲ 核定機關</span>
+      </div></div>
+
+      <div class="grp"><div class="t">路徑 B 對口</div><div class="n">
+        <b>陸曉筠</b>（海保署署長）<br>
+        <span class="g">哈佛設計博士，<b>空間規劃者非漁業科學家</b>；旗艦政策為庇護區劃設，工具是 iOcean 資料庫。
+        <b>我方漁獲回報正好餵養該資料庫</b>；她親口把「休閒潛水」列為受益產業</span>
+        <span class="r">曾任黑潮海洋文教基金會董事</span>
+      </div></div>
+
+      <div class="grp"><div class="t">專業裁判</div><div class="n">
+        <b>黃向文</b>（海大・前海保署長、前海委會副主委）<br>
+        <span class="g">「重要的不是比較採捕方式差異」；2017 投書即主張登記證照、漁獲回報、bag &amp; size limit</span>
+      </div></div>
+
+      <div class="grp"><div class="t">技術裁判</div><div class="n">
+        <b>陳昭倫</b>（中研院生多中心研究員）<br>
+        <span class="m">研討會與談者但<b>非我方陣營</b>。支持禁潛水器魚槍、主張自潛應分開評估。
+        <b>妥協落點極可能由他劃定</b></span>
+      </div></div>
+
+      <div class="grp"><div class="t">議會</div><div class="n">
+        <b>陳明義議員</b> <span class="star">★★</span><br>
+        <span class="g"><b>本人潛水。</b>曾在議會說「新北現在的海洋生態都回來了」、
+        主張「結合海洋志工或者是潛水人員」、對新北落後潮境「很汗顏」。
+        <b>最有價值的潛在盟友</b></span>
+        黃淑君議員<span class="m">曾提「扶植卯澳馬崗的衝浪、潛水等戶外活動」</span>
+        林裔綺議員<span class="m">2020 風電案力挺貢寮漁會</span>
+      </div></div>
+
+      <div class="grp"><div class="t">在地團體</div><div class="n">
+        <b>吳文益</b>（福連里長）<span class="g">前貢寮區漁會理事長、全國漁會代表、卯澳利洋宮常務監事。
+        <b>行政／產業／信仰三系統交會點，已主動邀約我方</b></span>
+        <b>陳國光</b>（貢寮區漁會理事長）<span class="m">6,950 名甲類會員。反外來強加，但我方亦可能被歸類為外來者</span>
+        <b>林麗美</b>（貢寮區漁會總幹事）<span class="m">貢寮鮑 2.3 億、卯澳馬崗觀光漁村。自我定位協調者</span>
+        萬里／瑞芳區漁會<span class="m">石花菜例外受益者／深澳海釣</span>
+      </div></div>
+
+      <div class="grp"><div class="t">溫和學者</div><div class="n">
+        李明安（海大副校長）<span class="m">支持方向但要求科學佐證</span>
+        <b>蔡政良</b>（史前館館長／臺東大學教授）<span class="m">原住民族海洋觀，雙方皆尊敬</span>
+      </div></div>
+
+      <div class="grp"><div class="t">媒體・原民</div><div class="n">
+        BlueTrend 藍色脈動<span class="m">中立偏程序；三處待更正</span>
+        <b>新北市原住民議員</b> <span class="star">★</span>／<b>原住民團體代表</b> <span class="star">★</span>
+      </div></div>
+    </div>
+
+    <div class="col them">
+      <h4>保　育　方</h4>
+      <div class="cap">主張禁用魚槍、潛水器</div>
+
+      <div class="grp"><div class="t">最強硬</div><div class="n">
+        <b>邵廣昭</b>（海大／中山榮譽講座教授、中研院生多中心前執行長）<br>
+        <span class="r">「水肺潛水打魚應該就是最大的罪魁禍首」「不應以保育之名，行破壞之實」<br>
+        但主張 slot limit、「小魚放生、大魚適量」——工具層次與我方相容</span>
+      </div></div>
+
+      <div class="grp"><div class="t">科學基礎</div><div class="n">
+        <b>陳義雄</b>（海大・海洋生物研究所教授）<br>
+        <span class="r">受市府長期委託研究，本案科學基礎來源；主張管制沿岸 3 浬潛水魚槍</span>
+      </div></div>
+
+      <div class="grp"><div class="t">連署發起團體</div><div class="n">
+        自然保育與環境資訊基金會（TNF）<br>
+        <b>台灣山海天使環境保育協會</b> <span class="star">★</span><br>
+        海湧工作室<br>
+        臺灣湛藍海洋聯盟
+      </div></div>
+
+      <div class="grp"><div class="t">關鍵人物</div><div class="n">
+        <b>陳映伶</b>（山海天使秘書長・「珊瑚媽媽」）<br>
+        <span class="r">貢寮三口九孔池、和美漁港苗圃、龍洞灣外海種植點；50 名潛水教練志工</span>
+        郭芙（海湧工作室副執行長）
+      </div></div>
+
+      <div class="grp"><div class="t">潛水倡議</div><div class="n">
+        陳徵蔚（潛水教練、台灣淨海協會創會理事長，已離開）<br>
+        <span class="m">著《海洋在哭》；價值上反狩獵</span>
+      </div></div>
+
+      <div class="grp"><div class="t">主流環團</div><div class="n">
+        黑潮海洋文教基金會（張卉君）<br>
+        荒野保護協會（李偉文）<br>
+        台灣動物社會研究會（陳玉敏）<br>
+        綠色和平
+      </div></div>
+
+      <div class="grp"><div class="t">產業</div><div class="n">
+        陳琦恩（台灣潛水執行長）<br>
+        東北角潛店網絡
+      </div></div>
+    </div>
+
+  </div>
+
+  <h2><span class="n">肆</span>六位學者對魚槍的立場──最有力的一張表</h2>
+
+  <div class="scroll">
+  <table>
+    <thead><tr><th style="width:1%">學者</th><th>水肺／潛水器魚槍</th><th>自由潛水魚槍</th><th>垂釣是否應納管</th></tr></thead>
+    <tbody>
+      <tr><td class="k">邵廣昭</td>
+        <td><span class="yes">最大的罪魁禍首</span></td>
+        <td>未明確區分</td>
+        <td><span class="yes">應推友善釣魚、slot limit、留影不留魚</span></td></tr>
+      <tr><td class="k">陳昭倫</td>
+        <td><span class="yes">支持禁止</span><br><span style="font-size:13px">理由是人工供氣解除深度與時間限制</span></td>
+        <td><span class="mid2">應與水肺分開評估</span><br><span style="font-size:13px">「不能在沒有在地比較資料下，就直接宣稱其整體生態衝擊必然大於垂釣」</span></td>
+        <td><span class="yes">累積死亡量可觀；新北海釣人口 30–40 萬 vs 魚槍約數百人</span></td></tr>
+      <tr><td class="k">溫國彰</td>
+        <td><span class="mid2">可先釐清是否初步限制</span></td>
+        <td><span class="no">不應一刀切禁絕</span></td>
+        <td><span class="yes">應與魚槍納入同一套規範</span></td></tr>
+      <tr><td class="k">黃向文</td>
+        <td colspan="2"><span class="no">「重要的不是比較採捕方式差異，而是建立符合不同活動特性的差異化管理制度」；
+          對魚槍提出兩個選項：<b>經訓練才能取得使用許可</b>，或於生態敏感區禁用</span></td>
+        <td><span class="yes">可藉記錄魚體大小管理，過大或過小應釋放</span></td></tr>
+      <tr><td class="k">陳義雄</td>
+        <td colspan="2"><span class="yes">主張管制沿岸 3 浬潛水魚槍採捕</span></td>
+        <td>未見主張</td></tr>
+      <tr><td class="k">李明安</td>
+        <td colspan="2"><span class="mid2">支持方向，但要求更多科學資料佐證</span></td>
+        <td>提及可思考總可採捕量</td></tr>
+      <tr style="background:#f7f4ec"><td class="k"><b>新北草案</b></td>
+        <td colspan="2"><b class="yes">不分自潛與水肺、不分魚種、不分體長、不分數量，一律禁止</b></td>
+        <td><b class="no">完全未規範</b></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="ok">
+    <b>這張表就是 9/8 最有力的一頁書面資料。</b><br>
+    ① <b>六位學者中沒有一位主張「不分自潛與水肺、全面禁止魚槍」。</b>連立場最硬的邵廣昭，點名的也是<b>水肺</b>。<br>
+    ② <b>五位明確主張垂釣也應納管，而草案對垂釣完全未規範。</b><br>
+    ③ 因此：<b>新北草案在魚槍上比所有保育學者的主張都更嚴，在垂釣上比所有保育學者的主張都更鬆。</b><br><br>
+    <b>桌上該怎麼講：</b>不要說「學者支持我們」——沒有人支持我方。要說：
+    「<b>我們把四位公開發言學者的主張逐條整理，發現草案的管制強度，在魚槍上超出他們全部，在釣具上低於他們全部。
+    我方請求的，只是讓草案回到學者共識的範圍內。</b>」
+  </div>
+
+  <h2><span class="n">伍</span>本案最強的三個論點──全部出自市府自己的紀錄</h2>
+
+  <h3>一、刺網先例（本版新增正式金額）</h3>
+  <div class="quote">
+    <b>市府提案　案號 6　農業　第 2 屆第 6 次定期會</b><br>
+    為行政院農業委員會漁業署補助本府辦理 <b>106 年度「新北市刺網漁業輔導轉型計畫」</b>，
+    請同意由市庫先行墊付 <b>3,108 萬 6,800 元</b>，提請審議。
+    <span class="cite">—— 新北市議會議事錄</span>
+  </div>
+
+  <div class="scroll">
+  <table>
+    <thead><tr><th style="width:1%"></th><th>刺網（商業性）</th><th>魚槍（休閒性）</th></tr></thead>
+    <tbody>
+      <tr><td class="k">過渡期</td><td>約九年（2017–2026）</td><td class="yes">無</td></tr>
+      <tr><td class="k">預算</td><td><b>單 106 年度即 3,108 萬 6,800 元</b>（議會案號可查）</td><td class="yes">零</td></tr>
+      <tr><td class="k">經濟補償</td><td>每艘 15–20 萬元轉型補助；另有漁業權收購</td><td class="yes">無</td></tr>
+      <tr><td class="k">替代出路</td><td>輔導轉作釣具類等漁法</td><td class="yes">無</td></tr>
+      <tr><td class="k">實名制</td><td>有，設專責人力主辦與查核</td><td class="yes">未提供此選項</td></tr>
+      <tr><td class="k">時序</td><td>先做到 592 艘、約 70% 轉型，才於 2026.1.1 正式禁止</td><td class="yes">直接禁止</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="warn">
+    <b>使用紀律：</b>刺網補助對象是持有漁業執照的職業漁民，財產權受法律保護；魚槍使用者法律地位不同。
+    <b>不要主張「我方也應該領補助」</b>——會被立刻打回。<b>要主張的是程序一致性</b>：過渡期、登記制、分級標準。
+    這三樣不涉及金錢，市府沒有理由拒絕。
+  </div>
+
+  <h3>二、瑞芳深澳的海釣補助</h3>
+  <div class="ok">
+    市府官網自載：深澳漁港是<b>北臺灣海釣船最多的漁港</b>，市府<b>每年補助漁會辦理海釣休閒漁業體驗遊程</b>，
+    並輔導培訓漁業導覽志工推廣娛樂漁業。<br>
+    <b>同一片海域、同一個機關：一手出錢推廣休閒海釣，一手全面禁止另一種休閒採捕。</b>
+  </div>
+
+  <h3>三、市議員在議會的證詞（本版新增）</h3>
+  <div class="quote">
+    最近我的學弟到和美那邊去潛水，龍洞去潛水，跟我說<b>生態都回來了，新北現在的海洋生態都回來了，保育的很好</b>。
+    可是海底的海廢還是很多……可能你就要<b>結合海洋志工或者是潛水人員</b>……
+    <b>我相信有很多潛水員他們會願意做這樣的志工</b>。
+    <span class="cite">—— 陳明義議員，112 年 8 月 30 日．第 4 屆第 3 次臨時會第二審查會</span>
+  </div>
+  <div class="ok">
+    <b>草案的立論基礎是「資源衰退」，但市府的政治後盾內部，對這個前提就沒有共識。</b>
+    而且「結合潛水人員擔任志工」不是我方的提議——<b>是市議員三年前就講過的話</b>。
+  </div>
+
+  <h3>附帶：3 海浬這條線是怎麼來的</h3>
+  <div class="info">
+    漁業處既有的「<b>瑞芳三海浬禁刺網區</b>」「<b>貢寮三海浬禁刺網區</b>」早已存在。
+    本次草案把保育區擴大為 3 海浬帶狀，<b>等於直接套用禁刺網區的既有界線</b>。<br>
+    → 正面回答陳昭倫的質疑「3 海浬是管理尺度，不是已被證明的生態學臨界值」——
+    <b>它連管理尺度都不是，是既有圖層的沿用</b>。<br>
+    → 另：既有保育區為 <b>4 處</b>（萬里、瑞芳、貢寮、<b>野柳</b>），但草案只擴大 3 處，野柳不在內。
+  </div>
+
+  <h2><span class="n">陸</span>議會與政治環境（本版新增）</h2>
+
+  <div class="scroll">
+  <table>
+    <tr><td class="k">本案<br>能見度</td><td><b>零。</b>議事錄全文檢索「保育區」全為山坡地與國土保育區；「魚槍」全為原住民族狩獵權。
+      <b>海洋保育區擴大案至今無任何議員提及。</b></td></tr>
+    <tr><td class="k">議員對<br>漁業處的<br>實際不滿</td><td>113 年 12 月 6 日共 <b>11 筆刪減動議</b>，理由集中於：漁港規劃費年年編列、
+      漁港清潔費與補助漁會經費<b>重複編列</b>、清淤與枯木清理應加強。
+      首長特別費遭刪 152,399 元，理由「<b>對漁業處業務督導不佳</b>」。<br>
+      <b>沒有一筆涉及保育政策。</b></td></tr>
+    <tr><td class="k">預算<br>結構</td><td>114 年度：一般行政 46,624,000 元；<b>漁業建設及管理業務 436,897,000 元</b>。<br>
+      相關科目：「補助本市漁會辦理<b>漁業巡守</b>、海域廢棄物、覆網、枯木、淤砂清除」、
+      「強化沿近海漁業秩序，<b>租用巡護船</b>費用」</td></tr>
+    <tr><td class="k">原住民<br>魚槍</td><td>109 年警察局長答詢：新北市<b>原住民自製獵槍 105 支、魚槍 23 支</b>。<br>
+      「原住民漁民自製獵槍魚槍許可及管理辦法」<b>已於 114 年 3 月 15 日修正公告實施</b>
+      <span class="cite">（辦法正式名稱應以主管機關公告為準）</span></td></tr>
+    <tr><td class="k">海保署<br>補助先例</td><td>「潔淨海洋－115 年海洋廢棄物治理計畫（<b>漁業及漁港事業管理處</b>）」85 萬元；
+      「114–115 年度海洋野生動物及生態保育計畫」45.5 萬元；112 年海洋環境整體管理計畫 178.5 萬元。<br>
+      <b>海保署補助新北市是常態，漁業處本身就是受補助單位。</b></td></tr>
+  </table>
+  </div>
+
+  <div class="ok">
+    <b>對談判的意涵：把本案講成保育政策辯論，對漁業處沒有壓力。</b>
+    要講的是<b>行政程序風險</b>與<b>報中央核定的說服力</b>。<br>
+    <b>對路徑 B 的意涵：</b>我方向海保署申請補助，不是繞過市府，
+    而是進入一個<b>市府已經在用的管道</b>；申請規模宜設在數十萬至一百餘萬元。
+  </div>
+
+  <h2><span class="n">柒</span>在地權力結構（本版新增）</h2>
+
+  <div class="lede" style="font-size:16.5px">
+    <b>貢寮的里長就是漁會幹部——兩套系統是同一批人。</b>
+  </div>
+
+  <div class="scroll">
+  <table>
+    <thead><tr><th style="width:1%">人物</th><th>行政職</th><th>漁會職務</th></tr></thead>
+    <tbody>
+      <tr><td class="k">吳文益</td><td>福連里長（連任四屆）<br><span class="cite">前貢寮鄉民代表</span></td>
+        <td><b>漁會第 7、8 屆理事長</b>、第 9、10 屆常務監事、<b>全國漁會代表</b>；卯澳利洋宮常務監事</td></tr>
+      <tr><td class="k">吳憲彰</td><td>福隆里長<br><span class="cite">村長 14–18 屆＋里長 1–3 屆，共 8 屆 32 年</span></td>
+        <td>漁會會員代表、省代表、理事、常務監事；<b>台灣省漁會、全國漁會理監事 16 年</b></td></tr>
+      <tr><td class="k">周林裕</td><td>前福連村長（13、14 屆）</td>
+        <td>卯澳社區理事長、漁會理事、小組長</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="ok">
+    <b>三個操作上的結論：</b><br>
+    ① <b>我方拜會漁會與拜會里長，在當地人眼中是同一件事。</b>訊息會流通，說法必須完全一致。<br>
+    ② <b>不可能繞過漁會去經營里長，反之亦然。</b><br>
+    ③ <b>但只要一個節點接受我方，整個網絡都會知道。</b>吳文益正是那個節點，而且是他先接觸我方。
+  </div>
+
+  <div class="info">
+    <b>漁會的實質立場是中性，不是敵對。</b>貢寮區漁會甲類會員 6,950 人，
+    核心利益為<b>區劃漁業權（貢寮鮑 2.3 億）、石花菜、觀光休憩漁村</b>——
+    <b>三項皆不受魚槍存廢影響</b>。漁會官方介紹並自載，現今漁民「以經營漁業<b>及娛樂漁業</b>為主」。<br>
+    <b>目標是「不反對」，不是「支持」。</b>要求背書會逼他們表態站到市府那邊。
+  </div>
+
+  <h2><span class="n">捌</span>八座橋──真正決定 9/8 的地方</h2>
+
+  <ol class="br">
+    <li><span class="t">蔡政良：雙方都尊敬的人</span>
+      他是我方研討會的與談學者；同時，黑潮基金會董事張卉君為陳徵蔚《海洋在哭》寫的推薦序，
+      <b>整篇以蔡政良的《第五道浪之後》與都蘭阿美族語「Aka la lima」貫穿</b>。<br>
+      而陳映伶也主動談過阿美族的海洋資源觀，說「<b>是人類受到海洋的照顧</b>」——
+      與蔡政良轉述的「<b>你要照顧海，海才會照顧你</b>」幾乎是同一句話。<br>
+      <b>這是最穩固的一座橋。9/8 若要找共同語言，從這裡開始。</b></li>
+
+    <li><span class="t">陳明義議員：他早就說過我方要說的話（本版新增）</span>
+      本人潛水、認為新北海洋生態正在恢復、主張結合潛水人員擔任志工、對新北落後基隆潮境「很汗顏」。<br>
+      <b>接觸時帶的材料是潮境對照表，不是我方的訴求書</b>——他要的是新北出現一個成功案例。<br>
+      待確認：選區、所屬審查委員會、問政風格。</li>
+
+    <li><span class="t">海洋大學：一校六人，橫跨全場</span>
+      曹校章（我方聲援）・蘇楠傑（我方聲援）・黃向文（專業裁判）・李明安（副校長，溫和）・
+      陳義雄（對方科學基礎）・<b>簡明雄（處長，海大水產養殖碩士）</b>。<br>
+      <b>「學界共識」並不存在</b>——這對我方有利，因為我方不需要學界背書，只需要程序公正。</li>
+
+    <li><span class="t">簡明雄與黃向文：同出臺北縣政府農業局</span>
+      黃向文 1994–1999 任<b>臺北縣政府農業局漁業課技士</b>；
+      簡明雄經歷為<b>臺北縣政府農業局技士、股長、科長</b>。<br>
+      <b>年份是否重疊尚未查證，公開場合絕不可斷言。</b>但這意味著 9/8 若黃向文發言，
+      其份量對簡明雄而言可能不只是「學者意見」。</li>
+
+    <li><span class="t">卯澳自主規範 × 黃向文的 OECM 發言</span>
+      卯澳社區自訂：龍蝦體長 20 公分以下不採、海膽殼徑 8 公分以下不採——<b>與草案核心區標準相同</b>。<br>
+      黃向文 2024 年海保法公聽會：「對於漁業資源保育區以及<b>漁民自主管理</b>……
+      <b>皆可引用 OECM 概念，不須繁文縟節劃設保護區</b>。」<br>
+      <b>兩者並列，就是「在地自主管理可行且被中央認可」的完整證據鏈。</b>
+      而能證明其真實性的人，正是福連里長吳文益。</li>
+
+    <li><span class="t">潮境：我方聲援單位就在那裡</span>
+      <b>基隆市潮境理海生態保育協會是我方聲援單位</b>，而潮境正是全國公認最成功的保育區，
+      連陳明義議員都在議會拿它對照新北。<br>
+      同時 BlueTrend 指出：基隆另一處 1999 年依漁業法劃設、外延 1,000 公尺、海岸線 20 公里的保育區，
+      <b>因範圍過大、執法難及，長年形同虛設</b>。<br>
+      <b>成功與失敗的兩個案例都在基隆，而成功那一個的在地團體支持我方。</b></li>
+
+    <li><span class="t">巡守隊：制度接口在漁會，而且有預算科目</span>
+      市府編列預算「補助本市漁會辦理<b>漁業巡守</b>」，並自陳取締係透過
+      「532 次海上巡護與<b>地方漁會岸際巡守隊</b>」落實；漁業管理課業務分工中，
+      「保育區巡守隊」是明列項目（同一承辦人並兼海洋委員會窗口）。<br>
+      <b>與其另組一支要求市府承認的新隊伍，不如由我方成員協力既有的漁會巡守隊。</b>
+      可行性掌握在總幹事林麗美手上。</li>
+
+    <li><span class="t">iOcean：我方能提供而別人不能（本版新增）</span>
+      海保署長陸曉筠的旗艦政策是「<b>有科學資料為基礎的庇護區劃設</b>」，工具是 iOcean 資料庫。
+      她的政策瓶頸是資料。<br>
+      <b>我方能提供的正是現場、連續、有座標的第一手資料</b>——物種、體長、數量、地點、時間。
+      <b>這是路徑 B 最強的賣點，而且沒有其他團體能提供。</b></li>
+  </ol>
+
+  <h2><span class="n">玖</span>人物操作表</h2>
+
+  <div class="scroll">
+  <table>
+    <thead><tr><th style="width:1%">人物</th><th>定位</th><th>可爭取程度</th><th>操作方式</th></tr></thead>
+    <tbody>
+      <tr><td class="k">簡明雄</td>
+        <td>決策者。科班文官，唯一壓力是報中央核定</td>
+        <td><b style="color:#7a5a1e">可協商</b></td>
+        <td><b>定位成「幫他把案子做得更完整的人」。</b>不要求撤回，提出分階段公告＋登記制＋檢討條款。
+          <b>不要講保育理念，要講行政程序風險</b></td></tr>
+      <tr><td class="k">黃向文</td>
+        <td>專業裁判。立場最接近我方</td>
+        <td><b style="color:#20613f">最高</b></td>
+        <td>只講有出處的話。<b>必答題：「你們有多少人？多常去？」</b>——會前務必備妥一頁</td></tr>
+      <tr><td class="k">陳昭倫</td>
+        <td>技術裁判。妥協落點的劃線者</td>
+        <td><b style="color:#7a5a1e">中高</b></td>
+        <td>先講三個握手點：嚴禁販售、支持核心區禁採、支持同步監測。
+          <b>會前備妥自潛魚槍六維度一頁表</b></td></tr>
+      <tr><td class="k">陳明義<br>議員</td>
+        <td>潛水者。議會內最可能的盟友</td>
+        <td><b style="color:#20613f">高</b></td>
+        <td><b>帶潮境對照表去，不要帶訴求書。</b>訴求是「讓新北也有一個像潮境的成功案例」。
+          先確認選區與委員會</td></tr>
+      <tr><td class="k">陸曉筠</td>
+        <td>路徑 B 決定者。空間規劃者</td>
+        <td><b style="color:#7a5a1e">中高</b></td>
+        <td><b>申請書用空間語言不用漁業語言</b>；把漁獲回報明確接到 iOcean；
+          用她的「藍色經濟」框架。<b>不要寫成對抗市府的工具</b></td></tr>
+      <tr><td class="k">邵廣昭</td>
+        <td>價值主張者。大概率不出席，但定調輿論</td>
+        <td><b style="color:#8b3a22">低</b></td>
+        <td><b>用 slot limit 接住他。</b>絕不否認資源下降。不反駁「以保育之名行破壞之實」，用具體方案證偽</td></tr>
+      <tr><td class="k">李明安</td>
+        <td>溫和學者</td>
+        <td><b style="color:#20613f">高</b></td>
+        <td>他要證據。我方要求公開委託研究報告，與他立場一致</td></tr>
+      <tr><td class="k">吳文益</td>
+        <td>前漁會理事長、現福連里長。三系統交會點</td>
+        <td><b style="color:#20613f">高</b><br>已主動接觸</td>
+        <td><b>先請益，不要先提訴求。</b>請他講卯澳自主規範怎麼形成、誰在執行。
+          <b>不要請他站台。</b>115 年底有里長選舉，時程要避開</td></tr>
+      <tr><td class="k">陳國光</td>
+        <td>貢寮區漁會理事長。反外來強加</td>
+        <td><b style="color:#7a5a1e">中</b><br>目標「不反對」</td>
+        <td><b>不能講「我們的權利」，只能講「我們願意加入貢寮的管理」。</b>
+          支持石花菜條款。<b>不要提風電案</b></td></tr>
+      <tr><td class="k">林麗美</td>
+        <td>貢寮區漁會總幹事。專業經理人</td>
+        <td><b style="color:#7a5a1e">中</b></td>
+        <td>與她談<b>具體可執行的事</b>：巡守協力、遊客管理、漁獲回報、淨海人力。
+          <b>絕不可說「保育區會影響你們的觀光」</b></td></tr>
+      <tr><td class="k">陳映伶</td>
+        <td>保育方關鍵人物</td>
+        <td><b style="color:#7a5a1e">中</b><br>價值可對話</td>
+        <td><b>提供淨海與廢漁具清除的人力。</b>她要乾淨海床，我方會下水</td></tr>
+      <tr><td class="k">陳義雄</td>
+        <td>草案科學基礎的來源</td>
+        <td><b style="color:#8b3a22">低</b><br>但方法可質疑</td>
+        <td><b>不質疑資格，只問方法。</b>正式函請市府提供完整報告與調查設計</td></tr>
+      <tr><td class="k">陳徵蔚</td>
+        <td>價值層次分歧</td>
+        <td><b style="color:#8b3a22">低</b></td>
+        <td>不辯價值。只談共同點：廢漁具、執法失能</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2><span class="n">拾</span>六個必須避開的地雷</h2>
+
+  <div class="warn">
+    <b>地雷一　陳昭倫那句「北部種不出珊瑚礁生態系」。</b>
+    直指陳映伶十年的心血、也是山海天使的核心工作。在她面前講這句，等於宣告談判結束。<br><br>
+
+    <b>地雷二　用陳映伶提到的「釣線、釣鉤」去打釣客。</b>
+    會直接破壞與台灣釣權團結聯盟（我方聲援單位）的關係，也會被看穿是轉移焦點。<br><br>
+
+    <b>地雷三　主張「資源沒有下降」。</b>
+    邵廣昭有 30 年核電廠採樣、20 年潮池資料、50 年潛水經驗；黃向文也寫「都顯示新北市海域生態不健康」。
+    <b>我方該站的位置是：資源確實在下降，但下降的歸因需要證據，管制手段應與歸因相稱。</b><br>
+    <span class="cite">註：陳明義議員在議會說「新北的海洋生態都回來了」——那是他的話，
+    我方可以引用作為「前提未有共識」的旁證，但不可轉為我方主張。</span><br><br>
+
+    <b>地雷四　把石花菜例外條款講成「特權」。</b>
+    等於把唯一可能中立的在地團體推到對面。<b>一律走肯認路線。</b><br><br>
+
+    <b>地雷五　指出陳昭倫立場曾有變化。</b>
+    後果是他被迫回防、公開立場硬化。<b>引用其意見一律以 2026 年 SMC 原文為準。</b><br><br>
+
+    <b>地雷六（本版新增）　在陳國光面前主張「海是公共的、大家都有權使用」。</b>
+    在漁會的框架裡，這句話等同挑戰他們的存在基礎；而我方在他眼中同樣可能是「外來使用者」。
+  </div>
+
+  <h2><span class="n">拾壹</span>桌上的位置決定策略</h2>
+
+  <div class="ok">
+    <b>九成的共識已經存在，只是沒人講出來。</b><br>
+    對方連署的訴求包含：擴大保育面積、預警原則、<b>三區分級管理</b>、<b>物種禁採期</b>、
+    <b>體長限制</b>、<b>保留原住民族文化採捕權</b>。<br>
+    <b>這六項我方全部同意。</b>真正的分歧只剩一項：工具要不要禁。<br><br>
+    <b>9/8 的開場，應該先把這六項共同點逐一講出來、確認雙方一致，再處理那一項分歧。</b>
+  </div>
+
+  <div class="info">
+    <b>我方唯一無可取代的資產：會下水的人。</b><br>
+    山海天使有 50 名潛水教練志工，但海底垃圾「撿不完」；BlueTrend 說所有人都繞不開執法量能；
+    陳昭倫說「只有法、沒有能量」；黃向文說要「確實執法」；<b>陳明義議員說「我相信有很多潛水員他們會願意做這樣的志工」。</b><br><br>
+    <b>全場每一個人都在說同一個字：人力不足。而我方就是人。</b><br>
+    更關鍵的是——<b>全面禁止不需要我們，分級管理才需要我們</b>：
+    只有要在現場辨識魚種、量體長、判斷是否抱卵時，懂的人才有價值。
+  </div>
+
+  <h2><span class="n">拾貳</span>會前待辦（依重要性）</h2>
+
+  <ol>
+    <li><b>我方人數與活動頻率一頁表</b>——黃向文的必答題。人數、頻率、常去點位、平均攜回量，
+      標明取得方式與樣本數。<b>同時回答她的問題、示範登記回報可行、把我方變成資料提供者。</b></li>
+    <li><b>自潛魚槍六維度一頁表</b>——陳昭倫的框架。可到達深度×作業時間×物種選擇性×體型選擇性×採捕死亡率×總採捕量。</li>
+    <li><b>內部確認：「禁水肺、留自潛」這條線我方接不接受。</b>需先掌握聯盟中使用水肺／空壓機採捕的比例。
+      <b>若遲遲不表態，這條線仍會被劃下來，只是我方沒有參與劃它。</b></li>
+    <li><b>循政府資訊公開法申請 106 年度刺網漁業輔導轉型計畫</b>之核定文件、補助基準與歷年執行成果。
+      申請書直接引用議會案號與 3,108 萬 6,800 元之金額。</li>
+    <li><b>確認草案總說明所引之漁業法條款</b>（§44Ⅰ 第幾款）。若引第 3 款「漁具、漁法之限制或禁止」，
+      「無法律授權」的論點完全不可用。</li>
+    <li><b>正式函請市府提供陳義雄委託研究的完整報告與方法</b>（點位、頻度、樣本數、是否區分漁法）。</li>
+    <li><b>確認陳明義議員的選區、審查委員會與接觸管道。</b></li>
+    <li><b>與貢寮區漁會私下確認巡守隊協力的可行性</b>（對口為總幹事林麗美）。</li>
+    <li><b>查證原住民族魚槍管理辦法</b>之正式名稱與 114 年 3 月修正內容，確認草案例外條款是否已銜接。</li>
+    <li>向漁業處確認 9/8 正式與會名單與代表單位。</li>
+  </ol>
+
+  <div class="src">
+    <b>本圖整合之調查文件（共 13 份，詳見 dd-index.html）</b><br>
+    dd-jian-mingxiong（簡明雄與漁業處）　·　dd-council-records（新北市議會質詢紀錄）　·　dd-lu-hsiaoyun（陸曉筠）<br>
+    dd-huang-hsiangwen（黃向文）　·　dd-chen-chaolun（陳昭倫）　·　dd-shao-kuangtsao（邵廣昭）<br>
+    dd-chen-yihsiung（陳義雄）　·　dd-chen-chengwei（陳徵蔚暨保育方網絡）　·　dd-chen-yingling（陳映伶）<br>
+    dd-local-reps（在地代表總論）　·　dd-wu-wenyi（吳文益）　·　dd-chen-kuokuang（陳國光）　·　dd-lin-limei（林麗美）<br>
+    輔助：bluetrend-two-articles　·　compare-chaojing　·　paper-tidepool-2020　·
+    patrol-fulian-maoao　·　grant-oca-application　·　meeting-0908-brief<br><br>
+    <b>查核狀態：</b>四位學者之發言均已取得台灣科技媒體中心 2026.08.14 原始全文並逐字核對；
+    議會發言均取自議事錄逐字稿；在地代表資料取自中選會選舉公報與具名報導。<br>
+    <b>未查證事項：</b>簡明雄與黃向文之任職年份是否重疊；陳明義議員之選區與委員會；
+    石花菜例外條款之精確文字；陸曉筠對本案之立場（目前查無任何公開發言，本圖所載均為自其一般政策主張之推論）；
+    部分人士是否與會。<b>以上均不得在公開場合斷言。</b>
+  </div>
+
+</div>
+</div>
+
+</body>
+</html>
