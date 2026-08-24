@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海洋保育，不只是禁止利用 · 研討會紀實</title>
+<style>
+  :root{
+    --bg:#f4f1ea; --paper:#fffdf8; --ink:#1f2b33; --sub:#55636c; --faint:#8b969e;
+    --line:#ded7c9; --navy:#1a3a4a; --gold:#b07d2b; --gold-bg:#f8f0dd;
+    --add:#2f7d55; --add-bg:#e8f4ed; --sea:#12303e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.9;font-size:17px;padding-bottom:80px;-webkit-font-smoothing:antialiased}
+  .w{max-width:880px;margin:0 auto;padding:0 20px}
+
+  header{background:linear-gradient(165deg,#0f2733,#1f4658);color:#fff;padding:52px 20px 44px;border-bottom:4px solid var(--gold)}
+  header .in{max-width:880px;margin:0 auto}
+  header .k{font-size:12px;font-weight:800;letter-spacing:.24em;color:#e8bf72}
+  header h1{font-size:clamp(28px,5.5vw,40px);font-weight:900;margin:14px 0 6px;line-height:1.25;letter-spacing:-.01em}
+  header .sub{font-size:clamp(15px,2.4vw,18px);color:#d8e6ec;font-weight:500;margin-bottom:18px}
+  header .meta{font-size:14px;color:#a9c6d2;line-height:1.9}
+  header .quote{margin-top:22px;padding:16px 20px;background:rgba(255,255,255,.07);border-left:3px solid var(--gold);
+    border-radius:0 8px 8px 0;font-size:15.5px;color:#e8eff2;line-height:1.9}
+
+  h2{font-size:23px;font-weight:900;color:var(--navy);margin:52px 0 6px;padding-bottom:10px;border-bottom:2px solid var(--line)}
+  h3{font-size:19px;font-weight:900;color:var(--ink);margin:30px 0 8px}
+  .lede{font-size:15px;color:var(--faint);margin:0 0 18px}
+  p{margin:12px 0}
+
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px;background:var(--paper)}
+  th,td{border:1px solid var(--line);padding:11px 13px;text-align:left;vertical-align:top}
+  th{background:#efe9dd;font-weight:800;color:var(--navy);font-size:13.5px}
+  .tw{overflow-x:auto}
+
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:22px 25px;margin:16px 0}
+  .card .who{font-size:19px;font-weight:900;color:var(--navy)}
+  .card .role{font-size:14px;color:var(--sub);margin-top:2px}
+  .card .topic{font-size:16px;font-weight:700;color:var(--gold);margin:10px 0 12px}
+  .card ul{margin:10px 0 0 0;list-style:none}
+  .card li{position:relative;padding-left:20px;margin:9px 0;font-size:15.5px;line-height:1.85;color:var(--sub)}
+  .card li:before{content:"";position:absolute;left:0;top:12px;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+  .card li b{color:var(--ink)}
+
+  blockquote{background:var(--add-bg);border:1px solid #bfe3cd;border-left:5px solid var(--add);border-radius:0 10px 10px 0;
+    padding:18px 22px;margin:18px 0;font-size:16.5px;line-height:1.95;color:#1f4d36}
+  blockquote .src{display:block;margin-top:12px;font-size:13.5px;color:#4a7a5f;font-weight:700}
+  blockquote .src .ts{font-family:ui-monospace,Consolas,monospace;color:#6f9a83;font-weight:400;margin-left:6px}
+  blockquote.gold{background:var(--gold-bg);border-color:#e3cf9f;border-left-color:var(--gold);color:#6a4c10}
+  blockquote.gold .src{color:#8a5f16}
+  blockquote.gold .src .ts{color:#a98b4d}
+
+  .gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:20px;margin:22px 0}
+  .gal figure{margin:0;background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .gal a{display:block;line-height:0}
+  .gal img{width:100%;height:auto;display:block;background:#e7e2d6}
+  .gal figcaption{font-size:14px;color:var(--sub);padding:12px 15px;line-height:1.7}
+  .gal figcaption b{color:var(--ink);display:block;font-size:15.5px}
+  .gal figcaption .ts{font-family:ui-monospace,Consolas,monospace;font-size:12px;color:var(--faint)}
+  .gal.wide{grid-template-columns:1fr}
+  .galhint{font-size:13.5px;color:var(--faint);margin:-6px 0 14px}
+
+  .vids{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin:18px 0}
+  .vid{display:flex;align-items:center;gap:14px;background:var(--paper);border:1px solid var(--line);
+    border-left:5px solid var(--navy);border-radius:10px;padding:16px 18px;text-decoration:none;color:inherit;transition:.15s}
+  .vid:hover{border-color:var(--gold);border-left-color:var(--gold);box-shadow:0 2px 10px rgba(60,45,20,.08)}
+  .vid .ic{flex:none;width:44px;height:44px;border-radius:9px;display:flex;align-items:center;justify-content:center;
+    font-size:19px;font-weight:900;color:#fff}
+  .vid.yt .ic{background:#c4302b} .vid.fb .ic{background:#1877f2}
+  .vid .tx{flex:1;min-width:0}
+  .vid .tt{display:block;font-size:16.5px;font-weight:900;color:var(--ink);line-height:1.4}
+  .vid .dd{display:block;font-size:13px;color:var(--sub);margin-top:4px;line-height:1.6}
+  .vid .go{flex:none;color:var(--faint);font-size:18px}
+  .note{background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--navy);border-radius:0 9px 9px 0;
+    padding:16px 20px;margin:20px 0;font-size:14.5px;color:var(--sub);line-height:1.85}
+  .note b{color:var(--ink)}
+
+  footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.9}
+
+  @media(max-width:600px){
+    body{font-size:16.5px}
+    .w{padding:0 15px}
+    header{padding:38px 20px 32px}
+    .card{padding:18px 17px}
+    blockquote{padding:15px 17px;font-size:15.5px}
+    .gal{grid-template-columns:1fr;gap:14px}
+  }
+  @media print{
+    body{background:#fff;padding:0}
+    header{background:#0f2733!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .card,blockquote,table,.gal figure,.note{break-inside:avoid;page-break-inside:avoid}
+    h2{page-break-after:avoid}
+  }
+</style>
+</head>
+<body>
+<header><div class="in">
+  <div class="k">研討會紀實</div>
+  <h1>海洋保育，<br>不只是禁止利用。</h1>
+  <div class="sub">從善治永續利用談臺灣沿岸海洋治理<br>生態保育 × 資源管理 × 在地文化 的跨領域對話</div>
+  <div class="meta">
+    2026 年 8 月 15 日（六）09:30–15:00<br>
+    中央研究院細胞與個體生物學研究所 1 樓演講廳
+  </div>
+  <div class="quote">
+    真正成熟的海洋保育，不是努力把人排除在海洋之外，<br>而是建立一套制度，讓人願意與海洋長久共存。
+  </div>
+</div></header>
+
+<div class="w">
+
+  <div class="note" style="border-left-color:var(--gold);background:#fdf8ee">
+    <b>關於本頁之引述</b>　三位講者與與談人係應主辦單位邀請，就其研究與經驗發表演講及意見，所述均為其<b>個人專業意見</b>，不代表其對任何政策個案之立場，<b>亦不構成對任何團體主張之背書</b>。本頁之摘要、引文選取與編排，均由主辦單位之一台灣海洋永續休閒採捕聯盟所為，文責自負；完整內容請參閱逐字稿與錄影。
+  </div>
+
+  <!-- 議程 -->
+  <h2>議程與講者</h2>
+  <div class="tw"><table>
+    <thead><tr><th style="width:20%">時間</th><th>場次</th><th style="width:24%">講者</th></tr></thead>
+    <tbody>
+      <tr><td>10:00–10:40</td><td><b>第一場｜生態保育</b><br>海洋保育，不只是禁止利用：臺灣岩礁與珊瑚礁棲地面臨的危機</td><td>陳昭倫 教授</td></tr>
+      <tr><td>11:00–11:40</td><td><b>第二場｜資源管理</b><br>從魚類功能群到永續利用：建立臺灣沿岸海洋資源管理的新思維</td><td>溫國彰 教授</td></tr>
+      <tr><td>13:30–14:10</td><td><b>第三場｜在地文化</b><br>傳統生態知識、原住民族文化與海洋治理</td><td>蔡政良 教授</td></tr>
+      <tr><td>14:20–15:00</td><td><b>綜合座談</b><br>臺灣需要什麼樣的海洋治理？</td><td>三位主講人<br>與談人 徐承堉</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:15px;color:var(--sub)">主持人：Eric 楊琢琪、虎爸<br>
+  主辦單位：中央研究院生物多樣性研究中心珊瑚礁研究室、臺北醫學大學通識教育中心、國立臺灣海洋大學海洋休閒產業暨遊艇發展中心、東海大學生態與環境研究中心、台灣海洋永續休閒採捕聯盟、台灣自由潛水發展協會</p>
+
+  <h2>完整錄影</h2>
+  <p class="lede">全長 6 小時 27 分，包含三場專題演講與綜合座談。</p>
+  <div class="vids">
+    <a class="vid yt" href="https://www.youtube.com/live/5XTjSMcEKYo" target="_blank" rel="noopener">
+      <span class="ic">▶</span>
+      <span class="tx"><span class="tt">YouTube 直播存檔</span>
+        <span class="dd">畫質較佳，可調整播放速度與跳轉</span></span>
+      <span class="go">↗</span>
+    </a>
+    <a class="vid fb" href="https://www.facebook.com/watch/live/?v=1537377560928447" target="_blank" rel="noopener">
+      <span class="ic">f</span>
+      <span class="tx"><span class="tt">Facebook 直播存檔</span>
+        <span class="dd">本頁與逐字稿的時間標記以此版為準</span></span>
+      <span class="go">↗</span>
+    </a>
+  </div>
+  <div class="note" style="margin-top:6px">
+    <b>兩版時間略有差異</b>：Facebook 版全長 6:26:30、YouTube 版 6:28:46，相差約兩分鐘。
+    本頁引文與逐字稿的時間標記，均依 <b>Facebook 版</b>音軌轉錄而來；若在 YouTube 版查找，請預留數分鐘誤差。
+  </div>
+
+  <!-- 第一場 -->
+  <h2>第一場｜生態保育</h2>
+  <div class="card">
+    <div class="who">陳昭倫 教授</div>
+    <div class="role">中央研究院生物多樣性研究中心研究員　·　全球珊瑚礁監測網東亞分區臺灣執委</div>
+    <div class="topic">臺灣岩礁與珊瑚礁棲地面臨的危機</div>
+    <ul>
+      <li>臺灣海岸線約 1,300 公里、南北不到 400 公里，卻同時擁有濕地、河口、岩礁、大洋、<b>海底熱泉</b>、珊瑚礁、藻礁等生態系，密度為周邊國家所無。</li>
+      <li>臺灣<b>並不在「珊瑚金三角」範圍內</b>，石珊瑚物種數約 570–580 種。</li>
+      <li>東北角成為重要漁場有其物理成因：黑潮支流與彭佳嶼下方棉花峽谷一帶的<b>冷渦</b>（直徑約 100 公里，夏季水溫可低至 22 度）帶來高營養鹽與高生產力。</li>
+      <li>臺灣北部與東北角屬<b>非礁型珊瑚群聚（溫帶珊瑚生態系）</b>，特徵是物種數少、單一物種生物量高，與墾丁、綠島、蘭嶼、小琉球本質不同。</li>
+      <li>四項歷史共業：過度漁業捕撈、棲地破壞、海洋污染、氣候變遷。</li>
+      <li>治理陷阱與安慰劑效應：淨灘不處理源頭則年年再生；北部海域可以種珊瑚，但<b>種不出珊瑚礁生態系</b>。</li>
+      <li>解方是把人放進系統——共設計、共產出、共傳遞。綠島實作已取得當地史上第一份漁獲資料。</li>
+    </ul>
+  </div>
+
+  <blockquote>
+    你翻整個漁業署的漁業年報裡面，我們沒有一條就叫做珊瑚礁漁業或是沿岸礁區漁業的資料……所以我們對於捕撈方式——釣竿、網具，甚至我們今天關心的魚槍，它的頻率大概強多少，<b>完完全全沒有資料</b>。
+    <span class="src">陳昭倫 教授<span class="ts">01:51:15</span></span>
+  </blockquote>
+
+  <blockquote>
+    我們沒辦法期待台灣北部的這些岩礁型的群聚……它的資源使用、它的管理規則，會是跟墾丁、跟綠島、跟蘭嶼、跟小琉球一模一樣的東西。<b>這個要完全設立不同的管理的規則。</b>
+    <span class="src">陳昭倫 教授<span class="ts">01:31:08</span></span>
+  </blockquote>
+
+  <!-- 第二場 -->
+  <h2>第二場｜資源管理</h2>
+  <div class="card">
+    <div class="who">溫國彰 教授</div>
+    <div class="role">東海大學生命科學系　·　生態與環境研究中心</div>
+    <div class="topic">從魚類功能群到永續利用</div>
+    <ul>
+      <li>支持海洋保護區，<b>但保護區不等於全面禁止</b>；國際成功案例多需分區並與利害關係人共同討論。</li>
+      <li>臺灣缺乏沿岸魚類尺寸資料是<b>制度造成</b>的：計畫申請被認為「不像科學調查」，而主管機關認為此類漁業產值太小。</li>
+      <li>體長管理的科學原則——<b>最小體長</b>應確保個體至少繁殖一次；<b>最大體長</b>則保留高產卵量的大型個體（以石斑為例，35 公分約產 7,000 顆卵，90 公分可達 28 萬顆；本段數據經溫國彰教授於會後來函更正），並可降低雪卡毒素風險。</li>
+      <li>現行「友善釣魚」建議尺寸多偏小且缺乏本土科學依據；澎湖玳瑁石斑 8 公分之限制，係詢問漁民「幾公分不影響採集」而定。</li>
+      <li>數量限制在文獻上並無真正的科學計算方式，多屬經驗法則，需先有基礎資料。</li>
+      <li>藻食性魚類（鸚哥啃食、刺尾鯛刮食、臭肚咬食）各有不同生態功能，管理應依功能群設計。</li>
+    </ul>
+  </div>
+
+  <blockquote>
+    基本上我過去的研究其實都是支持海洋保護區，<b>但是海洋保護區也不全然的是一個全面禁止</b>。不管是國外的例子、這種成功的案例，其實都需要分區，還有不同環境跟利害關係人一起討論來管理。
+    <span class="src">溫國彰 教授<span class="ts">02:08:29</span></span>
+  </blockquote>
+
+  <blockquote class="gold">
+    我確實不知道有哪一個單位是只禁魚槍，或哪一個國家只禁魚槍、開放休閒釣魚、開放潛水採集。那如果這都沒有這樣的操作，<b>我們選擇這樣的操作方式，不是有點奇怪嗎？</b>
+    <span class="src">溫國彰 教授<span class="ts">05:47:01</span></span>
+  </blockquote>
+
+  <!-- 第三場 -->
+  <h2>第三場｜在地文化</h2>
+  <div class="card">
+    <div class="who">蔡政良 教授</div>
+    <div class="role">國立臺東大學公共與文化事務學系教授　·　國立臺灣史前文化博物館館長</div>
+    <div class="topic">傳統生態知識、原住民族文化與海洋治理</div>
+    <ul>
+      <li>傳統生態知識包含<b>生態、社會、文化</b>三個層次；阿美族視海為生命體，人與海是交換關係。</li>
+      <li>國際案例：庫克群島 <b>Ra'ui</b>（耆老宣告封閉與開放，屬輪休）、<b>Marae Moana</b>（禁商業拖網與深海採礦，但允許傳統漁獵與小型自給型捕撈）、夏威夷 <b>CBSFA</b>（1996 年立法，社區可提案保護自身海域，法定須開公聽會）。</li>
+      <li>都蘭部落自 2016 年起由年齡組織自訂規範：<b>夜間禁打鸚哥魚</b>（白天不禁，因白天採捕本身具技術門檻）。</li>
+      <li>近年推廣<b>改以徒手捕捉龍蝦</b>，避免以魚叉魚槍誤傷抱卵個體。</li>
+      <li>成立海洋保育巡守隊（30 餘人），以自由潛水進行珊瑚礁調查，2023 年起累積 <b>162 人次、9 次調查</b>。</li>
+      <li>採「<b>輪休</b>」概念而非永久全面關閉；保育區範圍並因與作業漁民協商而調整。</li>
+    </ul>
+  </div>
+
+  <blockquote>
+    要做海洋保育，其實<b>不是從公部門</b>、不是公部門要求，也不是哪一個公民團體跟你講說你們海區要保育，<b>是部落自己的族人決定要做這件事情。而且主力是誰呢？主力就是都是打魚的</b>——因為他們比較了解、真的親眼看到水裡面的情況。
+    <span class="src">蔡政良 教授<span class="ts">04:46:11</span></span>
+  </blockquote>
+
+  <blockquote>
+    你要照顧海，海才會照顧你。<br>
+    打魚人不是只有跟海洋拿東西而已，我們也要同時照顧海洋——這個觀念是非常重要的。
+    <span class="src">蔡政良 教授<span class="ts">04:33:25 · 04:59:56</span></span>
+  </blockquote>
+
+  <!-- 座談 -->
+  <h2>綜合座談：臺灣需要什麼樣的海洋治理？</h2>
+  <p class="lede">三位主講人與與談人徐承堉（湧升海洋創辦人）就「執法」與「預防性管理」兩大提問回應。</p>
+
+  <h3>關於執法</h3>
+  <blockquote>
+    其實<b>法都在那個地方</b>。我們中華民國很多法——海洋保育法、漁業法、國家公園法，其實都很清楚在那個地方……〔問題是〕只有法、沒有能量。海巡的任務，現在更麻煩是還要去處理走私、槍砲、賭博……你叫他去抓這些拿魚槍的，對他來講其實沒有什麼太大的獎勵在裡面。<br>
+    <b>再多新的法、更多的法，其實是沒有太大的意義。</b>
+    <span class="src">陳昭倫 教授<span class="ts">05:36:31</span></span>
+  </blockquote>
+
+  <blockquote>
+    不管在資源的調查研究、不管在法規的訂定、以及最後的執法的部分，最後的一個問題就是<b>會回到沒有錢</b>。白帶魚滯銷有上千萬的補助費用，可是一年要一、兩百萬的資源管理調查費用，沒有錢。<br>
+    在比較先進的國家，所有的錢都是<b>在你發生這個行為的當下</b>要去支付的。
+    <span class="src">徐承堉（湧升海洋創辦人）<span class="ts">05:27:06</span></span>
+  </blockquote>
+
+  <blockquote>
+    我的個人看法是<b>罰則都太輕了</b>。很多罰則多少年這個數字沒有改變，可是每個人的收入或是全台灣的 GDP 都還增加。〔有人說提高會不平均〕可是不該都往低價去處理，而是全民提高。
+    <span class="src">溫國彰 教授<span class="ts">05:32:22</span></span>
+  </blockquote>
+
+  <h3>關於預防性管理</h3>
+  <blockquote class="gold">
+    所謂的預防性原則其實是好的，但是<b>重點來了</b>——我們今天新北市這件事情，他什麼事情都沒有什麼特別的處理，他就<b>專門針對魚槍</b>這件事情處理。<br><br>
+    〔以下數字據其表示係詢問 AI 工具所得〕全台灣合法魚槍大概四千多支，真正在新北市使用魚槍的人大概是數百個。那新北如果按照人口比例來講，釣魚人口大概是有<b>三十到四十萬</b>。<br><br>
+    如果今天整個要做所謂預防性的處理……真正整天在使用海洋資源的這些人口裡面，或許釣魚的部分也是要同時去做。
+    <span class="src">徐承堉<span class="ts">05:39:40</span></span>
+  </blockquote>
+
+  <blockquote class="gold">
+    每一個漁法、抓魚的方法都有它存在的原因跟必要性……魚槍也是漁法之一，跟網具、釣具一樣。<b>最大的魚槍是什麼呢？被稱為最友善的漁法——鏢旗魚，那算不算魚槍？</b><br><br>
+    所以其實<b>我們不能用漁法來認定它友善與否，這不是一個科學的方法</b>……對解決事情真的沒有什麼幫助。
+    <span class="src">徐承堉<span class="ts">05:48:04</span></span>
+  </blockquote>
+
+  <blockquote>
+    這次的這個法規我是非常非常贊成，為什麼呢？它<b>開啟了一個大家討論</b>、去認識我們面對的產業。只是今天這個法規裡面可能最奇怪的是，整個法規看起來<b>它對魚槍是有很高的針對性</b>。<br><br>
+    我們也知道說永遠就是有幾個特別厲害的，會用夜間、會用什麼方式去〔採捕〕，重點還不是小魚，通常都是大型的……<b>針對這些特別調皮的若不處理，其他的就沒辦法約束。</b>
+    <span class="src">徐承堉<span class="ts">05:49:08</span></span>
+  </blockquote>
+
+  <!-- 結論 -->
+  <h2>主辦單位之一的觀察</h2>
+  <p class="lede">以下係主辦單位之一台灣海洋永續休閒採捕聯盟就會議內容所為之整理，<b>非與會講者之共同意見或聯合聲明</b>。</p>
+  <div class="card">
+    <ul>
+      <li><b>資料缺口是結構性的</b>——主管機關長期未投入沿岸礁區與休閒採捕的基礎調查。</li>
+      <li><b>保護區不等於全面禁止</b>——國際主流為分區、物種與尺寸管理，並納入利害關係人共同討論。</li>
+      <li><b>不同海域應有不同規則</b>——北部溫帶珊瑚生態系與南部熱帶珊瑚礁本質不同，規則不應直接移植。</li>
+      <li><b>管制應依危害而非工具</b>——以漁法名稱區分友善與否欠缺科學基礎。</li>
+      <li><b>法規已足，執行能量不足</b>——問題在經費、人力與誘因，使用者付費與公民協力是可行方向。</li>
+      <li><b>社群自我管理具可行性</b>——都蘭部落的實證顯示，使用者社群可以是保育的主力。</li>
+    </ul>
+  </div>
+
+  <!-- 照片 -->
+  <h2>現場紀錄</h2>
+  <p class="lede">時間為影片時間；現場時間 ≈ 影片時間 ＋ 8 小時 59 分。</p>
+    <p class="galhint">共 19 張，依議程順序排列。點擊照片可開啟原圖。</p>
+  <h3>會前準備與報到</h3>
+  <div class="gal">
+    <figure><a href="img/seminar/setup.jpg" target="_blank" rel="noopener"><img src="img/seminar/setup.jpg" alt="會場佈置" loading="lazy"></a>
+      <figcaption><b>會場佈置</b><span class="ts">09:00 前後</span></figcaption></figure>
+    <figure><a href="img/seminar/staff-meeting.jpg" target="_blank" rel="noopener"><img src="img/seminar/staff-meeting.jpg" alt="工作人員會議" loading="lazy"></a>
+      <figcaption><b>工作人員會議</b><span class="ts">09:00 前後</span></figcaption></figure>
+    <figure><a href="img/seminar/registration.jpg" target="_blank" rel="noopener"><img src="img/seminar/registration.jpg" alt="報到現場" loading="lazy"></a>
+      <figcaption><b>報到現場</b><span class="ts">09:30–10:00</span></figcaption></figure>
+    <figure><a href="img/seminar/signin.jpg" target="_blank" rel="noopener"><img src="img/seminar/signin.jpg" alt="簽到處" loading="lazy"></a>
+      <figcaption><b>簽到處</b><span class="ts">09:30–10:00</span></figcaption></figure>
+    <figure><a href="img/seminar/books.jpg" target="_blank" rel="noopener"><img src="img/seminar/books.jpg" alt="會場贈書《順其自然》" loading="lazy"></a>
+      <figcaption><b>會場贈書《順其自然》</b><span class="ts">—</span></figcaption></figure>
+    <figure><a href="img/seminar/venue.jpg" target="_blank" rel="noopener"><img src="img/seminar/venue.jpg" alt="會場" loading="lazy"></a>
+      <figcaption><b>會場</b><span class="ts">—</span></figcaption></figure>
+  </div>
+  <h3>第一場｜生態保育　陳昭倫 教授</h3>
+  <div class="gal">
+    <figure><a href="img/seminar/talk1-chen.jpg" target="_blank" rel="noopener"><img src="img/seminar/talk1-chen.jpg" alt="陳昭倫 教授" loading="lazy"></a>
+      <figcaption><b>陳昭倫 教授</b><span class="ts">01:08:39–02:00:49</span></figcaption></figure>
+    <figure><a href="img/seminar/talk1-chen-2.jpg" target="_blank" rel="noopener"><img src="img/seminar/talk1-chen-2.jpg" alt="陳昭倫 教授" loading="lazy"></a>
+      <figcaption><b>陳昭倫 教授</b><span class="ts">01:08:39–02:00:49</span></figcaption></figure>
+    <figure><a href="img/seminar/talk1-chen-3.jpg" target="_blank" rel="noopener"><img src="img/seminar/talk1-chen-3.jpg" alt="陳昭倫 教授" loading="lazy"></a>
+      <figcaption><b>陳昭倫 教授</b><span class="ts">01:08:39–02:00:49</span></figcaption></figure>
+    <figure><a href="img/seminar/talk1-chen-staff.jpg" target="_blank" rel="noopener"><img src="img/seminar/talk1-chen-staff.jpg" alt="陳昭倫教授與工作人員" loading="lazy"></a>
+      <figcaption><b>陳昭倫教授與工作人員</b><span class="ts">01:08:39–02:00:49</span></figcaption></figure>
+  </div>
+  <h3>第二場｜資源管理　溫國彰 教授</h3>
+  <div class="gal">
+    <figure><a href="img/seminar/talk2-wen.jpg" target="_blank" rel="noopener"><img src="img/seminar/talk2-wen.jpg" alt="溫國彰 教授" loading="lazy"></a>
+      <figcaption><b>溫國彰 教授</b><span class="ts">02:08:10–02:38:27</span></figcaption></figure>
+    <figure><a href="img/seminar/talk2-wen-2.jpg" target="_blank" rel="noopener"><img src="img/seminar/talk2-wen-2.jpg" alt="溫國彰 教授" loading="lazy"></a>
+      <figcaption><b>溫國彰 教授</b><span class="ts">02:08:10–02:38:27</span></figcaption></figure>
+    <figure><a href="img/seminar/talk2-wen-3.jpg" target="_blank" rel="noopener"><img src="img/seminar/talk2-wen-3.jpg" alt="溫國彰 教授" loading="lazy"></a>
+      <figcaption><b>溫國彰 教授</b><span class="ts">02:08:10–02:38:27</span></figcaption></figure>
+  </div>
+  <h3>全體大合照</h3>
+  <div class="gal wide">
+    <figure><a href="img/seminar/group-photo.jpg" target="_blank" rel="noopener"><img src="img/seminar/group-photo.jpg" alt="全體大合照" loading="lazy"></a>
+      <figcaption><b>全體大合照</b><span class="ts">02:38:27 ／ 約 11:38</span></figcaption></figure>
+  </div>
+  <h3>第三場｜在地文化　蔡政良 教授</h3>
+  <div class="gal">
+    <figure><a href="img/seminar/talk3-tsai.jpg" target="_blank" rel="noopener"><img src="img/seminar/talk3-tsai.jpg" alt="蔡政良 教授" loading="lazy"></a>
+      <figcaption><b>蔡政良 教授</b><span class="ts">04:30:00–05:09:52</span></figcaption></figure>
+    <figure><a href="img/seminar/talk3-tsai-2.jpg" target="_blank" rel="noopener"><img src="img/seminar/talk3-tsai-2.jpg" alt="蔡政良 教授" loading="lazy"></a>
+      <figcaption><b>蔡政良 教授</b><span class="ts">04:30:00–05:09:52</span></figcaption></figure>
+    <figure><a href="img/seminar/talk3-tsai-3.jpg" target="_blank" rel="noopener"><img src="img/seminar/talk3-tsai-3.jpg" alt="蔡政良 教授" loading="lazy"></a>
+      <figcaption><b>蔡政良 教授</b><span class="ts">04:30:00–05:09:52</span></figcaption></figure>
+  </div>
+  <h3>綜合座談</h3>
+  <div class="gal">
+    <figure><a href="img/seminar/panel-1.jpg" target="_blank" rel="noopener"><img src="img/seminar/panel-1.jpg" alt="綜合座談" loading="lazy"></a>
+      <figcaption><b>綜合座談</b><span class="ts">05:21:36 起</span></figcaption></figure>
+    <figure><a href="img/seminar/panel-2.jpg" target="_blank" rel="noopener"><img src="img/seminar/panel-2.jpg" alt="綜合座談" loading="lazy"></a>
+      <figcaption><b>綜合座談</b><span class="ts">05:21:36 起</span></figcaption></figure>
+  </div>
+
+
+  <div class="note">
+    <b>關於本頁</b><br>
+    內容依現場錄影音軌轉錄整理。引文均為公開研討會之發言，時間標記為影片時間，可回溯查核；
+    文字經語音辨識轉錄與專有名詞校正，正式引用前建議以錄影核對。<br>
+    陳昭倫教授於演講開頭聲明：所述為其個人意見，與其服務機關立場無涉。<br><b>三位講者及與談人均係就其研究與經驗發表意見，並未就任何政策個案表態，亦未為任何團體之主張背書。</b><br>
+    徐承堉先生於座談中明確表示，其所述魚槍數量與釣魚人口係<b>詢問 AI 工具所得</b>，並非官方統計；引用前務必自行查證原始來源。
+  </div>
+
+  <footer>
+    《海洋保育，不只是禁止利用。》從善治永續利用談臺灣沿岸海洋治理<br>
+    2026 年 8 月 15 日｜中央研究院細胞與個體生物學研究所
+  </footer>
+
+</div>
+</body>
+</html>
