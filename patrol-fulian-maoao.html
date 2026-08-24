@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>福連里．卯澳巡守隊制度與現況（內部）</title>
+<style>
+  :root{
+    --bg:#f4f1ea; --paper:#fffdf8; --ink:#1f2b33; --sub:#55636c; --faint:#8b969e;
+    --line:#ded7c9; --navy:#1a3a4a; --gold:#b07d2b; --gold-bg:#f8f0dd; --sea:#12303e;
+    --ok:#2f7d55; --ok-bg:#e8f4ed; --warn:#a8442a; --warn-bg:#fbeee9;
+    --info:#1f5f7a; --info-bg:#e9f2f6; --urgent:#8f1f1f; --urgent-bg:#fbe9e9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.85;font-size:16.5px;padding-bottom:60px;-webkit-font-smoothing:antialiased}
+  .w{max-width:920px;margin:0 auto;padding:0 20px}
+  header{background:linear-gradient(165deg,#0f2733,#1f4658);color:#fff;padding:42px 20px 36px;border-bottom:4px solid var(--gold)}
+  header .in{max-width:920px;margin:0 auto}
+  .stamp{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.2em;
+    color:#3a1d16;background:#e8bf72;padding:4px 12px;border-radius:3px}
+  header h1{font-size:clamp(24px,4.6vw,33px);font-weight:900;margin:14px 0 8px;line-height:1.3}
+  header .sub{font-size:15px;color:#c9dde5;line-height:1.8}
+  .sheet{background:var(--paper);border:1px solid var(--line);border-radius:4px;
+    padding:32px 34px 38px;margin-top:26px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+  h2{font-size:20px;font-weight:900;color:var(--navy);margin:38px 0 14px;
+     padding-bottom:8px;border-bottom:2px solid var(--navy)}
+  h2:first-child{margin-top:0}
+  h2 .n{color:var(--gold);margin-right:8px}
+  h3{font-size:17px;font-weight:800;color:var(--sea);margin:24px 0 8px}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 12px;padding-left:1.4em}
+  li{margin-bottom:6px}
+  b,strong{font-weight:800;color:var(--sea)}
+  .lede{font-size:17px;font-weight:700;color:var(--sea);background:var(--gold-bg);
+    border-left:4px solid var(--gold);padding:15px 19px;border-radius:0 4px 4px 0;margin:0 0 18px;line-height:1.8}
+  .scroll{overflow-x:auto;margin:0 0 14px}
+  table{width:100%;border-collapse:collapse;font-size:15px}
+  th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+  th{background:#f0ece1;font-weight:800;color:var(--navy);font-size:14px}
+  td.k{white-space:nowrap;font-weight:700;width:1%;background:#f7f4ec}
+  td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .ok{background:var(--ok-bg);border:1px solid #bcdcca;border-left:4px solid var(--ok);
+    padding:14px 18px;border-radius:0 4px 4px 0;margin:14px 0;font-size:15.5px;line-height:1.82}
+  .ok b{color:#20613f}
+  .warn{background:var(--warn-bg);border:1px solid #e8c6ba;border-left:4px solid var(--warn);
+    padding:14px 18px;border-radius:0 4px 4px 0;margin:14px 0;font-size:15.5px;line-height:1.82}
+  .warn b{color:#8b3a22}
+  .urgent{background:var(--urgent-bg);border:2px solid #d9a3a3;border-left:5px solid var(--urgent);
+    padding:16px 20px;border-radius:0 4px 4px 0;margin:16px 0;font-size:15.5px;line-height:1.85}
+  .urgent b{color:var(--urgent)}
+  .info{background:var(--info-bg);border:1px solid #bcd4e0;border-left:4px solid var(--info);
+    padding:14px 18px;border-radius:0 4px 4px 0;margin:14px 0;font-size:15.5px;line-height:1.82}
+  .info b{color:#164a61}
+  .quote{border-left:3px solid var(--gold);padding:6px 0 6px 16px;margin:14px 0;
+    color:#3a4750;font-size:15.5px;line-height:1.85}
+  ol.tl{list-style:none;padding:0}
+  ol.tl>li{position:relative;padding-left:5.8em;margin-bottom:13px;min-height:1.6em}
+  ol.tl>li .y{position:absolute;left:0;top:0;font-weight:900;color:#fff;background:var(--navy);
+    font-size:13px;padding:2px 9px;border-radius:4px;min-width:4.6em;text-align:center}
+  .src{font-size:13px;color:var(--faint);margin-top:26px;padding-top:16px;border-top:1px solid var(--line);line-height:1.9}
+  .src a{color:var(--gold)}
+  @media(max-width:640px){
+    body{font-size:16px}
+    .sheet{padding:22px 16px 28px}
+    h2{font-size:18.5px}
+    table{font-size:14px;min-width:540px}
+    td.k{white-space:normal}
+    ol.tl>li{padding-left:0;padding-top:1.9em}
+  }
+  @media print{
+    body{background:#fff;padding:0;font-size:10pt}
+    header{background:#fff;color:#000;border-bottom:2px solid #000;padding:0 0 12px}
+    header h1{color:#000} header .sub{color:#333}
+    .stamp{background:#000;color:#fff}
+    .sheet{border:0;box-shadow:none;padding:0;margin-top:14px}
+    .w{max-width:none;padding:0}
+    .scroll{overflow:visible} table{min-width:0}
+    @page{size:A4;margin:15mm 13mm}
+    h2{page-break-after:avoid} table,tr{page-break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="in">
+    <div class="stamp">內 部 文 件 ・ 請 勿 外 傳</div>
+    <h1>福連里．卯澳<br>巡守隊制度與現況</h1>
+    <div class="sub">
+      為評估本聯盟加入或協助巡守隊之可行性所作之調查<br>
+      含中央補助管道與申請時效（<b>最近一個截止日為 115 年 8 月 31 日</b>）
+    </div>
+  </div>
+</header>
+
+<div class="w">
+<div class="sheet">
+
+  <h2><span class="n">壹</span>一句話結論</h2>
+
+  <div class="lede">
+    <b>卯澳早就有巡守隊了</b>——2016 年由既有的封溪護魚志工隊轉型成立「海陸域巡守隊」。<br>
+    所以問題不是「要不要成立」，而是<b>要不要去支援一個已經存在、而且屬於社區的組織</b>。
+  </div>
+
+  <h2><span class="n">貳</span>卯澳（福連里）是什麼樣的地方</h2>
+
+  <div class="scroll">
+  <table>
+    <tr><td class="k">行政區</td><td>新北市貢寮區<b>福連里</b>，卯澳地區位於三貂角北端，西鄰福隆里，北臨太平洋</td></tr>
+    <tr><td class="k">面積</td><td>10.5074 平方公里</td></tr>
+    <tr><td class="k">人口</td><td><b>常住人口約 100 人</b>，閩南為主</td></tr>
+    <tr><td class="k">地形</td><td>卯澳灣為 U 型灣澳；豬灶溪、榕樹溪、坑內溪三溪流經聚落匯入海<br>
+      三溪出海口為魚蝦貝類繁殖產卵之最佳場所，漁產豐富</td></tr>
+    <tr><td class="k">信仰中心</td><td><b>利洋宮</b>——全臺唯一主祀「<b>手提魚籃觀世音菩薩</b>」<br>
+      <span style="color:#20613f">※ 即本聯盟 8 月 1 日應吳文益里長邀請參與之「提籃觀音得道紀念日」遶境</span></td></tr>
+    <tr><td class="k">產業</td><td>近海捕撈、沿岸採捕、部分九孔鮑魚養殖；主要漁船為<b>舢舨船</b><br>
+      特有<b>傳統海男與海女</b>，依產季於潮間帶或潛水採集</td></tr>
+    <tr><td class="k">主要漁獲</td><td>軟絲、鬼頭刀、飛魚、竹筴魚、<b>龍膽石斑、龍蝦</b></td></tr>
+    <tr><td class="k">沿岸採集</td><td><b>石花菜</b>、珊瑚草、紫菜、海大麵、笠螺、石蚵</td></tr>
+  </table>
+  </div>
+
+  <h2><span class="n">參</span>巡守隊怎麼來的——完整時間線</h2>
+
+  <ol class="tl">
+    <li><span class="y">2002</span>透過公部門計畫，進行生態環境改造、文史調查及人才培育。此時已有<b>封溪護魚志工隊</b>。</li>
+    <li><span class="y">2012</span>新北市政府設立<b>「貢寮水產動植物繁殖保育區」</b>——保育對象為九孔、海膽、龍蝦、石花菜；
+      範圍為卯澳至洋寮鼻距岸 300 公尺海域。<br>
+      同年起，新北市府推動<b>覆網（廢棄漁網）清除計畫</b>。</li>
+    <li><span class="y">2016</span>漁政單位在卯澳灣劃設<b>全國第一座「栽培漁業示範區」</b>，協助海洋資源管理與復育、
+      輔導社區發展自主接待模式。<br>
+      <b>同年，既有的封溪護魚志工隊轉型成立「海陸域巡守隊」</b>，持續關注當地海洋環境。</li>
+    <li><span class="y">近年</span>納入<b>臺灣里海（Satoumi）前導計畫</b>場域（農業部水產試驗所支持）：
+      田野調查、居民訪談、焦點團體座談、<b>里海環境教育課程</b>、<b>漁業公民科學家培育課程</b>、社區漁業文化工作坊。<br>
+      公民科學課程內容包含<b>珊瑚觀察（Coral Watch）、潮間帶觀察、珊瑚礁水下監測之調查步驟與數據紀錄</b>。</li>
+  </ol>
+
+  <div class="info">
+    <b>制度性質判讀：</b>卯澳的巡守隊<b>不是治安型的守望相助隊</b>，而是<b>資源保育型</b>——
+    源自封溪護魚，因栽培漁業區而擴展到海域。它<b>屬於社區</b>，運作與里、社區發展協會、漁民緊密綁定。
+  </div>
+
+  <h2><span class="n">肆</span>最重要的發現：社區自己早就訂了規範</h2>
+
+  <div class="quote">
+    為了海洋永續發展，當地漁民已<b>約法三章</b>，限制<b>龍蝦小於 20 公分、海膽小於 8 公分等禁止捕撈</b>。
+  </div>
+
+  <div class="ok">
+    <b>把這個數字跟草案並排看：</b><br><br>
+    草案核心保育區：<b>龍蝦未達 20 公分禁採、海膽未達 8 公分禁採</b>。<br>
+    卯澳社區自訂規範：<b>龍蝦小於 20 公分、海膽小於 8 公分禁止捕撈</b>。<br><br>
+    <b>完全一致。</b><br><br>
+    也就是說——<b>草案的體長標準，很可能來自這個社區自己先訂出來的規範</b>。
+    這是「使用者自主管理有效」最直接的證據，而且<b>就發生在貢寮，就在本案海域</b>。
+  </div>
+
+  <div class="info">
+    <b>與蔡政良都蘭案例的對照：</b>都蘭是原住民部落年齡組織自訂夜間禁打鸚哥魚；
+    卯澳是漢人漁村自訂龍蝦與海膽的體長下限。<b>兩個不同族群、不同海岸，同樣由使用者自己訂規則。</b><br>
+    9/8 桌上若要證明「社群自我管理具可行性」，<b>不必舉台東的例子——例子就在貢寮</b>。
+  </div>
+
+  <h2><span class="n">伍</span>現在誰在卯澳海域做事</h2>
+
+  <div class="scroll">
+  <table>
+    <thead><tr><th style="width:1%">單位</th><th>在卯澳做什麼</th></tr></thead>
+    <tbody>
+      <tr><td class="k">新北市政府</td><td>覆網（廢棄漁網）清除計畫，<b>自 2012 年至今已清除 36,816 公斤</b></td></tr>
+      <tr><td class="k">新北市府<br>＋國立海洋大學<br>＋<b>台灣山海天使</b></td>
+        <td><b>於卯澳海域復育超過 3,500 株珊瑚</b>（三方合作）</td></tr>
+      <tr><td class="k">社區<br>海陸域巡守隊</td><td>2016 年成立，持續關注當地海洋環境</td></tr>
+      <tr><td class="k">水產試驗所<br>臺灣里海團隊</td><td>環境教育、漁業公民科學家培育、社區工作坊</td></tr>
+      <tr><td class="k">本聯盟</td><td><b>目前無任何常態性投入</b>；僅 8/1 應里長邀請參與遶境、8/10 拜會漁會</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="warn">
+    <b>殘酷但必須面對的事實：</b>卯澳這片海上，<b>市府、海大、山海天使、水試所、社區巡守隊都已經在做事很多年</b>。
+    我方是最晚到的那一個，而且目前只有兩次拜訪紀錄。<br>
+    <b>「我們願意協助」如果沒有變成實際行動，在桌上的份量遠低於一句「我們已經在做」。</b>
+  </div>
+
+  <h2><span class="n">陸</span>台灣「巡守隊」的四種制度型態</h2>
+
+  <div class="scroll">
+  <table>
+    <thead><tr><th style="width:1%">類型</th><th>主管／依據</th><th>性質</th></tr></thead>
+    <tbody>
+      <tr><td class="k">封溪護魚<br>志工隊</td><td>地方政府（自治條例／公告）</td>
+        <td>溪流禁漁區之巡守、勸導、通報。卯澳巡守隊的<b>前身</b></td></tr>
+      <tr><td class="k">海洋保護區<br>巡守隊</td><td>海保署補助計畫；依《海洋保育法》</td>
+        <td><b>本案最相關</b>。巡護、通報、公民科學調查。
+          海保法 <b>§17</b> 明定民眾、法人或團體協助取締舉發者<b>得予獎勵，身分應予保密</b></td></tr>
+      <tr><td class="k">栽培漁業區<br>自主管理</td><td>漁業主管機關；社區自治規約</td>
+        <td>卯澳巡守隊現行的實際依託。約束力來自<b>社區共識</b>而非公權力</td></tr>
+      <tr><td class="k">守望相助隊</td><td>警政體系；地方自治法規</td>
+        <td>治安型，與海洋資源保育無關。<b>不是本案要的那一種</b></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="warn">
+    <b>共同的限制：巡守隊沒有公權力。</b>不能盤查、不能扣留、不能開單。
+    實際能做的是<b>勸導、記錄、蒐證、通報</b>（海巡 118／1999）。<br>
+    這一點必須先講清楚，否則在桌上承諾「我們來巡守」會被追問「你們憑什麼查」。
+  </div>
+
+  <h2><span class="n">柒</span>兩條中央補助管道——其中一條下週就截止</h2>
+
+  <h3>管道一　海洋保育在地守護計畫（海保署，109 年起）</h3>
+  <div class="scroll">
+  <table>
+    <tr><td class="k">六大主題</td><td>海洋公民調查、<b>海洋保護區巡護</b>、棲地復育行動、
+      <b>友善釣魚行動</b>、海洋保育推廣、潔淨海洋行動</td></tr>
+    <tr><td class="k">分組</td><td>護海領航者／大實現家（重實質保育）／<b>小推手（鼓勵首次參與、規模小、經費低者）</b></td></tr>
+    <tr><td class="k">資格</td><td>政府立案之社團法人、財團法人、組織、學校或<b>社區發展協會</b>等團體</td></tr>
+    <tr><td class="k">累積成果</td><td>109–114 年共 <b>135 個團體</b>參與；1,797 場推廣活動、影響 86,874 人次；
+      3,108 場公民科學調查、8,196 筆生態資料；<b>8,210 班次巡守行動</b>；123 場淨海、1,898 人次</td></tr>
+  </table>
+  </div>
+
+  <h3>管道二　海洋保護區域網絡多元協作計畫（新，115.07.14 公告）</h3>
+
+  <div class="urgent">
+    <b>時效：115-116 年計畫應於 115 年 8 月 31 日前提出申請</b>（申請期間內採<b>隨到隨審</b>）。<br>
+    <b>另有備案：116 年度計畫應於 115 年 10 月 30 日前提出申請。</b>
+  </div>
+
+  <div class="scroll">
+  <table>
+    <tr><td class="k">法源</td><td>《海洋保育法》第 1、4、6、7、18 條；《海洋庇護區劃定辦法》；
+      《海洋保護區以外海洋其他有效保育措施之區域認定辦法》（<b>OECM</b>）；整體海洋保護區管理政策方針</td></tr>
+    <tr><td class="k">對象</td><td>關注海洋議題之<b>政府立案法人或非法人團體</b>、專家學者與學術研究機構</td></tr>
+    <tr><td class="k">核心目標</td><td>韌性海洋、自然為本、<b>公平包容</b></td></tr>
+    <tr><td class="k">補助項目<br>與額度</td><td>
+      生態因子－局部基礎調查：最高 <b>150 萬</b>　／　區域進階調查：最高 <b>300 萬</b><br>
+      社會經濟因子－局部基礎調查：最高 <b>100 萬</b>　／　進階調查：最高 <b>200 萬</b><br>
+      <b>保護區巡守：最高 100 萬</b>——支持<b>成立在地巡守隊</b>並引導以<b>公民科學方式蒐集生態及生物資訊</b></td></tr>
+    <tr><td class="k">收件</td><td>806 高雄市前鎮區成功二路 25 號 7 樓，海保署「海洋保護區域網絡多元協作計畫」徵件小組收<br>
+      聯絡人：靳小姐　07-3382057 轉 262130</td></tr>
+    <tr><td class="k">應附文件</td><td>公職人員利益衝突迴避事項聲明書、身分關係事前揭露表，及相關申請表單</td></tr>
+  </table>
+  </div>
+
+  <div class="ok">
+    <b>特別注意「社會經濟因子」這一項的定義：</b><br>
+    「透過訪談、問卷、田野調查等方式之科學調查……旨在瞭解
+    <b>保護區規範對在地漁業、觀光及傳統文化知識之互動關係</b>。」<br><br>
+    <b>這幾乎是為本案的爭點量身寫的。</b>最高補助 100 萬（局部）／200 萬（進階）。
+  </div>
+
+  <h2><span class="n">捌</span>名單告訴我們的事</h2>
+
+  <p>115 年海洋保育在地守護計畫的執行團隊中，包含：</p>
+
+  <div class="scroll">
+  <table>
+    <thead><tr><th style="width:1%">類別</th><th>團體</th></tr></thead>
+    <tbody>
+      <tr><td class="k">本案<br>對立方</td><td><b>台灣山海天使環境保育協會</b>、
+        <b>財團法人自然保育與環境資訊基金會</b>——<b>連署發起團體中的兩個，都在名單裡</b></td></tr>
+      <tr><td class="k">保育圈</td><td>財團法人黑潮海洋文教基金會、澎湖縣澎湖群島海洋保護志工團協會、
+        社團法人台灣媽祖魚保育聯盟、屏東縣琉球鄉小琉球海岸生態協會等</td></tr>
+      <tr><td class="k">潛水</td><td>社團法人中華民國水中運動協會、社團法人臺灣身心障礙潛水協會</td></tr>
+      <tr><td class="k"><b>採捕<br>使用者</b></td><td><b>高雄市南台灣釣魚人大聯盟協會</b>、
+        社團法人雲林縣作業漁船協會、有限責任彰化縣海洋食研生產合作社</td></tr>
+      <tr><td class="k">在地社區</td><td>基隆市中正區八斗社區發展協會、台東縣蘭嶼鄉東清／漁人社區發展協會、
+        花蓮縣豐濱鄉港口社區發展協會、宜蘭縣蘇澳鎮大坑罟社區發展協會等</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="ok">
+    <b>三個判讀：</b><br><br>
+    <b>一、採捕使用者團體是被接受的申請者。</b><b>釣魚團體</b>（南台灣釣魚人大聯盟協會）已經在名單裡，
+    計畫本身也設有「<b>友善釣魚行動</b>」主題。這條路對我方是開的。<br><br>
+    <b>二、但目前沒有任何漁獵或魚槍團體。</b>若我方提出申請，<b>會是第一個</b>——
+    這件事本身就有象徵意義。<br><br>
+    <b>三、對方已經在制度裡，我方還在制度外。</b>山海天使與 TNF 有計畫、有經費、有官方認可的身分；
+    我方目前什麼都沒有。<b>這是實力差距，不是論述差距。</b>
+  </div>
+
+  <h2><span class="n">玖</span>建議的三條路徑</h2>
+
+  <h3>路徑 A（最快，也最沒有爭議）　支援卯澳既有的巡守隊</h3>
+  <div class="ok">
+    <b>不是加入，是支援。</b>那支隊伍屬於社區，不屬於任何外來團體。
+    正確的作法是<b>透過吳文益里長</b>表達意願，由社區決定要不要、要怎麼用我方的人力。<br><br>
+    我方能提供而社區缺乏的：<b>會下水的人</b>。
+    卯澳常住人口約 100 人、以長者為主，海女海男年事已高；
+    而里海計畫的公民科學課程本來就包含<b>珊瑚礁水下監測</b>——<b>那需要能潛水的人</b>。<br><br>
+    <b>成本極低，今天就能開始，而且不必等草案定案。</b>
+  </div>
+
+  <h3>路徑 B（有時效）　向海保署提出補助申請</h3>
+  <div class="urgent">
+    <b>115-116 年計畫：8 月 31 日截止，只剩十天。</b>若來不及，<b>116 年度計畫可至 10 月 30 日</b>。<br><br>
+    建議申請組合：<b>「保護區巡守」（100 萬）＋「社會經濟因子－局部基礎調查」（100 萬）</b>。
+    後者的定義正是「瞭解保護區規範對在地漁業、觀光及傳統文化知識之互動關係」——
+    <b>用官方經費做我方最需要的調查。</b><br><br>
+    <b>申請主體</b>須為政府立案之法人或非法人團體。發起單位「台灣永續漁法漁獵推廣協會」若已立案，
+    可為申請人；聯盟本身之法律地位須先確認。<b>這件事今天就要問清楚。</b>
+  </div>
+
+  <h3>路徑 C（長線）　與社區共同申請</h3>
+  <p>由<b>福連里社區發展協會或既有巡守隊為申請主體</b>，本聯盟為協力單位。
+    這種組合在名單中最常見（各地社區發展協會），且能同時解決「外來團體介入」的疑慮。<br>
+    但需要社區點頭，時間較長，<b>適合 10/30 那一梯</b>。</p>
+
+  <h2><span class="n">拾</span>對 9/8 的直接意義</h2>
+
+  <div class="ok">
+    <b>如果在 9/8 之前已經送出申請（或已與社區談定協助方式），桌上能說的話就完全不同：</b><br><br>
+    ✗ 「我們願意協助巡守與監測」——這是承諾，人人都能講。<br>
+    ✓ 「<b>本聯盟已向海保署提出保護區巡守與社經調查計畫申請，並已與福連里聯繫協助卯澳既有巡守隊之水下調查工作。</b>」<br><br>
+    ——這是<b>行動</b>。而且它同時回應了桌上每一個人在說的同一件事：<b>人力不足</b>。
+  </div>
+
+  <div class="warn">
+    <b>三件不要做：</b><br>
+    一、<b>不要說要「成立」巡守隊</b>——卯澳已經有了，說成立等於無視社區既有的十年努力。<br>
+    二、<b>不要繞過里長與社區直接對外宣稱要進駐卯澳</b>。那片海的地面上住著人，
+    而我方目前只有兩次拜訪紀錄。<br>
+    三、<b>不要誇大巡守隊的權限</b>。沒有公權力，能做的是勸導、記錄、蒐證、通報。
+    誠實說明反而更可信。
+  </div>
+
+  <div class="src">
+    <b>資料來源</b><br>
+    <a href="https://satoumi.tw/field-ntaipei/" target="_blank" rel="noopener">臺灣里海．新北市貢寮區前導計畫（卯澳地區）</a>
+    ——沿革、人口、產業、巡守隊轉型、里海課程內容。農業部水產試驗所計畫支持<br>
+    <a href="https://www.fa.gov.tw/cht/ResourceConservationData/content.aspx?id=3&amp;chk=bf7da6f9-5a56-41ae-ac8d-5eab4bd78d4c&amp;param=pn%3D3" target="_blank" rel="noopener">漁業署．貢寮水產動植物繁殖保育區資料</a><br>
+    <a href="https://www.oca.gov.tw/ch/home.jsp?id=244&amp;parentpath=0,2&amp;mcustomize=bulletin_view.jsp&amp;dataserno=202607140001" target="_blank" rel="noopener">海保署 115.07.14 公告．海洋保護區域網絡多元協作計畫補助計畫</a>
+    ——<b>補助項目、額度、申請期限、收件方式（已逐項核對原始公告）</b><br>
+    <a href="https://sites.google.com/view/ocean-protect-project/" target="_blank" rel="noopener">2026 海洋保育在地守護計畫官網</a>
+    ——六大主題、分組、115 年執行團隊名單、109–114 年累積成果<br>
+    新北市政府觀光旅遊網、市政新聞（覆網清除 36,816 公斤、卯澳海域復育逾 3,500 株珊瑚）<br><br>
+    <b>查核狀態：</b>補助計畫之期限、額度、收件資訊已<b>核對海保署原始公告</b>，可信。
+    卯澳巡守隊之<b>現行人數、出勤頻度與現任負責人尚未查得</b>——
+    建議直接聯繫<b>吳文益里長</b>詢問，這也是最自然的接觸方式。
+  </div>
+
+</div>
+</div>
+
+</body>
+</html>
