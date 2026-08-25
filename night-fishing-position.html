@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>夜間漁獵管制．情理法分析與我方立場（內部）</title>
+<style>
+  :root{--bg:#f4f1ea;--paper:#fffdf8;--ink:#1f2b33;--faint:#8b969e;--line:#ded7c9;
+    --navy:#1a3a4a;--gold:#b07d2b;--gold-bg:#f8f0dd;--sea:#12303e;
+    --ok:#2f7d55;--ok-bg:#e8f4ed;--warn:#a8442a;--warn-bg:#fbeee9;--info:#1f5f7a;--info-bg:#e9f2f6;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.85;font-size:16.5px;padding-bottom:60px;-webkit-font-smoothing:antialiased}
+  .w{max-width:900px;margin:0 auto;padding:0 20px}
+  header{background:linear-gradient(165deg,#0f2733,#1f4658);color:#fff;padding:42px 20px 36px;border-bottom:4px solid var(--gold)}
+  header .in{max-width:900px;margin:0 auto}
+  .stamp{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.2em;color:#3a1d16;background:#e8bf72;padding:4px 12px;border-radius:3px}
+  header h1{font-size:clamp(24px,4.6vw,33px);font-weight:900;margin:14px 0 8px;line-height:1.3}
+  header .sub{font-size:15px;color:#c9dde5;line-height:1.8}
+  .sheet{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:32px 34px 38px;margin-top:26px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+  h2{font-size:21px;font-weight:900;color:var(--navy);margin:38px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--navy)}
+  h2:first-child{margin-top:0}
+  h2 .n{display:inline-block;background:var(--navy);color:#fff;font-size:16px;width:1.7em;height:1.7em;
+        line-height:1.7em;text-align:center;border-radius:50%;margin-right:10px;vertical-align:2px}
+  h3{font-size:17px;font-weight:800;color:var(--sea);margin:24px 0 8px}
+  p{margin:0 0 12px}
+  ul{margin:0 0 12px;padding-left:1.35em}
+  li{margin-bottom:6px}
+  b,strong{font-weight:800;color:var(--sea)}
+  .lede{font-size:17.5px;font-weight:700;color:var(--sea);background:var(--gold-bg);border-left:4px solid var(--gold);
+    padding:15px 19px;border-radius:0 4px 4px 0;margin:0 0 18px;line-height:1.8}
+  .scroll{overflow-x:auto;margin:0 0 14px}
+  table{width:100%;border-collapse:collapse;font-size:15px}
+  th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+  th{background:#f0ece1;font-weight:800;color:var(--navy);font-size:14px}
+  td.k{white-space:nowrap;font-weight:700;width:1%;background:#f7f4ec}
+  .ok{background:var(--ok-bg);border:1px solid #bcdcca;border-left:4px solid var(--ok);padding:14px 18px;border-radius:0 4px 4px 0;margin:14px 0;font-size:15.5px;line-height:1.82}
+  .ok b{color:#20613f}
+  .warn{background:var(--warn-bg);border:1px solid #e8c6ba;border-left:4px solid var(--warn);padding:14px 18px;border-radius:0 4px 4px 0;margin:14px 0;font-size:15.5px;line-height:1.82}
+  .warn b{color:#8b3a22}
+  .info{background:var(--info-bg);border:1px solid #bcd4e0;border-left:4px solid var(--info);padding:14px 18px;border-radius:0 4px 4px 0;margin:14px 0;font-size:15.5px;line-height:1.82}
+  .info b{color:#164a61}
+  .quote{border-left:3px solid var(--gold);padding:6px 0 6px 16px;margin:14px 0;color:#3a4750;font-size:15.5px;line-height:1.85}
+  .say{background:#eef3f7;border:1.5px solid #b9cddb;border-radius:6px;padding:18px 20px;margin:16px 0;
+    font-size:16px;line-height:1.95;color:#12303e}
+  .say .t{font-size:12.5px;font-weight:800;letter-spacing:.12em;color:#1b5570;margin-bottom:9px}
+  .law{background:#f7f4ec;border:1px solid var(--line);border-left:4px solid var(--navy);
+    padding:14px 18px;margin:14px 0;font-size:15.5px;line-height:1.95;border-radius:0 4px 4px 0}
+  .cite{font-size:14px;color:var(--faint)}
+  .src{font-size:13px;color:var(--faint);margin-top:26px;padding-top:16px;border-top:1px solid var(--line);line-height:1.9}
+  .src a{color:var(--gold)}
+  @media(max-width:640px){body{font-size:16px}.sheet{padding:22px 16px 28px}h2{font-size:19px}table{font-size:14px;min-width:520px}td.k{white-space:normal}}
+  @media print{body{background:#fff;padding:0;font-size:10pt}header{background:#fff;color:#000;border-bottom:2px solid #000;padding:0 0 12px}
+    header h1{color:#000}header .sub{color:#333}.stamp{background:#000;color:#fff}
+    .sheet{border:0;box-shadow:none;padding:0;margin-top:14px}.w{max-width:none;padding:0}
+    h2 .n{background:#000!important;color:#fff!important;-webkit-print-color-adjust:exact}
+    .scroll{overflow:visible}table{min-width:0}@page{size:A4;margin:15mm 13mm}
+    h2{page-break-after:avoid}table,tr{page-break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="in">
+    <div class="stamp">內 部 討 論 ・ 請 勿 外 傳</div>
+    <h1>夜間漁獵管制　情理法分析</h1>
+    <div class="sub">回應漁業處提問：是否全面禁止夜間以魚槍、魚叉漁獵<br>供聯盟成員討論　·　2026 年 8 月 25 日</div>
+  </div>
+</header>
+
+<div class="w">
+<div class="sheet">
+
+
+  <h2><span class="n">題</span>問題與結論</h2>
+
+  <p>新北市漁業處來問：<b>要全面禁止夜間漁獵、禁用魚槍魚叉，我方的看法是什麼？</b></p>
+
+  <div class="lede">
+    <b>建議：接受，而且要搶在對方之前，由我方主動提出。</b><br>
+    不是「我們可以配合」，而是「<b>我方主動建議納入夜間禁止漁獵</b>」。<br>
+    以下從<b>情、理、法</b>三個層面說明為什麼。
+  </div>
+
+  <div class="info">
+    <b>先界定範圍：本篇談的是「夜間採捕」，不是「夜間潛水這個活動」。</b><br>
+    禁止夜間以魚槍魚叉採捕，屬漁業法第 44 條範圍，新北市有權訂定。
+    但若要禁止夜間潛水活動本身，潛水依水域遊憩活動管理辦法第 3 條屬「水域遊憩活動」，
+    依第 4 條，東北角範圍內的管理機關是<b>東北角風管處</b>，不是漁業處，且依第 5 條涉及他機關權責<b>應協調同意後辦理</b>。
+    <b>這兩件事在會中務必分開講。</b>
+  </div>
+
+  <h2><span class="n">情</span>地方怎麼感受這件事</h2>
+
+  <p>先講一件與科學無關、但決定這一題成敗的事：<b>夜間漁獵是所有爭議行為中，地方感受最直接、最無法用數據反駁的一項。</b></p>
+
+  <div class="quote">
+    當地曾多次發現潛水漁獵者攜帶魚槍採捕，並<b>將捕獲魚類、龍蝦等照片上傳網路</b>，
+    「更容易引發更多人來採捕」，漁民因此感到不滿。
+    <span class="cite">—— 貢寮區漁會總幹事林麗美，聯合報，2026.07.23</span>
+  </div>
+
+  <div class="quote">
+    ……造成<b>白天珊瑚礁呈現清清如水</b>，讓台灣潛水觀光也是無魚可看的奇景。
+    <span class="cite">—— 陳昭倫，環境資訊中心，2017.04.28</span>
+  </div>
+
+  <p>這兩句話指向同一種經驗：<b>夜裡海面上有燈光在晃，隔天下水就沒魚。</b>
+  在地人不需要看任何研究就有這個印象，潛水客也有。<b>這是感官記憶，不是統計爭議，辯不贏。</b></p>
+
+  <div class="warn">
+    <b>還有一層更難處理的：道德直覺。</b><br>
+    「趁魚睡覺的時候打」，在一般人的直覺裡違反了狩獵應有的公平——
+    <b>這與資源量無關，是觀感問題，而觀感決定輿論。</b>
+  </div>
+
+  <div class="ok">
+    <b>而我方在情理上，已經沒有拒絕的空間。</b><br>
+    8 月 1 日聯盟幹部在卯澳<b>扛神轎</b>，8 月 10 日到漁會拜會、當面提出「<b>從海洋使用者，成為海洋巡守員</b>」，
+    8 月 12 日公開宣示「反對違法販售、反對核心區盜獵」。<br>
+    <b>這些誠意如果在夜間漁獵這一題上收回去，前面所有的努力會被一次抵銷。</b>
+    地方會記得的不是我方的論理，是我方在自己有損失時的選擇。
+  </div>
+
+  <div class="warn">
+    <b>但也要對成員誠實：對部分人而言，夜獵是真實的活動方式，接受這條限制有真實的失落。</b><br>
+    <b>情的天平是：少數人的樂趣，對上多數在地人的憂慮。</b>這一題在情上，我方守不住，也不該守。
+  </div>
+
+  <h2><span class="n">理</span>為什麼守住夜間，反而會拖垮我方</h2>
+
+  <p>我方的核心主張是「<b>自潛魚槍具有高度物種與體型選擇性</b>」。</p>
+
+  <p>但這個論述真正的力量，<b>不在於「看得清楚」，而在於技術門檻本身就構成節制</b>——
+  要閉氣、要接近、魚會逃，所以打不了太多。<b>能力的限制，就是採捕量的限制。</b></p>
+
+  <div class="warn">
+    <b>夜間漁獵，正好取消了那個門檻。</b><br>
+    魚在睡覺、不會逃、拿手電筒照著打。這時候選擇性在技術上仍然存在，
+    <b>但它不再構成任何限制</b>。
+  </div>
+
+  <div class="quote">
+    利用<b>夜間潛水針對已經進入睡眠狀態</b>的各種日行性珊瑚礁魚類進行採捕，
+    不僅當次的<b>採捕量都已超越所謂「自用」所需的隻數</b>……
+    <span class="cite">—— 陳昭倫，2017.04.28</span>
+  </div>
+
+  <div class="ok">
+    <b>所以守住夜間，不是保護我方的論述，是拖垮它。</b><br>
+    只要夜間漁獵還在，對方隨時可以問：「你們說自潛有節制？那夜潛打魚算什麼？」——而我方無話可說。<br><br>
+    <b>主動切掉它，整套「選擇性即自律」的論述才站得住。</b>
+  </div>
+
+  <h3>而且四個關鍵的人都講過這件事</h3>
+
+  <div class="scroll">
+  <table>
+    <thead><tr><th style="width:1%">人物</th><th>立場</th><th>對我方的意義</th></tr></thead>
+    <tbody>
+      <tr><td class="k">陳昭倫</td>
+        <td>夜間針對睡眠中的日行性珊瑚礁魚類採捕，採捕量已超越自用所需</td>
+        <td>他是<b>唯一主張區分自潛與水肺</b>的學者，也是妥協落點的劃線者。
+          <b>這是他對魚槍最具體的指控，移除它等於移除他最強的保留。</b></td></tr>
+      <tr><td class="k">徐承堉</td>
+        <td>管理清單第一項即「<b>禁止夜間魚槍</b>」<span class="cite">（上下游，2026.08.13）</span></td>
+        <td><b>我方陣營自己列的。</b>拒絕等於自我矛盾。</td></tr>
+      <tr><td class="k">黃向文</td>
+        <td>「至於魚槍……<b>也涉及潛水安全</b>」<span class="cite">（SMC，2026.08.14）</span></td>
+        <td>夜潛風險客觀更高。<b>接受有安全上的正當性，不只是資源理由。</b></td></tr>
+      <tr><td class="k">林麗美</td>
+        <td>漁獲照片上傳網路引發地方不滿</td>
+        <td><b>那些照片多半是夜間的大量收穫。</b>接受即直接回應在地最具體的不滿。</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="ok">
+    <b>理的另一面，是這一步能換到什麼：</b><br>
+    一旦漁業處接受「<b>時段</b>」作為管制維度，它就很難再說「分級管理做不到」——
+    <b>因為它自己剛剛才做了一次分級。</b><br>
+    <b>時段可以分級，體長、數量、登記就是同一套邏輯。</b>
+  </div>
+
+  <h2><span class="n">法</span>這一步不是退讓，是把舉證責任推回去</h2>
+
+  <p>這是本題最重要、也最少人會想到的一層。</p>
+
+  <h3>一、夜間限制的法源，草案本來就有</h3>
+
+  <div class="law">
+    <b>漁業法第 44 條第 1 項：</b>主管機關為資源管理及漁業結構調整，得以公告規定左列事項：<br>
+    　一、水產動植物之採捕或處理之限制或禁止。<br>
+    　三、漁具、漁法之限制或禁止。<br>
+    　<b>四、漁區、漁期之限制或禁止。</b>
+  </div>
+
+  <p>新北草案援引的是<b>第 4 款、第 7 款、第 9 款</b>。
+  而<b>時段限制，正是第 4 款「漁期之限制」最典型的適用對象</b>。</p>
+
+  <div class="ok">
+    <b>也就是說：我方接受夜間限制，在法源上完全沒有問題——但這同時凸顯了另一件事。</b><br><br>
+    同一份公告裡：<br>
+    ・<b>時段限制</b>引第 4 款　→　<b>正確</b><br>
+    ・<b>工具禁止</b>引第 4 款　→　<b>錯誤</b>（漁具、漁法設有專款，即第 3 款，草案未引）<br><br>
+    <b>我方接受前者，正好反襯出後者的引用瑕疵。</b>
+  </div>
+
+  <h3>二、最強的一擊：行政程序法第 7 條第 2 款</h3>
+
+  <div class="law">
+    <b>行政程序法第 7 條：</b>行政行為，應依下列原則為之：<br>
+    　一、採取之方法應有助於目的之達成。<br>
+    　<b>二、有多種同樣能達成目的之方法時，應選擇對人民權益損害最少者。</b><br>
+    　三、採取之方法所造成之損害不得與欲達成目的之利益顯失均衡。
+  </div>
+
+  <div class="ok">
+    <b>我方主動提出夜間限制，在法律上的意義是——我方提出了「一個同樣能達成目的、但對人民權益損害更少的方法」。</b><br><br>
+    這直接觸發第 7 條第 2 款。市府若採納夜間限制，卻仍維持<b>全時段</b>的工具禁止，
+    <b>就必須說明：為什麼在有較小侵害手段可用的情況下，全面禁止仍屬必要？</b><br><br>
+    <b>而這個說明，市府提不出來——因為它從未做過「魚槍在日間造成何種具體衝擊」的評估。</b>
+  </div>
+
+  <div class="info">
+    <b>換句話說：接受夜間限制，不是我方少了一張牌，是我方把比例原則的舉證責任推回給市府。</b><br>
+    在此之前，是我方要證明「全面禁止過當」；在此之後，是市府要證明「夜間限制不足以達成目的」。<br>
+    <b>攻守易位。</b>
+  </div>
+
+  <h3>三、界線要守住</h3>
+
+  <div class="warn">
+    <b>接受「夜間禁止採捕」≠ 接受「禁止夜間潛水」。</b><br>
+    潛水依<b>水域遊憩活動管理辦法第 3 條</b>屬水域遊憩活動；依<b>第 4 條</b>，位於國家風景區範圍者，
+    管理機關為該特定管理機關（東北角風管處）；依<b>第 5 條</b>，限制活動之種類、範圍、<b>時間</b>及行為，
+    涉及其他機關權責者<b>應協調該權責單位同意後辦理</b>。<br>
+    <b>漁業處以漁業法為據去禁止夜間潛水活動本身，於法無據，而且踩到別人的權限。</b>
+  </div>
+
+  <h2><span class="n">講</span>桌上怎麼說</h2>
+
+  <div class="say">
+    <div class="t">建 議 講 稿</div>
+    關於夜間漁獵，<b>我方主動建議納入禁止</b>——魚槍、魚叉、動力魚叉，一律禁止。<br><br>
+    理由有三：夜間採捕的對象多是休息中的定棲性魚類，缺乏自然的逃逸機制，採捕量容易失控；
+    夜間潛水的安全風險明顯較高；而且這也是在地長期反映的問題之一，我方應該回應。<br><br>
+    同時我方要指出一件事：<b>既然貴處認為「時段」可以作為管制的維度，
+    那麼「體長」「數量」「登記」也是同一套管理邏輯。</b>
+    依行政程序法第 7 條，<b>有多種同樣能達成目的之方法時，應選擇對人民權益損害最少者</b>。
+    我方請求的分級管理，就是把這個邏輯做完整——<b>以時段管制加上行為管制，取代工具的全面禁止</b>。
+  </div>
+
+  <h2><span class="n">細</span>四個必須釘清楚的技術細節</h2>
+
+  <div class="scroll">
+  <table>
+    <thead><tr><th style="width:1%">項目</th><th>建議立場與理由</th></tr></thead>
+    <tbody>
+      <tr><td class="k">「夜間」<br>的定義</td>
+        <td>建議主動提出「<b>日沒後至翌日日出前</b>」。<br>
+          <b>不要用固定鐘點</b>（如 18:00–06:00）——東北角冬夏日照相差兩個多小時，
+          固定鐘點在夏天會誤禁天亮後的合法採捕。<br>
+          <b>主動提出可執行的定義，比爭論要不要禁更能建立專業形象。</b></td></tr>
+      <tr><td class="k">適用<br>範圍</td>
+        <td>建議<b>全區適用</b>，包含資源永續利用保育區，不要只限核心區。<br>
+          我方要的是「這條規則有道理」，不是「這條規則管得少」。</td></tr>
+      <tr><td class="k">管制<br>對象</td>
+        <td>魚槍、魚叉、<b>動力魚叉</b>。<br>
+          <b>動力魚叉尤其要主動點出來接受</b>——我方願意管制動力魚叉，正好證明我方的區分不是自利的。</td></tr>
+      <tr><td class="k">例外</td>
+        <td>比照草案既有機制保留：<b>學術研究</b>（14 日前檢具計畫書報核准）、
+          <b>原住民族傳統文化或祭儀</b>（申請核可）。</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2><span class="n">難</span>一個兩難，建議這樣處理</h2>
+
+  <p>如果夜間管制的理由是「保護夜間休息的定棲性生物」，
+  那個理由在原則上<b>同等適用於夜間的其他採捕方式</b>——夜間徒手撿九孔、抓龍蝦，以及夜釣。</p>
+
+  <div class="warn">
+    <b>但主張擴大，會直接打到我方的兩個對象：</b><br>
+    ・<b>貢寮區漁會</b>——夜間徒手採捕是在地既有的作業方式<br>
+    ・<b>台灣釣權團結聯盟</b>——夜釣，而他們是我方的聲援單位
+  </div>
+
+  <div class="say">
+    <div class="t">建 議 用 語 ── 陳 述 原 則 ， 不 點 名 對 象</div>
+    若夜間管制的理由是保護夜間休息的定棲性生物，
+    則該理由在原則上同等適用於夜間的其他採捕方式。<br>
+    <b>我方不主張擴大管制對象</b>，但建議貴處一併評估，以維持管制標準的一致性。
+  </div>
+
+  <p>這樣邏輯完整、球丟回給市府、不得罪任何盟友，
+  而且<b>如果市府真的一併納管，我方是建議者，不是被管者</b>。</p>
+
+  <h2><span class="n">忌</span>兩件這時候不要做的事</h2>
+
+  <div class="warn">
+    <b>一、深澳夜釣那張牌，現在不要打。</b><br>
+    市府官網明文寫著：「盛夏入夜之際，正是海釣船最忙碌的時刻……
+    本處<b>每年補助漁會舉辦海釣休閒漁業體驗遊程</b>……亦可<b>體驗刺激的海上夜釣</b>」。<br>
+    這是「管制標準不一致」的鐵證，<b>但在討論夜間限制時打出來，等於在說「你們也該禁夜釣」</b>——
+    會直接得罪瑞芳漁會與釣客。<b>留到討論日間全面禁止時再用。</b>
+  </div>
+
+  <div class="warn">
+    <b>二、不要把夜間限制和「潛水器定義」混在一起談。</b><br>
+    草案把「<b>浮潛</b>」明文列入潛水器
+    （「背負氣瓶、<b>浮潛</b>或其他可供潛水人員長時間潛入水下之設備」）。
+    這件事影響遠大於夜間限制，<b>必須單獨提、單獨釐清</b>。
+    如果混在一起談，會被當成整包接受。
+  </div>
+
+  <h2><span class="n">實</span>誠實面對成本</h2>
+
+  <div class="warn">
+    <b>夜間漁獵確實是部分成員的實際活動方式。接受這條限制有真實的成本，這不是零成本的姿態。</b><br><br>
+    <b>9/8 之前，聯盟內部必須先有共識，不能會後才發現有人不同意。</b>
+  </div>
+
+  <div class="ok">
+    <b>但這是目前最划算的一筆交易。</b><br>
+    ・<b>情</b>——我方在地方感受上本來就站不住，而且會抵銷 8/1、8/10 建立的誠意<br>
+    ・<b>理</b>——夜間是我方「選擇性即自律」論述唯一失效的場景，守住它反而拖垮整套主張<br>
+    ・<b>法</b>——主動提出較小侵害手段，直接把行政程序法第 7 條的舉證責任推回市府<br><br>
+    <b>而且要看清楚對照組：如果我方連夜間限制都不接受，「我們支持合理管理」這句話就沒有人會信，
+    後面所有的分級主張都會失去可信度。</b><br><br>
+    <b>這一題，我方應該答得比對方預期的更爽快。</b>
+  </div>
+
+  <h2><span class="n">文</span>建議條文文字</h2>
+
+  <div class="law">
+    <b>（建議增列於各保育區「共同限制事項」）</b><br><br>
+    　　保育區內，<b>自日沒後至翌日日出前</b>，禁止以<b>魚槍、魚叉或動力魚叉</b>採捕水產動植物。<br><br>
+    　　前項規定，以<b>學術研究</b>為目的並依本公告規定檢具計畫書報經本府核准者，
+    或<b>原住民族因傳統文化、祭儀需求</b>並依本公告規定申請核可者，不在此限。
+  </div>
+
+  <div class="info">
+    <b>提出方式建議：以書面提出，並在會議中口頭說明。</b><br>
+    書面提案能留下紀錄，證明是我方<b>主動建議</b>，而不是被要求後才接受——
+    這在後續協商、對外說明，以及日後主張比例原則時，<b>價值遠高於口頭同意</b>。
+  </div>
+
+  <div class="src">
+    <b>引述出處</b><br>
+    <a href="https://e-info.org.tw/node/204545" target="_blank" rel="noopener">環境資訊中心 2017.04.28．陳昭倫：魚槍、魚線、魚網盡頭的省思</a><br>
+    <a href="https://www.newsmarket.com.tw/blog/241206/" target="_blank" rel="noopener">上下游新聞 2026.08.13．徐承堉：魚愈來愈少，台灣需要怎樣的漁業管理？</a><br>
+    <a href="https://smctw.tw/20073/" target="_blank" rel="noopener">台灣科技媒體中心 2026.08.14．「新北東北角3海浬帶狀保育區」專家意見</a>（黃向文）<br>
+    <a href="https://udn.com/news/story/7323/9646558" target="_blank" rel="noopener">聯合報 2026.07.23．「我們靠海生活、你們是來玩的」貢寮漁會挺魚槍管制</a>（林麗美）<br>
+    <a href="https://fishery.ntpc.gov.tw/cht/index.php?code=list&amp;ids=75" target="_blank" rel="noopener">新北市漁業處．瑞芳娛樂漁業</a>（海上夜釣體驗遊程補助）<br>
+    新北市政府 115 年 6 月 17 日新北府農漁字第 1152538607 號公告草案<br>
+    <a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=M0050001" target="_blank" rel="noopener">漁業法 §44</a>　·
+    <a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0030055" target="_blank" rel="noopener">行政程序法 §6、§7</a>　·
+    <a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=K0110024" target="_blank" rel="noopener">水域遊憩活動管理辦法 §3、§4、§5</a><br><br>
+    <b>相關內部文件：</b>draft-text.html（草案原文與逐條判讀）　·　dd-chen-chaolun.html　·
+    dd-huang-hsiangwen.html　·　dd-lin-limei.html　·　stakeholder-map-0908.html
+  </div>
+
+
+</div>
+</div>
+
+</body>
+</html>
