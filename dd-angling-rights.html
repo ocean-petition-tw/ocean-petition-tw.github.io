@@ -47,6 +47,8 @@
   .cite{font-size:14px;color:var(--faint)}
   .src{font-size:13px;color:var(--faint);margin-top:26px;padding-top:16px;border-top:1px solid var(--line);line-height:1.9}
   .src a{color:var(--gold)}
+  .toc{display:none}
+
   @media(max-width:680px){
     body{font-size:16px}
     header{padding:28px 16px 24px}
@@ -77,12 +79,49 @@
       color:var(--gold);margin-bottom:1px}
     table.cards td[data-t]{font-size:17px;font-weight:800;color:var(--sea);
       padding-top:2px;padding-bottom:6px;line-height:1.5}
-    table.cards td[data-seq]{display:none}   /* 序號欄在手機上是雜訊 */
+    table.cards td[data-seq]{display:none!important}  /* 序號欄在手機上是雜訊 */
 
     /* 無表頭的鍵值表：鍵當小標 */
     table.kv td.k{font-size:11px;font-weight:800;letter-spacing:.1em;
       color:var(--gold);padding-bottom:1px;text-transform:none}
     table.kv td.k+td{padding-top:0}
+
+    /* ── 壓縮：短值欄位標籤與值同一行 ── */
+    table.cards td[data-s]:not([data-seq]){display:flex;flex-wrap:wrap;
+      gap:2px 7px;align-items:baseline;
+      padding-top:1px;padding-bottom:1px;line-height:1.6;min-width:0}
+    table.cards td[data-s]::before{margin-bottom:0;flex:0 0 auto;
+      min-width:4.2em;line-height:1.6}
+
+    /* ── 防止任何元素撐破螢幕寬度 ── */
+    html,body{max-width:100%;overflow-x:hidden}
+    .sheet,.lede,.ok,.warn,.info,.quote,.letter,.toc,
+    table,tbody,tr,td,th,p,li,div{max-width:100%;min-width:0}
+    td,th,p,li,.lede,.ok,.warn,.info,.quote,.src{
+      overflow-wrap:break-word}
+
+    /* ── 壓縮：間距與行距 ── */
+    body{line-height:1.72}
+    tr{margin:0 0 8px;padding:7px 0}
+    td,th{padding:3px 12px}
+    table.cards td[data-t]{font-size:16.5px;padding-top:1px;padding-bottom:4px;line-height:1.45}
+    h2{margin:26px 0 9px;padding-bottom:6px}
+    h3{margin:18px 0 6px}
+    p{margin:0 0 9px}
+    .ok,.warn,.info{margin:11px 0;line-height:1.72}
+    .lede{line-height:1.68;margin-bottom:14px}
+    .scroll{margin-bottom:13px}
+    .src{margin-top:20px;line-height:1.75}
+
+    /* ── 章節快速跳轉 ── */
+    .toc{display:block;background:#f7f4ec;border:1px solid var(--line);
+      border-radius:6px;padding:11px 13px 12px;margin:0 0 20px}
+    .toc .tt{font-size:11px;font-weight:800;letter-spacing:.16em;
+      color:var(--gold);margin-bottom:7px}
+    .toc a{display:inline-block;font-size:14px;color:var(--sea);
+      text-decoration:none;background:var(--paper);border:1px solid var(--line);
+      border-radius:4px;padding:4px 9px;margin:0 5px 5px 0;line-height:1.4}
+    .toc a b{color:var(--gold);margin-right:4px;font-weight:800}
   }
   @media print{body{background:#fff;padding:0;font-size:10pt}header{background:#fff;color:#000;border-bottom:2px solid #000;padding:0 0 12px}
     header h1{color:#000}header .sub{color:#333}.stamp{background:#000;color:#fff}
@@ -104,8 +143,12 @@
 <div class="w">
 <div class="sheet">
 
+  <nav class="toc"><div class="tt">章節快速跳轉</div>
+    <a href="#s1"><b>壹</b>一句話結論</a><a href="#s2"><b>貳</b>組織圖景</a><a href="#s3"><b>參</b>規模：這是本案最懸殊的數字</a><a href="#s4"><b>肆</b>最危險的一句話</a><a href="#s5"><b>伍</b>釣權運動留下的一件武器：漁港法第 18 條第 3 項</a><a href="#s6"><b>陸</b>釣權運動 30 年：我方能學到什麼</a><a href="#s7"><b>柒</b>對本案的具體意義</a><a href="#s8"><b>捌</b>待查證</a>
+  </nav>
 
-  <h2><span class="n">壹</span>一句話結論</h2>
+
+  <h2 id="s1"><span class="n">壹</span>一句話結論</h2>
 
   <div class="lede">
     <b>釣魚社群的規模是我方的數百倍，組織已存在 30 年，而且與魚槍社群並不重疊。</b><br>
@@ -113,7 +156,7 @@
     因為草案裡「釣具類不受限制」那句話，是我方最有力的證據，卻也直接指向他們。
   </div>
 
-  <h2><span class="n">貳</span>組織圖景</h2>
+  <h2 id="s2"><span class="n">貳</span>組織圖景</h2>
 
   <p>依海保署 108 年度委託研究，「<b>長期關注釣魚活動與相關議題之團體</b>」共列 9 個：</p>
 
@@ -121,16 +164,16 @@
   <table class="cards">
     <thead><tr><th style="width:1%">項</th><th>團體</th><th>職稱與代表</th><th style="width:1%">地區</th></tr></thead>
     <tbody>
-      <tr><td class="k" data-l="項" data-seq="1">1</td><td data-t="1"><b>台灣釣權會</b></td><td data-l="職稱與代表">創會長　游清江</td><td data-l="地區">臺中</td></tr>
-      <tr><td class="k" data-l="項" data-seq="1">2</td><td data-t="1">台灣釣權會<b>北部分會</b></td><td data-l="職稱與代表">會長　李宗治</td><td data-l="地區"><b>新北、基隆、宜蘭</b></td></tr>
-      <tr><td class="k" data-l="項" data-seq="1">3</td><td data-t="1">台灣釣權會新竹分會</td><td data-l="職稱與代表">會長　彭定駿</td><td data-l="地區">新竹</td></tr>
-      <tr><td class="k" data-l="項" data-seq="1">4</td><td data-t="1">台灣釣權會</td><td data-l="職稱與代表">副理事長　許進益</td><td data-l="地區">臺南</td></tr>
-      <tr><td class="k" data-l="項" data-seq="1">5</td><td data-t="1">台灣釣權會高雄分會</td><td data-l="職稱與代表">副會長　謝慶漳</td><td data-l="地區">高雄</td></tr>
-      <tr><td class="k" data-l="項" data-seq="1">6</td><td data-t="1">台灣釣權會屏東分會</td><td data-l="職稱與代表">會長　陳金燦</td><td data-l="地區">屏東</td></tr>
-      <tr style="background:#e8f4ed"><td class="k" data-l="項" data-seq="1">7</td><td data-t="1"><b>中華民國磯探聯盟釣魚協會</b></td>
-        <td data-l="職稱與代表"><b>執行長　王昌凌</b></td><td data-l="地區"><b>全臺</b></td></tr>
-      <tr><td class="k" data-l="項" data-seq="1">8</td><td data-t="1">社團法人臺灣永續鱻漁發展協會</td><td data-l="職稱與代表">理事長　<b>白尚儒</b></td><td data-l="地區">北／中區</td></tr>
-      <tr><td class="k" data-l="項" data-seq="1">9</td><td data-t="1">中華民國釣魚生態保育協會</td><td data-l="職稱與代表">理事長　郭煌村</td><td data-l="地區">全臺</td></tr>
+      <tr><td class="k" data-l="項" data-seq="1" data-s="1">1</td><td data-t="1"><b>台灣釣權會</b></td><td data-l="職稱與代表" data-s="1">創會長　游清江</td><td data-l="地區" data-s="1">臺中</td></tr>
+      <tr><td class="k" data-l="項" data-seq="1" data-s="1">2</td><td data-t="1">台灣釣權會<b>北部分會</b></td><td data-l="職稱與代表" data-s="1">會長　李宗治</td><td data-l="地區" data-s="1"><b>新北、基隆、宜蘭</b></td></tr>
+      <tr><td class="k" data-l="項" data-seq="1" data-s="1">3</td><td data-t="1">台灣釣權會新竹分會</td><td data-l="職稱與代表" data-s="1">會長　彭定駿</td><td data-l="地區" data-s="1">新竹</td></tr>
+      <tr><td class="k" data-l="項" data-seq="1" data-s="1">4</td><td data-t="1">台灣釣權會</td><td data-l="職稱與代表" data-s="1">副理事長　許進益</td><td data-l="地區" data-s="1">臺南</td></tr>
+      <tr><td class="k" data-l="項" data-seq="1" data-s="1">5</td><td data-t="1">台灣釣權會高雄分會</td><td data-l="職稱與代表" data-s="1">副會長　謝慶漳</td><td data-l="地區" data-s="1">高雄</td></tr>
+      <tr><td class="k" data-l="項" data-seq="1" data-s="1">6</td><td data-t="1">台灣釣權會屏東分會</td><td data-l="職稱與代表" data-s="1">會長　陳金燦</td><td data-l="地區" data-s="1">屏東</td></tr>
+      <tr style="background:#e8f4ed"><td class="k" data-l="項" data-seq="1" data-s="1">7</td><td data-t="1"><b>中華民國磯探聯盟釣魚協會</b></td>
+        <td data-l="職稱與代表" data-s="1"><b>執行長　王昌凌</b></td><td data-l="地區" data-s="1"><b>全臺</b></td></tr>
+      <tr><td class="k" data-l="項" data-seq="1" data-s="1">8</td><td data-t="1">社團法人臺灣永續鱻漁發展協會</td><td data-l="職稱與代表" data-s="1">理事長　<b>白尚儒</b></td><td data-l="地區" data-s="1">北／中區</td></tr>
+      <tr><td class="k" data-l="項" data-seq="1" data-s="1">9</td><td data-t="1">中華民國釣魚生態保育協會</td><td data-l="職稱與代表" data-s="1">理事長　郭煌村</td><td data-l="地區" data-s="1">全臺</td></tr>
     </tbody>
   </table>
   </div>
@@ -183,14 +226,14 @@
       <tr><td data-t="1">台灣磯釣交流協會（TIFA）</td>
         <td data-l="資料">新北中和秀峰街119巷｜2020 立案｜理事長陳彥至｜統編 26670031<br>
           <b>新北在地、地緣最近</b>；電話未查得</td>
-        <td data-l="評級">盟友</td></tr>
+        <td data-l="評級" data-s="1">盟友</td></tr>
       <tr><td data-t="1">台北市釣魚協會</td>
         <td data-l="資料">taipeifishing.com｜北部老牌釣友社群</td>
-        <td data-l="評級">盟友</td></tr>
+        <td data-l="評級" data-s="1">盟友</td></tr>
       <tr><td data-t="1">中華民國釣魚協會</td>
         <td data-l="資料">fishing.org.tw 無法連線，待確認是否活躍<br>有「魚種／釣季」資料，
           <b>可與我方「分季分種管理」論述互補</b></td>
-        <td data-l="評級">待評估</td></tr>
+        <td data-l="評級" data-s="1">待評估</td></tr>
     </tbody>
   </table>
   </div>
@@ -200,7 +243,7 @@
     「反對一刀切」正是我方對新北草案的核心批評。<b>這是現成的共同語言。</b>
   </div>
 
-  <h2><span class="n">參</span>規模：這是本案最懸殊的數字</h2>
+  <h2 id="s3"><span class="n">參</span>規模：這是本案最懸殊的數字</h2>
 
   <div class="scroll">
   <table class="cards">
@@ -214,7 +257,7 @@
       <tr><td class="k" data-t="1">陳昭倫 2026<br>（SMC）</td>
         <td data-l="數字">依海保署按人口比例估算，<b>新北市</b>海釣與潛在釣魚人口<b>約 30 至 40 萬人</b><br>
           對照《報導者》估計新北市<b>合法持有及常用魚槍者約數百人</b></td></tr>
-      <tr style="background:#f7f4ec"><td class="k" data-t="1"><b>本聯盟</b></td><td data-l="數字"><b>845 位連署人</b></td></tr>
+      <tr style="background:#f7f4ec"><td class="k" data-t="1"><b>本聯盟</b></td><td data-l="數字" data-s="1"><b>845 位連署人</b></td></tr>
     </tbody>
   </table>
   </div>
@@ -227,7 +270,7 @@
     而且會失去唯一規模相當的盟友。
   </div>
 
-  <h2><span class="n">肆</span>最危險的一句話</h2>
+  <h2 id="s4"><span class="n">肆</span>最危險的一句話</h2>
 
   <div class="quote">
     （核心保育區）禁止以<b>非釣具類漁具</b>、魚槍……或潛水器……採捕水產動植物。
@@ -259,7 +302,7 @@
       援引它是為了證明「潮境用許可制而非禁工具」，<b>不是為了證明「應該禁釣」</b>。
   </div>
 
-  <h2><span class="n">伍</span>釣權運動留下的一件武器：漁港法第 18 條第 3 項</h2>
+  <h2 id="s5"><span class="n">伍</span>釣權運動留下的一件武器：漁港法第 18 條第 3 項</h2>
 
   <div class="lede">
     立法者曾經面對過一個和本案結構完全相同的問題：<b>「要不要禁止民眾在某片水域採捕？」</b><br>
@@ -293,7 +336,7 @@
     足見一律禁止並非唯一選擇。」
   </div>
 
-  <h2><span class="n">陸</span>釣權運動 30 年：我方能學到什麼</h2>
+  <h2 id="s6"><span class="n">陸</span>釣權運動 30 年：我方能學到什麼</h2>
 
   <div class="info">
     <b>王昌凌來信指出：「釣權運動……已經推行了超過 30 年」，而他「21 歲就在協會擔任總幹事推動釣權運動至今」。</b>
@@ -323,7 +366,7 @@
     <b>這正是我方主張「登記制下的回報義務」而非「自願回報」的理由。</b>
   </div>
 
-  <h2><span class="n">柒</span>對本案的具體意義</h2>
+  <h2 id="s7"><span class="n">柒</span>對本案的具體意義</h2>
 
   <div class="scroll">
   <table class="cards">
@@ -348,7 +391,7 @@
   </table>
   </div>
 
-  <h2><span class="n">捌</span>待查證</h2>
+  <h2 id="s8"><span class="n">捌</span>待查證</h2>
 
   <div class="info">
     <ul>
