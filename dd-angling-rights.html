@@ -47,7 +47,43 @@
   .cite{font-size:14px;color:var(--faint)}
   .src{font-size:13px;color:var(--faint);margin-top:26px;padding-top:16px;border-top:1px solid var(--line);line-height:1.9}
   .src a{color:var(--gold)}
-  @media(max-width:640px){body{font-size:16px}.sheet{padding:22px 16px 28px}h2{font-size:18.5px}table{font-size:14px;min-width:540px}td.k{white-space:normal}}
+  @media(max-width:680px){
+    body{font-size:16px}
+    header{padding:28px 16px 24px}
+    header .sub{font-size:14px}
+    .w{padding:0 12px}
+    .sheet{padding:20px 14px 26px}
+    h2{font-size:18.5px}
+    h3{font-size:16.5px}
+    .lede{font-size:16.5px;padding:13px 15px}
+    .ok,.warn,.info{padding:12px 14px;font-size:15px}
+    .quote{padding-left:14px;font-size:15px}
+    .letter{padding:16px 16px}
+    .scroll{overflow:visible;margin-bottom:16px}
+
+    /* ── 表格一律改為卡片式 ── */
+    table{min-width:0;border:0;font-size:15px;display:block}
+    thead{display:none}
+    tbody,tr,td,th{display:block;width:auto}
+    tr{border:1px solid var(--line);border-radius:5px;background:var(--paper);
+       margin:0 0 11px;padding:9px 0;overflow:hidden}
+    td,th{border:0;padding:4px 13px;white-space:normal!important}
+    td.k{background:transparent;width:auto;font-weight:800}
+
+    /* 有表頭者：欄名變小標 */
+    table.cards td[data-l]::before{
+      content:attr(data-l);display:block;
+      font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold);margin-bottom:1px}
+    table.cards td[data-t]{font-size:17px;font-weight:800;color:var(--sea);
+      padding-top:2px;padding-bottom:6px;line-height:1.5}
+    table.cards td[data-seq]{display:none}   /* 序號欄在手機上是雜訊 */
+
+    /* 無表頭的鍵值表：鍵當小標 */
+    table.kv td.k{font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold);padding-bottom:1px;text-transform:none}
+    table.kv td.k+td{padding-top:0}
+  }
   @media print{body{background:#fff;padding:0;font-size:10pt}header{background:#fff;color:#000;border-bottom:2px solid #000;padding:0 0 12px}
     header h1{color:#000}header .sub{color:#333}.stamp{background:#000;color:#fff}
     .sheet{border:0;box-shadow:none;padding:0;margin-top:14px}.w{max-width:none;padding:0}
@@ -82,19 +118,19 @@
   <p>依海保署 108 年度委託研究，「<b>長期關注釣魚活動與相關議題之團體</b>」共列 9 個：</p>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">項</th><th>團體</th><th>職稱與代表</th><th style="width:1%">地區</th></tr></thead>
     <tbody>
-      <tr><td class="k">1</td><td><b>台灣釣權會</b></td><td>創會長　游清江</td><td>臺中</td></tr>
-      <tr><td class="k">2</td><td>台灣釣權會<b>北部分會</b></td><td>會長　李宗治</td><td><b>新北、基隆、宜蘭</b></td></tr>
-      <tr><td class="k">3</td><td>台灣釣權會新竹分會</td><td>會長　彭定駿</td><td>新竹</td></tr>
-      <tr><td class="k">4</td><td>台灣釣權會</td><td>副理事長　許進益</td><td>臺南</td></tr>
-      <tr><td class="k">5</td><td>台灣釣權會高雄分會</td><td>副會長　謝慶漳</td><td>高雄</td></tr>
-      <tr><td class="k">6</td><td>台灣釣權會屏東分會</td><td>會長　陳金燦</td><td>屏東</td></tr>
-      <tr style="background:#e8f4ed"><td class="k">7</td><td><b>中華民國磯探聯盟釣魚協會</b></td>
-        <td><b>執行長　王昌凌</b></td><td><b>全臺</b></td></tr>
-      <tr><td class="k">8</td><td>社團法人臺灣永續鱻漁發展協會</td><td>理事長　<b>白尚儒</b></td><td>北／中區</td></tr>
-      <tr><td class="k">9</td><td>中華民國釣魚生態保育協會</td><td>理事長　郭煌村</td><td>全臺</td></tr>
+      <tr><td class="k" data-l="項" data-seq="1">1</td><td data-t="1"><b>台灣釣權會</b></td><td data-l="職稱與代表">創會長　游清江</td><td data-l="地區">臺中</td></tr>
+      <tr><td class="k" data-l="項" data-seq="1">2</td><td data-t="1">台灣釣權會<b>北部分會</b></td><td data-l="職稱與代表">會長　李宗治</td><td data-l="地區"><b>新北、基隆、宜蘭</b></td></tr>
+      <tr><td class="k" data-l="項" data-seq="1">3</td><td data-t="1">台灣釣權會新竹分會</td><td data-l="職稱與代表">會長　彭定駿</td><td data-l="地區">新竹</td></tr>
+      <tr><td class="k" data-l="項" data-seq="1">4</td><td data-t="1">台灣釣權會</td><td data-l="職稱與代表">副理事長　許進益</td><td data-l="地區">臺南</td></tr>
+      <tr><td class="k" data-l="項" data-seq="1">5</td><td data-t="1">台灣釣權會高雄分會</td><td data-l="職稱與代表">副會長　謝慶漳</td><td data-l="地區">高雄</td></tr>
+      <tr><td class="k" data-l="項" data-seq="1">6</td><td data-t="1">台灣釣權會屏東分會</td><td data-l="職稱與代表">會長　陳金燦</td><td data-l="地區">屏東</td></tr>
+      <tr style="background:#e8f4ed"><td class="k" data-l="項" data-seq="1">7</td><td data-t="1"><b>中華民國磯探聯盟釣魚協會</b></td>
+        <td data-l="職稱與代表"><b>執行長　王昌凌</b></td><td data-l="地區"><b>全臺</b></td></tr>
+      <tr><td class="k" data-l="項" data-seq="1">8</td><td data-t="1">社團法人臺灣永續鱻漁發展協會</td><td data-l="職稱與代表">理事長　<b>白尚儒</b></td><td data-l="地區">北／中區</td></tr>
+      <tr><td class="k" data-l="項" data-seq="1">9</td><td data-t="1">中華民國釣魚生態保育協會</td><td data-l="職稱與代表">理事長　郭煌村</td><td data-l="地區">全臺</td></tr>
     </tbody>
   </table>
   </div>
@@ -118,7 +154,7 @@
   <h3>另有 152 個 Facebook 釣魚社團</h3>
 
   <div class="scroll">
-  <table>
+  <table class="kv">
     <tr><td class="k">總數</td><td><b>152 個</b>（公開 112、不公開 40）</td></tr>
     <tr><td class="k">性質</td><td>釣魚資訊交流 93 個、釣具器材交流 66 個</td></tr>
     <tr><td class="k">與本案<br>相關者</td><td>北釣團（北區代表戴朝旭）、
@@ -134,27 +170,27 @@
   </div>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th>團體</th><th>資料</th><th style="width:1%">評級</th></tr></thead>
     <tbody>
-      <tr><td><b>台灣釣權會</b></td>
-        <td>台中｜fishing-right.org.tw<br>
+      <tr><td data-t="1"><b>台灣釣權會</b></td>
+        <td data-l="資料">台中｜fishing-right.org.tw<br>
           <b>曾赴漁業署陳抗</b>，主張「<b>公共海域全民使用、反對一刀切</b>」</td>
-        <td><b style="color:#20613f">盟友<br>最優先</b></td></tr>
-      <tr><td><b>台灣釣權團結聯盟</b></td>
-        <td>FB 行動社群｜窗口<b>王昌凌</b><br>街頭陳抗、修漁港法放寬垂釣之實戰經驗</td>
-        <td><b style="color:#20613f">盟友<br>行動型</b></td></tr>
-      <tr><td>台灣磯釣交流協會（TIFA）</td>
-        <td>新北中和秀峰街119巷｜2020 立案｜理事長陳彥至｜統編 26670031<br>
+        <td data-l="評級"><b style="color:#20613f">盟友<br>最優先</b></td></tr>
+      <tr><td data-t="1"><b>台灣釣權團結聯盟</b></td>
+        <td data-l="資料">FB 行動社群｜窗口<b>王昌凌</b><br>街頭陳抗、修漁港法放寬垂釣之實戰經驗</td>
+        <td data-l="評級"><b style="color:#20613f">盟友<br>行動型</b></td></tr>
+      <tr><td data-t="1">台灣磯釣交流協會（TIFA）</td>
+        <td data-l="資料">新北中和秀峰街119巷｜2020 立案｜理事長陳彥至｜統編 26670031<br>
           <b>新北在地、地緣最近</b>；電話未查得</td>
-        <td>盟友</td></tr>
-      <tr><td>台北市釣魚協會</td>
-        <td>taipeifishing.com｜北部老牌釣友社群</td>
-        <td>盟友</td></tr>
-      <tr><td>中華民國釣魚協會</td>
-        <td>fishing.org.tw 無法連線，待確認是否活躍<br>有「魚種／釣季」資料，
+        <td data-l="評級">盟友</td></tr>
+      <tr><td data-t="1">台北市釣魚協會</td>
+        <td data-l="資料">taipeifishing.com｜北部老牌釣友社群</td>
+        <td data-l="評級">盟友</td></tr>
+      <tr><td data-t="1">中華民國釣魚協會</td>
+        <td data-l="資料">fishing.org.tw 無法連線，待確認是否活躍<br>有「魚種／釣季」資料，
           <b>可與我方「分季分種管理」論述互補</b></td>
-        <td>待評估</td></tr>
+        <td data-l="評級">待評估</td></tr>
     </tbody>
   </table>
   </div>
@@ -167,18 +203,18 @@
   <h2><span class="n">參</span>規模：這是本案最懸殊的數字</h2>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">來源</th><th>數字</th></tr></thead>
     <tbody>
-      <tr><td class="k">海保署 108 年度<br>委託研究</td>
-        <td>「每年約有 <b>200 萬</b>釣魚人口從事海釣活動，<b>且人數亦在穩定成長之中</b>」</td></tr>
-      <tr><td class="k">黃向文 2013<br>（Coastal Management）</td>
-        <td>1,120 份電話問卷：12.3% 有海釣經驗、19.8% 有岸釣經驗
+      <tr><td class="k" data-t="1">海保署 108 年度<br>委託研究</td>
+        <td data-l="數字">「每年約有 <b>200 萬</b>釣魚人口從事海釣活動，<b>且人數亦在穩定成長之中</b>」</td></tr>
+      <tr><td class="k" data-t="1">黃向文 2013<br>（Coastal Management）</td>
+        <td data-l="數字">1,120 份電話問卷：12.3% 有海釣經驗、19.8% 有岸釣經驗
           → 推估 <b>218 萬至 350 萬人</b>有海釣或岸釣經驗</td></tr>
-      <tr><td class="k">陳昭倫 2026<br>（SMC）</td>
-        <td>依海保署按人口比例估算，<b>新北市</b>海釣與潛在釣魚人口<b>約 30 至 40 萬人</b><br>
+      <tr><td class="k" data-t="1">陳昭倫 2026<br>（SMC）</td>
+        <td data-l="數字">依海保署按人口比例估算，<b>新北市</b>海釣與潛在釣魚人口<b>約 30 至 40 萬人</b><br>
           對照《報導者》估計新北市<b>合法持有及常用魚槍者約數百人</b></td></tr>
-      <tr style="background:#f7f4ec"><td class="k"><b>本聯盟</b></td><td><b>845 位連署人</b></td></tr>
+      <tr style="background:#f7f4ec"><td class="k" data-t="1"><b>本聯盟</b></td><td data-l="數字"><b>845 位連署人</b></td></tr>
     </tbody>
   </table>
   </div>
@@ -290,24 +326,24 @@
   <h2><span class="n">柒</span>對本案的具體意義</h2>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%"></th><th>意義</th></tr></thead>
     <tbody>
-      <tr><td class="k">聯盟<br>關係</td>
-        <td><b>台灣釣權團結聯盟為本聯盟之聲援單位</b>（見關係圖）。
+      <tr><td class="k" data-t="1">聯盟<br>關係</td>
+        <td data-l="意義"><b>台灣釣權團結聯盟為本聯盟盟友，窗口為王昌凌。</b>
           但王昌凌之來信顯示，<b>該社群對「以連署為主要手段」持保留態度</b>，
           且尚未就本案具體訴求表態。<b>不宜假定其為無條件支持。</b></td></tr>
-      <tr><td class="k">共同<br>利益</td>
-        <td><b>釣魚社群與魚槍社群的真正共同利益，不是「反對管制」，而是「反對不對等的管制」。</b>
+      <tr><td class="k" data-t="1">共同<br>利益</td>
+        <td data-l="意義"><b>釣魚社群與魚槍社群的真正共同利益，不是「反對管制」，而是「反對不對等的管制」。</b>
           若本案確立「以工具名稱一刀切」的模式，
           <b>下一個被以同樣邏輯管制的，可能就是釣具。</b>
           這一點值得在與釣權團體溝通時明確指出——<b>而且它是真的，不是說服話術。</b></td></tr>
-      <tr><td class="k">最佳<br>合作點</td>
-        <td><b>iOcean 垂釣回報。</b>海保署 2019 年已建立此機制，釣魚社群參與過、失敗過、知道問題在哪。
+      <tr><td class="k" data-t="1">最佳<br>合作點</td>
+        <td data-l="意義"><b>iOcean 垂釣回報。</b>海保署 2019 年已建立此機制，釣魚社群參與過、失敗過、知道問題在哪。
           <b>若我方的登記回報方案能與釣魚社群共同設計，對雙方都是加分</b>，
           且直接對接海保署長陸曉筠的政策需求（路徑 B）。</td></tr>
-      <tr><td class="k">風險</td>
-        <td>我方任何指向釣魚的論述，都會削弱這個同盟。<b>而我方需要他們的程度，遠大於他們需要我方。</b></td></tr>
+      <tr><td class="k" data-t="1">風險</td>
+        <td data-l="意義">我方任何指向釣魚的論述，都會削弱這個同盟。<b>而我方需要他們的程度，遠大於他們需要我方。</b></td></tr>
     </tbody>
   </table>
   </div>
