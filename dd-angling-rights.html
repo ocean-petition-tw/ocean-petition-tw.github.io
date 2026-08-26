@@ -47,87 +47,76 @@
   .cite{font-size:14px;color:var(--faint)}
   .src{font-size:13px;color:var(--faint);margin-top:26px;padding-top:16px;border-top:1px solid var(--line);line-height:1.9}
   .src a{color:var(--gold)}
-  .toc{display:none}
-
-  @media(max-width:680px){
-    body{font-size:16px}
-    header{padding:28px 16px 24px}
-    header .sub{font-size:14px}
-    .w{padding:0 12px}
-    .sheet{padding:20px 14px 26px}
-    h2{font-size:18.5px}
-    h3{font-size:16.5px}
-    .lede{font-size:16.5px;padding:13px 15px}
-    .ok,.warn,.info{padding:12px 14px;font-size:15px}
-    .quote{padding-left:14px;font-size:15px}
-    .letter{padding:16px 16px}
-    .scroll{overflow:visible;margin-bottom:16px}
-
-    /* ── 表格一律改為卡片式 ── */
-    table{min-width:0;border:0;font-size:15px;display:block}
-    thead{display:none}
-    tbody,tr,td,th{display:block;width:auto}
-    tr{border:1px solid var(--line);border-radius:5px;background:var(--paper);
-       margin:0 0 11px;padding:9px 0;overflow:hidden}
-    td,th{border:0;padding:4px 13px;white-space:normal!important}
-    td.k{background:transparent;width:auto;font-weight:800}
-
-    /* 有表頭者：欄名變小標 */
-    table.cards td[data-l]::before{
-      content:attr(data-l);display:block;
-      font-size:11px;font-weight:800;letter-spacing:.1em;
-      color:var(--gold);margin-bottom:1px}
-    table.cards td[data-t]{font-size:17px;font-weight:800;color:var(--sea);
-      padding-top:2px;padding-bottom:6px;line-height:1.5}
-    table.cards td[data-seq]{display:none!important}  /* 序號欄在手機上是雜訊 */
-
-    /* 無表頭的鍵值表：鍵當小標 */
-    table.kv td.k{font-size:11px;font-weight:800;letter-spacing:.1em;
-      color:var(--gold);padding-bottom:1px;text-transform:none}
-    table.kv td.k+td{padding-top:0}
-
-    /* ── 壓縮：短值欄位標籤與值同一行 ── */
-    table.cards td[data-s]:not([data-seq]){display:flex;flex-wrap:wrap;
-      gap:2px 7px;align-items:baseline;
-      padding-top:1px;padding-bottom:1px;line-height:1.6;min-width:0}
-    table.cards td[data-s]::before{margin-bottom:0;flex:0 0 auto;
-      min-width:4.2em;line-height:1.6}
-
-    /* ── 防止任何元素撐破螢幕寬度 ── */
-    html,body{max-width:100%;overflow-x:hidden}
-    .sheet,.lede,.ok,.warn,.info,.quote,.letter,.toc,
-    table,tbody,tr,td,th,p,li,div{max-width:100%;min-width:0}
-    td,th,p,li,.lede,.ok,.warn,.info,.quote,.src{
-      overflow-wrap:break-word}
-
-    /* ── 壓縮：間距與行距 ── */
-    body{line-height:1.72}
-    tr{margin:0 0 8px;padding:7px 0}
-    td,th{padding:3px 12px}
-    table.cards td[data-t]{font-size:16.5px;padding-top:1px;padding-bottom:4px;line-height:1.45}
-    h2{margin:26px 0 9px;padding-bottom:6px}
-    h3{margin:18px 0 6px}
-    p{margin:0 0 9px}
-    .ok,.warn,.info{margin:11px 0;line-height:1.72}
-    .lede{line-height:1.68;margin-bottom:14px}
-    .scroll{margin-bottom:13px}
-    .src{margin-top:20px;line-height:1.75}
-
-    /* ── 章節快速跳轉 ── */
-    .toc{display:block;background:#f7f4ec;border:1px solid var(--line);
-      border-radius:6px;padding:11px 13px 12px;margin:0 0 20px}
-    .toc .tt{font-size:11px;font-weight:800;letter-spacing:.16em;
-      color:var(--gold);margin-bottom:7px}
-    .toc a{display:inline-block;font-size:14px;color:var(--sea);
-      text-decoration:none;background:var(--paper);border:1px solid var(--line);
-      border-radius:4px;padding:4px 9px;margin:0 5px 5px 0;line-height:1.4}
-    .toc a b{color:var(--gold);margin-right:4px;font-weight:800}
-  }
+  @media(max-width:640px){body{font-size:16px}.sheet{padding:22px 16px 28px}h2{font-size:18.5px}table{font-size:14px;min-width:540px}td.k{white-space:normal}}
   @media print{body{background:#fff;padding:0;font-size:10pt}header{background:#fff;color:#000;border-bottom:2px solid #000;padding:0 0 12px}
     header h1{color:#000}header .sub{color:#333}.stamp{background:#000;color:#fff}
     .sheet{border:0;box-shadow:none;padding:0;margin-top:14px}.w{max-width:none;padding:0}
     .scroll{overflow:visible}table{min-width:0}@page{size:A4;margin:15mm 13mm}
     h2{page-break-after:avoid}table,tr{page-break-inside:avoid}}
+/* mobile-v2 */
+  .mtoc{display:none}
+  @media(max-width:680px){
+    body{font-size:16px;line-height:1.72}
+    .w,.wrap,.container{padding-left:12px;padding-right:12px}
+    .sheet,.card,.box{padding-left:14px;padding-right:14px}
+    header{padding-left:16px;padding-right:16px}
+    h2{margin-top:26px;margin-bottom:9px}
+    h3{margin-top:18px;margin-bottom:6px}
+    p{margin-bottom:9px}
+
+    /* ── 表格轉卡片 ── */
+    table{min-width:0!important;border:0;font-size:15px;display:block;width:100%}
+    thead{display:none}
+    tbody,tr,td,th{display:block;width:auto}
+    tr{border:1px solid var(--line,#ded7c9);border-radius:5px;
+       background:var(--paper,#fffdf8);margin:0 0 8px;padding:7px 0;overflow:hidden}
+    td,th{border:0;padding:3px 12px;white-space:normal!important}
+    td.k{background:transparent;width:auto;font-weight:800}
+
+    /* 有表頭者：欄名變小標 */
+    table.cards td[data-l]::before{content:attr(data-l);display:block;
+      font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);margin-bottom:1px}
+    table.cards td[data-t]{font-size:16.5px;font-weight:800;
+      color:var(--sea,#12303e);padding-top:1px;padding-bottom:4px;line-height:1.45}
+    table.cards td[data-seq]{display:none!important}
+
+    /* 短值：標籤與值同一行 */
+    table.cards td[data-s]:not([data-seq]){display:flex;flex-wrap:wrap;
+      gap:2px 7px;align-items:baseline;padding-top:1px;padding-bottom:1px;
+      line-height:1.6;min-width:0}
+    table.cards td[data-s]::before{margin-bottom:0;flex:0 0 auto;
+      min-width:4.2em;line-height:1.6}
+
+    /* 無表頭的鍵值表：第一格當小標 */
+    table.kv td.k{font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);padding-bottom:1px}
+    table.kv td.k+td{padding-top:0}
+
+    /* 含 colspan/rowspan 者不堆疊，保留原表格並可橫向捲動 */
+    table.keep{display:table;width:100%}
+    table.keep thead{display:table-header-group}
+    table.keep tbody{display:table-row-group}
+    table.keep tr{display:table-row;border:0;margin:0;padding:0;background:none}
+    table.keep td,table.keep th{display:table-cell;
+      border:1px solid var(--line,#ded7c9);padding:6px 9px}
+
+    /* 不讓任何元素撐破螢幕 */
+    html,body{max-width:100%;overflow-x:hidden}
+    td,th,p,li{overflow-wrap:break-word}
+
+    /* ── 章節快速跳轉 ── */
+    .mtoc{display:block;background:var(--paper,#fffdf8);
+      border:1px solid var(--line,#ded7c9);border-radius:6px;
+      padding:11px 13px 12px;margin:0 0 20px}
+    .mtoc .tt{font-size:11px;font-weight:800;letter-spacing:.16em;
+      color:var(--gold,#b07d2b);margin-bottom:7px}
+    .mtoc a{display:inline-block;font-size:14px;color:var(--sea,#12303e);
+      text-decoration:none;background:rgba(0,0,0,.03);
+      border:1px solid var(--line,#ded7c9);border-radius:4px;
+      padding:4px 9px;margin:0 5px 5px 0;line-height:1.4;max-width:100%}
+    .mtoc a b{color:var(--gold,#b07d2b);margin-right:4px;font-weight:800}
+  }
 </style>
 </head>
 <body>
@@ -143,10 +132,8 @@
 <div class="w">
 <div class="sheet">
 
-  <nav class="toc"><div class="tt">章節快速跳轉</div>
-    <a href="#s1"><b>壹</b>一句話結論</a><a href="#s2"><b>貳</b>組織圖景</a><a href="#s3"><b>參</b>規模：這是本案最懸殊的數字</a><a href="#s4"><b>肆</b>最危險的一句話</a><a href="#s5"><b>伍</b>釣權運動留下的一件武器：漁港法第 18 條第 3 項</a><a href="#s6"><b>陸</b>釣權運動 30 年：我方能學到什麼</a><a href="#s7"><b>柒</b>對本案的具體意義</a><a href="#s8"><b>捌</b>待查證</a>
-  </nav>
 
+  <nav class="mtoc"><div class="tt">章節快速跳轉</div><a href="#s1"><b>壹</b>一句話結論</a><a href="#s2"><b>貳</b>組織圖景</a><a href="#s3"><b>參</b>規模：這是本案最懸殊的數字</a><a href="#s4"><b>肆</b>最危險的一句話</a><a href="#s5"><b>伍</b>釣權運動留下的一件武器：漁港法第 18 條第</a><a href="#s6"><b>陸</b>釣權運動 30 年：我方能學到什麼</a><a href="#s7"><b>柒</b>對本案的具體意義</a><a href="#s8"><b>捌</b>待查證</a></nav>
 
   <h2 id="s1"><span class="n">壹</span>一句話結論</h2>
 
@@ -164,16 +151,16 @@
   <table class="cards">
     <thead><tr><th style="width:1%">項</th><th>團體</th><th>職稱與代表</th><th style="width:1%">地區</th></tr></thead>
     <tbody>
-      <tr><td class="k" data-l="項" data-seq="1" data-s="1">1</td><td data-t="1"><b>台灣釣權會</b></td><td data-l="職稱與代表" data-s="1">創會長　游清江</td><td data-l="地區" data-s="1">臺中</td></tr>
-      <tr><td class="k" data-l="項" data-seq="1" data-s="1">2</td><td data-t="1">台灣釣權會<b>北部分會</b></td><td data-l="職稱與代表" data-s="1">會長　李宗治</td><td data-l="地區" data-s="1"><b>新北、基隆、宜蘭</b></td></tr>
-      <tr><td class="k" data-l="項" data-seq="1" data-s="1">3</td><td data-t="1">台灣釣權會新竹分會</td><td data-l="職稱與代表" data-s="1">會長　彭定駿</td><td data-l="地區" data-s="1">新竹</td></tr>
-      <tr><td class="k" data-l="項" data-seq="1" data-s="1">4</td><td data-t="1">台灣釣權會</td><td data-l="職稱與代表" data-s="1">副理事長　許進益</td><td data-l="地區" data-s="1">臺南</td></tr>
-      <tr><td class="k" data-l="項" data-seq="1" data-s="1">5</td><td data-t="1">台灣釣權會高雄分會</td><td data-l="職稱與代表" data-s="1">副會長　謝慶漳</td><td data-l="地區" data-s="1">高雄</td></tr>
-      <tr><td class="k" data-l="項" data-seq="1" data-s="1">6</td><td data-t="1">台灣釣權會屏東分會</td><td data-l="職稱與代表" data-s="1">會長　陳金燦</td><td data-l="地區" data-s="1">屏東</td></tr>
-      <tr style="background:#e8f4ed"><td class="k" data-l="項" data-seq="1" data-s="1">7</td><td data-t="1"><b>中華民國磯探聯盟釣魚協會</b></td>
+      <tr><td class="k" data-seq="1" data-l="項" data-s="1">1</td><td data-t="1"><b>台灣釣權會</b></td><td data-l="職稱與代表" data-s="1">創會長　游清江</td><td data-l="地區" data-s="1">臺中</td></tr>
+      <tr><td class="k" data-seq="1" data-l="項" data-s="1">2</td><td data-t="1">台灣釣權會<b>北部分會</b></td><td data-l="職稱與代表" data-s="1">會長　李宗治</td><td data-l="地區" data-s="1"><b>新北、基隆、宜蘭</b></td></tr>
+      <tr><td class="k" data-seq="1" data-l="項" data-s="1">3</td><td data-t="1">台灣釣權會新竹分會</td><td data-l="職稱與代表" data-s="1">會長　彭定駿</td><td data-l="地區" data-s="1">新竹</td></tr>
+      <tr><td class="k" data-seq="1" data-l="項" data-s="1">4</td><td data-t="1">台灣釣權會</td><td data-l="職稱與代表" data-s="1">副理事長　許進益</td><td data-l="地區" data-s="1">臺南</td></tr>
+      <tr><td class="k" data-seq="1" data-l="項" data-s="1">5</td><td data-t="1">台灣釣權會高雄分會</td><td data-l="職稱與代表" data-s="1">副會長　謝慶漳</td><td data-l="地區" data-s="1">高雄</td></tr>
+      <tr><td class="k" data-seq="1" data-l="項" data-s="1">6</td><td data-t="1">台灣釣權會屏東分會</td><td data-l="職稱與代表" data-s="1">會長　陳金燦</td><td data-l="地區" data-s="1">屏東</td></tr>
+      <tr style="background:#e8f4ed"><td class="k" data-seq="1" data-l="項" data-s="1">7</td><td data-t="1"><b>中華民國磯探聯盟釣魚協會</b></td>
         <td data-l="職稱與代表" data-s="1"><b>執行長　王昌凌</b></td><td data-l="地區" data-s="1"><b>全臺</b></td></tr>
-      <tr><td class="k" data-l="項" data-seq="1" data-s="1">8</td><td data-t="1">社團法人臺灣永續鱻漁發展協會</td><td data-l="職稱與代表" data-s="1">理事長　<b>白尚儒</b></td><td data-l="地區" data-s="1">北／中區</td></tr>
-      <tr><td class="k" data-l="項" data-seq="1" data-s="1">9</td><td data-t="1">中華民國釣魚生態保育協會</td><td data-l="職稱與代表" data-s="1">理事長　郭煌村</td><td data-l="地區" data-s="1">全臺</td></tr>
+      <tr><td class="k" data-seq="1" data-l="項" data-s="1">8</td><td data-t="1">社團法人臺灣永續鱻漁發展協會</td><td data-l="職稱與代表" data-s="1">理事長　<b>白尚儒</b></td><td data-l="地區" data-s="1">北／中區</td></tr>
+      <tr><td class="k" data-seq="1" data-l="項" data-s="1">9</td><td data-t="1">中華民國釣魚生態保育協會</td><td data-l="職稱與代表" data-s="1">理事長　郭煌村</td><td data-l="地區" data-s="1">全臺</td></tr>
     </tbody>
   </table>
   </div>
@@ -373,7 +360,7 @@
     <thead><tr><th style="width:1%"></th><th>意義</th></tr></thead>
     <tbody>
       <tr><td class="k" data-t="1">聯盟<br>關係</td>
-        <td data-l="意義"><b>台灣釣權團結聯盟為本聯盟盟友，窗口為王昌凌。</b>
+        <td data-l="意義"><b>台灣釣權團結聯盟為本聯盟之聲援單位</b>（見關係圖）。
           但王昌凌之來信顯示，<b>該社群對「以連署為主要手段」持保留態度</b>，
           且尚未就本案具體訴求表態。<b>不宜假定其為無條件支持。</b></td></tr>
       <tr><td class="k" data-t="1">共同<br>利益</td>

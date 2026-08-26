@@ -51,6 +51,70 @@
     .sheet{border:0;box-shadow:none;padding:0;margin-top:14px}.w{max-width:none;padding:0}
     .scroll{overflow:visible}table{min-width:0}@page{size:A4;margin:15mm 12mm}
     h2{page-break-after:avoid}table,tr{page-break-inside:avoid}}
+/* mobile-v2 */
+  .mtoc{display:none}
+  @media(max-width:680px){
+    body{font-size:16px;line-height:1.72}
+    .w,.wrap,.container{padding-left:12px;padding-right:12px}
+    .sheet,.card,.box{padding-left:14px;padding-right:14px}
+    header{padding-left:16px;padding-right:16px}
+    h2{margin-top:26px;margin-bottom:9px}
+    h3{margin-top:18px;margin-bottom:6px}
+    p{margin-bottom:9px}
+
+    /* ── 表格轉卡片 ── */
+    table{min-width:0!important;border:0;font-size:15px;display:block;width:100%}
+    thead{display:none}
+    tbody,tr,td,th{display:block;width:auto}
+    tr{border:1px solid var(--line,#ded7c9);border-radius:5px;
+       background:var(--paper,#fffdf8);margin:0 0 8px;padding:7px 0;overflow:hidden}
+    td,th{border:0;padding:3px 12px;white-space:normal!important}
+    td.k{background:transparent;width:auto;font-weight:800}
+
+    /* 有表頭者：欄名變小標 */
+    table.cards td[data-l]::before{content:attr(data-l);display:block;
+      font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);margin-bottom:1px}
+    table.cards td[data-t]{font-size:16.5px;font-weight:800;
+      color:var(--sea,#12303e);padding-top:1px;padding-bottom:4px;line-height:1.45}
+    table.cards td[data-seq]{display:none!important}
+
+    /* 短值：標籤與值同一行 */
+    table.cards td[data-s]:not([data-seq]){display:flex;flex-wrap:wrap;
+      gap:2px 7px;align-items:baseline;padding-top:1px;padding-bottom:1px;
+      line-height:1.6;min-width:0}
+    table.cards td[data-s]::before{margin-bottom:0;flex:0 0 auto;
+      min-width:4.2em;line-height:1.6}
+
+    /* 無表頭的鍵值表：第一格當小標 */
+    table.kv td.k{font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);padding-bottom:1px}
+    table.kv td.k+td{padding-top:0}
+
+    /* 含 colspan/rowspan 者不堆疊，保留原表格並可橫向捲動 */
+    table.keep{display:table;width:100%}
+    table.keep thead{display:table-header-group}
+    table.keep tbody{display:table-row-group}
+    table.keep tr{display:table-row;border:0;margin:0;padding:0;background:none}
+    table.keep td,table.keep th{display:table-cell;
+      border:1px solid var(--line,#ded7c9);padding:6px 9px}
+
+    /* 不讓任何元素撐破螢幕 */
+    html,body{max-width:100%;overflow-x:hidden}
+    td,th,p,li{overflow-wrap:break-word}
+
+    /* ── 章節快速跳轉 ── */
+    .mtoc{display:block;background:var(--paper,#fffdf8);
+      border:1px solid var(--line,#ded7c9);border-radius:6px;
+      padding:11px 13px 12px;margin:0 0 20px}
+    .mtoc .tt{font-size:11px;font-weight:800;letter-spacing:.16em;
+      color:var(--gold,#b07d2b);margin-bottom:7px}
+    .mtoc a{display:inline-block;font-size:14px;color:var(--sea,#12303e);
+      text-decoration:none;background:rgba(0,0,0,.03);
+      border:1px solid var(--line,#ded7c9);border-radius:4px;
+      padding:4px 9px;margin:0 5px 5px 0;line-height:1.4;max-width:100%}
+    .mtoc a b{color:var(--gold,#b07d2b);margin-right:4px;font-weight:800}
+  }
 </style>
 </head>
 <body>
@@ -67,7 +131,9 @@
 <div class="sheet">
 
 
-  <h2><span class="n">壹</span>一句話結論</h2>
+  <nav class="mtoc"><div class="tt">章節快速跳轉</div><a href="#s1"><b>壹</b>一句話結論</a><a href="#s2"><b>貳</b>基本檔案</a><a href="#s3"><b>參</b>與新北草案的正面對照</a><a href="#s4"><b>肆</b>它為什麼能做到 4,000 次</a><a href="#s5"><b>伍</b>2015 年的擴大爭議：新北現在走的路，富山</a><a href="#s6"><b>陸</b>原住民族的部分：富山踩過的地雷</a><a href="#s7"><b>柒</b>我方能學什麼</a><a href="#s8"><b>捌</b>待查證</a></nav>
+
+  <h2 id="s1"><span class="n">壹</span>一句話結論</h2>
 
   <div class="lede">
     <b>富山是全國最成功的漁業法保育區，也是唯一由區漁會做出成績的案例。</b>
@@ -81,10 +147,10 @@
     <b>「勿急就章，應有健全配套措施再來進行管制」。</b>
   </div>
 
-  <h2><span class="n">貳</span>基本檔案</h2>
+  <h2 id="s2"><span class="n">貳</span>基本檔案</h2>
 
   <div class="scroll">
-  <table>
+  <table class="kv">
     <tr><td class="k">正式名稱</td><td><b>臺東縣富山水產動植物繁殖保育區</b>（俗稱富山護漁區、富山漁業資源保育區）</td></tr>
     <tr><td class="k">位置</td><td>臺東縣卑南鄉<b>杉原海岸</b>，原名「杉原海水浴場」</td></tr>
     <tr><td class="k">劃設</td><td><b>2005 年</b>公告為禁漁區。原因：「<b>因過度漁撈，海域生態破壞殆盡</b>」</td></tr>
@@ -105,24 +171,24 @@
   </table>
   </div>
 
-  <h2><span class="n">參</span>與新北草案的正面對照</h2>
+  <h2 id="s3"><span class="n">參</span>與新北草案的正面對照</h2>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%"></th><th>臺東富山（現行）</th><th>新北草案</th></tr></thead>
     <tbody>
-      <tr><td class="k">法源</td><td>漁業法．水產動植物繁殖保育區</td><td>同</td></tr>
-      <tr><td class="k">分區</td><td>核心區／永續使用區／緩衝區</td><td>核心區／緩衝區／資源永續利用區</td></tr>
-      <tr><td class="k">範圍</td><td>高潮線外約 <b class="hi">1,500 公尺</b></td>
-          <td>高潮線外 <b class="lo">3 海浬＝約 5,556 公尺</b>（3.7 倍）</td></tr>
-      <tr><td class="k">漁具限制</td><td><b class="hi">僅緩衝區禁「網具類」</b>——未禁魚槍或潛水器</td>
-          <td><b class="lo">全區禁魚槍與潛水器</b>，不分自潛或水肺</td></tr>
-      <tr><td class="k">行為管制</td><td>擲石、捉魚離水、拋棄廢棄物、水上摩托車</td><td>草案未見同等之行為規範</td></tr>
-      <tr><td class="k">巡守能量</td><td><b class="hi">52 人／4,000 次／3,468 小時</b></td>
-          <td><b class="lo">貢寮 24 人／0 次；萬里、野柳無巡守隊</b></td></tr>
-      <tr><td class="k">財源</td><td><b class="hi">門票 50 元，漁會自營</b></td><td>市府補助漁會</td></tr>
-      <tr><td class="k">在地參與</td><td><b class="hi">居民擔任解說員與浮潛員</b>（有收入的角色）</td><td>草案未設在地參與機制</td></tr>
-      <tr><td class="k">成效</td><td>「魚蝦貝類等海洋生物復育率快速成長」、<b>「保育區外漁獲逐漸穩定增加」</b></td><td>—</td></tr>
+      <tr><td class="k" data-t="1">法源</td><td data-l="臺東富山（現行）" data-s="1">漁業法．水產動植物繁殖保育區</td><td data-l="新北草案" data-s="1">同</td></tr>
+      <tr><td class="k" data-t="1">分區</td><td data-l="臺東富山（現行）" data-s="1">核心區／永續使用區／緩衝區</td><td data-l="新北草案">核心區／緩衝區／資源永續利用區</td></tr>
+      <tr><td class="k" data-t="1">範圍</td><td data-l="臺東富山（現行）" data-s="1">高潮線外約 <b class="hi">1,500 公尺</b></td>
+          <td data-l="新北草案">高潮線外 <b class="lo">3 海浬＝約 5,556 公尺</b>（3.7 倍）</td></tr>
+      <tr><td class="k" data-t="1">漁具限制</td><td data-l="臺東富山（現行）"><b class="hi">僅緩衝區禁「網具類」</b>——未禁魚槍或潛水器</td>
+          <td data-l="新北草案"><b class="lo">全區禁魚槍與潛水器</b>，不分自潛或水肺</td></tr>
+      <tr><td class="k" data-t="1">行為管制</td><td data-l="臺東富山（現行）">擲石、捉魚離水、拋棄廢棄物、水上摩托車</td><td data-l="新北草案" data-s="1">草案未見同等之行為規範</td></tr>
+      <tr><td class="k" data-t="1">巡守能量</td><td data-l="臺東富山（現行）"><b class="hi">52 人／4,000 次／3,468 小時</b></td>
+          <td data-l="新北草案"><b class="lo">貢寮 24 人／0 次；萬里、野柳無巡守隊</b></td></tr>
+      <tr><td class="k" data-t="1">財源</td><td data-l="臺東富山（現行）" data-s="1"><b class="hi">門票 50 元，漁會自營</b></td><td data-l="新北草案" data-s="1">市府補助漁會</td></tr>
+      <tr><td class="k" data-t="1">在地參與</td><td data-l="臺東富山（現行）"><b class="hi">居民擔任解說員與浮潛員</b>（有收入的角色）</td><td data-l="新北草案" data-s="1">草案未設在地參與機制</td></tr>
+      <tr><td class="k" data-t="1">成效</td><td data-l="臺東富山（現行）">「魚蝦貝類等海洋生物復育率快速成長」、<b>「保育區外漁獲逐漸穩定增加」</b></td><td data-l="新北草案" data-s="1">—</td></tr>
     </tbody>
   </table>
   </div>
@@ -137,7 +203,7 @@
     <b>我方的問題不是反對保育，而是：這 3.7 倍的範圍，要用什麼能量去管？</b>」
   </div>
 
-  <h2><span class="n">肆</span>它為什麼能做到 4,000 次</h2>
+  <h2 id="s4"><span class="n">肆</span>它為什麼能做到 4,000 次</h2>
 
   <h3>共管結構：不是漁會一家在做</h3>
   <p>依東部海岸國家風景區管理處記載，富山的管理由多個單位協力，包括：</p>
@@ -167,7 +233,7 @@
     <b>而那需要開放，不是關閉。</b>
   </div>
 
-  <h2><span class="n">伍</span>2015 年的擴大爭議：新北現在走的路，富山走過</h2>
+  <h2 id="s5"><span class="n">伍</span>2015 年的擴大爭議：新北現在走的路，富山走過</h2>
 
   <p>2015 年 9 月 18 日，台東縣政府農業處在台東區漁會舉辦座談，提出兩案：
   「台東縣富山漁業資源保育地區維護管理自治條例草案」，以及<b>修正保育區位置與限制</b>——
@@ -219,10 +285,10 @@
     這正好回應「巡守隊沒有公權力怎麼辦」——<b>答案是把制度先建起來，不是先把人趕走。</b>
   </div>
 
-  <h2><span class="n">陸</span>原住民族的部分：富山踩過的地雷</h2>
+  <h2 id="s6"><span class="n">陸</span>原住民族的部分：富山踩過的地雷</h2>
 
   <div class="scroll">
-  <table>
+  <table class="kv">
     <tr><td class="k">2006</td><td>台東縣政府設立杉原海洋生態公園並劃設禁漁區 →
       <b>引發莿桐部落族人不滿</b></td></tr>
     <tr><td class="k">2008</td><td>縣政府同意<b>阿美族於豐年祭期間可進入禁漁區採捕 5 天</b> →
@@ -264,29 +330,29 @@
     只能作為「同類爭議的既有經驗」援引。
   </div>
 
-  <h2><span class="n">柒</span>我方能學什麼</h2>
+  <h2 id="s7"><span class="n">柒</span>我方能學什麼</h2>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">富山的作法</th><th>我方可對應提出的主張</th></tr></thead>
     <tbody>
-      <tr><td class="k">三級分區＋<br>範圍 1,500 公尺</td>
-        <td>分區是對的，但<b>範圍應與管理能量相稱</b>。可主張先在重點棲地劃小範圍核心區、
+      <tr><td class="k" data-t="1">三級分區＋<br>範圍 1,500 公尺</td>
+        <td data-l="我方可對應提出的主張">分區是對的，但<b>範圍應與管理能量相稱</b>。可主張先在重點棲地劃小範圍核心區、
           確實做到，再依成效擴大——即「先做小而確實，不做大而空」。</td></tr>
-      <tr><td class="k">只禁網具，<br>不禁魚槍</td>
-        <td><b>全國最成功的保育區沒有禁魚槍。</b>這是最乾淨的比較事實。</td></tr>
-      <tr><td class="k">行為管制<br>（擲石、捉魚離水）</td>
-        <td>我方可<b>主動提議納入行為規範</b>——不騷擾、不觸碰、不擲石、不追逐。
+      <tr><td class="k" data-t="1">只禁網具，<br>不禁魚槍</td>
+        <td data-l="我方可對應提出的主張"><b>全國最成功的保育區沒有禁魚槍。</b>這是最乾淨的比較事實。</td></tr>
+      <tr><td class="k" data-t="1">行為管制<br>（擲石、捉魚離水）</td>
+        <td data-l="我方可對應提出的主張">我方可<b>主動提議納入行為規範</b>——不騷擾、不觸碰、不擲石、不追逐。
           這與溫國彰在 SMC 所提「核心區內必須嚴格禁止任何採集或破壞棲地的行為」一致，
           <b>且顯示我方願意接受管制，只是要求管制對象正確。</b></td></tr>
-      <tr><td class="k">居民擔任<br>解說員與浮潛員</td>
-        <td><b>這是我方最該爭取的角色。</b>不是「志工」，而是<b>有訓練、有身分、有收入的在地工作</b>。
+      <tr><td class="k" data-t="1">居民擔任<br>解說員與浮潛員</td>
+        <td data-l="我方可對應提出的主張"><b>這是我方最該爭取的角色。</b>不是「志工」，而是<b>有訓練、有身分、有收入的在地工作</b>。
           可寫入路徑 B 的補助申請。</td></tr>
-      <tr><td class="k">門票 50 元<br>漁會自營</td>
-        <td>回答「誰出錢養巡守隊」。<b>但須注意：富山是封閉型潮間帶景點，
+      <tr><td class="k" data-t="1">門票 50 元<br>漁會自營</td>
+        <td data-l="我方可對應提出的主張">回答「誰出錢養巡守隊」。<b>但須注意：富山是封閉型潮間帶景點，
           東北角 3 海浬帶狀海域無法比照收費</b>，不可直接移植，只能援引其「使用者付費」原則。</td></tr>
-      <tr><td class="k">使用者付費＋<br>總量管制</td>
-        <td>即<b>登記制與數量上限</b>。可指出這是全國最成功保育區的管理演進方向。</td></tr>
+      <tr><td class="k" data-t="1">使用者付費＋<br>總量管制</td>
+        <td data-l="我方可對應提出的主張">即<b>登記制與數量上限</b>。可指出這是全國最成功保育區的管理演進方向。</td></tr>
     </tbody>
   </table>
   </div>
@@ -300,7 +366,7 @@
     ③ <b>不要引用台東族人的話去代表新北原住民族。</b>見第陸節。
   </div>
 
-  <h2><span class="n">捌</span>待查證</h2>
+  <h2 id="s8"><span class="n">捌</span>待查證</h2>
 
   <div class="info">
     <ul>

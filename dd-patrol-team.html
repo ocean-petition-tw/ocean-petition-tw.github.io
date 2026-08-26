@@ -53,6 +53,70 @@
     .sheet{border:0;box-shadow:none;padding:0;margin-top:14px}.w{max-width:none;padding:0}
     .scroll{overflow:visible}table{min-width:0}@page{size:A4;margin:15mm 12mm}
     h2{page-break-after:avoid}table,tr{page-break-inside:avoid}}
+/* mobile-v2 */
+  .mtoc{display:none}
+  @media(max-width:680px){
+    body{font-size:16px;line-height:1.72}
+    .w,.wrap,.container{padding-left:12px;padding-right:12px}
+    .sheet,.card,.box{padding-left:14px;padding-right:14px}
+    header{padding-left:16px;padding-right:16px}
+    h2{margin-top:26px;margin-bottom:9px}
+    h3{margin-top:18px;margin-bottom:6px}
+    p{margin-bottom:9px}
+
+    /* ── 表格轉卡片 ── */
+    table{min-width:0!important;border:0;font-size:15px;display:block;width:100%}
+    thead{display:none}
+    tbody,tr,td,th{display:block;width:auto}
+    tr{border:1px solid var(--line,#ded7c9);border-radius:5px;
+       background:var(--paper,#fffdf8);margin:0 0 8px;padding:7px 0;overflow:hidden}
+    td,th{border:0;padding:3px 12px;white-space:normal!important}
+    td.k{background:transparent;width:auto;font-weight:800}
+
+    /* 有表頭者：欄名變小標 */
+    table.cards td[data-l]::before{content:attr(data-l);display:block;
+      font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);margin-bottom:1px}
+    table.cards td[data-t]{font-size:16.5px;font-weight:800;
+      color:var(--sea,#12303e);padding-top:1px;padding-bottom:4px;line-height:1.45}
+    table.cards td[data-seq]{display:none!important}
+
+    /* 短值：標籤與值同一行 */
+    table.cards td[data-s]:not([data-seq]){display:flex;flex-wrap:wrap;
+      gap:2px 7px;align-items:baseline;padding-top:1px;padding-bottom:1px;
+      line-height:1.6;min-width:0}
+    table.cards td[data-s]::before{margin-bottom:0;flex:0 0 auto;
+      min-width:4.2em;line-height:1.6}
+
+    /* 無表頭的鍵值表：第一格當小標 */
+    table.kv td.k{font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);padding-bottom:1px}
+    table.kv td.k+td{padding-top:0}
+
+    /* 含 colspan/rowspan 者不堆疊，保留原表格並可橫向捲動 */
+    table.keep{display:table;width:100%}
+    table.keep thead{display:table-header-group}
+    table.keep tbody{display:table-row-group}
+    table.keep tr{display:table-row;border:0;margin:0;padding:0;background:none}
+    table.keep td,table.keep th{display:table-cell;
+      border:1px solid var(--line,#ded7c9);padding:6px 9px}
+
+    /* 不讓任何元素撐破螢幕 */
+    html,body{max-width:100%;overflow-x:hidden}
+    td,th,p,li{overflow-wrap:break-word}
+
+    /* ── 章節快速跳轉 ── */
+    .mtoc{display:block;background:var(--paper,#fffdf8);
+      border:1px solid var(--line,#ded7c9);border-radius:6px;
+      padding:11px 13px 12px;margin:0 0 20px}
+    .mtoc .tt{font-size:11px;font-weight:800;letter-spacing:.16em;
+      color:var(--gold,#b07d2b);margin-bottom:7px}
+    .mtoc a{display:inline-block;font-size:14px;color:var(--sea,#12303e);
+      text-decoration:none;background:rgba(0,0,0,.03);
+      border:1px solid var(--line,#ded7c9);border-radius:4px;
+      padding:4px 9px;margin:0 5px 5px 0;line-height:1.4;max-width:100%}
+    .mtoc a b{color:var(--gold,#b07d2b);margin-right:4px;font-weight:800}
+  }
 </style>
 </head>
 <body>
@@ -69,7 +133,9 @@
 <div class="sheet">
 
 
-  <h2><span class="n">壹</span>一句話結論</h2>
+  <nav class="mtoc"><div class="tt">章節快速跳轉</div><a href="#s1"><b>壹</b>一句話結論</a><a href="#s2"><b>貳</b>官方統計：全國海洋保護區巡守隊執勤情形</a><a href="#s3"><b>參</b>這張表告訴我們什麼</a><a href="#s4"><b>肆</b>貢寮巡守隊的制度定位</a><a href="#s5"><b>伍</b>三條可以取得正式身分的路</a><a href="#s6"><b>陸</b>一個必須立刻更正的判斷</a><a href="#s7"><b>柒</b>我方要怎麼進場</a><a href="#s8"><b>捌</b>待查證</a></nav>
+
+  <h2 id="s1"><span class="n">壹</span>一句話結論</h2>
 
   <div class="lede">
     貢寮區漁會巡守隊<b>確實存在，編制 24 人</b>。<br>
@@ -85,48 +151,48 @@
     並據以說明我方願意補上人力。</b>矛頭指向資源不足，不指向任何人。
   </div>
 
-  <h2><span class="n">貳</span>官方統計：全國海洋保護區巡守隊執勤情形</h2>
+  <h2 id="s2"><span class="n">貳</span>官方統計：全國海洋保護區巡守隊執勤情形</h2>
 
   <p>海保署編製之<b>「108 年度我國海洋保護區巡守隊執勤情形一覽表」</b>（附件七），
   涵蓋林務局、海保署、漁業署、營建署、觀光局所轄之全國海洋保護區。</p>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">保護區</th><th>巡守隊名稱</th>
       <th class="num">人數</th><th class="num">執勤<br>總次數</th><th class="num">執勤總時數<br>（小時）</th>
       <th class="num">保育<br>志工</th><th>備註</th></tr></thead>
     <tbody>
-      <tr style="background:#fbeee9"><td class="k"><b>新北市<br>貢寮</b></td><td><b>貢寮區漁會巡守隊</b></td>
-        <td class="num"><b>24</b></td><td class="num zero">0</td><td class="num zero">0</td><td class="num zero">0</td>
-        <td>不定期執行巡護工作</td></tr>
-      <tr style="background:#fbeee9"><td class="k"><b>新北市<br>瑞芳</b></td><td>深澳人工魚礁禁漁區管理委員會</td>
-        <td class="num">6</td><td class="num zero">0</td><td class="num zero">0</td><td class="num">39</td>
-        <td>不定期執行巡護工作</td></tr>
-      <tr style="background:#fbeee9"><td class="k"><b>新北市<br>萬里</b></td><td class="zero">無</td>
-        <td class="num zero">0</td><td class="num zero">0</td><td class="num zero">0</td><td class="num zero">0</td><td></td></tr>
-      <tr style="background:#fbeee9"><td class="k"><b>新北市<br>野柳</b></td><td class="zero">無</td>
-        <td class="num zero">0</td><td class="num zero">0</td><td class="num zero">0</td><td class="num zero">0</td><td></td></tr>
-      <tr style="background:#e8f4ed"><td class="k">基隆市<br><b>潮境</b></td><td>基隆望海巷潮境海灣巡守隊</td>
-        <td class="num hi">81</td><td class="num hi">114</td><td class="num hi">912</td><td class="num hi">100</td><td></td></tr>
-      <tr><td class="k">基隆市<br>水產動植物保育區</td><td class="zero">無</td>
-        <td class="num zero">0</td><td class="num zero">0</td><td class="num zero">0</td><td class="num zero">0</td><td></td></tr>
-      <tr style="background:#e8f4ed"><td class="k">台東縣<br><b>富山</b></td><td>台東區漁會富山漁業資源保育管理委員會</td>
-        <td class="num hi">52</td><td class="num hi">4,000</td><td class="num hi">3,468</td><td class="num hi">52</td><td></td></tr>
-      <tr style="background:#e8f4ed"><td class="k">屏東縣<br><b>琉球</b></td><td>漁業資源暨海灘保育員</td>
-        <td class="num">5</td><td class="num hi">882</td><td class="num hi">712</td><td class="num hi">48</td>
-        <td>離島建設基金－琉球鄉沿海生態資源保育管理計畫</td></tr>
-      <tr><td class="k">東北角暨宜蘭海岸<br>國家風景區<br><span class="cite">鼻頭角至三貂角<br>海域資源保護區</span></td>
-        <td><b>駐警</b></td>
-        <td class="num">2</td><td class="num">78</td><td class="num">312</td><td class="num">0</td>
-        <td>平均每週 3 次、每次 4 小時，派員至鼻頭角至三貂角海岸於岸際執行遊客活動巡查、安全宣導與違規取締</td></tr>
-      <tr><td class="k">桃園<br>觀新藻礁</td><td>觀音區保生社區發展協會、新屋區永興社區發展協會</td>
-        <td class="num">40</td><td class="num hi">1,778</td><td class="num hi">10,316</td><td class="num">6</td><td></td></tr>
-      <tr><td class="k">屏東<br>旭海觀音鼻</td><td>自然保留區解說員</td>
-        <td class="num">42</td><td class="num hi">2,390</td><td class="num hi">11,950</td><td class="num">42</td>
-        <td>解說員擔任環境保育志工</td></tr>
-      <tr style="background:#f0ece1"><td class="k"><b>全國總計</b></td><td></td>
-        <td class="num"><b>278</b></td><td class="num"><b>10,368</b></td><td class="num"><b>30,784</b></td>
-        <td class="num"><b>350</b></td><td></td></tr>
+      <tr style="background:#fbeee9"><td class="k" data-t="1"><b>新北市<br>貢寮</b></td><td data-l="巡守隊名稱" data-s="1"><b>貢寮區漁會巡守隊</b></td>
+        <td class="num" data-l="人數" data-s="1"><b>24</b></td><td class="num zero" data-l="執勤 總次數" data-s="1">0</td><td class="num zero" data-l="執勤總時數 （小時）" data-s="1">0</td><td class="num zero" data-l="保育 志工" data-s="1">0</td>
+        <td data-l="備註" data-s="1">不定期執行巡護工作</td></tr>
+      <tr style="background:#fbeee9"><td class="k" data-t="1"><b>新北市<br>瑞芳</b></td><td data-l="巡守隊名稱" data-s="1">深澳人工魚礁禁漁區管理委員會</td>
+        <td class="num" data-l="人數" data-s="1">6</td><td class="num zero" data-l="執勤 總次數" data-s="1">0</td><td class="num zero" data-l="執勤總時數 （小時）" data-s="1">0</td><td class="num" data-l="保育 志工" data-s="1">39</td>
+        <td data-l="備註" data-s="1">不定期執行巡護工作</td></tr>
+      <tr style="background:#fbeee9"><td class="k" data-t="1"><b>新北市<br>萬里</b></td><td class="zero" data-l="巡守隊名稱" data-s="1">無</td>
+        <td class="num zero" data-l="人數" data-s="1">0</td><td class="num zero" data-l="執勤 總次數" data-s="1">0</td><td class="num zero" data-l="執勤總時數 （小時）" data-s="1">0</td><td class="num zero" data-l="保育 志工" data-s="1">0</td><td data-l="備註" data-s="1"></td></tr>
+      <tr style="background:#fbeee9"><td class="k" data-t="1"><b>新北市<br>野柳</b></td><td class="zero" data-l="巡守隊名稱" data-s="1">無</td>
+        <td class="num zero" data-l="人數" data-s="1">0</td><td class="num zero" data-l="執勤 總次數" data-s="1">0</td><td class="num zero" data-l="執勤總時數 （小時）" data-s="1">0</td><td class="num zero" data-l="保育 志工" data-s="1">0</td><td data-l="備註" data-s="1"></td></tr>
+      <tr style="background:#e8f4ed"><td class="k" data-t="1">基隆市<br><b>潮境</b></td><td data-l="巡守隊名稱" data-s="1">基隆望海巷潮境海灣巡守隊</td>
+        <td class="num hi" data-l="人數" data-s="1">81</td><td class="num hi" data-l="執勤 總次數" data-s="1">114</td><td class="num hi" data-l="執勤總時數 （小時）" data-s="1">912</td><td class="num hi" data-l="保育 志工" data-s="1">100</td><td data-l="備註" data-s="1"></td></tr>
+      <tr><td class="k" data-t="1">基隆市<br>水產動植物保育區</td><td class="zero" data-l="巡守隊名稱" data-s="1">無</td>
+        <td class="num zero" data-l="人數" data-s="1">0</td><td class="num zero" data-l="執勤 總次數" data-s="1">0</td><td class="num zero" data-l="執勤總時數 （小時）" data-s="1">0</td><td class="num zero" data-l="保育 志工" data-s="1">0</td><td data-l="備註" data-s="1"></td></tr>
+      <tr style="background:#e8f4ed"><td class="k" data-t="1">台東縣<br><b>富山</b></td><td data-l="巡守隊名稱">台東區漁會富山漁業資源保育管理委員會</td>
+        <td class="num hi" data-l="人數" data-s="1">52</td><td class="num hi" data-l="執勤 總次數" data-s="1">4,000</td><td class="num hi" data-l="執勤總時數 （小時）" data-s="1">3,468</td><td class="num hi" data-l="保育 志工" data-s="1">52</td><td data-l="備註" data-s="1"></td></tr>
+      <tr style="background:#e8f4ed"><td class="k" data-t="1">屏東縣<br><b>琉球</b></td><td data-l="巡守隊名稱" data-s="1">漁業資源暨海灘保育員</td>
+        <td class="num" data-l="人數" data-s="1">5</td><td class="num hi" data-l="執勤 總次數" data-s="1">882</td><td class="num hi" data-l="執勤總時數 （小時）" data-s="1">712</td><td class="num hi" data-l="保育 志工" data-s="1">48</td>
+        <td data-l="備註">離島建設基金－琉球鄉沿海生態資源保育管理計畫</td></tr>
+      <tr><td class="k" data-t="1">東北角暨宜蘭海岸<br>國家風景區<br><span class="cite">鼻頭角至三貂角<br>海域資源保護區</span></td>
+        <td data-l="巡守隊名稱" data-s="1"><b>駐警</b></td>
+        <td class="num" data-l="人數" data-s="1">2</td><td class="num" data-l="執勤 總次數" data-s="1">78</td><td class="num" data-l="執勤總時數 （小時）" data-s="1">312</td><td class="num" data-l="保育 志工" data-s="1">0</td>
+        <td data-l="備註">平均每週 3 次、每次 4 小時，派員至鼻頭角至三貂角海岸於岸際執行遊客活動巡查、安全宣導與違規取締</td></tr>
+      <tr><td class="k" data-t="1">桃園<br>觀新藻礁</td><td data-l="巡守隊名稱">觀音區保生社區發展協會、新屋區永興社區發展協會</td>
+        <td class="num" data-l="人數" data-s="1">40</td><td class="num hi" data-l="執勤 總次數" data-s="1">1,778</td><td class="num hi" data-l="執勤總時數 （小時）" data-s="1">10,316</td><td class="num" data-l="保育 志工" data-s="1">6</td><td data-l="備註" data-s="1"></td></tr>
+      <tr><td class="k" data-t="1">屏東<br>旭海觀音鼻</td><td data-l="巡守隊名稱" data-s="1">自然保留區解說員</td>
+        <td class="num" data-l="人數" data-s="1">42</td><td class="num hi" data-l="執勤 總次數" data-s="1">2,390</td><td class="num hi" data-l="執勤總時數 （小時）" data-s="1">11,950</td><td class="num" data-l="保育 志工" data-s="1">42</td>
+        <td data-l="備註" data-s="1">解說員擔任環境保育志工</td></tr>
+      <tr style="background:#f0ece1"><td class="k" data-t="1"><b>全國總計</b></td><td data-l="巡守隊名稱" data-s="1"></td>
+        <td class="num" data-l="人數" data-s="1"><b>278</b></td><td class="num" data-l="執勤 總次數" data-s="1"><b>10,368</b></td><td class="num" data-l="執勤總時數 （小時）" data-s="1"><b>30,784</b></td>
+        <td class="num" data-l="保育 志工" data-s="1"><b>350</b></td><td data-l="備註" data-s="1"></td></tr>
     </tbody>
   </table>
   </div>
@@ -138,7 +204,7 @@
     會被指為刻意選擇不利資料。<b>會前應正式函詢海保署索取最新版本。</b>
   </div>
 
-  <h2><span class="n">參</span>這張表告訴我們什麼</h2>
+  <h2 id="s3"><span class="n">參</span>這張表告訴我們什麼</h2>
 
   <div class="ok">
     <b>一、新北市 4 個保育區，2 個完全沒有巡守隊，2 個執勤紀錄掛零。</b><br>
@@ -162,10 +228,10 @@
     <b>我方願意成為那個能量的一部分。</b>」
   </div>
 
-  <h2><span class="n">肆</span>貢寮巡守隊的制度定位</h2>
+  <h2 id="s4"><span class="n">肆</span>貢寮巡守隊的制度定位</h2>
 
   <div class="scroll">
-  <table>
+  <table class="kv">
     <tr><td class="k">名稱</td><td><b>貢寮區漁會巡守隊</b></td></tr>
     <tr><td class="k">編制</td><td>24 人（108 年度）</td></tr>
     <tr><td class="k">主體</td><td>貢寮區漁會——不是市府機關，也不是獨立團體</td></tr>
@@ -189,39 +255,39 @@
     同一片海域上，至少有<b>三套</b>巡守體系（漁會巡守隊、風管處駐警、海巡署），彼此的分工值得提問。
   </div>
 
-  <h2><span class="n">伍</span>三條可以取得正式身分的路</h2>
+  <h2 id="s5"><span class="n">伍</span>三條可以取得正式身分的路</h2>
 
   <p>巡守隊本身沒有公權力，這一點不會因草案怎麼寫而改變。但<b>海洋保育法</b>提供了三條途徑——
   注意：<b>主管機關都是海保署，不是新北市漁業處</b>。</p>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">法條</th><th>內容</th><th>對我方的意義</th></tr></thead>
     <tbody>
-      <tr><td class="k"><b>§15</b></td>
-        <td>為執行海洋生物資源調查或海洋庇護區保育計畫，主管機關或<b>受託機關（構）、法人、團體</b>得
+      <tr><td class="k" data-t="1"><b>§15</b></td>
+        <td data-l="內容">為執行海洋生物資源調查或海洋庇護區保育計畫，主管機關或<b>受託機關（構）、法人、團體</b>得
           <b>派員出示證明文件</b>，進入公、私有土地、處所或海域<b>進行調查及實施保育措施</b>。<br>
           相對人<b>不得規避、妨礙或拒絕</b>。<br>
           執行時應恪遵正當法律程序、符合比例原則，對受檢之工商軍事秘密應予保密。<br>
           致所有人、使用人遭受<b>特別犧牲之損失者，應予補償</b>。</td>
-        <td><b>最有價值的一條。</b>民間<b>團體</b>可經委託取得「派員出示證明文件」的正式地位，
+        <td data-l="對我方的意義"><b>最有價值的一條。</b>民間<b>團體</b>可經委託取得「派員出示證明文件」的正式地位，
           且相對人不得拒絕。<b>這是巡守隊取得實質身分的唯一明確法源</b>——
           但須先成為海保署的受託團體。</td></tr>
-      <tr><td class="k"><b>§16</b></td>
-        <td>主管機關得指派<b>海洋保育觀察員</b>，在船舶、海洋設施、海域工程或其周圍從事
+      <tr><td class="k" data-t="1"><b>§16</b></td>
+        <td data-l="內容">主管機關得指派<b>海洋保育觀察員</b>，在船舶、海洋設施、海域工程或其周圍從事
           <b>觀察、監測及蒐集資料</b>；必要時得請求海岸巡防機關或警察機關協助。
           相對人不得規避、妨礙或拒絕。<br>
           <b>資格取得、訓練、管理、廢止資格之辦法，由中央主管機關定之。</b></td>
-        <td>個人取得正式身分的途徑，且<b>有法定訓練與資格制度</b>。
+        <td data-l="對我方的意義">個人取得正式身分的途徑，且<b>有法定訓練與資格制度</b>。
           惟條文所列場域為船舶、海洋設施、海域工程，<b>是否及於岸際休閒採捕巡查，須查該辦法</b>。</td></tr>
-      <tr><td class="k"><b>§17</b></td>
-        <td><b>民眾、法人或團體</b>主動參與或協助主管機關取締、舉發者，主管機關<b>得予獎勵</b>；
+      <tr><td class="k" data-t="1"><b>§17</b></td>
+        <td data-l="內容"><b>民眾、法人或團體</b>主動參與或協助主管機關取締、舉發者，主管機關<b>得予獎勵</b>；
           對其<b>身分應予保密</b>。獎勵辦法由中央主管機關定之。</td>
-        <td>不需要任何身分即可適用，且有<b>身分保密</b>的法律保護。
+        <td data-l="對我方的意義">不需要任何身分即可適用，且有<b>身分保密</b>的法律保護。
           直接回應「舉發會被報復」的現實顧慮。</td></tr>
-      <tr><td class="k">§18</td>
-        <td>主管機關應<b>培養具備海洋保育及生物多樣性專業知識人才</b>，並推廣教育課程。</td>
-        <td>我方成員接受訓練、取得專業認證的法源依據。</td></tr>
+      <tr><td class="k" data-t="1">§18</td>
+        <td data-l="內容">主管機關應<b>培養具備海洋保育及生物多樣性專業知識人才</b>，並推廣教育課程。</td>
+        <td data-l="對我方的意義">我方成員接受訓練、取得專業認證的法源依據。</td></tr>
     </tbody>
   </table>
   </div>
@@ -234,7 +300,7 @@
     §15 的「進行調查」與她的資料需求完全對接。</b>
   </div>
 
-  <h2><span class="n">陸</span>一個必須立刻更正的判斷</h2>
+  <h2 id="s6"><span class="n">陸</span>一個必須立刻更正的判斷</h2>
 
   <div class="warn">
     <b>先前 dd-lin-limei、dd-chen-kuokuang、dd-local-reps 與關係圖第三版，均將貢寮區漁會判定為
@@ -274,7 +340,7 @@
     <b>而且會讓「自主管理可行」這句話從主張變成事實。</b>
   </div>
 
-  <h2><span class="n">柒</span>我方要怎麼進場</h2>
+  <h2 id="s7"><span class="n">柒</span>我方要怎麼進場</h2>
 
   <div class="warn">
     <b>不要另組一支新的巡守隊要求市府承認。</b>理由：<br>
@@ -299,7 +365,7 @@
     <b>資料同時餵入 iOcean，對接署長陸曉筠的政策需求。</b>
   </div>
 
-  <h2><span class="n">捌</span>待查證</h2>
+  <h2 id="s8"><span class="n">捌</span>待查證</h2>
 
   <div class="info">
     <ul>

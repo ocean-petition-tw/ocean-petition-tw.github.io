@@ -106,6 +106,70 @@
     .scroll{overflow:visible} table{min-width:0}
     @page{size:A4;margin:13mm 11mm}
     h2{page-break-after:avoid} table,tr,.col{page-break-inside:avoid}}
+/* mobile-v2 */
+  .mtoc{display:none}
+  @media(max-width:680px){
+    body{font-size:16px;line-height:1.72}
+    .w,.wrap,.container{padding-left:12px;padding-right:12px}
+    .sheet,.card,.box{padding-left:14px;padding-right:14px}
+    header{padding-left:16px;padding-right:16px}
+    h2{margin-top:26px;margin-bottom:9px}
+    h3{margin-top:18px;margin-bottom:6px}
+    p{margin-bottom:9px}
+
+    /* ── 表格轉卡片 ── */
+    table{min-width:0!important;border:0;font-size:15px;display:block;width:100%}
+    thead{display:none}
+    tbody,tr,td,th{display:block;width:auto}
+    tr{border:1px solid var(--line,#ded7c9);border-radius:5px;
+       background:var(--paper,#fffdf8);margin:0 0 8px;padding:7px 0;overflow:hidden}
+    td,th{border:0;padding:3px 12px;white-space:normal!important}
+    td.k{background:transparent;width:auto;font-weight:800}
+
+    /* 有表頭者：欄名變小標 */
+    table.cards td[data-l]::before{content:attr(data-l);display:block;
+      font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);margin-bottom:1px}
+    table.cards td[data-t]{font-size:16.5px;font-weight:800;
+      color:var(--sea,#12303e);padding-top:1px;padding-bottom:4px;line-height:1.45}
+    table.cards td[data-seq]{display:none!important}
+
+    /* 短值：標籤與值同一行 */
+    table.cards td[data-s]:not([data-seq]){display:flex;flex-wrap:wrap;
+      gap:2px 7px;align-items:baseline;padding-top:1px;padding-bottom:1px;
+      line-height:1.6;min-width:0}
+    table.cards td[data-s]::before{margin-bottom:0;flex:0 0 auto;
+      min-width:4.2em;line-height:1.6}
+
+    /* 無表頭的鍵值表：第一格當小標 */
+    table.kv td.k{font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);padding-bottom:1px}
+    table.kv td.k+td{padding-top:0}
+
+    /* 含 colspan/rowspan 者不堆疊，保留原表格並可橫向捲動 */
+    table.keep{display:table;width:100%}
+    table.keep thead{display:table-header-group}
+    table.keep tbody{display:table-row-group}
+    table.keep tr{display:table-row;border:0;margin:0;padding:0;background:none}
+    table.keep td,table.keep th{display:table-cell;
+      border:1px solid var(--line,#ded7c9);padding:6px 9px}
+
+    /* 不讓任何元素撐破螢幕 */
+    html,body{max-width:100%;overflow-x:hidden}
+    td,th,p,li{overflow-wrap:break-word}
+
+    /* ── 章節快速跳轉 ── */
+    .mtoc{display:block;background:var(--paper,#fffdf8);
+      border:1px solid var(--line,#ded7c9);border-radius:6px;
+      padding:11px 13px 12px;margin:0 0 20px}
+    .mtoc .tt{font-size:11px;font-weight:800;letter-spacing:.16em;
+      color:var(--gold,#b07d2b);margin-bottom:7px}
+    .mtoc a{display:inline-block;font-size:14px;color:var(--sea,#12303e);
+      text-decoration:none;background:rgba(0,0,0,.03);
+      border:1px solid var(--line,#ded7c9);border-radius:4px;
+      padding:4px 9px;margin:0 5px 5px 0;line-height:1.4;max-width:100%}
+    .mtoc a b{color:var(--gold,#b07d2b);margin-right:4px;font-weight:800}
+  }
 </style>
 </head>
 <body>
@@ -124,7 +188,9 @@
 <div class="w">
 <div class="sheet">
 
-  <h2><span class="n">壹</span>一句話</h2>
+  <nav class="mtoc"><div class="tt">章節快速跳轉</div><a href="#s1"><b>壹</b>一句話</a><a href="#s2"><b>貳</b>決策鏈：誰真正決定</a><a href="#s3"><b>參</b>三欄陣營圖</a><a href="#s4"><b>肆</b>六位學者對魚槍的立場──最有力的一張表</a><a href="#s5"><b>伍</b>本案最強的四個論點</a><a href="#s6"><b>陸</b>議會與政治環境（本版新增）</a><a href="#s7"><b>柒</b>在地權力結構（本版新增）</a><a href="#s8"><b>捌</b>八座橋──真正決定 9/8 的地方</a><a href="#s9"><b>玖</b>人物操作表</a><a href="#s10"><b>拾</b>六個必須避開的地雷</a><a href="#s11"><b>拾壹</b>桌上的位置決定策略</a><a href="#s12"><b>拾貳</b>會前待辦（依重要性）</a></nav>
+
+  <h2 id="s1"><span class="n">壹</span>一句話</h2>
 
   <div class="lede">
     第一版把這件事看成「我方 vs 保育方」。第二版改成「一份比任何保育學者主張都更嚴格的草案」。<br>
@@ -141,7 +207,7 @@
     ③ 第二版未列陳明義議員——<b>他是本案最有價值的潛在盟友，本版新增。</b>
   </div>
 
-  <h2><span class="n">貳</span>決策鏈：誰真正決定</h2>
+  <h2 id="s2"><span class="n">貳</span>決策鏈：誰真正決定</h2>
 
   <div class="chain">
     <h4>本 案 的 正 式 路 徑</h4>
@@ -182,7 +248,7 @@
     完整原文與逐條判讀見 <b>draft-text.html</b>。
   </div>
 
-  <h2><span class="n">參</span>三欄陣營圖</h2>
+  <h2 id="s3"><span class="n">參</span>三欄陣營圖</h2>
 
   <div class="map">
 
@@ -337,10 +403,10 @@
 
   </div>
 
-  <h2><span class="n">肆</span>六位學者對魚槍的立場──最有力的一張表</h2>
+  <h2 id="s4"><span class="n">肆</span>六位學者對魚槍的立場──最有力的一張表</h2>
 
   <div class="scroll">
-  <table>
+  <table class="keep">
     <thead><tr><th style="width:1%">學者</th><th>水肺／潛水器魚槍</th><th>自由潛水魚槍</th><th>垂釣是否應納管</th></tr></thead>
     <tbody>
       <tr><td class="k">邵廣昭</td>
@@ -382,7 +448,7 @@
     我方請求的，只是讓草案回到學者共識的範圍內。</b>」
   </div>
 
-  <h2><span class="n">伍</span>本案最強的四個論點</h2>
+  <h2 id="s5"><span class="n">伍</span>本案最強的四個論點</h2>
 
   <h3>一、刺網先例（本版新增正式金額）</h3>
   <div class="quote">
@@ -393,15 +459,15 @@
   </div>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%"></th><th>刺網（商業性）</th><th>魚槍（休閒性）</th></tr></thead>
     <tbody>
-      <tr><td class="k">過渡期</td><td>約九年（2017–2026）</td><td class="yes">無</td></tr>
-      <tr><td class="k">預算</td><td><b>單 106 年度即 3,108 萬 6,800 元</b>（議會案號可查）</td><td class="yes">零</td></tr>
-      <tr><td class="k">經濟補償</td><td>每艘 15–20 萬元轉型補助；另有漁業權收購</td><td class="yes">無</td></tr>
-      <tr><td class="k">替代出路</td><td>輔導轉作釣具類等漁法</td><td class="yes">無</td></tr>
-      <tr><td class="k">實名制</td><td>有，設專責人力主辦與查核</td><td class="yes">未提供此選項</td></tr>
-      <tr><td class="k">時序</td><td>先做到 592 艘、約 70% 轉型，才於 2026.1.1 正式禁止</td><td class="yes">直接禁止</td></tr>
+      <tr><td class="k" data-t="1">過渡期</td><td data-l="刺網（商業性）" data-s="1">約九年（2017–2026）</td><td class="yes" data-l="魚槍（休閒性）" data-s="1">無</td></tr>
+      <tr><td class="k" data-t="1">預算</td><td data-l="刺網（商業性）"><b>單 106 年度即 3,108 萬 6,800 元</b>（議會案號可查）</td><td class="yes" data-l="魚槍（休閒性）" data-s="1">零</td></tr>
+      <tr><td class="k" data-t="1">經濟補償</td><td data-l="刺網（商業性）">每艘 15–20 萬元轉型補助；另有漁業權收購</td><td class="yes" data-l="魚槍（休閒性）" data-s="1">無</td></tr>
+      <tr><td class="k" data-t="1">替代出路</td><td data-l="刺網（商業性）" data-s="1">輔導轉作釣具類等漁法</td><td class="yes" data-l="魚槍（休閒性）" data-s="1">無</td></tr>
+      <tr><td class="k" data-t="1">實名制</td><td data-l="刺網（商業性）" data-s="1">有，設專責人力主辦與查核</td><td class="yes" data-l="魚槍（休閒性）" data-s="1">未提供此選項</td></tr>
+      <tr><td class="k" data-t="1">時序</td><td data-l="刺網（商業性）">先做到 592 艘、約 70% 轉型，才於 2026.1.1 正式禁止</td><td class="yes" data-l="魚槍（休閒性）" data-s="1">直接禁止</td></tr>
     </tbody>
   </table>
   </div>
@@ -434,19 +500,19 @@
 
   <h3>四、全國標竿：臺東富山（本版新增）</h3>
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%"></th><th>臺東富山（現行）</th><th>新北草案</th></tr></thead>
     <tbody>
-      <tr><td class="k">分區</td><td>核心區／永續使用區／緩衝區</td><td>核心區／緩衝區／資源永續利用區</td></tr>
-      <tr><td class="k">範圍</td><td>高潮線外約 <b class="no">1,500 公尺</b></td>
-          <td>高潮線外 <b class="yes">3 海浬＝約 5,556 公尺</b>（3.7 倍）</td></tr>
-      <tr><td class="k">漁具限制</td><td><b class="no">僅緩衝區禁「網具類」，未禁魚槍或潛水器</b></td>
-          <td><b class="yes">全區禁魚槍與潛水器，不分自潛或水肺</b></td></tr>
-      <tr><td class="k">巡守能量</td><td><b class="no">52 人／4,000 次／3,468 小時</b>（全國第一）</td>
-          <td><b class="yes">貢寮 24 人／0 次；萬里、野柳無巡守隊</b></td></tr>
-      <tr><td class="k">財源</td><td><b class="no">門票 50 元，漁會自營</b>；居民任解說員與浮潛員</td>
-          <td>市府補助漁會</td></tr>
-      <tr><td class="k">成效</td><td>「保育區外漁獲逐漸穩定增加」</td><td>—</td></tr>
+      <tr><td class="k" data-t="1">分區</td><td data-l="臺東富山（現行）" data-s="1">核心區／永續使用區／緩衝區</td><td data-l="新北草案">核心區／緩衝區／資源永續利用區</td></tr>
+      <tr><td class="k" data-t="1">範圍</td><td data-l="臺東富山（現行）" data-s="1">高潮線外約 <b class="no">1,500 公尺</b></td>
+          <td data-l="新北草案">高潮線外 <b class="yes">3 海浬＝約 5,556 公尺</b>（3.7 倍）</td></tr>
+      <tr><td class="k" data-t="1">漁具限制</td><td data-l="臺東富山（現行）"><b class="no">僅緩衝區禁「網具類」，未禁魚槍或潛水器</b></td>
+          <td data-l="新北草案"><b class="yes">全區禁魚槍與潛水器，不分自潛或水肺</b></td></tr>
+      <tr><td class="k" data-t="1">巡守能量</td><td data-l="臺東富山（現行）"><b class="no">52 人／4,000 次／3,468 小時</b>（全國第一）</td>
+          <td data-l="新北草案"><b class="yes">貢寮 24 人／0 次；萬里、野柳無巡守隊</b></td></tr>
+      <tr><td class="k" data-t="1">財源</td><td data-l="臺東富山（現行）"><b class="no">門票 50 元，漁會自營</b>；居民任解說員與浮潛員</td>
+          <td data-l="新北草案" data-s="1">市府補助漁會</td></tr>
+      <tr><td class="k" data-t="1">成效</td><td data-l="臺東富山（現行）" data-s="1">「保育區外漁獲逐漸穩定增加」</td><td data-l="新北草案" data-s="1">—</td></tr>
     </tbody>
   </table>
   </div>
@@ -483,10 +549,10 @@
     足見一律禁止並非唯一選擇。」<span class="cite">已核全國法規資料庫原文。</span>
   </div>
 
-  <h2><span class="n">陸</span>議會與政治環境（本版新增）</h2>
+  <h2 id="s6"><span class="n">陸</span>議會與政治環境（本版新增）</h2>
 
   <div class="scroll">
-  <table>
+  <table class="kv">
     <tr><td class="k">本案<br>能見度</td><td><b>零。</b>議事錄全文檢索「保育區」全為山坡地與國土保育區；「魚槍」全為原住民族狩獵權。
       <b>海洋保育區擴大案至今無任何議員提及。</b></td></tr>
     <tr><td class="k">議員對<br>漁業處的<br>實際不滿</td><td>113 年 12 月 6 日共 <b>11 筆刪減動議</b>，理由集中於：漁港規劃費年年編列、
@@ -512,22 +578,22 @@
     而是進入一個<b>市府已經在用的管道</b>；申請規模宜設在數十萬至一百餘萬元。
   </div>
 
-  <h2><span class="n">柒</span>在地權力結構（本版新增）</h2>
+  <h2 id="s7"><span class="n">柒</span>在地權力結構（本版新增）</h2>
 
   <div class="lede" style="font-size:16.5px">
     <b>貢寮的里長就是漁會幹部——兩套系統是同一批人。</b>
   </div>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">人物</th><th>行政職</th><th>漁會職務</th></tr></thead>
     <tbody>
-      <tr><td class="k">吳文益</td><td>福連里長（連任四屆）<br><span class="cite">前貢寮鄉民代表</span></td>
-        <td><b>漁會第 7、8 屆理事長</b>、第 9、10 屆常務監事、<b>全國漁會代表</b>；卯澳利洋宮常務監事</td></tr>
-      <tr><td class="k">吳憲彰</td><td>福隆里長<br><span class="cite">村長 14–18 屆＋里長 1–3 屆，共 8 屆 32 年</span></td>
-        <td>漁會會員代表、省代表、理事、常務監事；<b>台灣省漁會、全國漁會理監事 16 年</b></td></tr>
-      <tr><td class="k">周林裕</td><td>前福連村長（13、14 屆）</td>
-        <td>卯澳社區理事長、漁會理事、小組長</td></tr>
+      <tr><td class="k" data-t="1">吳文益</td><td data-l="行政職">福連里長（連任四屆）<br><span class="cite">前貢寮鄉民代表</span></td>
+        <td data-l="漁會職務"><b>漁會第 7、8 屆理事長</b>、第 9、10 屆常務監事、<b>全國漁會代表</b>；卯澳利洋宮常務監事</td></tr>
+      <tr><td class="k" data-t="1">吳憲彰</td><td data-l="行政職">福隆里長<br><span class="cite">村長 14–18 屆＋里長 1–3 屆，共 8 屆 32 年</span></td>
+        <td data-l="漁會職務">漁會會員代表、省代表、理事、常務監事；<b>台灣省漁會、全國漁會理監事 16 年</b></td></tr>
+      <tr><td class="k" data-t="1">周林裕</td><td data-l="行政職" data-s="1">前福連村長（13、14 屆）</td>
+        <td data-l="漁會職務">卯澳社區理事長、漁會理事、小組長</td></tr>
     </tbody>
   </table>
   </div>
@@ -570,7 +636,7 @@
     而且對漁會有實質利益（非法漁獲流入市場會壓低合法漁民售價）。
   </div>
 
-  <h2><span class="n">捌</span>八座橋──真正決定 9/8 的地方</h2>
+  <h2 id="s8"><span class="n">捌</span>八座橋──真正決定 9/8 的地方</h2>
 
   <ol class="br">
     <li><span class="t">蔡政良：雙方都尊敬的人</span>
@@ -624,76 +690,76 @@
       <b>這是路徑 B 最強的賣點，而且沒有其他團體能提供。</b></li>
   </ol>
 
-  <h2><span class="n">玖</span>人物操作表</h2>
+  <h2 id="s9"><span class="n">玖</span>人物操作表</h2>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">人物</th><th>定位</th><th>可爭取程度</th><th>操作方式</th></tr></thead>
     <tbody>
-      <tr><td class="k">簡明雄</td>
-        <td>決策者。科班文官，唯一壓力是報中央核定</td>
-        <td><b style="color:#7a5a1e">可協商</b></td>
-        <td><b>定位成「幫他把案子做得更完整的人」。</b>不要求撤回，提出分階段公告＋登記制＋檢討條款。
+      <tr><td class="k" data-t="1">簡明雄</td>
+        <td data-l="定位">決策者。科班文官，唯一壓力是報中央核定</td>
+        <td data-l="可爭取程度" data-s="1"><b style="color:#7a5a1e">可協商</b></td>
+        <td data-l="操作方式"><b>定位成「幫他把案子做得更完整的人」。</b>不要求撤回，提出分階段公告＋登記制＋檢討條款。
           <b>不要講保育理念，要講行政程序風險</b></td></tr>
-      <tr><td class="k">黃向文</td>
-        <td>專業裁判。立場最接近我方</td>
-        <td><b style="color:#20613f">最高</b></td>
-        <td>只講有出處的話。<b>必答題：「你們有多少人？多常去？」</b>——會前務必備妥一頁</td></tr>
-      <tr><td class="k">陳昭倫</td>
-        <td>技術裁判。妥協落點的劃線者</td>
-        <td><b style="color:#7a5a1e">中高</b></td>
-        <td>先講三個握手點：嚴禁販售、支持核心區禁採、支持同步監測。
+      <tr><td class="k" data-t="1">黃向文</td>
+        <td data-l="定位" data-s="1">專業裁判。立場最接近我方</td>
+        <td data-l="可爭取程度" data-s="1"><b style="color:#20613f">最高</b></td>
+        <td data-l="操作方式">只講有出處的話。<b>必答題：「你們有多少人？多常去？」</b>——會前務必備妥一頁</td></tr>
+      <tr><td class="k" data-t="1">陳昭倫</td>
+        <td data-l="定位" data-s="1">技術裁判。妥協落點的劃線者</td>
+        <td data-l="可爭取程度" data-s="1"><b style="color:#7a5a1e">中高</b></td>
+        <td data-l="操作方式">先講三個握手點：嚴禁販售、支持核心區禁採、支持同步監測。
           <b>會前備妥自潛魚槍六維度一頁表</b></td></tr>
-      <tr><td class="k">陳明義<br>議員</td>
-        <td>潛水者。議會內最可能的盟友</td>
-        <td><b style="color:#20613f">高</b></td>
-        <td><b>帶潮境對照表去，不要帶訴求書。</b>訴求是「讓新北也有一個像潮境的成功案例」。
+      <tr><td class="k" data-t="1">陳明義<br>議員</td>
+        <td data-l="定位" data-s="1">潛水者。議會內最可能的盟友</td>
+        <td data-l="可爭取程度" data-s="1"><b style="color:#20613f">高</b></td>
+        <td data-l="操作方式"><b>帶潮境對照表去，不要帶訴求書。</b>訴求是「讓新北也有一個像潮境的成功案例」。
           先確認選區與委員會</td></tr>
-      <tr><td class="k">陸曉筠</td>
-        <td>路徑 B 決定者。空間規劃者</td>
-        <td><b style="color:#7a5a1e">中高</b></td>
-        <td><b>申請書用空間語言不用漁業語言</b>；把漁獲回報明確接到 iOcean；
+      <tr><td class="k" data-t="1">陸曉筠</td>
+        <td data-l="定位" data-s="1">路徑 B 決定者。空間規劃者</td>
+        <td data-l="可爭取程度" data-s="1"><b style="color:#7a5a1e">中高</b></td>
+        <td data-l="操作方式"><b>申請書用空間語言不用漁業語言</b>；把漁獲回報明確接到 iOcean；
           用她的「藍色經濟」框架。<b>不要寫成對抗市府的工具</b></td></tr>
-      <tr><td class="k">邵廣昭</td>
-        <td>價值主張者。大概率不出席，但定調輿論</td>
-        <td><b style="color:#8b3a22">低</b></td>
-        <td><b>用 slot limit 接住他。</b>絕不否認資源下降。不反駁「以保育之名行破壞之實」，用具體方案證偽</td></tr>
-      <tr><td class="k">李明安</td>
-        <td>溫和學者</td>
-        <td><b style="color:#20613f">高</b></td>
-        <td>他要證據。我方要求公開委託研究報告，與他立場一致</td></tr>
-      <tr><td class="k">吳文益</td>
-        <td>前漁會理事長、現福連里長。三系統交會點</td>
-        <td><b style="color:#20613f">高</b><br>已主動接觸</td>
-        <td><b>先請益，不要先提訴求。</b>請他講卯澳自主規範怎麼形成、誰在執行。
+      <tr><td class="k" data-t="1">邵廣昭</td>
+        <td data-l="定位">價值主張者。大概率不出席，但定調輿論</td>
+        <td data-l="可爭取程度" data-s="1"><b style="color:#8b3a22">低</b></td>
+        <td data-l="操作方式"><b>用 slot limit 接住他。</b>絕不否認資源下降。不反駁「以保育之名行破壞之實」，用具體方案證偽</td></tr>
+      <tr><td class="k" data-t="1">李明安</td>
+        <td data-l="定位" data-s="1">溫和學者</td>
+        <td data-l="可爭取程度" data-s="1"><b style="color:#20613f">高</b></td>
+        <td data-l="操作方式">他要證據。我方要求公開委託研究報告，與他立場一致</td></tr>
+      <tr><td class="k" data-t="1">吳文益</td>
+        <td data-l="定位">前漁會理事長、現福連里長。三系統交會點</td>
+        <td data-l="可爭取程度"><b style="color:#20613f">高</b><br>已主動接觸</td>
+        <td data-l="操作方式"><b>先請益，不要先提訴求。</b>請他講卯澳自主規範怎麼形成、誰在執行。
           <b>不要請他站台。</b>115 年底有里長選舉，時程要避開</td></tr>
-      <tr><td class="k">陳國光</td>
-        <td>貢寮區漁會理事長。反外來強加</td>
-        <td><b style="color:#7a5a1e">中</b><br>目標「不反對」</td>
-        <td><b>不能講「我們的權利」，只能講「我們願意加入貢寮的管理」。</b>
+      <tr><td class="k" data-t="1">陳國光</td>
+        <td data-l="定位" data-s="1">貢寮區漁會理事長。反外來強加</td>
+        <td data-l="可爭取程度"><b style="color:#7a5a1e">中</b><br>目標「不反對」</td>
+        <td data-l="操作方式"><b>不能講「我們的權利」，只能講「我們願意加入貢寮的管理」。</b>
           支持石花菜條款。<b>不要提風電案</b></td></tr>
-      <tr><td class="k">林麗美</td>
-        <td>貢寮區漁會總幹事。專業經理人</td>
-        <td><b style="color:#7a5a1e">中</b></td>
-        <td>與她談<b>具體可執行的事</b>：巡守協力、遊客管理、漁獲回報、淨海人力。
+      <tr><td class="k" data-t="1">林麗美</td>
+        <td data-l="定位" data-s="1">貢寮區漁會總幹事。專業經理人</td>
+        <td data-l="可爭取程度" data-s="1"><b style="color:#7a5a1e">中</b></td>
+        <td data-l="操作方式">與她談<b>具體可執行的事</b>：巡守協力、遊客管理、漁獲回報、淨海人力。
           <b>絕不可說「保育區會影響你們的觀光」</b></td></tr>
-      <tr><td class="k">陳映伶</td>
-        <td>保育方關鍵人物</td>
-        <td><b style="color:#7a5a1e">中</b><br>價值可對話</td>
-        <td><b>提供淨海與廢漁具清除的人力。</b>她要乾淨海床，我方會下水</td></tr>
-      <tr><td class="k">陳義雄</td>
-        <td>草案科學基礎的來源</td>
-        <td><b style="color:#8b3a22">低</b><br>但方法可質疑</td>
-        <td><b>不質疑資格，只問方法。</b>正式函請市府提供完整報告與調查設計</td></tr>
-      <tr><td class="k">陳徵蔚</td>
-        <td>價值層次分歧</td>
-        <td><b style="color:#8b3a22">低</b></td>
-        <td>不辯價值。只談共同點：廢漁具、執法失能</td></tr>
+      <tr><td class="k" data-t="1">陳映伶</td>
+        <td data-l="定位" data-s="1">保育方關鍵人物</td>
+        <td data-l="可爭取程度"><b style="color:#7a5a1e">中</b><br>價值可對話</td>
+        <td data-l="操作方式"><b>提供淨海與廢漁具清除的人力。</b>她要乾淨海床，我方會下水</td></tr>
+      <tr><td class="k" data-t="1">陳義雄</td>
+        <td data-l="定位" data-s="1">草案科學基礎的來源</td>
+        <td data-l="可爭取程度"><b style="color:#8b3a22">低</b><br>但方法可質疑</td>
+        <td data-l="操作方式"><b>不質疑資格，只問方法。</b>正式函請市府提供完整報告與調查設計</td></tr>
+      <tr><td class="k" data-t="1">陳徵蔚</td>
+        <td data-l="定位" data-s="1">價值層次分歧</td>
+        <td data-l="可爭取程度" data-s="1"><b style="color:#8b3a22">低</b></td>
+        <td data-l="操作方式">不辯價值。只談共同點：廢漁具、執法失能</td></tr>
     </tbody>
   </table>
   </div>
 
-  <h2><span class="n">拾</span>六個必須避開的地雷</h2>
+  <h2 id="s10"><span class="n">拾</span>六個必須避開的地雷</h2>
 
   <div class="warn">
     <b>地雷一　陳昭倫那句「北部種不出珊瑚礁生態系」。</b>
@@ -727,7 +793,7 @@
     在漁會的框架裡，這句話等同挑戰他們的存在基礎；而我方在他眼中同樣可能是「外來使用者」。
   </div>
 
-  <h2><span class="n">拾壹</span>桌上的位置決定策略</h2>
+  <h2 id="s11"><span class="n">拾壹</span>桌上的位置決定策略</h2>
 
   <div class="ok">
     <b>九成的共識已經存在，只是沒人講出來。</b><br>
@@ -746,7 +812,7 @@
     只有要在現場辨識魚種、量體長、判斷是否抱卵時，懂的人才有價值。
   </div>
 
-  <h2><span class="n">拾貳</span>會前待辦（依重要性）</h2>
+  <h2 id="s12"><span class="n">拾貳</span>會前待辦（依重要性）</h2>
 
   <ol>
     <li><b>請市府說明「潛水器」定義是否及於自由潛水。</b>草案明文將「浮潛」列為潛水器，

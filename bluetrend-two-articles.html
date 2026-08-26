@@ -74,6 +74,70 @@
     @page{size:A4;margin:15mm 13mm}
     h2{page-break-after:avoid} table,tr{page-break-inside:avoid}
   }
+/* mobile-v2 */
+  .mtoc{display:none}
+  @media(max-width:680px){
+    body{font-size:16px;line-height:1.72}
+    .w,.wrap,.container{padding-left:12px;padding-right:12px}
+    .sheet,.card,.box{padding-left:14px;padding-right:14px}
+    header{padding-left:16px;padding-right:16px}
+    h2{margin-top:26px;margin-bottom:9px}
+    h3{margin-top:18px;margin-bottom:6px}
+    p{margin-bottom:9px}
+
+    /* ── 表格轉卡片 ── */
+    table{min-width:0!important;border:0;font-size:15px;display:block;width:100%}
+    thead{display:none}
+    tbody,tr,td,th{display:block;width:auto}
+    tr{border:1px solid var(--line,#ded7c9);border-radius:5px;
+       background:var(--paper,#fffdf8);margin:0 0 8px;padding:7px 0;overflow:hidden}
+    td,th{border:0;padding:3px 12px;white-space:normal!important}
+    td.k{background:transparent;width:auto;font-weight:800}
+
+    /* 有表頭者：欄名變小標 */
+    table.cards td[data-l]::before{content:attr(data-l);display:block;
+      font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);margin-bottom:1px}
+    table.cards td[data-t]{font-size:16.5px;font-weight:800;
+      color:var(--sea,#12303e);padding-top:1px;padding-bottom:4px;line-height:1.45}
+    table.cards td[data-seq]{display:none!important}
+
+    /* 短值：標籤與值同一行 */
+    table.cards td[data-s]:not([data-seq]){display:flex;flex-wrap:wrap;
+      gap:2px 7px;align-items:baseline;padding-top:1px;padding-bottom:1px;
+      line-height:1.6;min-width:0}
+    table.cards td[data-s]::before{margin-bottom:0;flex:0 0 auto;
+      min-width:4.2em;line-height:1.6}
+
+    /* 無表頭的鍵值表：第一格當小標 */
+    table.kv td.k{font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);padding-bottom:1px}
+    table.kv td.k+td{padding-top:0}
+
+    /* 含 colspan/rowspan 者不堆疊，保留原表格並可橫向捲動 */
+    table.keep{display:table;width:100%}
+    table.keep thead{display:table-header-group}
+    table.keep tbody{display:table-row-group}
+    table.keep tr{display:table-row;border:0;margin:0;padding:0;background:none}
+    table.keep td,table.keep th{display:table-cell;
+      border:1px solid var(--line,#ded7c9);padding:6px 9px}
+
+    /* 不讓任何元素撐破螢幕 */
+    html,body{max-width:100%;overflow-x:hidden}
+    td,th,p,li{overflow-wrap:break-word}
+
+    /* ── 章節快速跳轉 ── */
+    .mtoc{display:block;background:var(--paper,#fffdf8);
+      border:1px solid var(--line,#ded7c9);border-radius:6px;
+      padding:11px 13px 12px;margin:0 0 20px}
+    .mtoc .tt{font-size:11px;font-weight:800;letter-spacing:.16em;
+      color:var(--gold,#b07d2b);margin-bottom:7px}
+    .mtoc a{display:inline-block;font-size:14px;color:var(--sea,#12303e);
+      text-decoration:none;background:rgba(0,0,0,.03);
+      border:1px solid var(--line,#ded7c9);border-radius:4px;
+      padding:4px 9px;margin:0 5px 5px 0;line-height:1.4;max-width:100%}
+    .mtoc a b{color:var(--gold,#b07d2b);margin-right:4px;font-weight:800}
+  }
 </style>
 </head>
 <body>
@@ -92,14 +156,16 @@
 <div class="w">
 <div class="sheet">
 
-  <h2><span class="n">壹</span>兩句話</h2>
+  <nav class="mtoc"><div class="tt">章節快速跳轉</div><a href="#s1"><b>壹</b>兩句話</a><a href="#s2"><b>貳</b>要立刻處理：BlueTrend 刊的是我方修</a><a href="#s3"><b>參</b>第二篇挖出的最強論據：基隆兩處保育區，一成一</a><a href="#s4"><b>肆</b>對手陣營的正式名單，這篇也給了</a><a href="#s5"><b>伍</b>他們的執法論，是對我方分級管理最強的攻擊</a><a href="#s6"><b>陸</b>其他值得注意的事</a><a href="#s7"><b>柒</b>建議的三個動作</a></nav>
+
+  <h2 id="s1"><span class="n">壹</span>兩句話</h2>
 
   <div class="lede">
     第一篇：他們幾乎全文照登我方新聞稿，連免責聲明都完整保留——<b>但用的是修正前的版本，需要立刻請他們更新。</b><br>
     第二篇：他們自己整理出<b>基隆兩處保育區的成與敗</b>，那是目前為止最強的一份論據，而且不是我方說的。
   </div>
 
-  <h2><span class="n">貳</span>要立刻處理：BlueTrend 刊的是我方修正前的版本</h2>
+  <h2 id="s2"><span class="n">貳</span>要立刻處理：BlueTrend 刊的是我方修正前的版本</h2>
 
   <div class="urgent">
     <b>該篇文末寫著「本文由主辦單位之一台灣海洋永續休閒採捕聯盟整理發布，摘錄與編排均為本聯盟所為，文責自負」。</b><br>
@@ -107,23 +173,23 @@
   </div>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">#</th><th>BlueTrend 現行版本</th><th>我方已修正為</th><th>為什麼要改</th></tr></thead>
     <tbody>
-      <tr><td class="k">1</td>
-        <td>「徐承堉先生於座談中所述魚槍數量與釣魚人口推估，<b>係其查詢所得</b>」</td>
-        <td>「係<b>詢問 AI 工具所得</b>，並非官方統計」</td>
-        <td><b>最重要的一項。</b>他在座談中明確說「我就回去問了我的 AI」。
+      <tr><td class="k" data-seq="1" data-l="#" data-s="1">1</td>
+        <td data-t="1">「徐承堉先生於座談中所述魚槍數量與釣魚人口推估，<b>係其查詢所得</b>」</td>
+        <td data-l="我方已修正為">「係<b>詢問 AI 工具所得</b>，並非官方統計」</td>
+        <td data-l="為什麼要改"><b>最重要的一項。</b>他在座談中明確說「我就回去問了我的 AI」。
           寫成「查詢所得」等於替他把 AI 生成的數字包裝成查證過的資料，
           記者一比對錄影就會發現。這對他不公平，也會反噬我方可信度。</td></tr>
-      <tr><td class="k">2</td>
-        <td>「並以鏢旗魚為例，<b>同樣是以魚槍原理捕撈</b>，卻長期被視為最友善的漁法之一」</td>
-        <td>刪除該推論——他只是<b>反問</b>「那算不算魚槍？」</td>
-        <td>鏢旗魚是手擲鏢刺，並非魚槍發射機構。這句是我方替他加的斷言，他沒有這樣說。</td></tr>
-      <tr><td class="k">3</td>
-        <td>蔡政良職稱寫「國立臺東大學<b>南島文化博士班</b>教授」</td>
-        <td>「國立臺東大學<b>公共與文化事務學系</b>教授」</td>
-        <td>依臺東大學官方頁面（pca.nttu.edu.tw），其所屬為公共與文化事務學系。</td></tr>
+      <tr><td class="k" data-seq="1" data-l="#" data-s="1">2</td>
+        <td data-t="1">「並以鏢旗魚為例，<b>同樣是以魚槍原理捕撈</b>，卻長期被視為最友善的漁法之一」</td>
+        <td data-l="我方已修正為">刪除該推論——他只是<b>反問</b>「那算不算魚槍？」</td>
+        <td data-l="為什麼要改">鏢旗魚是手擲鏢刺，並非魚槍發射機構。這句是我方替他加的斷言，他沒有這樣說。</td></tr>
+      <tr><td class="k" data-seq="1" data-l="#" data-s="1">3</td>
+        <td data-t="1">蔡政良職稱寫「國立臺東大學<b>南島文化博士班</b>教授」</td>
+        <td data-l="我方已修正為">「國立臺東大學<b>公共與文化事務學系</b>教授」</td>
+        <td data-l="為什麼要改">依臺東大學官方頁面（pca.nttu.edu.tw），其所屬為公共與文化事務學系。</td></tr>
     </tbody>
   </table>
   </div>
@@ -134,7 +200,7 @@
     <b>主動更正比被人指出好得多</b>，而且會讓 BlueTrend 更願意持續合作——他們是目前唯一完整刊登我方稿件的媒體。
   </div>
 
-  <h2><span class="n">參</span>第二篇挖出的最強論據：基隆兩處保育區，一成一敗</h2>
+  <h2 id="s3"><span class="n">參</span>第二篇挖出的最強論據：基隆兩處保育區，一成一敗</h2>
 
   <div class="quote">
     基隆現有兩處海洋保護區。一是 2016 年劃設的「<b>望海巷潮境海灣保育區</b>」，面積僅約 15 公頃，
@@ -162,7 +228,7 @@
     論證就完整了：<b>成功的是小範圍高強度管理，失敗的是大範圍低強度禁令。</b>
   </div>
 
-  <h2><span class="n">肆</span>對手陣營的正式名單，這篇也給了</h2>
+  <h2 id="s4"><span class="n">肆</span>對手陣營的正式名單，這篇也給了</h2>
 
   <div class="quote">
     「一起成為海洋的後盾，支持新北市擴大海洋保護區」連署，由<b>自然保育與環境資訊基金會（TNF）</b>、
@@ -186,7 +252,7 @@
     <b>海湧工作室</b>副執行長郭芙是陳徵蔚《海洋在哭》的推薦人。與先前調查完全吻合。
   </div>
 
-  <h2><span class="n">伍</span>他們的執法論，是對我方分級管理最強的攻擊</h2>
+  <h2 id="s5"><span class="n">伍</span>他們的執法論，是對我方分級管理最強的攻擊</h2>
 
   <div class="warn">
     <b>「管理愈精細，愈吃執法能力：全面禁止相對容易目視判定違規，分級管理則需逐尾秤量、辨種、
@@ -213,7 +279,7 @@
     而登記制加社群回報，正是補上執法量能的方式。
   </div>
 
-  <h2><span class="n">陸</span>其他值得注意的事</h2>
+  <h2 id="s6"><span class="n">陸</span>其他值得注意的事</h2>
 
   <ul>
     <li><b>他們正面記錄了我方的協力意願：</b>「值得注意的是，該聯盟也表示願協助政府取締收證與收集科學資料，
@@ -228,7 +294,7 @@
       〈海洋保護區大調查，潮境勝深澳！〉——最後一篇可能含保護區管理強度評比資料。</li>
   </ul>
 
-  <h2><span class="n">柒</span>建議的三個動作</h2>
+  <h2 id="s7"><span class="n">柒</span>建議的三個動作</h2>
 
   <ol>
     <li><b>立刻發更正函給 BlueTrend</b>（三處，如第貳節）。這是義務，也是維繫關係的機會。</li>

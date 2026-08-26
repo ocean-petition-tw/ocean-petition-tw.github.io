@@ -50,6 +50,70 @@
     .sheet{border:0;box-shadow:none;padding:0;margin-top:14px}.w{max-width:none;padding:0}
     .scroll{overflow:visible}table{min-width:0}@page{size:A4;margin:15mm 13mm}
     h2{page-break-after:avoid}table,tr{page-break-inside:avoid}}
+/* mobile-v2 */
+  .mtoc{display:none}
+  @media(max-width:680px){
+    body{font-size:16px;line-height:1.72}
+    .w,.wrap,.container{padding-left:12px;padding-right:12px}
+    .sheet,.card,.box{padding-left:14px;padding-right:14px}
+    header{padding-left:16px;padding-right:16px}
+    h2{margin-top:26px;margin-bottom:9px}
+    h3{margin-top:18px;margin-bottom:6px}
+    p{margin-bottom:9px}
+
+    /* ── 表格轉卡片 ── */
+    table{min-width:0!important;border:0;font-size:15px;display:block;width:100%}
+    thead{display:none}
+    tbody,tr,td,th{display:block;width:auto}
+    tr{border:1px solid var(--line,#ded7c9);border-radius:5px;
+       background:var(--paper,#fffdf8);margin:0 0 8px;padding:7px 0;overflow:hidden}
+    td,th{border:0;padding:3px 12px;white-space:normal!important}
+    td.k{background:transparent;width:auto;font-weight:800}
+
+    /* 有表頭者：欄名變小標 */
+    table.cards td[data-l]::before{content:attr(data-l);display:block;
+      font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);margin-bottom:1px}
+    table.cards td[data-t]{font-size:16.5px;font-weight:800;
+      color:var(--sea,#12303e);padding-top:1px;padding-bottom:4px;line-height:1.45}
+    table.cards td[data-seq]{display:none!important}
+
+    /* 短值：標籤與值同一行 */
+    table.cards td[data-s]:not([data-seq]){display:flex;flex-wrap:wrap;
+      gap:2px 7px;align-items:baseline;padding-top:1px;padding-bottom:1px;
+      line-height:1.6;min-width:0}
+    table.cards td[data-s]::before{margin-bottom:0;flex:0 0 auto;
+      min-width:4.2em;line-height:1.6}
+
+    /* 無表頭的鍵值表：第一格當小標 */
+    table.kv td.k{font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);padding-bottom:1px}
+    table.kv td.k+td{padding-top:0}
+
+    /* 含 colspan/rowspan 者不堆疊，保留原表格並可橫向捲動 */
+    table.keep{display:table;width:100%}
+    table.keep thead{display:table-header-group}
+    table.keep tbody{display:table-row-group}
+    table.keep tr{display:table-row;border:0;margin:0;padding:0;background:none}
+    table.keep td,table.keep th{display:table-cell;
+      border:1px solid var(--line,#ded7c9);padding:6px 9px}
+
+    /* 不讓任何元素撐破螢幕 */
+    html,body{max-width:100%;overflow-x:hidden}
+    td,th,p,li{overflow-wrap:break-word}
+
+    /* ── 章節快速跳轉 ── */
+    .mtoc{display:block;background:var(--paper,#fffdf8);
+      border:1px solid var(--line,#ded7c9);border-radius:6px;
+      padding:11px 13px 12px;margin:0 0 20px}
+    .mtoc .tt{font-size:11px;font-weight:800;letter-spacing:.16em;
+      color:var(--gold,#b07d2b);margin-bottom:7px}
+    .mtoc a{display:inline-block;font-size:14px;color:var(--sea,#12303e);
+      text-decoration:none;background:rgba(0,0,0,.03);
+      border:1px solid var(--line,#ded7c9);border-radius:4px;
+      padding:4px 9px;margin:0 5px 5px 0;line-height:1.4;max-width:100%}
+    .mtoc a b{color:var(--gold,#b07d2b);margin-right:4px;font-weight:800}
+  }
 </style>
 </head>
 <body>
@@ -66,7 +130,9 @@
 <div class="sheet">
 
 
-  <h2><span class="n">壹</span>一句話結論</h2>
+  <nav class="mtoc"><div class="tt">章節快速跳轉</div><a href="#s1"><b>壹</b>一句話結論</a><a href="#s2"><b>貳</b>機關檔案</a><a href="#s3"><b>參</b>2017 年的前科：它自己做過，然後失敗了</a><a href="#s4"><b>肆</b>法律結構的兩難──本案最精確的論點</a><a href="#s5"><b>伍</b>全國 31 處保育區的比較</a><a href="#s6"><b>陸</b>它自己被批評什麼</a><a href="#s7"><b>柒</b>另一條線：娛樂漁業管理辦法</a><a href="#s8"><b>捌</b>兵推與建議</a></nav>
+
+  <h2 id="s1"><span class="n">壹</span>一句話結論</h2>
 
   <div class="lede">
     <b>它才是本案的最後一關。</b>依漁業法 §44Ⅲ，新北市公告前<b>應報中央主管機關核定</b>。<br>
@@ -83,10 +149,10 @@
     這正是 2017 年那份草案被批評的核心。</b>
   </div>
 
-  <h2><span class="n">貳</span>機關檔案</h2>
+  <h2 id="s2"><span class="n">貳</span>機關檔案</h2>
 
   <div class="scroll">
-  <table>
+  <table class="kv">
     <tr><td class="k">全銜</td><td>農業部漁業署（原行政院農業委員會漁業署，112 年 8 月 1 日改隸農業部）</td></tr>
     <tr><td class="k">地址</td><td>本部：806604 高雄市前鎮區漁港北一路 1 號　電話 (07) 811-3288；另設臺北分部</td></tr>
     <tr><td class="k">本案角色</td><td><b>漁業法 §44Ⅲ 之核定機關</b>——新北市公告前應報其核定</td></tr>
@@ -97,7 +163,7 @@
 
   <h3>現任署長：王茂城</h3>
   <div class="scroll">
-  <table>
+  <table class="kv">
     <tr><td class="k">學歷</td><td><b>國立臺灣海洋大學漁業科學學系碩士</b></td></tr>
     <tr><td class="k">113.12.05–</td><td><b>農業部漁業署署長</b></td></tr>
     <tr><td class="k">109.08.04–</td><td><b>海洋委員會處長</b></td></tr>
@@ -115,10 +181,10 @@
     與簡明雄的職涯結構相同。<b>對這種對象，講程序與法制的一致性有效，講理念無效。</b>
   </div>
 
-  <h2><span class="n">參</span>2017 年的前科：它自己做過，然後失敗了</h2>
+  <h2 id="s3"><span class="n">參</span>2017 年的前科：它自己做過，然後失敗了</h2>
 
   <div class="scroll">
-  <table>
+  <table class="kv">
     <tr><td class="k">2017.03.10</td><td>漁業署預告「<b>魚槍採捕水產動物禁漁區管制措施</b>」草案。<b>法源：漁業法第 44 條第 1 項第 4 款</b>。
       內容：距岸 12 海浬內，除原住民於原住民族地區基於文化祭儀或自用、鏢旗魚漁業、經核准之學術研究外，
       <b>禁止一切魚槍獵捕</b>。違者依<b>漁業法第 65 條第 6 款</b>處 3 萬至 15 萬元罰鍰。</td></tr>
@@ -153,21 +219,21 @@
     完整原文與逐條判讀見 <b>draft-text.html</b>。
   </div>
 
-  <h2><span class="n">肆</span>法律結構的兩難──本案最精確的論點</h2>
+  <h2 id="s4"><span class="n">肆</span>法律結構的兩難──本案最精確的論點</h2>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">援引條款</th><th>處罰依據</th><th>性質與額度</th><th>由誰處罰</th></tr></thead>
     <tbody>
-      <tr><td class="k">§44Ⅰ①<br>採捕限制</td><td>§65 未列；另有專條</td><td>—</td><td>—</td></tr>
-      <tr><td class="k"><b>§44Ⅰ③<br>漁具、漁法</b></td>
-        <td><b>§61</b></td>
-        <td><b class="warn">刑罰</b>——六月以下有期徒刑、拘役，或科或併科<b>新臺幣三萬元以下罰金</b></td>
-        <td><b>司法機關</b><br>（非公告機關）</td></tr>
-      <tr><td class="k">§44Ⅰ④–⑨<br>漁區漁期等</td>
-        <td><b>§65⑥</b></td>
-        <td>行政罰鍰　新臺幣<b>三萬元以上十五萬元以下</b></td>
-        <td>公告機關<br>（新北市）</td></tr>
+      <tr><td class="k" data-t="1">§44Ⅰ①<br>採捕限制</td><td data-l="處罰依據" data-s="1">§65 未列；另有專條</td><td data-l="性質與額度" data-s="1">—</td><td data-l="由誰處罰" data-s="1">—</td></tr>
+      <tr><td class="k" data-t="1"><b>§44Ⅰ③<br>漁具、漁法</b></td>
+        <td data-l="處罰依據" data-s="1"><b>§61</b></td>
+        <td data-l="性質與額度"><b class="warn">刑罰</b>——六月以下有期徒刑、拘役，或科或併科<b>新臺幣三萬元以下罰金</b></td>
+        <td data-l="由誰處罰"><b>司法機關</b><br>（非公告機關）</td></tr>
+      <tr><td class="k" data-t="1">§44Ⅰ④–⑨<br>漁區漁期等</td>
+        <td data-l="處罰依據" data-s="1"><b>§65⑥</b></td>
+        <td data-l="性質與額度">行政罰鍰　新臺幣<b>三萬元以上十五萬元以下</b></td>
+        <td data-l="由誰處罰">公告機關<br>（新北市）</td></tr>
     </tbody>
   </table>
   </div>
@@ -201,12 +267,12 @@
     <b>已確認：草案援引第 4、7、9 款，未引第 3 款（見 draft-text.html）。</b>
   </div>
 
-  <h2><span class="n">伍</span>全國 31 處保育區的比較</h2>
+  <h2 id="s5"><span class="n">伍</span>全國 31 處保育區的比較</h2>
 
   <p>依漁業署官網，全國現有<b>水產動植物繁殖保育區 31 處</b>，分布於 10 縣市：</p>
 
   <div class="scroll">
-  <table>
+  <table class="kv">
     <tr><td class="k">花蓮縣</td><td>6 處</td><td class="k">臺東縣</td><td>5 處</td>
         <td class="k">宜蘭縣</td><td>4 處</td><td class="k"><b>新北市</b></td><td><b>4 處</b></td></tr>
     <tr><td class="k">彰化縣</td><td>3 處</td><td class="k">屏東縣</td><td>3 處</td>
@@ -227,7 +293,7 @@
   <p>公告日期 <b>114 年 6 月 20 日</b>（屏府農漁字第 11490041131 號），是全國最新修訂的保育區管制措施。</p>
 
   <div class="scroll">
-  <table>
+  <table class="kv">
     <tr><td class="k">分區</td><td>五大分區：西北分區、潮間帶保育示範區（杉福、漁埕尾、肚仔坪、蛤板灣）、
       肚仔坪核心區、龍蝦洞核心區、環島分區</td></tr>
     <tr><td class="k">管制基礎</td><td><b>區域 × 物種</b>——各分區訂有不同的保育對象
@@ -248,7 +314,7 @@
     我方請求的分級管理，並不是特例，而是<b>現行體系內既有的、而且是最新的作法</b>。」
   </div>
 
-  <h2><span class="n">陸</span>它自己被批評什麼</h2>
+  <h2 id="s6"><span class="n">陸</span>它自己被批評什麼</h2>
 
   <div class="quote">
     休閒採捕所得漁獲轉為營利販售等既有違法行為，<b>漁業署不能一方面缺乏執法，
@@ -265,7 +331,7 @@
     我方主張「嚴禁休閒漁獲販售」與此完全一致，且對漁會有實質利益（非法漁獲會壓低合法漁民售價）。
   </div>
 
-  <h2><span class="n">柒</span>另一條線：娛樂漁業管理辦法</h2>
+  <h2 id="s7"><span class="n">柒</span>另一條線：娛樂漁業管理辦法</h2>
 
   <div class="info">
     <b>「娛樂漁業管理辦法」是漁業署的法規。</b>黃向文 2017 年那篇投書的標題即為
@@ -279,7 +345,7 @@
     這比要求新北市自行創設登記制更有法制基礎。
   </div>
 
-  <h2><span class="n">捌</span>兵推與建議</h2>
+  <h2 id="s8"><span class="n">捌</span>兵推與建議</h2>
 
   <h3>漁業署可能怎麼看這份草案</h3>
   <ul>

@@ -76,6 +76,70 @@
     @page{size:A4;margin:15mm 13mm}
     h2{page-break-after:avoid} table,tr{page-break-inside:avoid}
   }
+/* mobile-v2 */
+  .mtoc{display:none}
+  @media(max-width:680px){
+    body{font-size:16px;line-height:1.72}
+    .w,.wrap,.container{padding-left:12px;padding-right:12px}
+    .sheet,.card,.box{padding-left:14px;padding-right:14px}
+    header{padding-left:16px;padding-right:16px}
+    h2{margin-top:26px;margin-bottom:9px}
+    h3{margin-top:18px;margin-bottom:6px}
+    p{margin-bottom:9px}
+
+    /* ── 表格轉卡片 ── */
+    table{min-width:0!important;border:0;font-size:15px;display:block;width:100%}
+    thead{display:none}
+    tbody,tr,td,th{display:block;width:auto}
+    tr{border:1px solid var(--line,#ded7c9);border-radius:5px;
+       background:var(--paper,#fffdf8);margin:0 0 8px;padding:7px 0;overflow:hidden}
+    td,th{border:0;padding:3px 12px;white-space:normal!important}
+    td.k{background:transparent;width:auto;font-weight:800}
+
+    /* 有表頭者：欄名變小標 */
+    table.cards td[data-l]::before{content:attr(data-l);display:block;
+      font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);margin-bottom:1px}
+    table.cards td[data-t]{font-size:16.5px;font-weight:800;
+      color:var(--sea,#12303e);padding-top:1px;padding-bottom:4px;line-height:1.45}
+    table.cards td[data-seq]{display:none!important}
+
+    /* 短值：標籤與值同一行 */
+    table.cards td[data-s]:not([data-seq]){display:flex;flex-wrap:wrap;
+      gap:2px 7px;align-items:baseline;padding-top:1px;padding-bottom:1px;
+      line-height:1.6;min-width:0}
+    table.cards td[data-s]::before{margin-bottom:0;flex:0 0 auto;
+      min-width:4.2em;line-height:1.6}
+
+    /* 無表頭的鍵值表：第一格當小標 */
+    table.kv td.k{font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);padding-bottom:1px}
+    table.kv td.k+td{padding-top:0}
+
+    /* 含 colspan/rowspan 者不堆疊，保留原表格並可橫向捲動 */
+    table.keep{display:table;width:100%}
+    table.keep thead{display:table-header-group}
+    table.keep tbody{display:table-row-group}
+    table.keep tr{display:table-row;border:0;margin:0;padding:0;background:none}
+    table.keep td,table.keep th{display:table-cell;
+      border:1px solid var(--line,#ded7c9);padding:6px 9px}
+
+    /* 不讓任何元素撐破螢幕 */
+    html,body{max-width:100%;overflow-x:hidden}
+    td,th,p,li{overflow-wrap:break-word}
+
+    /* ── 章節快速跳轉 ── */
+    .mtoc{display:block;background:var(--paper,#fffdf8);
+      border:1px solid var(--line,#ded7c9);border-radius:6px;
+      padding:11px 13px 12px;margin:0 0 20px}
+    .mtoc .tt{font-size:11px;font-weight:800;letter-spacing:.16em;
+      color:var(--gold,#b07d2b);margin-bottom:7px}
+    .mtoc a{display:inline-block;font-size:14px;color:var(--sea,#12303e);
+      text-decoration:none;background:rgba(0,0,0,.03);
+      border:1px solid var(--line,#ded7c9);border-radius:4px;
+      padding:4px 9px;margin:0 5px 5px 0;line-height:1.4;max-width:100%}
+    .mtoc a b{color:var(--gold,#b07d2b);margin-right:4px;font-weight:800}
+  }
 </style>
 </head>
 <body>
@@ -94,7 +158,9 @@
 <div class="w">
 <div class="sheet">
 
-  <h2><span class="n">壹</span>一句話結論</h2>
+  <nav class="mtoc"><div class="tt">章節快速跳轉</div><a href="#s1"><b>壹</b>一句話結論</a><a href="#s2"><b>貳</b>人物檔案</a><a href="#s3"><b>參</b>學術產出的樣貌</a><a href="#s4"><b>肆</b>他手上真的有北海岸的長期資料——但研究對象不</a><a href="#s5"><b>伍</b>他在本案的四項主張，可信度並不相同</a><a href="#s6"><b>陸</b>會前應正式函請市府提供的文件</a><a href="#s7"><b>柒</b>會議上可以問的五個問題</a><a href="#s8"><b>捌</b>絕對不要做的三件事</a><a href="#s9"><b>玖</b>兩點補充判讀</a></nav>
+
+  <h2 id="s1"><span class="n">壹</span>一句話結論</h2>
 
   <div class="lede">
     他是本案科學主張的來源，也是<b>唯一手上真的有新北海域長期資料的人</b>——
@@ -111,10 +177,10 @@
     我方要做的只有一件事：<b>請市府提供完整報告，並就方法提出具體、可回答的問題。</b>
   </div>
 
-  <h2><span class="n">貳</span>人物檔案</h2>
+  <h2 id="s2"><span class="n">貳</span>人物檔案</h2>
 
   <div class="scroll">
-  <table>
+  <table class="kv">
     <tr><td class="k">現職</td><td>國立臺灣海洋大學海洋生物研究所教授</td></tr>
     <tr><td class="k">學歷</td><td>英國布里斯托大學（University of Bristol）海洋生物學系博士</td></tr>
     <tr><td class="k">研究專長</td><td><b>魚類系統分類學</b>、魚類生態學、<b>分子演化</b>、演化遺傳學、分子地理親緣學、分子生態學</td></tr>
@@ -124,25 +190,25 @@
   </table>
   </div>
 
-  <h2><span class="n">參</span>學術產出的樣貌</h2>
+  <h2 id="s3"><span class="n">參</span>學術產出的樣貌</h2>
 
   <p>檢視其 2021–2024 年公開著作，樣貌相當一致：</p>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">年</th><th>內容</th></tr></thead>
     <tbody>
-      <tr><td class="k">2024</td><td>約 <b>29 篇</b>，幾乎全部是新種發表與分類訂正，發表於分類學期刊 <i>Zootaxa</i>；
+      <tr><td class="k" data-t="1">2024</td><td data-l="內容">約 <b>29 篇</b>，幾乎全部是新種發表與分類訂正，發表於分類學期刊 <i>Zootaxa</i>；
         其中多數集中於 <i>Zootaxa</i> 5550(1) 熱帶魚類多樣性特刊——他同時是該特刊<b>共同編者</b>。<br>
         類群以<b>蝦虎科</b>（Rhinogobius、Luciogobius、Trimma、Priolepis、Eviota、Callogobius 等）為主，
         另有平鰭鰍科、鯉科、鮠科、青鱂科等，<b>以淡水與河口物種居多</b>。</td></tr>
-      <tr><td class="k">2023</td><td>1 篇，海南島鱲屬親緣地理學（PLoS）。</td></tr>
-      <tr><td class="k">2022</td><td>約 10 篇，同樣以蝦虎與淡水魚新種為主。<br>
+      <tr><td class="k" data-t="1">2023</td><td data-l="內容">1 篇，海南島鱲屬親緣地理學（PLoS）。</td></tr>
+      <tr><td class="k" data-t="1">2022</td><td data-l="內容">約 10 篇，同樣以蝦虎與淡水魚新種為主。<br>
         <b>值得注意的例外</b>：Ho et al. (2022)《臺灣南部岩石潮池魚類群聚長期監測資料集》，
         發表於 <i>Scientific Data</i>——<b>這是一份公開發表的長期生態監測資料集</b>。</td></tr>
-      <tr><td class="k">2021</td><td>東沙環礁蝦虎新紀錄；另著有《澎湖南方四島國家公園－魚類生態圖鑑》
+      <tr><td class="k" data-t="1">2021</td><td data-l="內容">東沙環礁蝦虎新紀錄；另著有《澎湖南方四島國家公園－魚類生態圖鑑》
         （海洋國家公園管理處出版，352 頁）——顯示他長期承接政府保育機關的魚類調查與圖鑑工作。</td></tr>
-      <tr><td class="k">2020</td><td><b>《北海岸岩石潮池魚類群聚 20 年長期監測資料集》</b>，
+      <tr><td class="k" data-t="1">2020</td><td data-l="內容"><b>《北海岸岩石潮池魚類群聚 20 年長期監測資料集》</b>，
         <i>Scientific Data</i> 7:84。共同作者含<b>邵廣昭</b>。<b>測站設於野柳、八斗子、澳底</b>，
         1999–2018 年季節性採樣。<b>與本案關聯最深的一篇，詳見下節。</b></td></tr>
     </tbody>
@@ -154,13 +220,13 @@
     近年公開著作中，<b>未見以東北角岩礁魚類資源評估或漁獲努力量分析為主題的同儕審查論文</b>。
   </div>
 
-  <h2><span class="n">肆</span>他手上真的有北海岸的長期資料——但研究對象不同</h2>
+  <h2 id="s4"><span class="n">肆</span>他手上真的有北海岸的長期資料——但研究對象不同</h2>
 
   <p>2020 年，他與海科館、中研院<b>邵廣昭</b>等人於 <i>Scientific Data</i> 共同發表
     《北海岸岩石潮池魚類群聚長期監測資料集》（7:84，開放取用，資料以 CC0 公開於 figshare）。</p>
 
   <div class="scroll">
-  <table>
+  <table class="keep">
     <thead><tr><th style="width:1%">測站</th><th>位置</th><th>期間</th><th>樣本</th><th>物種</th></tr></thead>
     <tbody>
       <tr><td class="k">YL</td><td><b>野柳</b>　新北萬里</td><td>1999.10–2018.11</td><td>47</td><td>65</td></tr>
@@ -187,16 +253,16 @@
   </div>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%"></th><th>物種</th><th>類群與體型</th></tr></thead>
     <tbody>
-      <tr><td class="k">論文的<br>優勢種</td>
-        <td><i>Bathygobius fuscus</i>（褐吻鰕虎）、<i>Abudefduf vaigiensis</i>（豆娘魚）、
+      <tr><td class="k" data-t="1">論文的<br>優勢種</td>
+        <td data-l="物種"><i>Bathygobius fuscus</i>（褐吻鰕虎）、<i>Abudefduf vaigiensis</i>（豆娘魚）、
           <i>Istiblennius</i> 屬（鳚科）</td>
-        <td><b>潮池小型魚</b>，成魚體長多在十公分上下</td></tr>
-      <tr><td class="k">他在媒體上<br>說稀缺的</td>
-        <td>石斑、鸚哥魚、笛鯛、粗皮鯛、寒鯛</td>
-        <td><b>亞潮帶中大型經濟魚種</b></td></tr>
+        <td data-l="類群與體型"><b>潮池小型魚</b>，成魚體長多在十公分上下</td></tr>
+      <tr><td class="k" data-t="1">他在媒體上<br>說稀缺的</td>
+        <td data-l="物種">石斑、鸚哥魚、笛鯛、粗皮鯛、寒鯛</td>
+        <td data-l="類群與體型" data-s="1"><b>亞潮帶中大型經濟魚種</b></td></tr>
     </tbody>
   </table>
   </div>
@@ -243,7 +309,7 @@
     完整解析另見 <code>paper-tidepool-2020.html</code>。
   </div>
 
-  <h2><span class="n">伍</span>他在本案的四項主張，可信度並不相同</h2>
+  <h2 id="s5"><span class="n">伍</span>他在本案的四項主張，可信度並不相同</h2>
 
   <div class="quote">
     新北海域的中大型經濟魚種如石斑、鸚哥魚、笛鯛、粗皮鯛及寒鯛等類群已逐漸稀缺，尤其在非保育區的沿岸海域，顯示受漁獵採捕壓力大。……
@@ -252,24 +318,24 @@
   </div>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">#</th><th>主張</th><th>性質</th><th>評估</th></tr></thead>
     <tbody>
-      <tr><td class="k">1</td><td>石斑、鸚哥魚、笛鯛、粗皮鯛、寒鯛等中大型魚種<b>逐漸稀缺</b></td>
-        <td>物種組成與相對豐度之觀察</td>
-        <td><b>在其專長範圍內，應予接受。</b>我方不應挑戰此點——陳昭倫在研討會亦說東北角沿海珊瑚礁魚類「一定是下降」。</td></tr>
-      <tr><td class="k">2</td><td>保育區內群聚<b>優於</b>非保育區，顯示保育措施<b>確有成效</b></td>
-        <td>因果推論</td>
-        <td><b>需檢視方法。</b>區內外差異也可能來自棲地類型、深度、地形、可及性之先天差異。
+      <tr><td class="k" data-seq="1" data-l="#" data-s="1">1</td><td data-t="1">石斑、鸚哥魚、笛鯛、粗皮鯛、寒鯛等中大型魚種<b>逐漸稀缺</b></td>
+        <td data-l="性質" data-s="1">物種組成與相對豐度之觀察</td>
+        <td data-l="評估"><b>在其專長範圍內，應予接受。</b>我方不應挑戰此點——陳昭倫在研討會亦說東北角沿海珊瑚礁魚類「一定是下降」。</td></tr>
+      <tr><td class="k" data-seq="1" data-l="#" data-s="1">2</td><td data-t="1">保育區內群聚<b>優於</b>非保育區，顯示保育措施<b>確有成效</b></td>
+        <td data-l="性質" data-s="1">因果推論</td>
+        <td data-l="評估"><b>需檢視方法。</b>區內外差異也可能來自棲地類型、深度、地形、可及性之先天差異。
           海洋保護區研究的標準作法需要 <b>BACI 設計</b>或至少對照點配對；若僅為單次區內外比較，結論須保留。</td></tr>
-      <tr><td class="k">3</td><td>非保育區稀缺「顯示受<b>漁獵採捕</b>壓力大」</td>
-        <td><b>對特定漁法的因果歸因</b></td>
-        <td><b>這是最需要證據的一項。</b>要把稀缺歸因於漁獵採捕（而非釣具、刺網、商業漁船、棲地或氣候），
+      <tr><td class="k" data-seq="1" data-l="#" data-s="1">3</td><td data-t="1">非保育區稀缺「顯示受<b>漁獵採捕</b>壓力大」</td>
+        <td data-l="性質" data-s="1"><b>對特定漁法的因果歸因</b></td>
+        <td data-l="評估"><b>這是最需要證據的一項。</b>要把稀缺歸因於漁獵採捕（而非釣具、刺網、商業漁船、棲地或氣候），
           必須有<b>分漁法的採捕努力量資料</b>。而陳昭倫在同一場研討會明說：漁業年報中連「珊瑚礁漁業」的分類都不存在，
           各種捕撈方式的強度「完完全全沒有資料」。</td></tr>
-      <tr><td class="k">4</td><td>應管制沿岸 3 浬潛水魚槍採捕、鼓勵「留影不留魚」</td>
-        <td>管理處方</td>
-        <td><b>已超出科學結論的範圍，屬政策主張。</b>科學可以說「某魚種變少」，
+      <tr><td class="k" data-seq="1" data-l="#" data-s="1">4</td><td data-t="1">應管制沿岸 3 浬潛水魚槍採捕、鼓勵「留影不留魚」</td>
+        <td data-l="性質" data-s="1">管理處方</td>
+        <td data-l="評估"><b>已超出科學結論的範圍，屬政策主張。</b>科學可以說「某魚種變少」，
           但「該用哪一種手段、管制到什麼程度」是價值與比例的判斷，須經利害關係人參與。</td></tr>
     </tbody>
   </table>
@@ -280,7 +346,7 @@
     這樣做我方站在科學這一邊，而不是對立面。
   </div>
 
-  <h2><span class="n">陸</span>會前應正式函請市府提供的文件</h2>
+  <h2 id="s6"><span class="n">陸</span>會前應正式函請市府提供的文件</h2>
 
   <p>這是本次準備工作中<b>最重要的一件事</b>，建議在 9/8 之前以書面提出：</p>
 
@@ -298,7 +364,7 @@
     這是以他自己的學術實踐為標準，既尊重又難以拒絕。
   </div>
 
-  <h2><span class="n">柒</span>會議上可以問的五個問題</h2>
+  <h2 id="s7"><span class="n">柒</span>會議上可以問的五個問題</h2>
 
   <p>語氣必須是<b>請教</b>，不是質詢。這些問題若他答得出來，我方學到東西；答不出來，市府的科學基礎自然浮現。</p>
 
@@ -317,7 +383,7 @@
     自 2023 年起累積 162 人次。<b>這是我方能提供、而市府缺乏的東西。</b>
   </div>
 
-  <h2><span class="n">捌</span>絕對不要做的三件事</h2>
+  <h2 id="s8"><span class="n">捌</span>絕對不要做的三件事</h2>
 
   <div class="warn">
     <b>一、不要主張資源沒有下降。</b>陳昭倫說「一定是下降」，徐承堉說「所有的魚類資源幾乎都變少」。
@@ -328,7 +394,7 @@
     讓結論由他自己或由其他學者說出來，效果好得多，也不會結仇。
   </div>
 
-  <h2><span class="n">玖</span>兩點補充判讀</h2>
+  <h2 id="s9"><span class="n">玖</span>兩點補充判讀</h2>
 
   <ul>
     <li><b>他是市府的長期夥伴，不是一次性的顧問。</b>「海大長期受新北市府委託」意味著這個關係還會延續。

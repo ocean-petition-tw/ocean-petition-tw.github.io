@@ -53,6 +53,70 @@
     .sheet{border:0;box-shadow:none;padding:0;margin-top:14px}.w{max-width:none;padding:0}
     .scroll{overflow:visible}table{min-width:0}@page{size:A4;margin:15mm 12mm}
     h2{page-break-after:avoid}table,tr{page-break-inside:avoid}}
+/* mobile-v2 */
+  .mtoc{display:none}
+  @media(max-width:680px){
+    body{font-size:16px;line-height:1.72}
+    .w,.wrap,.container{padding-left:12px;padding-right:12px}
+    .sheet,.card,.box{padding-left:14px;padding-right:14px}
+    header{padding-left:16px;padding-right:16px}
+    h2{margin-top:26px;margin-bottom:9px}
+    h3{margin-top:18px;margin-bottom:6px}
+    p{margin-bottom:9px}
+
+    /* ── 表格轉卡片 ── */
+    table{min-width:0!important;border:0;font-size:15px;display:block;width:100%}
+    thead{display:none}
+    tbody,tr,td,th{display:block;width:auto}
+    tr{border:1px solid var(--line,#ded7c9);border-radius:5px;
+       background:var(--paper,#fffdf8);margin:0 0 8px;padding:7px 0;overflow:hidden}
+    td,th{border:0;padding:3px 12px;white-space:normal!important}
+    td.k{background:transparent;width:auto;font-weight:800}
+
+    /* 有表頭者：欄名變小標 */
+    table.cards td[data-l]::before{content:attr(data-l);display:block;
+      font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);margin-bottom:1px}
+    table.cards td[data-t]{font-size:16.5px;font-weight:800;
+      color:var(--sea,#12303e);padding-top:1px;padding-bottom:4px;line-height:1.45}
+    table.cards td[data-seq]{display:none!important}
+
+    /* 短值：標籤與值同一行 */
+    table.cards td[data-s]:not([data-seq]){display:flex;flex-wrap:wrap;
+      gap:2px 7px;align-items:baseline;padding-top:1px;padding-bottom:1px;
+      line-height:1.6;min-width:0}
+    table.cards td[data-s]::before{margin-bottom:0;flex:0 0 auto;
+      min-width:4.2em;line-height:1.6}
+
+    /* 無表頭的鍵值表：第一格當小標 */
+    table.kv td.k{font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);padding-bottom:1px}
+    table.kv td.k+td{padding-top:0}
+
+    /* 含 colspan/rowspan 者不堆疊，保留原表格並可橫向捲動 */
+    table.keep{display:table;width:100%}
+    table.keep thead{display:table-header-group}
+    table.keep tbody{display:table-row-group}
+    table.keep tr{display:table-row;border:0;margin:0;padding:0;background:none}
+    table.keep td,table.keep th{display:table-cell;
+      border:1px solid var(--line,#ded7c9);padding:6px 9px}
+
+    /* 不讓任何元素撐破螢幕 */
+    html,body{max-width:100%;overflow-x:hidden}
+    td,th,p,li{overflow-wrap:break-word}
+
+    /* ── 章節快速跳轉 ── */
+    .mtoc{display:block;background:var(--paper,#fffdf8);
+      border:1px solid var(--line,#ded7c9);border-radius:6px;
+      padding:11px 13px 12px;margin:0 0 20px}
+    .mtoc .tt{font-size:11px;font-weight:800;letter-spacing:.16em;
+      color:var(--gold,#b07d2b);margin-bottom:7px}
+    .mtoc a{display:inline-block;font-size:14px;color:var(--sea,#12303e);
+      text-decoration:none;background:rgba(0,0,0,.03);
+      border:1px solid var(--line,#ded7c9);border-radius:4px;
+      padding:4px 9px;margin:0 5px 5px 0;line-height:1.4;max-width:100%}
+    .mtoc a b{color:var(--gold,#b07d2b);margin-right:4px;font-weight:800}
+  }
 </style>
 </head>
 <body>
@@ -69,7 +133,9 @@
 <div class="sheet">
 
 
-  <h2><span class="n">壹</span>結論摘要</h2>
+  <nav class="mtoc"><div class="tt">章節快速跳轉</div><a href="#s1"><b>壹</b>結論摘要</a><a href="#s2"><b>貳</b>劃設保育區：可以，而且不必報中央</a><a href="#s3"><b>參</b>訂定限制事項：可以，但公告前應報中央核定</a><a href="#s4"><b>參</b>之一真正的變化：新舊公告對照</a><a href="#s5"><b>肆</b>以第 4、7、9 款禁止魚槍：法理有疑義，實</a><a href="#s6"><b>伍</b>為什麼捨第 3 款不用</a><a href="#s7"><b>陸</b>比例原則與平等原則</a><a href="#s8"><b>柒</b>這份公告的法律性質，決定救濟途徑</a><a href="#s9"><b>捌</b>我方最該主張的：一部無效，而非全部無效</a><a href="#s10"><b>玖</b>我方陳述意見書有一處需要留意</a><a href="#s11"><b>拾</b>現行法的一個限制：休閒採捕者沒有申報義務</a><a href="#s12"><b>拾壹</b>查證狀態</a></nav>
+
+  <h2 id="s1"><span class="n">壹</span>結論摘要</h2>
 
   <div class="warn">
     <b>重大更正（115.08.26 第二次查證後）</b><br><br>
@@ -93,37 +159,37 @@
   </div>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">問題</th><th>答案</th><th>依據</th></tr></thead>
     <tbody>
-      <tr><td class="k">能不能劃設<br>保育區？</td>
-        <td><b class="yes">可以，而且不必報中央核定。</b>新北市為直轄市，保育區之設置由直轄市主管機關自行核定。</td>
-        <td>漁業法 §45Ⅰ、Ⅱ</td></tr>
-      <tr><td class="k">能不能訂定<br>限制事項？</td>
-        <td><b class="q">可以，但公告前應報中央主管機關核定。</b>
+      <tr><td class="k" data-t="1">能不能劃設<br>保育區？</td>
+        <td data-l="答案"><b class="yes">可以，而且不必報中央核定。</b>新北市為直轄市，保育區之設置由直轄市主管機關自行核定。</td>
+        <td data-l="依據" data-s="1">漁業法 §45Ⅰ、Ⅱ</td></tr>
+      <tr><td class="k" data-t="1">能不能訂定<br>限制事項？</td>
+        <td data-l="答案"><b class="q">可以，但公告前應報中央主管機關核定。</b>
           §44Ⅲ 明文包含直轄市，<b>§45Ⅱ 的自行核定權只及於「保育區之設置」，不及於「限制事項」。</b></td>
-        <td>漁業法 §44Ⅲ</td></tr>
-      <tr><td class="k">能不能以第 4、7、9 款<br>禁止魚槍？</td>
-        <td><b class="q">法理上有疑義，但實務上難以動搖。</b>新北市 15 年來管制漁具一律引第 4 款，
+        <td data-l="依據" data-s="1">漁業法 §44Ⅲ</td></tr>
+      <tr><td class="k" data-t="1">能不能以第 4、7、9 款<br>禁止魚槍？</td>
+        <td data-l="答案"><b class="q">法理上有疑義，但實務上難以動搖。</b>新北市 15 年來管制漁具一律引第 4 款，
           從未引第 3 款；現行公告與新草案法源完全相同，且由漁業署彙整公布。
           <b>可作為提問，不宜作為主攻。</b></td>
-        <td>漁業法 §44Ⅰ③／④<br>新北市歷年公告實務</td></tr>
-      <tr><td class="k">能不能訂定<br>夜間禁止漁獵？</td>
-        <td><b class="yes">可以。</b>新北市既有實務中，「特定期間 × 特定漁具」之複合限制反覆出現
+        <td data-l="依據">漁業法 §44Ⅰ③／④<br>新北市歷年公告實務</td></tr>
+      <tr><td class="k" data-t="1">能不能訂定<br>夜間禁止漁獵？</td>
+        <td data-l="答案"><b class="yes">可以。</b>新北市既有實務中，「特定期間 × 特定漁具」之複合限制反覆出現
           （流袋網 6/15–9/14、刺網 6/15–8/15、拖網 6/15–8/15），均引第 4 款。
           <b>夜間限制在法源上比全面禁止更穩固。</b><br>
           <span class="cite">唯一差異：既有「漁期」皆為年度日期區間，「一日內時段」無先例；
           惟第 9 款可兜底，且市府慣用第 4＋9 款組合。</span></td>
-        <td>漁業法 §44Ⅰ④、⑨</td></tr>
-      <tr><td class="k">真正的問題<br>在哪裡？</td>
-        <td><b class="no">管制對象與範圍的巨幅擴張。</b>「魚槍」是本次<b>零到有</b>；
+        <td data-l="依據" data-s="1">漁業法 §44Ⅰ④、⑨</td></tr>
+      <tr><td class="k" data-t="1">真正的問題<br>在哪裡？</td>
+        <td data-l="答案"><b class="no">管制對象與範圍的巨幅擴張。</b>「魚槍」是本次<b>零到有</b>；
           潛水器從「採捕特定 8 類」擴為「採捕一切」；範圍從距岸 300 公尺扇形擴為<b>3 浬全帶</b>。
           <b>而市府未說明此一擴張之必要性。</b></td>
-        <td>行政程序法 §6、§7、§8</td></tr>
-      <tr><td class="k">全面禁止<br>合乎比例原則嗎？</td>
-        <td><b class="no">有相當疑義。</b>存在體長、數量、時段、登記等較小侵害手段，
+        <td data-l="依據" data-s="1">行政程序法 §6、§7、§8</td></tr>
+      <tr><td class="k" data-t="1">全面禁止<br>合乎比例原則嗎？</td>
+        <td data-l="答案"><b class="no">有相當疑義。</b>存在體長、數量、時段、登記等較小侵害手段，
           而市府從未提出「魚槍在日間造成何種具體衝擊」之評估。</td>
-        <td>行政程序法 §6、§7</td></tr>
+        <td data-l="依據" data-s="1">行政程序法 §6、§7</td></tr>
     </tbody>
   </table>
   </div>
@@ -155,7 +221,7 @@
     ・以第 9 款「其他必要事項」禁止漁法，是否構成授權明確性之瑕疵
   </div>
 
-  <h2><span class="n">貳</span>劃設保育區：可以，而且不必報中央</h2>
+  <h2 id="s2"><span class="n">貳</span>劃設保育區：可以，而且不必報中央</h2>
 
   <div class="law">
     <b>漁業法第 45 條</b><br>
@@ -178,7 +244,7 @@
     詳見下節。
   </div>
 
-  <h2><span class="n">參</span>訂定限制事項：可以，但公告前應報中央核定</h2>
+  <h2 id="s3"><span class="n">參</span>訂定限制事項：可以，但公告前應報中央核定</h2>
 
   <div class="law">
     <b>漁業法第 44 條第 3 項</b><br>
@@ -216,35 +282,35 @@
     　三、<b>其訂定依法應經其他機關核准，而未經核准者。</b>
   </div>
 
-  <h2><span class="n">參之一</span>真正的變化：新舊公告對照</h2>
+  <h2 id="s4"><span class="n">參之一</span>真正的變化：新舊公告對照</h2>
 
   <p>本次草案將廢止 <b>109 年 9 月 11 日北府農漁字第 10935931041 號公告</b>。
   以貢寮保育區為例，新舊對照如下（舊公告內容取自漁業署官網彙整表）：</p>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">項目</th>
       <th>109.9.11 現行公告</th><th>115.6.17 草案</th></tr></thead>
     <tbody>
-      <tr><td class="k">法源</td><td>§44Ⅰ④⑦⑨ ＋ §45ⅠⅡ</td>
-        <td><b>完全相同</b></td></tr>
-      <tr><td class="k">罰則</td><td>§65⑥</td><td><b>完全相同</b></td></tr>
-      <tr><td class="k">分區</td><td>無分區（單一保育區）</td><td>核心保育區 ＋ 資源永續利用保育區</td></tr>
-      <tr><td class="k">範圍</td><td>貢寮：卯澳至洋寮鼻，<b>距岸 300 公尺扇形海域</b></td>
-        <td>核心區同上；另新增<b>資源永續利用區：鼻頭角至宜蘭縣界，3 浬全帶</b></td></tr>
-      <tr><td class="k">石花菜、麒麟菜<br>九孔、龍蝦、海膽<br>珊瑚礁魚類</td>
-        <td>禁採期與體長／殼徑下限</td><td><b>幾乎相同</b></td></tr>
-      <tr style="background:#fbeee9"><td class="k"><b>魚槍</b></td>
-        <td><b class="no">完全未規定</b></td>
-        <td><b>核心區與資源永續利用區均禁止使用魚槍採捕</b></td></tr>
-      <tr style="background:#fbeee9"><td class="k"><b>潛水器</b></td>
-        <td>禁止使用潛水器材採捕<b>「石花菜、麒麟菜、九孔、龍蝦、海膽、大法螺、珊瑚礁魚類、珊瑚與礁石等」</b>
+      <tr><td class="k" data-t="1">法源</td><td data-l="109.9.11 現行公告">§44Ⅰ④⑦⑨ ＋ §45ⅠⅡ</td>
+        <td data-l="115.6.17 草案" data-s="1"><b>完全相同</b></td></tr>
+      <tr><td class="k" data-t="1">罰則</td><td data-l="109.9.11 現行公告" data-s="1">§65⑥</td><td data-l="115.6.17 草案" data-s="1"><b>完全相同</b></td></tr>
+      <tr><td class="k" data-t="1">分區</td><td data-l="109.9.11 現行公告" data-s="1">無分區（單一保育區）</td><td data-l="115.6.17 草案">核心保育區 ＋ 資源永續利用保育區</td></tr>
+      <tr><td class="k" data-t="1">範圍</td><td data-l="109.9.11 現行公告">貢寮：卯澳至洋寮鼻，<b>距岸 300 公尺扇形海域</b></td>
+        <td data-l="115.6.17 草案">核心區同上；另新增<b>資源永續利用區：鼻頭角至宜蘭縣界，3 浬全帶</b></td></tr>
+      <tr><td class="k" data-t="1">石花菜、麒麟菜<br>九孔、龍蝦、海膽<br>珊瑚礁魚類</td>
+        <td data-l="109.9.11 現行公告" data-s="1">禁採期與體長／殼徑下限</td><td data-l="115.6.17 草案" data-s="1"><b>幾乎相同</b></td></tr>
+      <tr style="background:#fbeee9"><td class="k" data-t="1"><b>魚槍</b></td>
+        <td data-l="109.9.11 現行公告" data-s="1"><b class="no">完全未規定</b></td>
+        <td data-l="115.6.17 草案"><b>核心區與資源永續利用區均禁止使用魚槍採捕</b></td></tr>
+      <tr style="background:#fbeee9"><td class="k" data-t="1"><b>潛水器</b></td>
+        <td data-l="109.9.11 現行公告">禁止使用潛水器材採捕<b>「石花菜、麒麟菜、九孔、龍蝦、海膽、大法螺、珊瑚礁魚類、珊瑚與礁石等」</b>
           ——限於特定保育對象</td>
-        <td><b>禁止使用潛水器採捕「水產動植物」——擴及一切物種，且範圍擴及 3 浬全帶</b><br>
+        <td data-l="115.6.17 草案"><b>禁止使用潛水器採捕「水產動植物」——擴及一切物種，且範圍擴及 3 浬全帶</b><br>
           並將<b>「浮潛」明文列入潛水器</b></td></tr>
-      <tr style="background:#fbeee9"><td class="k"><b>非釣具類<br>漁具</b></td>
-        <td>禁止以非釣具類漁具<b>進入保育區範圍內作業</b></td>
-        <td>核心區：禁止以非釣具類漁具<b>採捕水產動植物</b></td></tr>
+      <tr style="background:#fbeee9"><td class="k" data-t="1"><b>非釣具類<br>漁具</b></td>
+        <td data-l="109.9.11 現行公告">禁止以非釣具類漁具<b>進入保育區範圍內作業</b></td>
+        <td data-l="115.6.17 草案">核心區：禁止以非釣具類漁具<b>採捕水產動植物</b></td></tr>
     </tbody>
   </table>
   </div>
@@ -272,27 +338,27 @@
     <b>釣具類完全不受限制</b>；而六位公開發言的學者中，五位主張垂釣亦應納管。
   </div>
 
-  <h2><span class="n">肆</span>以第 4、7、9 款禁止魚槍：法理有疑義，實務難動搖</h2>
+  <h2 id="s5"><span class="n">肆</span>以第 4、7、9 款禁止魚槍：法理有疑義，實務難動搖</h2>
 
   <p>草案依據為<b>漁業法第 44 條第 1 項第 4 款、第 7 款、第 9 款</b>：</p>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">款次</th><th>條文</th><th>草案中對應的內容</th><th style="width:1%">妥當性</th></tr></thead>
     <tbody>
-      <tr><td class="k">第 4 款</td><td>漁區、漁期之限制或禁止</td>
-        <td>保育區範圍之劃定；石花菜、麒麟菜、龍蝦、馬糞海膽之<b>禁採期</b></td>
-        <td><b class="yes">妥當</b></td></tr>
-      <tr><td class="k">第 7 款</td><td>投放或除去水產動植物繁殖上所需之保護物之限制或禁止</td>
-        <td>「於保育區內投放或除去水產動植物繁殖所需之保護物，應經本府同意」</td>
-        <td><b class="yes">妥當</b></td></tr>
-      <tr><td class="k">第 9 款</td><td><b>其他必要事項</b></td>
-        <td><b>禁止以非釣具類漁具、魚槍或潛水器採捕水產動植物</b>（推測；草案未逐款對應）</td>
-        <td><b class="no">有疑義</b></td></tr>
-      <tr style="background:#fbeee9"><td class="k"><b>第 3 款</b></td>
-        <td><b>漁具、漁法之限制或禁止</b></td>
-        <td><b>本應對應禁止魚槍、潛水器之規定——但草案未援引</b></td>
-        <td><b class="no">未使用</b></td></tr>
+      <tr><td class="k" data-t="1">第 4 款</td><td data-l="條文" data-s="1">漁區、漁期之限制或禁止</td>
+        <td data-l="草案中對應的內容">保育區範圍之劃定；石花菜、麒麟菜、龍蝦、馬糞海膽之<b>禁採期</b></td>
+        <td data-l="妥當性" data-s="1"><b class="yes">妥當</b></td></tr>
+      <tr><td class="k" data-t="1">第 7 款</td><td data-l="條文">投放或除去水產動植物繁殖上所需之保護物之限制或禁止</td>
+        <td data-l="草案中對應的內容">「於保育區內投放或除去水產動植物繁殖所需之保護物，應經本府同意」</td>
+        <td data-l="妥當性" data-s="1"><b class="yes">妥當</b></td></tr>
+      <tr><td class="k" data-t="1">第 9 款</td><td data-l="條文" data-s="1"><b>其他必要事項</b></td>
+        <td data-l="草案中對應的內容"><b>禁止以非釣具類漁具、魚槍或潛水器採捕水產動植物</b>（推測；草案未逐款對應）</td>
+        <td data-l="妥當性" data-s="1"><b class="no">有疑義</b></td></tr>
+      <tr style="background:#fbeee9"><td class="k" data-t="1"><b>第 3 款</b></td>
+        <td data-l="條文" data-s="1"><b>漁具、漁法之限制或禁止</b></td>
+        <td data-l="草案中對應的內容"><b>本應對應禁止魚槍、潛水器之規定——但草案未援引</b></td>
+        <td data-l="妥當性" data-s="1"><b class="no">未使用</b></td></tr>
     </tbody>
   </table>
   </div>
@@ -305,36 +371,36 @@
   <h3>新北市歷年公告的實際援引（漁業署官網彙整）</h3>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">日期</th><th>公告內容</th><th style="width:1%">援引款次</th><th style="width:1%">罰則</th></tr></thead>
     <tbody>
-      <tr><td class="k">100.05.27</td><td>禁止使用網具（流刺網、投網）採捕魚類</td><td><b>§44 第 9 款</b></td><td>§65⑤</td></tr>
-      <tr><td class="k">101.02.20</td><td>瑞芳 3 浬禁止使用刺網漁具</td><td><b>§44 第 4 款</b></td><td>§65⑤</td></tr>
-      <tr><td class="k">101.03.09</td><td>全市 3 浬禁止使用扒網</td><td><b>§44 第 4 款</b></td><td>§65⑤</td></tr>
-      <tr><td class="k">102.02.18</td><td>金山 3 浬禁止使用刺網漁具</td><td><b>§44 第 4 款</b></td><td>§65⑤</td></tr>
-      <tr><td class="k">103.11.04</td><td>保育區（含禁止潛水器材採捕、禁止非釣具類漁具漁船進入）</td>
-        <td><b>§44 第 4、7 款</b>＋§45ⅠⅡ</td><td>§65⑥</td></tr>
-      <tr><td class="k">104.03.30</td><td>網具類漁具禁漁區</td><td><b>§44 第 4、7 款</b></td><td>§10 或 §65⑥</td></tr>
-      <tr><td class="k">108.12.30</td><td>野柳保育區（含石花菜漁會會員登記制）</td>
-        <td><b>§44Ⅰ第 4、7、9 款</b>＋§45ⅠⅡ</td><td>§65⑥</td></tr>
-      <tr style="background:#e8f4ed"><td class="k">109.03.25</td>
-        <td><b>三芝至林口刺網禁漁區：每年 6/15–8/15 禁止刺網漁船作業</b></td>
-        <td><b>§44Ⅰ第 4 款</b></td><td>§65⑥</td></tr>
-      <tr style="background:#e8f4ed"><td class="k">109.03.25</td>
-        <td><b>三芝至林口拖網禁漁區：每年 6/15–8/15 禁止拖曳網具作業</b></td>
-        <td><b>§44Ⅰ第 4 款</b></td><td>§65⑥</td></tr>
-      <tr style="background:#f7f4ec"><td class="k"><b>109.09.11</b></td>
-        <td><b>萬里、貢寮、瑞芳保育區（本次草案擬廢止者）</b></td>
-        <td><b>§44Ⅰ第 4、7、9 款</b>＋§45ⅠⅡ</td><td>§65⑥</td></tr>
-      <tr><td class="k">109.11.24</td><td>萬里 3 浬禁止使用刺網漁具</td><td><b>§44Ⅰ第 4、9 款</b></td><td>§65⑥</td></tr>
-      <tr style="background:#e8f4ed"><td class="k">112.01.13</td>
-        <td><b>流袋網：每年 6/15–9/14 禁止使用網目小於 6 公分之流袋網具</b></td>
-        <td><b>§44Ⅰ第 4、9 款</b></td><td>§65⑥</td></tr>
-      <tr><td class="k">114.11.10</td><td><b>貢寮 3 浬禁止使用刺網漁具</b>（115/1/1 生效）</td>
-        <td><b>§44Ⅰ第 4 款</b></td><td>§65⑥</td></tr>
-      <tr style="background:#e8f4ed"><td class="k">115.04.07</td>
-        <td><b>魩鱙漁業「漁期、漁區與漁具限制」：每年 6/15–9/14</b></td>
-        <td>§9、§14、§37、<b>§44Ⅰ第 4 款</b>、§46、§54</td><td>§10、§65③或⑥</td></tr>
+      <tr><td class="k" data-t="1">100.05.27</td><td data-l="公告內容">禁止使用網具（流刺網、投網）採捕魚類</td><td data-l="援引款次" data-s="1"><b>§44 第 9 款</b></td><td data-l="罰則" data-s="1">§65⑤</td></tr>
+      <tr><td class="k" data-t="1">101.02.20</td><td data-l="公告內容" data-s="1">瑞芳 3 浬禁止使用刺網漁具</td><td data-l="援引款次" data-s="1"><b>§44 第 4 款</b></td><td data-l="罰則" data-s="1">§65⑤</td></tr>
+      <tr><td class="k" data-t="1">101.03.09</td><td data-l="公告內容" data-s="1">全市 3 浬禁止使用扒網</td><td data-l="援引款次" data-s="1"><b>§44 第 4 款</b></td><td data-l="罰則" data-s="1">§65⑤</td></tr>
+      <tr><td class="k" data-t="1">102.02.18</td><td data-l="公告內容" data-s="1">金山 3 浬禁止使用刺網漁具</td><td data-l="援引款次" data-s="1"><b>§44 第 4 款</b></td><td data-l="罰則" data-s="1">§65⑤</td></tr>
+      <tr><td class="k" data-t="1">103.11.04</td><td data-l="公告內容">保育區（含禁止潛水器材採捕、禁止非釣具類漁具漁船進入）</td>
+        <td data-l="援引款次"><b>§44 第 4、7 款</b>＋§45ⅠⅡ</td><td data-l="罰則" data-s="1">§65⑥</td></tr>
+      <tr><td class="k" data-t="1">104.03.30</td><td data-l="公告內容" data-s="1">網具類漁具禁漁區</td><td data-l="援引款次" data-s="1"><b>§44 第 4、7 款</b></td><td data-l="罰則" data-s="1">§10 或 §65⑥</td></tr>
+      <tr><td class="k" data-t="1">108.12.30</td><td data-l="公告內容">野柳保育區（含石花菜漁會會員登記制）</td>
+        <td data-l="援引款次"><b>§44Ⅰ第 4、7、9 款</b>＋§45ⅠⅡ</td><td data-l="罰則" data-s="1">§65⑥</td></tr>
+      <tr style="background:#e8f4ed"><td class="k" data-t="1">109.03.25</td>
+        <td data-l="公告內容"><b>三芝至林口刺網禁漁區：每年 6/15–8/15 禁止刺網漁船作業</b></td>
+        <td data-l="援引款次" data-s="1"><b>§44Ⅰ第 4 款</b></td><td data-l="罰則" data-s="1">§65⑥</td></tr>
+      <tr style="background:#e8f4ed"><td class="k" data-t="1">109.03.25</td>
+        <td data-l="公告內容"><b>三芝至林口拖網禁漁區：每年 6/15–8/15 禁止拖曳網具作業</b></td>
+        <td data-l="援引款次" data-s="1"><b>§44Ⅰ第 4 款</b></td><td data-l="罰則" data-s="1">§65⑥</td></tr>
+      <tr style="background:#f7f4ec"><td class="k" data-t="1"><b>109.09.11</b></td>
+        <td data-l="公告內容"><b>萬里、貢寮、瑞芳保育區（本次草案擬廢止者）</b></td>
+        <td data-l="援引款次"><b>§44Ⅰ第 4、7、9 款</b>＋§45ⅠⅡ</td><td data-l="罰則" data-s="1">§65⑥</td></tr>
+      <tr><td class="k" data-t="1">109.11.24</td><td data-l="公告內容" data-s="1">萬里 3 浬禁止使用刺網漁具</td><td data-l="援引款次" data-s="1"><b>§44Ⅰ第 4、9 款</b></td><td data-l="罰則" data-s="1">§65⑥</td></tr>
+      <tr style="background:#e8f4ed"><td class="k" data-t="1">112.01.13</td>
+        <td data-l="公告內容"><b>流袋網：每年 6/15–9/14 禁止使用網目小於 6 公分之流袋網具</b></td>
+        <td data-l="援引款次" data-s="1"><b>§44Ⅰ第 4、9 款</b></td><td data-l="罰則" data-s="1">§65⑥</td></tr>
+      <tr><td class="k" data-t="1">114.11.10</td><td data-l="公告內容"><b>貢寮 3 浬禁止使用刺網漁具</b>（115/1/1 生效）</td>
+        <td data-l="援引款次" data-s="1"><b>§44Ⅰ第 4 款</b></td><td data-l="罰則" data-s="1">§65⑥</td></tr>
+      <tr style="background:#e8f4ed"><td class="k" data-t="1">115.04.07</td>
+        <td data-l="公告內容"><b>魩鱙漁業「漁期、漁區與漁具限制」：每年 6/15–9/14</b></td>
+        <td data-l="援引款次">§9、§14、§37、<b>§44Ⅰ第 4 款</b>、§46、§54</td><td data-l="罰則" data-s="1">§10、§65③或⑥</td></tr>
     </tbody>
   </table>
   </div>
@@ -379,20 +445,20 @@
     <b>問題只在禁止魚槍與潛水器那一款。</b>我方的主張應精準指向該款，不要擴大到整份公告。
   </div>
 
-  <h2><span class="n">伍</span>為什麼捨第 3 款不用</h2>
+  <h2 id="s6"><span class="n">伍</span>為什麼捨第 3 款不用</h2>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">援引款次</th><th>罰則</th><th>性質與額度</th><th>由誰處罰</th></tr></thead>
     <tbody>
-      <tr><td class="k">§44Ⅰ①②</td><td><b>§60Ⅱ</b></td>
-        <td><b>刑罰</b>　3 年以下有期徒刑、拘役或科或併科 15 萬以下罰金</td><td>司法機關</td></tr>
-      <tr style="background:#fbeee9"><td class="k"><b>§44Ⅰ③</b></td><td><b>§61</b></td>
-        <td><b>刑罰</b>　6 月以下有期徒刑、拘役或科或併科 3 萬以下罰金</td>
-        <td><b>司法機關</b></td></tr>
-      <tr style="background:#e8f4ed"><td class="k"><b>§44Ⅰ④–⑨</b></td><td><b>§65⑥</b></td>
-        <td>行政罰鍰　3 萬至 15 萬元</td>
-        <td><b>公告機關（新北市）</b></td></tr>
+      <tr><td class="k" data-t="1">§44Ⅰ①②</td><td data-l="罰則" data-s="1"><b>§60Ⅱ</b></td>
+        <td data-l="性質與額度"><b>刑罰</b>　3 年以下有期徒刑、拘役或科或併科 15 萬以下罰金</td><td data-l="由誰處罰" data-s="1">司法機關</td></tr>
+      <tr style="background:#fbeee9"><td class="k" data-t="1"><b>§44Ⅰ③</b></td><td data-l="罰則" data-s="1"><b>§61</b></td>
+        <td data-l="性質與額度"><b>刑罰</b>　6 月以下有期徒刑、拘役或科或併科 3 萬以下罰金</td>
+        <td data-l="由誰處罰" data-s="1"><b>司法機關</b></td></tr>
+      <tr style="background:#e8f4ed"><td class="k" data-t="1"><b>§44Ⅰ④–⑨</b></td><td data-l="罰則" data-s="1"><b>§65⑥</b></td>
+        <td data-l="性質與額度">行政罰鍰　3 萬至 15 萬元</td>
+        <td data-l="由誰處罰" data-s="1"><b>公告機關（新北市）</b></td></tr>
     </tbody>
   </table>
   </div>
@@ -418,7 +484,7 @@
     <b>不要斷言市府是為了裁罰便利而規避第 3 款</b>——那是揣測動機，會使討論失焦。
   </div>
 
-  <h2><span class="n">陸</span>比例原則與平等原則</h2>
+  <h2 id="s7"><span class="n">陸</span>比例原則與平等原則</h2>
 
   <div class="law">
     <b>行政程序法第 7 條</b>　行政行為，應依下列原則為之：<br>
@@ -445,7 +511,7 @@
     而六位公開發言的學者中，<b>五位主張垂釣也應納管</b>。
   </div>
 
-  <h2><span class="n">柒</span>這份公告的法律性質，決定救濟途徑</h2>
+  <h2 id="s8"><span class="n">柒</span>這份公告的法律性質，決定救濟途徑</h2>
 
   <div class="law">
     <b>行政程序法第 92 條</b>　本法所稱行政處分，係指行政機關就公法上具體事件所為之決定……<br>
@@ -455,17 +521,17 @@
   </div>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">若定性為</th><th>適用規定</th><th>救濟途徑</th><th>期間</th></tr></thead>
     <tbody>
-      <tr><td class="k"><b>一般處分</b></td>
-        <td>行政程序法第 92 條以下（行政處分之規定）</td>
-        <td><b>可於公告後直接提起訴願</b>，繼而行政訴訟</td>
-        <td><b class="no">自公告期滿之次日起 30 日內</b><br><span class="cite">訴願法 §14Ⅰ</span></td></tr>
-      <tr><td class="k"><b>法規命令</b></td>
-        <td>行政程序法第 150 條至第 158 條</td>
-        <td><b>不得直接爭訟</b>；須待具體裁罰處分後，於該案中主張該公告無效（§158）</td>
-        <td>依該具體處分之救濟期間</td></tr>
+      <tr><td class="k" data-t="1"><b>一般處分</b></td>
+        <td data-l="適用規定">行政程序法第 92 條以下（行政處分之規定）</td>
+        <td data-l="救濟途徑"><b>可於公告後直接提起訴願</b>，繼而行政訴訟</td>
+        <td data-l="期間"><b class="no">自公告期滿之次日起 30 日內</b><br><span class="cite">訴願法 §14Ⅰ</span></td></tr>
+      <tr><td class="k" data-t="1"><b>法規命令</b></td>
+        <td data-l="適用規定">行政程序法第 150 條至第 158 條</td>
+        <td data-l="救濟途徑"><b>不得直接爭訟</b>；須待具體裁罰處分後，於該案中主張該公告無效（§158）</td>
+        <td data-l="期間" data-s="1">依該具體處分之救濟期間</td></tr>
     </tbody>
   </table>
   </div>
@@ -485,7 +551,7 @@
     這是<b>會前就應由律師確認、並讓核心成員知道的事</b>——不能等到公告出來才開始討論。
   </div>
 
-  <h2><span class="n">捌</span>我方最該主張的：一部無效，而非全部無效</h2>
+  <h2 id="s9"><span class="n">捌</span>我方最該主張的：一部無效，而非全部無效</h2>
 
   <div class="law">
     <b>行政程序法第 158 條第 2 項</b><br>
@@ -510,7 +576,7 @@
     ④ <b>談判上更可行。</b>市府要修一款，遠比要它撤回整份公告容易。
   </div>
 
-  <h2><span class="n">玖</span>我方陳述意見書有一處需要留意</h2>
+  <h2 id="s10"><span class="n">玖</span>我方陳述意見書有一處需要留意</h2>
 
   <div class="warn">
     <b>陳述意見書主張「未依行政程序法第 155 條舉行聽證」——但第 155 條是「得」，不是「應」。</b>
@@ -528,7 +594,7 @@
     我方建議依行政程序法第 155 條舉行聽證，以充實決策基礎。」——<b>從指控改為建議，強度不減而風險歸零。</b>
   </div>
 
-  <h2><span class="n">拾</span>現行法的一個限制：休閒採捕者沒有申報義務</h2>
+  <h2 id="s11"><span class="n">拾</span>現行法的一個限制：休閒採捕者沒有申報義務</h2>
 
   <div class="law">
     <b>漁業法第 46 條</b><br>
@@ -553,7 +619,7 @@
     <b>這是我方可以提出的長期制度性解方，且主管機關明確（漁業署）。</b>
   </div>
 
-  <h2><span class="n">拾壹</span>查證狀態</h2>
+  <h2 id="s12"><span class="n">拾壹</span>查證狀態</h2>
 
   <div class="ok">
     <b>已逐條查核之條文（全國法規資料庫現行條文，並經獨立管道逐字比對 23/23 相符）：</b><br>

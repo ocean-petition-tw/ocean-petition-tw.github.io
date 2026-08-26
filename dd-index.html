@@ -57,6 +57,70 @@
     .sheet{border:0;box-shadow:none;padding:0;margin-top:12px}.w{max-width:none;padding:0}
     .scroll{overflow:visible}table{min-width:0}@page{size:A4 landscape;margin:12mm}
     h2{page-break-after:avoid}table,tr{page-break-inside:avoid}}
+/* mobile-v2 */
+  .mtoc{display:none}
+  @media(max-width:680px){
+    body{font-size:16px;line-height:1.72}
+    .w,.wrap,.container{padding-left:12px;padding-right:12px}
+    .sheet,.card,.box{padding-left:14px;padding-right:14px}
+    header{padding-left:16px;padding-right:16px}
+    h2{margin-top:26px;margin-bottom:9px}
+    h3{margin-top:18px;margin-bottom:6px}
+    p{margin-bottom:9px}
+
+    /* ── 表格轉卡片 ── */
+    table{min-width:0!important;border:0;font-size:15px;display:block;width:100%}
+    thead{display:none}
+    tbody,tr,td,th{display:block;width:auto}
+    tr{border:1px solid var(--line,#ded7c9);border-radius:5px;
+       background:var(--paper,#fffdf8);margin:0 0 8px;padding:7px 0;overflow:hidden}
+    td,th{border:0;padding:3px 12px;white-space:normal!important}
+    td.k{background:transparent;width:auto;font-weight:800}
+
+    /* 有表頭者：欄名變小標 */
+    table.cards td[data-l]::before{content:attr(data-l);display:block;
+      font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);margin-bottom:1px}
+    table.cards td[data-t]{font-size:16.5px;font-weight:800;
+      color:var(--sea,#12303e);padding-top:1px;padding-bottom:4px;line-height:1.45}
+    table.cards td[data-seq]{display:none!important}
+
+    /* 短值：標籤與值同一行 */
+    table.cards td[data-s]:not([data-seq]){display:flex;flex-wrap:wrap;
+      gap:2px 7px;align-items:baseline;padding-top:1px;padding-bottom:1px;
+      line-height:1.6;min-width:0}
+    table.cards td[data-s]::before{margin-bottom:0;flex:0 0 auto;
+      min-width:4.2em;line-height:1.6}
+
+    /* 無表頭的鍵值表：第一格當小標 */
+    table.kv td.k{font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);padding-bottom:1px}
+    table.kv td.k+td{padding-top:0}
+
+    /* 含 colspan/rowspan 者不堆疊，保留原表格並可橫向捲動 */
+    table.keep{display:table;width:100%}
+    table.keep thead{display:table-header-group}
+    table.keep tbody{display:table-row-group}
+    table.keep tr{display:table-row;border:0;margin:0;padding:0;background:none}
+    table.keep td,table.keep th{display:table-cell;
+      border:1px solid var(--line,#ded7c9);padding:6px 9px}
+
+    /* 不讓任何元素撐破螢幕 */
+    html,body{max-width:100%;overflow-x:hidden}
+    td,th,p,li{overflow-wrap:break-word}
+
+    /* ── 章節快速跳轉 ── */
+    .mtoc{display:block;background:var(--paper,#fffdf8);
+      border:1px solid var(--line,#ded7c9);border-radius:6px;
+      padding:11px 13px 12px;margin:0 0 20px}
+    .mtoc .tt{font-size:11px;font-weight:800;letter-spacing:.16em;
+      color:var(--gold,#b07d2b);margin-bottom:7px}
+    .mtoc a{display:inline-block;font-size:14px;color:var(--sea,#12303e);
+      text-decoration:none;background:rgba(0,0,0,.03);
+      border:1px solid var(--line,#ded7c9);border-radius:4px;
+      padding:4px 9px;margin:0 5px 5px 0;line-height:1.4;max-width:100%}
+    .mtoc a b{color:var(--gold,#b07d2b);margin-right:4px;font-weight:800}
+  }
 </style>
 </head>
 <body>
@@ -75,7 +139,9 @@
 <div class="w">
 <div class="sheet">
 
-  <h2><span class="n">壹</span>調查總覽</h2>
+  <nav class="mtoc"><div class="tt">章節快速跳轉</div><a href="#s1"><b>壹</b>調查總覽</a><a href="#s2"><b>貳</b>人物與機關調查（18 份）</a><a href="#s3"><b>參</b>輔助分析文件（6 份）</a><a href="#s4"><b>肆</b>原始文本存查（sources/）</a><a href="#s5"><b>伍</b>本批新增的一項可用論據：漁港法第 18 條第</a><a href="#s6"><b>陸</b>兩個絕對不能用錯的地方</a><a href="#s7"><b>柒</b>尚未進行的調查</a><a href="#s8"><b>捌</b>待查證清單</a><a href="#s9"><b>玖</b>文件安全狀態</a></nav>
+
+  <h2 id="s1"><span class="n">壹</span>調查總覽</h2>
 
   <div class="lede">
     做完十六份調查後最重要的結論：<b>這不是「我方 vs 保育方」。</b><br>
@@ -83,149 +149,149 @@
     草案的管制強度，<b>在魚槍上超出所有學者，在釣具上低於所有學者。</b>
   </div>
 
-  <h2><span class="n">貳</span>人物與機關調查（18 份）</h2>
+  <h2 id="s2"><span class="n">貳</span>人物與機關調查（18 份）</h2>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr>
       <th style="width:1%">對象</th><th style="width:1%">定位</th><th>檔案</th>
       <th>一句話結論</th><th style="width:1%">狀態</th>
     </tr></thead>
     <tbody>
       <tr>
-        <td class="k">簡明雄<br><span style="font-weight:400;font-size:13px">新北市漁業處處長</span></td>
-        <td><span class="tag t-gov">決策者</span></td>
-        <td><span class="file">dd-jian-mingxiong.html</span><br><span class="tag t-pri">私有庫</span></td>
-        <td>草案是把「刺網退出東北角」那套圖層與程序直接套到魚槍上——
+        <td class="k" data-t="1">簡明雄<br><span style="font-weight:400;font-size:13px">新北市漁業處處長</span></td>
+        <td data-l="定位" data-s="1"><span class="tag t-gov">決策者</span></td>
+        <td data-l="檔案"><span class="file">dd-jian-mingxiong.html</span><br><span class="tag t-pri">私有庫</span></td>
+        <td data-l="一句話結論">草案是把「刺網退出東北角」那套圖層與程序直接套到魚槍上——
           <b>但刺網配了九年輔導期、每艘 15–20 萬補助、實名制；魚槍什麼都沒有</b>。
           純本系統科班文官，最怕程序瑕疵與報核不過。</td>
-        <td>完成</td></tr>
+        <td data-l="狀態" data-s="1">完成</td></tr>
       <tr>
-        <td class="k">黃向文<br><span style="font-weight:400;font-size:13px">海大教授<br>前海保署長</span></td>
-        <td><span class="tag t-mid">專業裁判</span></td>
-        <td><span class="file">dd-huang-hsiangwen.html</span><br><span class="tag t-pub">公開站</span></td>
-        <td>她 2017 年的投書已把<b>登記證照、漁獲回報、bag &amp; size limit、因地制宜、民間團體協力執法</b>整套講完；
+        <td class="k" data-t="1">黃向文<br><span style="font-weight:400;font-size:13px">海大教授<br>前海保署長</span></td>
+        <td data-l="定位" data-s="1"><span class="tag t-mid">專業裁判</span></td>
+        <td data-l="檔案"><span class="file">dd-huang-hsiangwen.html</span><br><span class="tag t-pub">公開站</span></td>
+        <td data-l="一句話結論">她 2017 年的投書已把<b>登記證照、漁獲回報、bag &amp; size limit、因地制宜、民間團體協力執法</b>整套講完；
           SMC 首句即否定市府論證形式：「重要的不是比較採捕方式差異」。<b>海保法是她推的。</b></td>
-        <td>第二版<br>完成</td></tr>
+        <td data-l="狀態">第二版<br>完成</td></tr>
       <tr>
-        <td class="k">陳昭倫<br><span style="font-weight:400;font-size:13px">中研院生多中心</span></td>
-        <td><span class="tag t-mid">技術裁判</span></td>
-        <td><span class="file">dd-chen-chaolun.html</span><br><span class="tag t-sec">極機密</span></td>
-        <td>妥協落點極可能由他劃定：<b>禁潛水器魚槍、保留自潛</b>。
+        <td class="k" data-t="1">陳昭倫<br><span style="font-weight:400;font-size:13px">中研院生多中心</span></td>
+        <td data-l="定位" data-s="1"><span class="tag t-mid">技術裁判</span></td>
+        <td data-l="檔案"><span class="file">dd-chen-chaolun.html</span><br><span class="tag t-sec">極機密</span></td>
+        <td data-l="一句話結論">妥協落點極可能由他劃定：<b>禁潛水器魚槍、保留自潛</b>。
           九年來已朝我方移動一大步——<b>此事對外一個字都不能提</b>。</td>
-        <td>完成</td></tr>
+        <td data-l="狀態" data-s="1">完成</td></tr>
       <tr>
-        <td class="k">邵廣昭<br><span style="font-weight:400;font-size:13px">海大／中山<br>榮譽講座教授</span></td>
-        <td><span class="tag t-them">最強硬</span></td>
-        <td><span class="file">dd-shao-kuangtsao.html</span><br><span class="tag t-pri">私有庫</span></td>
-        <td>「水肺潛水打魚應該就是最大的罪魁禍首」。大概率不出席但定調輿論。
+        <td class="k" data-t="1">邵廣昭<br><span style="font-weight:400;font-size:13px">海大／中山<br>榮譽講座教授</span></td>
+        <td data-l="定位" data-s="1"><span class="tag t-them">最強硬</span></td>
+        <td data-l="檔案"><span class="file">dd-shao-kuangtsao.html</span><br><span class="tag t-pri">私有庫</span></td>
+        <td data-l="一句話結論">「水肺潛水打魚應該就是最大的罪魁禍首」。大概率不出席但定調輿論。
           <b>唯一接點是他主張的槽型體長限制（slot limit）與「小魚放生、大魚適量」。</b></td>
-        <td>完成</td></tr>
+        <td data-l="狀態" data-s="1">完成</td></tr>
       <tr>
-        <td class="k">陳義雄<br><span style="font-weight:400;font-size:13px">海大海生所</span></td>
-        <td><span class="tag t-them">科學基礎</span></td>
-        <td><span class="file">dd-chen-yihsiung.html</span><br><span class="tag t-pub">公開站</span></td>
-        <td>本案科學基礎的來源，受市府長期委託研究。<b>不質疑資格，只問方法</b>——
+        <td class="k" data-t="1">陳義雄<br><span style="font-weight:400;font-size:13px">海大海生所</span></td>
+        <td data-l="定位" data-s="1"><span class="tag t-them">科學基礎</span></td>
+        <td data-l="檔案"><span class="file">dd-chen-yihsiung.html</span><br><span class="tag t-pub">公開站</span></td>
+        <td data-l="一句話結論">本案科學基礎的來源，受市府長期委託研究。<b>不質疑資格，只問方法</b>——
           正式函請市府提供完整報告與調查設計。</td>
-        <td>完成<br><span style="font-size:12.5px">含 2020 論文解析</span></td></tr>
+        <td data-l="狀態">完成<br><span style="font-size:12.5px">含 2020 論文解析</span></td></tr>
       <tr>
-        <td class="k">陳徵蔚<br><span style="font-weight:400;font-size:13px">潛水教練<br>《海洋在哭》作者</span></td>
-        <td><span class="tag t-them">價值分歧</span></td>
-        <td><span class="file">dd-chen-chengwei.html</span><br><span class="tag t-pub">公開站</span></td>
-        <td>價值層次反狩獵，引 Cousteau「以培植代替狩獵」。
+        <td class="k" data-t="1">陳徵蔚<br><span style="font-weight:400;font-size:13px">潛水教練<br>《海洋在哭》作者</span></td>
+        <td data-l="定位" data-s="1"><span class="tag t-them">價值分歧</span></td>
+        <td data-l="檔案"><span class="file">dd-chen-chengwei.html</span><br><span class="tag t-pub">公開站</span></td>
+        <td data-l="一句話結論">價值層次反狩獵，引 Cousteau「以培植代替狩獵」。
           <b>不辯價值，只談共同點：廢漁具、執法失能。</b>本檔並含保育方網絡分析。</td>
-        <td>完成</td></tr>
+        <td data-l="狀態" data-s="1">完成</td></tr>
       <tr>
-        <td class="k">陳映伶<br><span style="font-weight:400;font-size:13px">山海天使秘書長</span></td>
-        <td><span class="tag t-them">關鍵人物</span></td>
-        <td><span class="file">dd-chen-yingling.html</span><br><span class="tag t-pub">公開站</span></td>
-        <td>「珊瑚媽媽」，貢寮三口九孔池、龍洞灣種植點、50 名潛水教練志工。
+        <td class="k" data-t="1">陳映伶<br><span style="font-weight:400;font-size:13px">山海天使秘書長</span></td>
+        <td data-l="定位" data-s="1"><span class="tag t-them">關鍵人物</span></td>
+        <td data-l="檔案"><span class="file">dd-chen-yingling.html</span><br><span class="tag t-pub">公開站</span></td>
+        <td data-l="一句話結論">「珊瑚媽媽」，貢寮三口九孔池、龍洞灣種植點、50 名潛水教練志工。
           <b>價值可對話——提供淨海與廢漁具清除的人力。她要乾淨海床，我方會下水。</b></td>
-        <td>完成</td></tr>
+        <td data-l="狀態" data-s="1">完成</td></tr>
       <tr>
-        <td class="k">漁會與里長<br><span style="font-weight:400;font-size:13px">貢寮／萬里／瑞芳</span></td>
-        <td><span class="tag t-mid">實質中性</span></td>
-        <td><span class="file">dd-local-reps.html</span><br><span class="tag t-pri">私有庫</span></td>
-        <td>核心利益為區劃漁業權、石花菜、觀光漁村——<b>三項皆不受魚槍存廢影響</b>。
+        <td class="k" data-t="1">漁會與里長<br><span style="font-weight:400;font-size:13px">貢寮／萬里／瑞芳</span></td>
+        <td data-l="定位" data-s="1"><span class="tag t-mid">實質中性</span></td>
+        <td data-l="檔案"><span class="file">dd-local-reps.html</span><br><span class="tag t-pri">私有庫</span></td>
+        <td data-l="一句話結論">核心利益為區劃漁業權、石花菜、觀光漁村——<b>三項皆不受魚槍存廢影響</b>。
           目標是「不反對」而非「支持」。<b>石花菜條款一律走肯認路線。</b><br>
           <span style="font-size:13px">總論；三位人物之分項調查見下三列。</span></td>
-        <td>完成<br><span style="font-size:12.5px">6 項待查證</span></td></tr>
+        <td data-l="狀態">完成<br><span style="font-size:12.5px">6 項待查證</span></td></tr>
       <tr>
-        <td class="k">吳文益<br><span style="font-weight:400;font-size:13px">福連里里長</span></td>
-        <td><span class="tag t-mid">在地・最重</span></td>
-        <td><span class="file">dd-wu-wenyi.html</span><br><span class="tag t-pri">私有庫</span></td>
-        <td>不只是里長——中選會公報載明其為<b>貢寮區漁會第七、八屆理事長、第九、十屆常務監事、全國漁會代表、
+        <td class="k" data-t="1">吳文益<br><span style="font-weight:400;font-size:13px">福連里里長</span></td>
+        <td data-l="定位" data-s="1"><span class="tag t-mid">在地・最重</span></td>
+        <td data-l="檔案"><span class="file">dd-wu-wenyi.html</span><br><span class="tag t-pri">私有庫</span></td>
+        <td data-l="一句話結論">不只是里長——中選會公報載明其為<b>貢寮區漁會第七、八屆理事長、第九、十屆常務監事、全國漁會代表、
           前貢寮鄉民代表、卯澳利洋宮常務監事</b>。<b>同時站在行政、產業、信仰三個系統的交會點，且已主動邀請我方。</b>
           卯澳自主規範就在他的里內。</td>
-        <td>完成<br><span style="font-size:12.5px">公報逐字</span></td></tr>
+        <td data-l="狀態">完成<br><span style="font-size:12.5px">公報逐字</span></td></tr>
       <tr>
-        <td class="k">陳國光<br><span style="font-weight:400;font-size:13px">貢寮區漁會<br>理事長</span></td>
-        <td><span class="tag t-mid">在地・中性</span></td>
-        <td><span class="file">dd-chen-kuokuang.html</span><br><span class="tag t-pri">私有庫</span></td>
-        <td>2020 年離岸風電說明會上<b>摔爛麥克風</b>、質問「是誰同意的？開什麼說明會！」率眾離席。
+        <td class="k" data-t="1">陳國光<br><span style="font-weight:400;font-size:13px">貢寮區漁會<br>理事長</span></td>
+        <td data-l="定位" data-s="1"><span class="tag t-mid">在地・中性</span></td>
+        <td data-l="檔案"><span class="file">dd-chen-kuokuang.html</span><br><span class="tag t-pri">私有庫</span></td>
+        <td data-l="一句話結論">2020 年離岸風電說明會上<b>摔爛麥克風</b>、質問「是誰同意的？開什麼說明會！」率眾離席。
           <b>他的敵人是「外面來的、沒問過貢寮就決定的事」——與我方程序訴求同構，但同一邏輯也可能對準我方。</b>
           該案中漁業處明確站在漁會這邊。</td>
-        <td>完成<br><span style="font-size:12.5px">公開資料少<br>多屬推論</span></td></tr>
+        <td data-l="狀態">完成<br><span style="font-size:12.5px">公開資料少<br>多屬推論</span></td></tr>
       <tr>
-        <td class="k">林麗美<br><span style="font-weight:400;font-size:13px">貢寮區漁會<br>總幹事</span></td>
-        <td><span class="tag t-mid">在地・中性</span></td>
-        <td><span class="file">dd-lin-limei.html</span><br><span class="tag t-pri">私有庫</span></td>
-        <td>專業經理人，KPI 是產值與遊客。貢寮鮑產值 2.3 億、卯澳灣栽培漁業示範區、卯澳馬崗休憩漁村。
+        <td class="k" data-t="1">林麗美<br><span style="font-weight:400;font-size:13px">貢寮區漁會<br>總幹事</span></td>
+        <td data-l="定位" data-s="1"><span class="tag t-mid">在地・中性</span></td>
+        <td data-l="檔案"><span class="file">dd-lin-limei.html</span><br><span class="tag t-pri">私有庫</span></td>
+        <td data-l="一句話結論">專業經理人，KPI 是產值與遊客。貢寮鮑產值 2.3 億、卯澳灣栽培漁業示範區、卯澳馬崗休憩漁村。
           <b>唯一結構性共同利益：觀光需要人下水</b>——但此點須由她自己意識到，我方不宜點破。
           巡守隊協力的可行性掌握在她手上。</td>
-        <td>完成</td></tr>
+        <td data-l="狀態" data-s="1">完成</td></tr>
       <tr>
-        <td class="k">陸曉筠<br><span style="font-weight:400;font-size:13px">海保署現任署長</span></td>
-        <td><span class="tag t-gov">路徑 B<br>決定者</span></td>
-        <td><span class="file">dd-lu-hsiaoyun.html</span><br><span class="tag t-pri">私有庫</span></td>
-        <td>哈佛設計博士、<b>空間規劃者而非漁業科學家</b>；曾任黑潮基金會董事。旗艦政策是
+        <td class="k" data-t="1">陸曉筠<br><span style="font-weight:400;font-size:13px">海保署現任署長</span></td>
+        <td data-l="定位"><span class="tag t-gov">路徑 B<br>決定者</span></td>
+        <td data-l="檔案"><span class="file">dd-lu-hsiaoyun.html</span><br><span class="tag t-pri">私有庫</span></td>
+        <td data-l="一句話結論">哈佛設計博士、<b>空間規劃者而非漁業科學家</b>；曾任黑潮基金會董事。旗艦政策是
           「<b>有科學資料為基礎的庇護區劃設</b>」，工具是 <b>iOcean 資料庫</b>。
           <b>我方的漁獲回報正好餵養那個資料庫——這是最強賣點，且無人能替代。</b>
           她親口把「休閒潛水」列為保護區的受益產業。</td>
-        <td>完成</td></tr>
+        <td data-l="狀態" data-s="1">完成</td></tr>
       <tr>
-        <td class="k">農業部<br>漁業署<br><span style="font-weight:400;font-size:13px">署長王茂城</span></td>
-        <td><span class="tag t-gov">核定機關</span></td>
-        <td><span class="file">dd-fisheries-agency.html</span><br><span class="tag t-pri">私有庫</span></td>
-        <td><b>本案真正的最後一關</b>（§44Ⅲ 報核）。2017 年它自己提過幾乎一樣的全國魚槍禁令，
+        <td class="k" data-t="1">農業部<br>漁業署<br><span style="font-weight:400;font-size:13px">署長王茂城</span></td>
+        <td data-l="定位" data-s="1"><span class="tag t-gov">核定機關</span></td>
+        <td data-l="檔案"><span class="file">dd-fisheries-agency.html</span><br><span class="tag t-pri">私有庫</span></td>
+        <td data-l="一句話結論"><b>本案真正的最後一關</b>（§44Ⅲ 報核）。2017 年它自己提過幾乎一樣的全國魚槍禁令，
           352 則留言、公聽會後<b>從未施行</b>。<b>挖到法律兩難：援引 §44Ⅰ③（漁具漁法）罰則是 §61 刑罰
           且市府依 §44Ⅱ 無處分權；援引 §44Ⅰ④ 則以漁區漁期之名行漁具禁止之實。</b>
           全國 31 處保育區無一禁魚槍；屏東琉球 114/6/20 最新公告只管區域、物種、人數、時段。</td>
-        <td>完成</td></tr>
+        <td data-l="狀態" data-s="1">完成</td></tr>
       <tr>
-        <td class="k">臺東<br>富山保育區<br><span style="font-weight:400;font-size:13px">全國標竿</span></td>
-        <td><span class="tag t-mid">對照組</span></td>
-        <td><span class="file">dd-fushan.html</span><br><span class="tag t-pri">私有庫</span></td>
-        <td>全國執勤次數第一（<b>52 人／4,000 次</b>），也是唯一由區漁會做出成績的保育區。
+        <td class="k" data-t="1">臺東<br>富山保育區<br><span style="font-weight:400;font-size:13px">全國標竿</span></td>
+        <td data-l="定位" data-s="1"><span class="tag t-mid">對照組</span></td>
+        <td data-l="檔案"><span class="file">dd-fushan.html</span><br><span class="tag t-pri">私有庫</span></td>
+        <td data-l="一句話結論">全國執勤次數第一（<b>52 人／4,000 次</b>），也是唯一由區漁會做出成績的保育區。
           <b>分區同樣是核心／緩衝／永續使用，但範圍僅 1,500 公尺（新北是 3.7 倍），漁具限制只有緩衝區禁網具、未禁魚槍。</b>
           靠<b>門票 50 元自營</b>與居民擔任解說員浮潛員維持。<br>
           <b>2015 年台東也提過「擴大保育範圍」，在地反彈的話與我方訴求幾乎一字不差：
           「沒經費、沒人力，就算保育區劃的再大，也沒有用」。</b></td>
-        <td>完成</td></tr>
+        <td data-l="狀態" data-s="1">完成</td></tr>
       <tr>
-        <td class="k">貢寮區漁會<br>岸際巡守隊</td>
-        <td><span class="tag t-mid">進場接口</span></td>
-        <td><span class="file">dd-patrol-team.html</span><br><span class="tag t-pri">私有庫</span></td>
-        <td>海保署 108 年度統計：<b>貢寮 24 人但執勤 0 次 0 時、瑞芳 6 人執勤 0、萬里與野柳無巡守隊</b>；
+        <td class="k" data-t="1">貢寮區漁會<br>岸際巡守隊</td>
+        <td data-l="定位" data-s="1"><span class="tag t-mid">進場接口</span></td>
+        <td data-l="檔案"><span class="file">dd-patrol-team.html</span><br><span class="tag t-pri">私有庫</span></td>
+        <td data-l="一句話結論">海保署 108 年度統計：<b>貢寮 24 人但執勤 0 次 0 時、瑞芳 6 人執勤 0、萬里與野柳無巡守隊</b>；
           對照潮境 81 人 114 次 912 時、台東富山（區漁會辦）4,000 次。<br>
           <b>並含一項重大更正：貢寮區漁會已於 115.07.23 公開支持魚槍管制，先前「實質中性」之判定作廢。</b>
           第陸節載可接住其論點的回應方式。</td>
-        <td>完成<br><span style="font-size:12.5px">數據為 108 年度</span></td></tr>
+        <td data-l="狀態">完成<br><span style="font-size:12.5px">數據為 108 年度</span></td></tr>
       <tr>
-        <td class="k">新北市議會<br><span style="font-weight:400;font-size:13px">質詢紀錄</span></td>
-        <td><span class="tag t-gov">機關環境</span></td>
-        <td><span class="file">dd-council-records.html</span><br><span class="tag t-pri">私有庫</span></td>
-        <td><b>本案在議會從未被質詢過</b>——推翻「議會壓力驅動」的假設。
+        <td class="k" data-t="1">新北市議會<br><span style="font-weight:400;font-size:13px">質詢紀錄</span></td>
+        <td data-l="定位" data-s="1"><span class="tag t-gov">機關環境</span></td>
+        <td data-l="檔案"><span class="file">dd-council-records.html</span><br><span class="tag t-pri">私有庫</span></td>
+        <td data-l="一句話結論"><b>本案在議會從未被質詢過</b>——推翻「議會壓力驅動」的假設。
           找到<b>刺網轉型計畫 106 年度 3,108 萬 6,800 元</b>的正式案號；
           <b>陳明義議員</b>（本人潛水）曾說「新北現在的海洋生態都回來了」、主張結合潛水人員當志工、
           對新北落後潮境「很汗顏」——<b>最有價值的潛在議員盟友</b>。</td>
-        <td>完成</td></tr>
+        <td data-l="狀態" data-s="1">完成</td></tr>
 
       <tr style="background:#f2f8f4">
-        <td class="k">王昌凌<br><span style="font-weight:400;font-size:13px">磯探聯盟釣魚協會執行長</span></td>
-        <td><span class="tag t-mid">盟友<br>資深工作者</span></td>
-        <td><span class="file">dd-wang-changling.html</span><br><span class="tag t-pri">私有庫</span></td>
-        <td><b>他不是拒絕，是提醒——連署不是決定成敗的關鍵。</b>
+        <td class="k" data-t="1">王昌凌<br><span style="font-weight:400;font-size:13px">磯探聯盟釣魚協會執行長</span></td>
+        <td data-l="定位"><span class="tag t-mid">盟友<br>資深工作者</span></td>
+        <td data-l="檔案"><span class="file">dd-wang-changling.html</span><br><span class="tag t-pri">私有庫</span></td>
+        <td data-l="一句話結論"><b>他不是拒絕，是提醒——連署不是決定成敗的關鍵。</b>
           他點名的四件事（<b>完整論述、充分資料、持續協商、信任機制</b>）正是我方近日所做，
           <b>故正確回應是把成果拿給他看，而不是再請他動員連署。</b><br>
           他 2019 年參與海保署委託之垂釣公民參與調查，<b>是實踐者而非空談</b>；
@@ -233,46 +299,46 @@
           <span style="font-size:13px">→ <b>附一項警訊</b>：該計畫 2,670 人表示有意願，
           <b>實際回報僅 194 人</b>，委員質疑「落差甚大」——
           我方的回報方案必須是<b>登記制下的義務</b>，不能是自願＋抽獎。</span></td>
-        <td>完成</td></tr>
+        <td data-l="狀態" data-s="1">完成</td></tr>
 
       <tr style="background:#f2f8f4">
-        <td class="k">台灣釣權<br>團結聯盟<br><span style="font-weight:400;font-size:13px">與釣權團體圖景</span></td>
-        <td><span class="tag t-mid">最大盟友<br>亦最易誤傷</span></td>
-        <td><span class="file">dd-angling-rights.html</span><br><span class="tag t-pri">私有庫</span></td>
-        <td><b>釣魚社群規模是我方的數百倍（全國約 200 萬海釣人口，新北 30–40 萬），
+        <td class="k" data-t="1">台灣釣權<br>團結聯盟<br><span style="font-weight:400;font-size:13px">與釣權團體圖景</span></td>
+        <td data-l="定位"><span class="tag t-mid">最大盟友<br>亦最易誤傷</span></td>
+        <td data-l="檔案"><span class="file">dd-angling-rights.html</span><br><span class="tag t-pri">私有庫</span></td>
+        <td data-l="一句話結論"><b>釣魚社群規模是我方的數百倍（全國約 200 萬海釣人口，新北 30–40 萬），
           組織已存在 30 年，且與魚槍社群並不重疊。</b><br>
           建有九大團體清單（台灣釣權會系統六席、磯探聯盟、永續鱻漁白尚儒、釣魚生態保育協會）
           與 152 個 FB 社團統計。<b>台灣釣權會主張「公共海域全民使用、反對一刀切」，與我方語言一致。</b><br>
           <span style="font-size:13px">→ <b>核心風險</b>：草案「<b>非釣具類漁具</b>」五字是我方最有力的證據，
           卻直接指向盟友。內含建議統一用語，並管制「深澳夜釣補助」「潮境禁垂釣」兩張牌的用法。</span></td>
-        <td>完成</td></tr>
+        <td data-l="狀態" data-s="1">完成</td></tr>
 
     </tbody>
   </table>
   </div>
 
-  <h2><span class="n">參</span>輔助分析文件（6 份）</h2>
+  <h2 id="s3"><span class="n">參</span>輔助分析文件（6 份）</h2>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">檔案</th><th>內容</th><th style="width:1%">位置</th></tr></thead>
     <tbody>
-      <tr><td class="k"><span class="file">stakeholder-map-0908</span></td>
-        <td><b>關係人全圖（第二版）</b>——決策鏈、三欄陣營圖、<b>六位學者對魚槍的立場對照表</b>、七座橋、人物操作表、五個地雷、會前待辦</td>
-        <td><span class="tag t-pub">公開站</span><br><span style="font-size:12px;color:#8b3a22">建議改私有</span></td></tr>
-      <tr><td class="k"><span class="file">meeting-0908-brief</span></td>
-        <td>9/8 情勢研判與建議立場（夜間採捕、登記實名制之回應）</td>
-        <td><span class="tag t-pub">公開站</span><br><span style="font-size:12px;color:#8b3a22">建議改私有</span></td></tr>
-      <tr><td class="k"><span class="file">legal-authority-analysis</span></td>
-        <td><b>漁業處可不可以這樣做．法律面完整分析</b>——逐條查核漁業法、行政程序法、訴願法。<br>
+      <tr><td class="k" data-t="1"><span class="file">stakeholder-map-0908</span></td>
+        <td data-l="內容"><b>關係人全圖（第二版）</b>——決策鏈、三欄陣營圖、<b>六位學者對魚槍的立場對照表</b>、七座橋、人物操作表、五個地雷、會前待辦</td>
+        <td data-l="位置"><span class="tag t-pub">公開站</span><br><span style="font-size:12px;color:#8b3a22">建議改私有</span></td></tr>
+      <tr><td class="k" data-t="1"><span class="file">meeting-0908-brief</span></td>
+        <td data-l="內容">9/8 情勢研判與建議立場（夜間採捕、登記實名制之回應）</td>
+        <td data-l="位置"><span class="tag t-pub">公開站</span><br><span style="font-size:12px;color:#8b3a22">建議改私有</span></td></tr>
+      <tr><td class="k" data-t="1"><span class="file">legal-authority-analysis</span></td>
+        <td data-l="內容"><b>漁業處可不可以這樣做．法律面完整分析</b>——逐條查核漁業法、行政程序法、訴願法。<br>
           <b>劃設保育區：可以，且依 §45Ⅱ 直轄市自行核定，不必報中央。</b>
           <b>但限制事項依 §44Ⅲ 仍應報中央核定——§45Ⅱ 的自核權不及於此，而草案把兩者寫在同一份公告裡。</b><br>
           真正站得住的爭點只有兩個：<b>禁魚槍援引第 9 款「其他必要事項」而捨第 3 款專款不用</b>；
           <b>限制事項是否已報核</b>。另含救濟途徑（一般處分 vs 法規命令，訴願期間 30 日）、
           <b>§158Ⅱ 一部無效之主張</b>、以及我方陳述意見書一處需留意之弱點。</td>
-        <td><span class="tag t-pri">私有庫</span></td></tr>
-      <tr><td class="k"><span class="file">night-fishing-position</span></td>
-        <td><b>夜間漁獵管制．情理法分析與法律反駁空間</b>——回應漁業處提問。
+        <td data-l="位置" data-s="1"><span class="tag t-pri">私有庫</span></td></tr>
+      <tr><td class="k" data-t="1"><span class="file">night-fishing-position</span></td>
+        <td data-l="內容"><b>夜間漁獵管制．情理法分析與法律反駁空間</b>——回應漁業處提問。
           <b>結論分兩層：「夜間管制」擋不下也不宜擋；但「全面禁止」有紮實反駁空間。</b>
           <b>決定性對照組：基隆潮境（法源同為 §44Ⅰ④⑨＋§45，罰則同 §65⑥），
           以許可制＋總量管制＋證照＋時段管理，完全沒有禁止任何特定漁具，且核心區連垂釣都禁。</b>
@@ -284,37 +350,37 @@
           理：夜間是我方「選擇性即自律」論述唯一失效的場景；
           <b>法：主動提出較小侵害手段，直接把行政程序法 §7Ⅱ 的舉證責任推回市府。</b>
           含建議講稿、建議條文文字、四個技術細節與兩個禁忌。</td>
-        <td><span class="tag t-pri">私有庫</span></td></tr>
-      <tr><td class="k"><span class="file">draft-text</span></td>
-        <td><b>草案原文與逐條判讀</b>（新北府農漁字第 1152538607 號，115.06.17）——
+        <td data-l="位置" data-s="1"><span class="tag t-pri">私有庫</span></td></tr>
+      <tr><td class="k" data-t="1"><span class="file">draft-text</span></td>
+        <td data-l="內容"><b>草案原文與逐條判讀</b>（新北府農漁字第 1152538607 號，115.06.17）——
           <b>法源已確認：§44Ⅰ④⑦⑨ ＋ §45ⅠⅡ，罰則 §65⑥，未引第 3 款。</b>
           並更正四項先前判斷：僅萬里為三區、貢寮與瑞芳核心區仍允許採捕、
           核心區明文禁「非釣具類漁具」、萬里石花菜條款已是一套完整登記制。<br>
           <b>新爭點：草案將「浮潛」明文列為潛水器。</b></td>
-        <td><span class="tag t-pri">私有庫</span></td></tr>
-      <tr><td class="k"><span class="file">compare-2017-2026</span></td>
-        <td><b>2017 × 2026 兩次魚槍管制對照</b>——法源、範圍、例外、爭點、在地立場逐項比對。
+        <td data-l="位置" data-s="1"><span class="tag t-pri">私有庫</span></td></tr>
+      <tr><td class="k" data-t="1"><span class="file">compare-2017-2026</span></td>
+        <td data-l="內容"><b>2017 × 2026 兩次魚槍管制對照</b>——法源、範圍、例外、爭點、在地立場逐項比對。
           <b>核心結論：擋下 2017 那案的力量（漁民反對）這次站在對面，且憲法層次的種族爭點已消失，
           五項成功因素有四項失效或減弱。</b>另載可繼承的三個論點與全國化連動風險。</td>
-        <td><span class="tag t-pri">私有庫</span></td></tr>
-      <tr><td class="k"><span class="file">compare-chaojing</span></td>
-        <td>新北草案 × 基隆潮境對照表</td><td><span class="tag t-pub">公開站</span></td></tr>
-      <tr><td class="k"><span class="file">bluetrend-two-articles</span></td>
-        <td>BlueTrend 兩篇報導分析（含三處待更正事項）</td><td><span class="tag t-pub">公開站</span></td></tr>
-      <tr><td class="k"><span class="file">paper-tidepool-2020</span></td>
-        <td>陳義雄 2020 年 <i>Scientific Data</i> 潮池魚類長期監測論文解析</td><td><span class="tag t-pub">公開站</span></td></tr>
-      <tr><td class="k"><span class="file">patrol-fulian-maoao</span></td>
-        <td>福連里巡守隊制度與現況；<b>第柒節：公權力問題——草案怎麼寫都不會改變</b></td><td><span class="tag t-pub">公開站</span></td></tr>
-      <tr><td class="k"><span class="file">grant-oca-application</span></td>
-        <td>路徑 B：向海保署提出補助申請之可行性與時程</td><td><span class="tag t-pub">公開站</span></td></tr>
+        <td data-l="位置" data-s="1"><span class="tag t-pri">私有庫</span></td></tr>
+      <tr><td class="k" data-t="1"><span class="file">compare-chaojing</span></td>
+        <td data-l="內容" data-s="1">新北草案 × 基隆潮境對照表</td><td data-l="位置" data-s="1"><span class="tag t-pub">公開站</span></td></tr>
+      <tr><td class="k" data-t="1"><span class="file">bluetrend-two-articles</span></td>
+        <td data-l="內容">BlueTrend 兩篇報導分析（含三處待更正事項）</td><td data-l="位置" data-s="1"><span class="tag t-pub">公開站</span></td></tr>
+      <tr><td class="k" data-t="1"><span class="file">paper-tidepool-2020</span></td>
+        <td data-l="內容">陳義雄 2020 年 <i>Scientific Data</i> 潮池魚類長期監測論文解析</td><td data-l="位置" data-s="1"><span class="tag t-pub">公開站</span></td></tr>
+      <tr><td class="k" data-t="1"><span class="file">patrol-fulian-maoao</span></td>
+        <td data-l="內容">福連里巡守隊制度與現況；<b>第柒節：公權力問題——草案怎麼寫都不會改變</b></td><td data-l="位置" data-s="1"><span class="tag t-pub">公開站</span></td></tr>
+      <tr><td class="k" data-t="1"><span class="file">grant-oca-application</span></td>
+        <td data-l="內容">路徑 B：向海保署提出補助申請之可行性與時程</td><td data-l="位置" data-s="1"><span class="tag t-pub">公開站</span></td></tr>
     </tbody>
   </table>
   </div>
 
-  <h2><span class="n">肆</span>原始文本存查（<span class="file">sources/</span>）</h2>
+  <h2 id="s4"><span class="n">肆</span>原始文本存查（<span class="file">sources/</span>）</h2>
 
   <div class="scroll">
-  <table>
+  <table class="kv">
     <tbody>
       <tr><td class="k">2026.08.14</td>
         <td><b>台灣科技媒體中心「新北東北角3海浬帶狀保育區」專家意見．全文</b><br>
@@ -347,7 +413,7 @@
   </table>
   </div>
 
-  <h2><span class="n">伍</span>本批新增的一項可用論據：漁港法第 18 條第 3 項</h2>
+  <h2 id="s5"><span class="n">伍</span>本批新增的一項可用論據：漁港法第 18 條第 3 項</h2>
 
   <div class="ok">
     <b>立法者曾面對與本案結構完全相同的問題，而它沒有選擇禁止。</b><br><br>
@@ -368,7 +434,7 @@
     詳見 <span class="file">dd-angling-rights.html</span> 第伍節。
   </div>
 
-  <h2><span class="n">陸</span>兩個絕對不能用錯的地方</h2>
+  <h2 id="s6"><span class="n">陸</span>兩個絕對不能用錯的地方</h2>
 
   <div class="warn">
     <b>一、漁業法 §44Ⅰ③ 陷阱。</b><br>
@@ -385,26 +451,26 @@
     對外發言、書面意見、媒體受訪、社群貼文<b>一律以 2026 年 SMC 原文為準</b>。
   </div>
 
-  <h2><span class="n">柒</span>尚未進行的調查</h2>
+  <h2 id="s7"><span class="n">柒</span>尚未進行的調查</h2>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">優先</th><th>對象</th><th>為什麼要做</th></tr></thead>
     <tbody>
-      <tr><td class="k">中</td><td><b>廖正信、張懿、歐慶賢、邱文彥</b></td>
-        <td>2024 年海保法草案公聽會上講「<b>管理手段比面積重要，應優先考慮漁民生計</b>」（張懿）、
+      <tr><td class="k" data-t="1">中</td><td data-l="對象" data-s="1"><b>廖正信、張懿、歐慶賢、邱文彥</b></td>
+        <td data-l="為什麼要做">2024 年海保法草案公聽會上講「<b>管理手段比面積重要，應優先考慮漁民生計</b>」（張懿）、
           「管理經營才是重點」（歐慶賢）、「應有過渡期漁民保護措施、需警示黃燈區」（廖正信）的人。
           <b>一批現成但未盤點的潛在支持者</b>，其中三位在既有文件中零出現。</td></tr>
-      <tr><td class="k">中</td><td><b>研海生態</b>＋東北角管理處計畫</td>
-        <td>溫國彰揭露之「114–115 年東北角暨宜蘭海岸國家風景區海域資源保護區初步生態調查及管理評估計畫案」執行單位。
+      <tr><td class="k" data-t="1">中</td><td data-l="對象" data-s="1"><b>研海生態</b>＋東北角管理處計畫</td>
+        <td data-l="為什麼要做">溫國彰揭露之「114–115 年東北角暨宜蘭海岸國家風景區海域資源保護區初步生態調查及管理評估計畫案」執行單位。
           <b>那份調查會是下一輪的證據基礎，且屬交通部觀光署系統——同一片海域有兩套平行程序在跑。</b></td></tr>
-      <tr><td class="k">低</td><td>白尚儒、王南昕</td>
-        <td>2017 年魚槍論戰的其他參與者，立場光譜待確認。</td></tr>
+      <tr><td class="k" data-t="1">低</td><td data-l="對象" data-s="1">白尚儒、王南昕</td>
+        <td data-l="為什麼要做">2017 年魚槍論戰的其他參與者，立場光譜待確認。</td></tr>
     </tbody>
   </table>
   </div>
 
-  <h2><span class="n">捌</span>待查證清單</h2>
+  <h2 id="s8"><span class="n">捌</span>待查證清單</h2>
 
   <div class="info">
     以下事項<b>尚未查證，在任何場合引用前必須先確認</b>：
@@ -426,7 +492,7 @@
     </ul>
   </div>
 
-  <h2><span class="n">玖</span>文件安全狀態</h2>
+  <h2 id="s9"><span class="n">玖</span>文件安全狀態</h2>
 
   <div class="warn">
     <b>目前公開站上有含談判分析與個人姓名的文件，建議檢討。</b><br>

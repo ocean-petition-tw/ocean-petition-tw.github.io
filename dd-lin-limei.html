@@ -50,6 +50,70 @@
     .sheet{border:0;box-shadow:none;padding:0;margin-top:14px}.w{max-width:none;padding:0}
     .scroll{overflow:visible}table{min-width:0}@page{size:A4;margin:15mm 13mm}
     h2{page-break-after:avoid}table,tr{page-break-inside:avoid}}
+/* mobile-v2 */
+  .mtoc{display:none}
+  @media(max-width:680px){
+    body{font-size:16px;line-height:1.72}
+    .w,.wrap,.container{padding-left:12px;padding-right:12px}
+    .sheet,.card,.box{padding-left:14px;padding-right:14px}
+    header{padding-left:16px;padding-right:16px}
+    h2{margin-top:26px;margin-bottom:9px}
+    h3{margin-top:18px;margin-bottom:6px}
+    p{margin-bottom:9px}
+
+    /* ── 表格轉卡片 ── */
+    table{min-width:0!important;border:0;font-size:15px;display:block;width:100%}
+    thead{display:none}
+    tbody,tr,td,th{display:block;width:auto}
+    tr{border:1px solid var(--line,#ded7c9);border-radius:5px;
+       background:var(--paper,#fffdf8);margin:0 0 8px;padding:7px 0;overflow:hidden}
+    td,th{border:0;padding:3px 12px;white-space:normal!important}
+    td.k{background:transparent;width:auto;font-weight:800}
+
+    /* 有表頭者：欄名變小標 */
+    table.cards td[data-l]::before{content:attr(data-l);display:block;
+      font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);margin-bottom:1px}
+    table.cards td[data-t]{font-size:16.5px;font-weight:800;
+      color:var(--sea,#12303e);padding-top:1px;padding-bottom:4px;line-height:1.45}
+    table.cards td[data-seq]{display:none!important}
+
+    /* 短值：標籤與值同一行 */
+    table.cards td[data-s]:not([data-seq]){display:flex;flex-wrap:wrap;
+      gap:2px 7px;align-items:baseline;padding-top:1px;padding-bottom:1px;
+      line-height:1.6;min-width:0}
+    table.cards td[data-s]::before{margin-bottom:0;flex:0 0 auto;
+      min-width:4.2em;line-height:1.6}
+
+    /* 無表頭的鍵值表：第一格當小標 */
+    table.kv td.k{font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);padding-bottom:1px}
+    table.kv td.k+td{padding-top:0}
+
+    /* 含 colspan/rowspan 者不堆疊，保留原表格並可橫向捲動 */
+    table.keep{display:table;width:100%}
+    table.keep thead{display:table-header-group}
+    table.keep tbody{display:table-row-group}
+    table.keep tr{display:table-row;border:0;margin:0;padding:0;background:none}
+    table.keep td,table.keep th{display:table-cell;
+      border:1px solid var(--line,#ded7c9);padding:6px 9px}
+
+    /* 不讓任何元素撐破螢幕 */
+    html,body{max-width:100%;overflow-x:hidden}
+    td,th,p,li{overflow-wrap:break-word}
+
+    /* ── 章節快速跳轉 ── */
+    .mtoc{display:block;background:var(--paper,#fffdf8);
+      border:1px solid var(--line,#ded7c9);border-radius:6px;
+      padding:11px 13px 12px;margin:0 0 20px}
+    .mtoc .tt{font-size:11px;font-weight:800;letter-spacing:.16em;
+      color:var(--gold,#b07d2b);margin-bottom:7px}
+    .mtoc a{display:inline-block;font-size:14px;color:var(--sea,#12303e);
+      text-decoration:none;background:rgba(0,0,0,.03);
+      border:1px solid var(--line,#ded7c9);border-radius:4px;
+      padding:4px 9px;margin:0 5px 5px 0;line-height:1.4;max-width:100%}
+    .mtoc a b{color:var(--gold,#b07d2b);margin-right:4px;font-weight:800}
+  }
 </style>
 </head>
 <body>
@@ -66,7 +130,9 @@
 <div class="sheet">
 
 
-  <h2><span class="n">壹</span>一句話結論</h2>
+  <nav class="mtoc"><div class="tt">章節快速跳轉</div><a href="#s1"><b>壹</b>一句話結論</a><a href="#s2"><b>貳</b>檔案</a><a href="#s3"><b>參</b>判讀</a><a href="#s4"><b>肆</b>唯一的結構性共同利益：觀光需要人下水</a><a href="#s5"><b>伍</b>接觸建議</a><a href="#s6"><b>陸</b>待查證</a></nav>
+
+  <h2 id="s1"><span class="n">壹</span>一句話結論</h2>
 
   <div class="lede">
     <b>她已於 115 年 7 月 23 日公開表態支持魚槍管制</b>，理由是「保育不應只要求漁民配合」。<br>
@@ -98,10 +164,10 @@
     <b>此事已於 8/12 公開發布，構成我方的公開承諾，9/8 桌上可直接援引。</b>
   </div>
 
-  <h2><span class="n">貳</span>檔案</h2>
+  <h2 id="s2"><span class="n">貳</span>檔案</h2>
 
   <div class="scroll">
-  <table>
+  <table class="kv">
     <tr><td class="k">職務</td><td>新北市<b>貢寮區漁會總幹事</b></td></tr>
     <tr><td class="k">出身</td><td>出生於<b>澳底漁港</b>，家中從事捕魚業</td></tr>
     <tr><td class="k">資歷</td><td>畢業後先任職保險業，後調工程單位；<b>在漁會服務逾 30 年</b></td></tr>
@@ -124,7 +190,7 @@
     <span class="cite">—— 林麗美，2023 年 3 月受訪</span>
   </div>
 
-  <h2><span class="n">參</span>判讀</h2>
+  <h2 id="s3"><span class="n">參</span>判讀</h2>
 
   <div class="info">
     <b>一、她是專業經理人，不是政治人物。</b>理事長由會員代表選出、代表會員政治；
@@ -139,7 +205,7 @@
     <b>這代表她可能願意居中，但不會選邊。</b>
   </div>
 
-  <h2><span class="n">肆</span>唯一的結構性共同利益：觀光需要人下水</h2>
+  <h2 id="s4"><span class="n">肆</span>唯一的結構性共同利益：觀光需要人下水</h2>
 
   <div class="ok">
     她要把卯澳與馬崗發展成<b>觀光旅遊休憩漁村</b>。而觀光漁村的客源，
@@ -158,7 +224,7 @@
     <b>陳述事實，不做推論。</b>
   </div>
 
-  <h2><span class="n">伍</span>接觸建議</h2>
+  <h2 id="s5"><span class="n">伍</span>接觸建議</h2>
 
   <ul>
     <li><b>漁會已經表態支持管制，「爭取不反對」這個目標已不適用。</b>新的目標是：讓她理解我方並非要求例外，而是要求與漁民相同的程序待遇；並以自律行動（不張貼漁獲照片）回應她具體指出的不滿。</li>
@@ -172,7 +238,7 @@
       對貢寮而言同樣是「在地既有採捕習慣應受保障」的先例。）</li>
   </ul>
 
-  <h2><span class="n">陸</span>待查證</h2>
+  <h2 id="s6"><span class="n">陸</span>待查證</h2>
 
   <div class="info">
     <ul>

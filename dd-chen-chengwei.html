@@ -73,6 +73,70 @@
     @page{size:A4;margin:15mm 13mm}
     h2{page-break-after:avoid} table,tr{page-break-inside:avoid}
   }
+/* mobile-v2 */
+  .mtoc{display:none}
+  @media(max-width:680px){
+    body{font-size:16px;line-height:1.72}
+    .w,.wrap,.container{padding-left:12px;padding-right:12px}
+    .sheet,.card,.box{padding-left:14px;padding-right:14px}
+    header{padding-left:16px;padding-right:16px}
+    h2{margin-top:26px;margin-bottom:9px}
+    h3{margin-top:18px;margin-bottom:6px}
+    p{margin-bottom:9px}
+
+    /* ── 表格轉卡片 ── */
+    table{min-width:0!important;border:0;font-size:15px;display:block;width:100%}
+    thead{display:none}
+    tbody,tr,td,th{display:block;width:auto}
+    tr{border:1px solid var(--line,#ded7c9);border-radius:5px;
+       background:var(--paper,#fffdf8);margin:0 0 8px;padding:7px 0;overflow:hidden}
+    td,th{border:0;padding:3px 12px;white-space:normal!important}
+    td.k{background:transparent;width:auto;font-weight:800}
+
+    /* 有表頭者：欄名變小標 */
+    table.cards td[data-l]::before{content:attr(data-l);display:block;
+      font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);margin-bottom:1px}
+    table.cards td[data-t]{font-size:16.5px;font-weight:800;
+      color:var(--sea,#12303e);padding-top:1px;padding-bottom:4px;line-height:1.45}
+    table.cards td[data-seq]{display:none!important}
+
+    /* 短值：標籤與值同一行 */
+    table.cards td[data-s]:not([data-seq]){display:flex;flex-wrap:wrap;
+      gap:2px 7px;align-items:baseline;padding-top:1px;padding-bottom:1px;
+      line-height:1.6;min-width:0}
+    table.cards td[data-s]::before{margin-bottom:0;flex:0 0 auto;
+      min-width:4.2em;line-height:1.6}
+
+    /* 無表頭的鍵值表：第一格當小標 */
+    table.kv td.k{font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);padding-bottom:1px}
+    table.kv td.k+td{padding-top:0}
+
+    /* 含 colspan/rowspan 者不堆疊，保留原表格並可橫向捲動 */
+    table.keep{display:table;width:100%}
+    table.keep thead{display:table-header-group}
+    table.keep tbody{display:table-row-group}
+    table.keep tr{display:table-row;border:0;margin:0;padding:0;background:none}
+    table.keep td,table.keep th{display:table-cell;
+      border:1px solid var(--line,#ded7c9);padding:6px 9px}
+
+    /* 不讓任何元素撐破螢幕 */
+    html,body{max-width:100%;overflow-x:hidden}
+    td,th,p,li{overflow-wrap:break-word}
+
+    /* ── 章節快速跳轉 ── */
+    .mtoc{display:block;background:var(--paper,#fffdf8);
+      border:1px solid var(--line,#ded7c9);border-radius:6px;
+      padding:11px 13px 12px;margin:0 0 20px}
+    .mtoc .tt{font-size:11px;font-weight:800;letter-spacing:.16em;
+      color:var(--gold,#b07d2b);margin-bottom:7px}
+    .mtoc a{display:inline-block;font-size:14px;color:var(--sea,#12303e);
+      text-decoration:none;background:rgba(0,0,0,.03);
+      border:1px solid var(--line,#ded7c9);border-radius:4px;
+      padding:4px 9px;margin:0 5px 5px 0;line-height:1.4;max-width:100%}
+    .mtoc a b{color:var(--gold,#b07d2b);margin-right:4px;font-weight:800}
+  }
 </style>
 </head>
 <body>
@@ -91,7 +155,9 @@
 <div class="w">
 <div class="sheet">
 
-  <h2><span class="n">壹</span>一句話結論</h2>
+  <nav class="mtoc"><div class="tt">章節快速跳轉</div><a href="#s1"><b>壹</b>一句話結論</a><a href="#s2"><b>貳</b>人物檔案</a><a href="#s3"><b>參</b>這本書在打什麼——目錄本身就是證據</a><a href="#s4"><b>肆</b>三段可直接引用的第一手材料</a><a href="#s5"><b>伍</b>他真正的主張：不只反魚槍，是反「吃珊瑚礁魚」</a><a href="#s6"><b>陸</b>推薦人名單＝台灣海洋保育圈的完整名冊</a><a href="#s7"><b>柒</b>保育方的完整網絡圖</a><a href="#s8"><b>捌</b>對本案的關聯與建議</a></nav>
+
+  <h2 id="s1"><span class="n">壹</span>一句話結論</h2>
 
   <div class="lede">
     他寫了一整本控訴台灣海洋破壞的書，<b>從頭到尾沒有一章談魚槍</b>。<br>
@@ -105,10 +171,10 @@
     他的價值前提是<b>反狩獵</b>。這是資料說服不了的差異。
   </div>
 
-  <h2><span class="n">貳</span>人物檔案</h2>
+  <h2 id="s2"><span class="n">貳</span>人物檔案</h2>
 
   <div class="scroll">
-  <table>
+  <table class="kv">
     <tr><td class="k">現職</td><td>健行科技大學<b>應用外語系</b>副教授兼系主任</td></tr>
     <tr><td class="k">學歷</td><td>國立政治大學<b>英文系</b>博士</td></tr>
     <tr><td class="k">學術本業</td><td><b>電腦文化、電子媒體、數位文學、網路文學</b>——台灣最早研究此領域的學者之一；
@@ -123,7 +189,7 @@
   </table>
   </div>
 
-  <h2><span class="n">參</span>這本書在打什麼——目錄本身就是證據</h2>
+  <h2 id="s3"><span class="n">參</span>這本書在打什麼——目錄本身就是證據</h2>
 
   <div class="toc">
     <b>Chapter 1　海洋正奄奄一息，僅剩微弱的心跳</b><br>
@@ -150,7 +216,7 @@
     唯一涉及休閒採捕的一章是〈<b>釣線另一頭的憂鬱</b>〉——談的是<b>釣魚</b>，不是魚槍。
   </div>
 
-  <h2><span class="n">肆</span>三段可直接引用的第一手材料</h2>
+  <h2 id="s4"><span class="n">肆</span>三段可直接引用的第一手材料</h2>
 
   <h3>① 龍洞海底的底刺網「死亡長城」</h3>
   <div class="quote">
@@ -190,7 +256,7 @@
     並可主動提出社群協力巡守與回報，補上執法能量的缺口。
   </div>
 
-  <h2><span class="n">伍</span>他真正的主張：不只反魚槍，是反「吃珊瑚礁魚」</h2>
+  <h2 id="s5"><span class="n">伍</span>他真正的主張：不只反魚槍，是反「吃珊瑚礁魚」</h2>
 
   <div class="quote">
     我們能不能，<b>避免食用珊瑚礁魚，走入海洋去觀賞牠們</b>？<br>
@@ -208,17 +274,17 @@
     這反而支持我方的平等原則主張：<b>若問題是行為，就不該只管一種工具的使用者。</b>
   </div>
 
-  <h2><span class="n">陸</span>推薦人名單＝台灣海洋保育圈的完整名冊</h2>
+  <h2 id="s6"><span class="n">陸</span>推薦人名單＝台灣海洋保育圈的完整名冊</h2>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">類別</th><th>姓名與身分</th></tr></thead>
     <tbody>
-      <tr><td class="k">專文推薦</td><td>
+      <tr><td class="k" data-t="1">專文推薦</td><td data-l="姓名與身分">
         <b>張卉君</b>（作家、<b>黑潮海洋文教基金會</b>董事）<br>
         <b>陳玉敏</b>（<b>台灣動物社會研究會</b>副執行長）<br>
         <b>麥覺明</b>（生態紀錄片導演，《MIT 台灣誌》）</td></tr>
-      <tr><td class="k">推薦</td><td>
+      <tr><td class="k" data-t="1">推薦</td><td data-l="姓名與身分">
         李偉文（<b>荒野保護協會</b>榮譽理事長）／ 郝譽翔（國立台北教育大學語創系教授）<br>
         郭芙（<b>海湧工作室</b>副執行長）／ <b>陳琦恩（台灣潛水執行長）</b><br>
         陳盡川（澎湖群島海洋保護志工團協會理事長）／ <b>趙健舜（BlueTrend 藍色脈動創辦人）</b><br>
@@ -251,26 +317,26 @@
     也就是本案最常被引用的成效數據來源。該媒體與此保育社群關係密切。
   </div>
 
-  <h2><span class="n">柒</span>保育方的完整網絡圖</h2>
+  <h2 id="s7"><span class="n">柒</span>保育方的完整網絡圖</h2>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th>節點</th><th>身分</th><th>與本案的關聯</th></tr></thead>
     <tbody>
-      <tr><td class="k">海洋保育署</td><td>2018.4–2024.5 署長<b>黃向文</b></td>
-        <td>「潛海戰將」「在地守護計畫」是整個潛水保育社群的資源樞紐。
+      <tr><td class="k" data-t="1">海洋保育署</td><td data-l="身分">2018.4–2024.5 署長<b>黃向文</b></td>
+        <td data-l="與本案的關聯">「潛海戰將」「在地守護計畫」是整個潛水保育社群的資源樞紐。
           <b>但黃向文本人對本案的公開立場，最接近我方</b>（見另份調查）</td></tr>
-      <tr><td class="k">陳徵蔚</td><td>潛水教練、台灣淨海協會創會理事長（2023 年底離開）</td>
-        <td>潛海戰將、在地守護計畫受補助者；著作以底刺網與海廢為主軸，
+      <tr><td class="k" data-t="1">陳徵蔚</td><td data-l="身分">潛水教練、台灣淨海協會創會理事長（2023 年底離開）</td>
+        <td data-l="與本案的關聯">潛海戰將、在地守護計畫受補助者；著作以底刺網與海廢為主軸，
           <b>龍洞與澳底皆有專章</b>；價值上反狩獵</td></tr>
-      <tr><td class="k">台灣山海天使<br>環境保育協會</td><td>秘書長<b>陳映伶</b>（「珊瑚媽媽」，曾任記者與公關）</td>
-        <td>由潛水教練與志工組成；<b>在貢寮承租三口九孔池做珊瑚復育</b>；
+      <tr><td class="k" data-t="1">台灣山海天使<br>環境保育協會</td><td data-l="身分">秘書長<b>陳映伶</b>（「珊瑚媽媽」，曾任記者與公關）</td>
+        <td data-l="與本案的關聯">由潛水教練與志工組成；<b>在貢寮承租三口九孔池做珊瑚復育</b>；
           漁業處點名的合作夥伴，也是<b>唯一在本案海域有實體據點的保育團體</b></td></tr>
-      <tr><td class="k">陳義雄</td><td>海大海洋生物研究所教授</td>
-        <td>長期受新北市府委託進行魚類生態研究，提供本案科學論據；
+      <tr><td class="k" data-t="1">陳義雄</td><td data-l="身分" data-s="1">海大海洋生物研究所教授</td>
+        <td data-l="與本案的關聯">長期受新北市府委託進行魚類生態研究，提供本案科學論據；
           主張管制潛水魚槍、「留影不留魚」</td></tr>
-      <tr><td class="k">主流環團</td><td>黑潮、荒野、動社、海湧、綠色和平</td>
-        <td>皆在本書推薦名單上，屬同一倡議生態系</td></tr>
+      <tr><td class="k" data-t="1">主流環團</td><td data-l="身分">黑潮、荒野、動社、海湧、綠色和平</td>
+        <td data-l="與本案的關聯">皆在本書推薦名單上，屬同一倡議生態系</td></tr>
     </tbody>
   </table>
   </div>
@@ -282,7 +348,7 @@
     <b>與這個網絡的價值語言並不完全一致</b>。
   </div>
 
-  <h2><span class="n">捌</span>對本案的關聯與建議</h2>
+  <h2 id="s8"><span class="n">捌</span>對本案的關聯與建議</h2>
 
   <h3>可以做的</h3>
   <ul>

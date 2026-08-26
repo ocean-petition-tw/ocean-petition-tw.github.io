@@ -80,6 +80,70 @@
     @page{size:A4;margin:15mm 13mm}
     h2{page-break-after:avoid} table,tr{page-break-inside:avoid}
   }
+/* mobile-v2 */
+  .mtoc{display:none}
+  @media(max-width:680px){
+    body{font-size:16px;line-height:1.72}
+    .w,.wrap,.container{padding-left:12px;padding-right:12px}
+    .sheet,.card,.box{padding-left:14px;padding-right:14px}
+    header{padding-left:16px;padding-right:16px}
+    h2{margin-top:26px;margin-bottom:9px}
+    h3{margin-top:18px;margin-bottom:6px}
+    p{margin-bottom:9px}
+
+    /* ── 表格轉卡片 ── */
+    table{min-width:0!important;border:0;font-size:15px;display:block;width:100%}
+    thead{display:none}
+    tbody,tr,td,th{display:block;width:auto}
+    tr{border:1px solid var(--line,#ded7c9);border-radius:5px;
+       background:var(--paper,#fffdf8);margin:0 0 8px;padding:7px 0;overflow:hidden}
+    td,th{border:0;padding:3px 12px;white-space:normal!important}
+    td.k{background:transparent;width:auto;font-weight:800}
+
+    /* 有表頭者：欄名變小標 */
+    table.cards td[data-l]::before{content:attr(data-l);display:block;
+      font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);margin-bottom:1px}
+    table.cards td[data-t]{font-size:16.5px;font-weight:800;
+      color:var(--sea,#12303e);padding-top:1px;padding-bottom:4px;line-height:1.45}
+    table.cards td[data-seq]{display:none!important}
+
+    /* 短值：標籤與值同一行 */
+    table.cards td[data-s]:not([data-seq]){display:flex;flex-wrap:wrap;
+      gap:2px 7px;align-items:baseline;padding-top:1px;padding-bottom:1px;
+      line-height:1.6;min-width:0}
+    table.cards td[data-s]::before{margin-bottom:0;flex:0 0 auto;
+      min-width:4.2em;line-height:1.6}
+
+    /* 無表頭的鍵值表：第一格當小標 */
+    table.kv td.k{font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);padding-bottom:1px}
+    table.kv td.k+td{padding-top:0}
+
+    /* 含 colspan/rowspan 者不堆疊，保留原表格並可橫向捲動 */
+    table.keep{display:table;width:100%}
+    table.keep thead{display:table-header-group}
+    table.keep tbody{display:table-row-group}
+    table.keep tr{display:table-row;border:0;margin:0;padding:0;background:none}
+    table.keep td,table.keep th{display:table-cell;
+      border:1px solid var(--line,#ded7c9);padding:6px 9px}
+
+    /* 不讓任何元素撐破螢幕 */
+    html,body{max-width:100%;overflow-x:hidden}
+    td,th,p,li{overflow-wrap:break-word}
+
+    /* ── 章節快速跳轉 ── */
+    .mtoc{display:block;background:var(--paper,#fffdf8);
+      border:1px solid var(--line,#ded7c9);border-radius:6px;
+      padding:11px 13px 12px;margin:0 0 20px}
+    .mtoc .tt{font-size:11px;font-weight:800;letter-spacing:.16em;
+      color:var(--gold,#b07d2b);margin-bottom:7px}
+    .mtoc a{display:inline-block;font-size:14px;color:var(--sea,#12303e);
+      text-decoration:none;background:rgba(0,0,0,.03);
+      border:1px solid var(--line,#ded7c9);border-radius:4px;
+      padding:4px 9px;margin:0 5px 5px 0;line-height:1.4;max-width:100%}
+    .mtoc a b{color:var(--gold,#b07d2b);margin-right:4px;font-weight:800}
+  }
 </style>
 </head>
 <body>
@@ -98,7 +162,9 @@
 <div class="w">
 <div class="sheet">
 
-  <h2><span class="n">壹</span>一句話結論</h2>
+  <nav class="mtoc"><div class="tt">章節快速跳轉</div><a href="#s1"><b>壹</b>一句話結論</a><a href="#s2"><b>貳</b>卯澳（福連里）是什麼樣的地方</a><a href="#s3"><b>參</b>巡守隊怎麼來的——完整時間線</a><a href="#s4"><b>肆</b>最重要的發現：社區自己早就訂了規範</a><a href="#s5"><b>伍</b>現在誰在卯澳海域做事</a><a href="#s6"><b>陸</b>台灣「巡守隊」的四種制度型態</a><a href="#s7"><b>柒</b>公權力問題：草案怎麼寫，都不會改變</a><a href="#s8"><b>捌</b>兩條中央補助管道——其中一條下週就截止</a><a href="#s9"><b>玖</b>名單告訴我們的事</a><a href="#s10"><b>拾</b>建議的三條路徑</a><a href="#s11"><b>拾壹</b>對 9/8 的直接意義</a></nav>
+
+  <h2 id="s1"><span class="n">壹</span>一句話結論</h2>
 
   <div class="lede">
     <b>卯澳早就有巡守隊了</b>——2016 年由既有的封溪護魚志工隊轉型成立「海陸域巡守隊」。<br>
@@ -107,10 +173,10 @@
     （巡守隊在任何版本的草案下都沒有公權力，但<b>我方版本會讓它變得必要，全面禁止版會讓它變得多餘</b>——詳見第柒節。）</span>
   </div>
 
-  <h2><span class="n">貳</span>卯澳（福連里）是什麼樣的地方</h2>
+  <h2 id="s2"><span class="n">貳</span>卯澳（福連里）是什麼樣的地方</h2>
 
   <div class="scroll">
-  <table>
+  <table class="kv">
     <tr><td class="k">行政區</td><td>新北市貢寮區<b>福連里</b>，卯澳地區位於三貂角北端，西鄰福隆里，北臨太平洋</td></tr>
     <tr><td class="k">面積</td><td>10.5074 平方公里</td></tr>
     <tr><td class="k">人口</td><td><b>常住人口約 100 人</b>，閩南為主</td></tr>
@@ -125,7 +191,7 @@
   </table>
   </div>
 
-  <h2><span class="n">參</span>巡守隊怎麼來的——完整時間線</h2>
+  <h2 id="s3"><span class="n">參</span>巡守隊怎麼來的——完整時間線</h2>
 
   <ol class="tl">
     <li><span class="y">2002</span>透過公部門計畫，進行生態環境改造、文史調查及人才培育。此時已有<b>封溪護魚志工隊</b>。</li>
@@ -145,7 +211,7 @@
     源自封溪護魚，因栽培漁業區而擴展到海域。它<b>屬於社區</b>，運作與里、社區發展協會、漁民緊密綁定。
   </div>
 
-  <h2><span class="n">肆</span>最重要的發現：社區自己早就訂了規範</h2>
+  <h2 id="s4"><span class="n">肆</span>最重要的發現：社區自己早就訂了規範</h2>
 
   <div class="quote">
     為了海洋永續發展，當地漁民已<b>約法三章</b>，限制<b>龍蝦小於 20 公分、海膽小於 8 公分等禁止捕撈</b>。
@@ -166,18 +232,18 @@
     9/8 桌上若要證明「社群自我管理具可行性」，<b>不必舉台東的例子——例子就在貢寮</b>。
   </div>
 
-  <h2><span class="n">伍</span>現在誰在卯澳海域做事</h2>
+  <h2 id="s5"><span class="n">伍</span>現在誰在卯澳海域做事</h2>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">單位</th><th>在卯澳做什麼</th></tr></thead>
     <tbody>
-      <tr><td class="k">新北市政府</td><td>覆網（廢棄漁網）清除計畫，<b>自 2012 年至今已清除 36,816 公斤</b></td></tr>
-      <tr><td class="k">新北市府<br>＋國立海洋大學<br>＋<b>台灣山海天使</b></td>
-        <td><b>於卯澳海域復育超過 3,500 株珊瑚</b>（三方合作）</td></tr>
-      <tr><td class="k">社區<br>海陸域巡守隊</td><td>2016 年成立，持續關注當地海洋環境</td></tr>
-      <tr><td class="k">水產試驗所<br>臺灣里海團隊</td><td>環境教育、漁業公民科學家培育、社區工作坊</td></tr>
-      <tr><td class="k">本聯盟</td><td><b>目前無任何常態性投入</b>；僅 8/1 應里長邀請參與遶境、8/10 拜會漁會</td></tr>
+      <tr><td class="k" data-t="1">新北市政府</td><td data-l="在卯澳做什麼">覆網（廢棄漁網）清除計畫，<b>自 2012 年至今已清除 36,816 公斤</b></td></tr>
+      <tr><td class="k" data-t="1">新北市府<br>＋國立海洋大學<br>＋<b>台灣山海天使</b></td>
+        <td data-l="在卯澳做什麼"><b>於卯澳海域復育超過 3,500 株珊瑚</b>（三方合作）</td></tr>
+      <tr><td class="k" data-t="1">社區<br>海陸域巡守隊</td><td data-l="在卯澳做什麼">2016 年成立，持續關注當地海洋環境</td></tr>
+      <tr><td class="k" data-t="1">水產試驗所<br>臺灣里海團隊</td><td data-l="在卯澳做什麼">環境教育、漁業公民科學家培育、社區工作坊</td></tr>
+      <tr><td class="k" data-t="1">本聯盟</td><td data-l="在卯澳做什麼"><b>目前無任何常態性投入</b>；僅 8/1 應里長邀請參與遶境、8/10 拜會漁會</td></tr>
     </tbody>
   </table>
   </div>
@@ -188,21 +254,21 @@
     <b>「我們願意協助」如果沒有變成實際行動，在桌上的份量遠低於一句「我們已經在做」。</b>
   </div>
 
-  <h2><span class="n">陸</span>台灣「巡守隊」的四種制度型態</h2>
+  <h2 id="s6"><span class="n">陸</span>台灣「巡守隊」的四種制度型態</h2>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">類型</th><th>主管／依據</th><th>性質</th></tr></thead>
     <tbody>
-      <tr><td class="k">封溪護魚<br>志工隊</td><td>地方政府（自治條例／公告）</td>
-        <td>溪流禁漁區之巡守、勸導、通報。卯澳巡守隊的<b>前身</b></td></tr>
-      <tr><td class="k">海洋保護區<br>巡守隊</td><td>海保署補助計畫；依《海洋保育法》</td>
-        <td><b>本案最相關</b>。巡護、通報、公民科學調查。
+      <tr><td class="k" data-t="1">封溪護魚<br>志工隊</td><td data-l="主管／依據" data-s="1">地方政府（自治條例／公告）</td>
+        <td data-l="性質">溪流禁漁區之巡守、勸導、通報。卯澳巡守隊的<b>前身</b></td></tr>
+      <tr><td class="k" data-t="1">海洋保護區<br>巡守隊</td><td data-l="主管／依據">海保署補助計畫；依《海洋保育法》</td>
+        <td data-l="性質"><b>本案最相關</b>。巡護、通報、公民科學調查。
           海保法 <b>§17</b> 明定民眾、法人或團體協助取締舉發者<b>得予獎勵，身分應予保密</b></td></tr>
-      <tr><td class="k">栽培漁業區<br>自主管理</td><td>漁業主管機關；社區自治規約</td>
-        <td>卯澳巡守隊現行的實際依託。約束力來自<b>社區共識</b>而非公權力</td></tr>
-      <tr><td class="k">守望相助隊</td><td>警政體系；地方自治法規</td>
-        <td>治安型，與海洋資源保育無關。<b>不是本案要的那一種</b></td></tr>
+      <tr><td class="k" data-t="1">栽培漁業區<br>自主管理</td><td data-l="主管／依據" data-s="1">漁業主管機關；社區自治規約</td>
+        <td data-l="性質">卯澳巡守隊現行的實際依託。約束力來自<b>社區共識</b>而非公權力</td></tr>
+      <tr><td class="k" data-t="1">守望相助隊</td><td data-l="主管／依據" data-s="1">警政體系；地方自治法規</td>
+        <td data-l="性質">治安型，與海洋資源保育無關。<b>不是本案要的那一種</b></td></tr>
     </tbody>
   </table>
   </div>
@@ -213,7 +279,7 @@
     <b>但「沒有公權力」不等於「沒有作用」——詳見下節。</b>
   </div>
 
-  <h2><span class="n">柒</span>公權力問題：草案怎麼寫，都不會改變</h2>
+  <h2 id="s7"><span class="n">柒</span>公權力問題：草案怎麼寫，都不會改變</h2>
 
   <div class="lede">
     巡守隊在任何版本的草案下<b>都沒有公權力</b>——這一點與草案內容無關。<br>
@@ -236,15 +302,15 @@
   <h3>但草案內容決定巡守隊的價值——而且方向相反</h3>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%"></th><th>全面禁止版</th><th>我方分級管理版</th></tr></thead>
     <tbody>
-      <tr><td class="k">怎麼判定違規</td><td>見槍即違規</td>
-        <td>須判斷<b>時段、魚種、體長、是否抱卵、是否販售</b></td></tr>
-      <tr><td class="k">誰能判定</td><td>任何人</td>
-        <td><b>要懂魚、會量、能辨識的人</b></td></tr>
-      <tr><td class="k">巡守隊的價值</td><td><b>低</b>——這件事海巡自己就能做</td>
-        <td><b>高</b>——需要有專業的人在現場</td></tr>
+      <tr><td class="k" data-t="1">怎麼判定違規</td><td data-l="全面禁止版" data-s="1">見槍即違規</td>
+        <td data-l="我方分級管理版">須判斷<b>時段、魚種、體長、是否抱卵、是否販售</b></td></tr>
+      <tr><td class="k" data-t="1">誰能判定</td><td data-l="全面禁止版" data-s="1">任何人</td>
+        <td data-l="我方分級管理版" data-s="1"><b>要懂魚、會量、能辨識的人</b></td></tr>
+      <tr><td class="k" data-t="1">巡守隊的價值</td><td data-l="全面禁止版" data-s="1"><b>低</b>——這件事海巡自己就能做</td>
+        <td data-l="我方分級管理版" data-s="1"><b>高</b>——需要有專業的人在現場</td></tr>
     </tbody>
   </table>
   </div>
@@ -259,10 +325,10 @@
   <h3>真正能產生約束力的三條路，都不是公權力</h3>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">途徑</th><th>內容與評估</th></tr></thead>
     <tbody>
-      <tr><td class="k">①<br>登記制的<br><b>資格約束</b></td><td>
+      <tr><td class="k" data-t="1">①<br>登記制的<br><b>資格約束</b></td><td data-l="內容與評估">
         <b>最有力，而且 9/8 正在談。</b><br>
         · <b>潮境模式</b>：石花菜採捕須向漁會申請、造冊（含身分證字號）、市府審核、
           <b>副知海巡備查</b>——約束來自「有沒有在名單上」<br>
@@ -270,11 +336,11 @@
         若登記制成真，違規者可被<b>暫停或撤銷登記</b>；那是主管機關的行政處分，
         但<b>觸發它的資訊可以來自巡守隊</b>。<br>
         <b>約束力不必來自公權力，可以來自資格。</b></td></tr>
-      <tr><td class="k">②<br>海保法<br><b>§17</b></td><td>
+      <tr><td class="k" data-t="1">②<br>海保法<br><b>§17</b></td><td data-l="內容與評估">
         「執法人員、<b>民眾、法人或團體</b>主動參與或協助主管機關取締、舉發本法違法事件者，
         主管機關<b>得予獎勵</b>……對於前項主動參與或協助之人<b>身分應予保密</b>。」<br>
         不是公權力，但給了舉發者<b>法律保護與誘因</b>——且為黃向文任內立法。</td></tr>
-      <tr><td class="k">③<br>行政程序法<br><b>§16</b></td><td>
+      <tr><td class="k" data-t="1">③<br>行政程序法<br><b>§16</b></td><td data-l="內容與評估">
         「行政機關得<b>依法規</b>將其權限之一部分，委託民間團體或個人辦理……
         應將委託事項及法規依據<b>公告之，並刊登政府公報或新聞紙</b>。
         委託所需費用……由行政機關支付之。」<br>
@@ -300,11 +366,11 @@
     <b>不誇大權限的計畫書比較容易過。</b>
   </div>
 
-  <h2><span class="n">捌</span>兩條中央補助管道——其中一條下週就截止</h2>
+  <h2 id="s8"><span class="n">捌</span>兩條中央補助管道——其中一條下週就截止</h2>
 
   <h3>管道一　海洋保育在地守護計畫（海保署，109 年起）</h3>
   <div class="scroll">
-  <table>
+  <table class="kv">
     <tr><td class="k">六大主題</td><td>海洋公民調查、<b>海洋保護區巡護</b>、棲地復育行動、
       <b>友善釣魚行動</b>、海洋保育推廣、潔淨海洋行動</td></tr>
     <tr><td class="k">分組</td><td>護海領航者／大實現家（重實質保育）／<b>小推手（鼓勵首次參與、規模小、經費低者）</b></td></tr>
@@ -322,7 +388,7 @@
   </div>
 
   <div class="scroll">
-  <table>
+  <table class="kv">
     <tr><td class="k">法源</td><td>《海洋保育法》第 1、4、6、7、18 條；《海洋庇護區劃定辦法》；
       《海洋保護區以外海洋其他有效保育措施之區域認定辦法》（<b>OECM</b>）；整體海洋保護區管理政策方針</td></tr>
     <tr><td class="k">對象</td><td>關注海洋議題之<b>政府立案法人或非法人團體</b>、專家學者與學術研究機構</td></tr>
@@ -344,22 +410,22 @@
     <b>這幾乎是為本案的爭點量身寫的。</b>最高補助 100 萬（局部）／200 萬（進階）。
   </div>
 
-  <h2><span class="n">玖</span>名單告訴我們的事</h2>
+  <h2 id="s9"><span class="n">玖</span>名單告訴我們的事</h2>
 
   <p>115 年海洋保育在地守護計畫的執行團隊中，包含：</p>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">類別</th><th>團體</th></tr></thead>
     <tbody>
-      <tr><td class="k">本案<br>對立方</td><td><b>台灣山海天使環境保育協會</b>、
+      <tr><td class="k" data-t="1">本案<br>對立方</td><td data-l="團體"><b>台灣山海天使環境保育協會</b>、
         <b>財團法人自然保育與環境資訊基金會</b>——<b>連署發起團體中的兩個，都在名單裡</b></td></tr>
-      <tr><td class="k">保育圈</td><td>財團法人黑潮海洋文教基金會、澎湖縣澎湖群島海洋保護志工團協會、
+      <tr><td class="k" data-t="1">保育圈</td><td data-l="團體">財團法人黑潮海洋文教基金會、澎湖縣澎湖群島海洋保護志工團協會、
         社團法人台灣媽祖魚保育聯盟、屏東縣琉球鄉小琉球海岸生態協會等</td></tr>
-      <tr><td class="k">潛水</td><td>社團法人中華民國水中運動協會、社團法人臺灣身心障礙潛水協會</td></tr>
-      <tr><td class="k"><b>採捕<br>使用者</b></td><td><b>高雄市南台灣釣魚人大聯盟協會</b>、
+      <tr><td class="k" data-t="1">潛水</td><td data-l="團體">社團法人中華民國水中運動協會、社團法人臺灣身心障礙潛水協會</td></tr>
+      <tr><td class="k" data-t="1"><b>採捕<br>使用者</b></td><td data-l="團體"><b>高雄市南台灣釣魚人大聯盟協會</b>、
         社團法人雲林縣作業漁船協會、有限責任彰化縣海洋食研生產合作社</td></tr>
-      <tr><td class="k">在地社區</td><td>基隆市中正區八斗社區發展協會、台東縣蘭嶼鄉東清／漁人社區發展協會、
+      <tr><td class="k" data-t="1">在地社區</td><td data-l="團體">基隆市中正區八斗社區發展協會、台東縣蘭嶼鄉東清／漁人社區發展協會、
         花蓮縣豐濱鄉港口社區發展協會、宜蘭縣蘇澳鎮大坑罟社區發展協會等</td></tr>
     </tbody>
   </table>
@@ -375,7 +441,7 @@
     我方目前什麼都沒有。<b>這是實力差距，不是論述差距。</b>
   </div>
 
-  <h2><span class="n">拾</span>建議的三條路徑</h2>
+  <h2 id="s10"><span class="n">拾</span>建議的三條路徑</h2>
 
   <h3>路徑 A（最快，也最沒有爭議）　支援卯澳既有的巡守隊</h3>
   <div class="ok">
@@ -402,7 +468,7 @@
     這種組合在名單中最常見（各地社區發展協會），且能同時解決「外來團體介入」的疑慮。<br>
     但需要社區點頭，時間較長，<b>適合 10/30 那一梯</b>。</p>
 
-  <h2><span class="n">拾壹</span>對 9/8 的直接意義</h2>
+  <h2 id="s11"><span class="n">拾壹</span>對 9/8 的直接意義</h2>
 
   <div class="ok">
     <b>如果在 9/8 之前已經送出申請（或已與社區談定協助方式），桌上能說的話就完全不同：</b><br><br>

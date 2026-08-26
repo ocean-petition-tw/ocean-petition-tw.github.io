@@ -80,6 +80,70 @@
     @page{size:A4;margin:15mm 13mm}
     h2{page-break-after:avoid} table,tr{page-break-inside:avoid}
   }
+/* mobile-v2 */
+  .mtoc{display:none}
+  @media(max-width:680px){
+    body{font-size:16px;line-height:1.72}
+    .w,.wrap,.container{padding-left:12px;padding-right:12px}
+    .sheet,.card,.box{padding-left:14px;padding-right:14px}
+    header{padding-left:16px;padding-right:16px}
+    h2{margin-top:26px;margin-bottom:9px}
+    h3{margin-top:18px;margin-bottom:6px}
+    p{margin-bottom:9px}
+
+    /* ── 表格轉卡片 ── */
+    table{min-width:0!important;border:0;font-size:15px;display:block;width:100%}
+    thead{display:none}
+    tbody,tr,td,th{display:block;width:auto}
+    tr{border:1px solid var(--line,#ded7c9);border-radius:5px;
+       background:var(--paper,#fffdf8);margin:0 0 8px;padding:7px 0;overflow:hidden}
+    td,th{border:0;padding:3px 12px;white-space:normal!important}
+    td.k{background:transparent;width:auto;font-weight:800}
+
+    /* 有表頭者：欄名變小標 */
+    table.cards td[data-l]::before{content:attr(data-l);display:block;
+      font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);margin-bottom:1px}
+    table.cards td[data-t]{font-size:16.5px;font-weight:800;
+      color:var(--sea,#12303e);padding-top:1px;padding-bottom:4px;line-height:1.45}
+    table.cards td[data-seq]{display:none!important}
+
+    /* 短值：標籤與值同一行 */
+    table.cards td[data-s]:not([data-seq]){display:flex;flex-wrap:wrap;
+      gap:2px 7px;align-items:baseline;padding-top:1px;padding-bottom:1px;
+      line-height:1.6;min-width:0}
+    table.cards td[data-s]::before{margin-bottom:0;flex:0 0 auto;
+      min-width:4.2em;line-height:1.6}
+
+    /* 無表頭的鍵值表：第一格當小標 */
+    table.kv td.k{font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);padding-bottom:1px}
+    table.kv td.k+td{padding-top:0}
+
+    /* 含 colspan/rowspan 者不堆疊，保留原表格並可橫向捲動 */
+    table.keep{display:table;width:100%}
+    table.keep thead{display:table-header-group}
+    table.keep tbody{display:table-row-group}
+    table.keep tr{display:table-row;border:0;margin:0;padding:0;background:none}
+    table.keep td,table.keep th{display:table-cell;
+      border:1px solid var(--line,#ded7c9);padding:6px 9px}
+
+    /* 不讓任何元素撐破螢幕 */
+    html,body{max-width:100%;overflow-x:hidden}
+    td,th,p,li{overflow-wrap:break-word}
+
+    /* ── 章節快速跳轉 ── */
+    .mtoc{display:block;background:var(--paper,#fffdf8);
+      border:1px solid var(--line,#ded7c9);border-radius:6px;
+      padding:11px 13px 12px;margin:0 0 20px}
+    .mtoc .tt{font-size:11px;font-weight:800;letter-spacing:.16em;
+      color:var(--gold,#b07d2b);margin-bottom:7px}
+    .mtoc a{display:inline-block;font-size:14px;color:var(--sea,#12303e);
+      text-decoration:none;background:rgba(0,0,0,.03);
+      border:1px solid var(--line,#ded7c9);border-radius:4px;
+      padding:4px 9px;margin:0 5px 5px 0;line-height:1.4;max-width:100%}
+    .mtoc a b{color:var(--gold,#b07d2b);margin-right:4px;font-weight:800}
+  }
 </style>
 </head>
 <body>
@@ -98,7 +162,9 @@
 <div class="w">
 <div class="sheet">
 
-  <h2><span class="n">壹</span>一句話結論</h2>
+  <nav class="mtoc"><div class="tt">章節快速跳轉</div><a href="#s1"><b>壹</b>一句話結論</a><a href="#s2"><b>貳</b>人物檔案</a><a href="#s3"><b>參</b>她在本案的完整發言</a><a href="#s4"><b>肆</b>最重要的一份文件：她 2017 年的那篇投書</a><a href="#s5"><b>伍</b>她的學術紀錄：她研究的就是「使用者怎麼看管理</a><a href="#s6"><b>陸</b>她建立的法律架構，是我方最強的武器</a><a href="#s7"><b>柒</b>2017 年那一仗：同樣的劇本，已經演過一次</a><a href="#s8"><b>捌</b>一個我方不能用的論點</a><a href="#s9"><b>玖</b>真正的對手是誰</a><a href="#s10"><b>拾</b>我方一個必須修正的說法</a><a href="#s11"><b>拾壹</b>兵推：她可能怎麼出招</a><a href="#s12"><b>拾貳</b>建議</a></nav>
+
+  <h2 id="s1"><span class="n">壹</span>一句話結論</h2>
 
   <div class="lede">
     她在 2017 年就寫過一篇投書，把我方今天主張的<b>登記證照、漁獲回報、體長與數量限制、因地制宜、民間團體協力執法</b>整套講完了。<br>
@@ -110,10 +176,10 @@
     任何誇大、無據或轉述錯誤的說法，她一眼就能拆穿。對她講話必須<b>比對其他任何人都更精準</b>。
   </div>
 
-  <h2><span class="n">貳</span>人物檔案</h2>
+  <h2 id="s2"><span class="n">貳</span>人物檔案</h2>
 
   <div class="scroll">
-  <table>
+  <table class="kv">
     <tr><td class="k">現職</td><td>國立臺灣海洋大學海洋事務與資源管理研究所教授（2026 年 1 月歸建）</td></tr>
     <tr><td class="k">2024.5–2026.1</td><td><b>海洋委員會政務副主任委員</b>　卸任時獲頒「海洋、海巡、海育、海研」<b>四項一等專業獎章</b>；主委管碧玲稱其為「<b>最重要的專業夥伴</b>」，並明列其貢獻為「<b>推海保法從無到有</b>」</td></tr>
     <tr><td class="k">2018.4–2024.5</td><td><b>海洋保育署首任署長</b>（六年，自建署起）——「從三個人開始」</td></tr>
@@ -138,7 +204,7 @@
     四、<b>她不是珊瑚礁生態學者</b>。她的論文沒有一篇是珊瑚礁魚類生態或魚槍衝擊評估。這解釋了為什麼她在本案的發言<b>始終不去斷言魚槍的生態衝擊比較大</b>——那不是她的領域，她不會替別人背書。
   </div>
 
-  <h2><span class="n">參</span>她在本案的完整發言</h2>
+  <h2 id="s3"><span class="n">參</span>她在本案的完整發言</h2>
 
   <div class="info">
     <b>來源更正：</b>先前記錄的「中央社報導」只是摘要。原始文本是<b>台灣科技媒體中心（SMC）2026 年 8 月 14 日的專家邀稿</b>，
@@ -184,7 +250,7 @@
     <b>「最終目標是讓大家都能使用海洋」</b>——這句話請背下來。它是我方全部主張的上位命題，而且出自她口。
   </div>
 
-  <h2><span class="n">肆</span>最重要的一份文件：她 2017 年的那篇投書</h2>
+  <h2 id="s4"><span class="n">肆</span>最重要的一份文件：她 2017 年的那篇投書</h2>
 
   <div class="lede">
     〈你我皆漁民？該修的是「娛樂漁業管理辦法」〉<br>
@@ -241,31 +307,31 @@
     <b>不可以說「黃教授支持魚槍登記制」</b>——她從未這樣說過。把別人沒說過的話塞進其口中，是本聯盟的紅線。
   </div>
 
-  <h2><span class="n">伍</span>她的學術紀錄：她研究的就是「使用者怎麼看管理措施」</h2>
+  <h2 id="s5"><span class="n">伍</span>她的學術紀錄：她研究的就是「使用者怎麼看管理措施」</h2>
 
   <p>她發表逾 20 篇 SCI／SSCI 論文。主體是<b>遠洋鮪延繩釣的混獲</b>（海鳥、海龜）與<b>海洋廢棄物</b>。
   但她關於海洋保護區的研究，主題高度一致：<b>保護區的成敗取決於利害關係人的認知與參與</b>。而且樣區集中在台灣北部。</p>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">年</th><th>著作</th><th>與本案的關係</th></tr></thead>
     <tbody>
-      <tr><td class="k">2019</td>
-        <td>Liao, Huang &amp; Lu，〈漁民對沿岸漁業管理法規的認知：台灣沿岸漁業資源復育的關鍵因素〉<br>
+      <tr><td class="k" data-t="1">2019</td>
+        <td data-l="著作">Liao, Huang &amp; Lu，〈漁民對沿岸漁業管理法規的認知：台灣沿岸漁業資源復育的關鍵因素〉<br>
             <span class="cite">Ocean &amp; Coastal Management 172: 1–13（SSCI，訪談 313 名漁民）</span></td>
-        <td>論文開頭即寫：「海洋保護區等措施<b>經常遭到漁民反對</b>」。結論的四項優先事項中，兩項是<b>「建立利害關係人間的溝通以取得支持」</b>與<b>「決策者與漁民間的溝通以增進相互理解」</b>。<br>
+        <td data-l="與本案的關係">論文開頭即寫：「海洋保護區等措施<b>經常遭到漁民反對</b>」。結論的四項優先事項中，兩項是<b>「建立利害關係人間的溝通以取得支持」</b>與<b>「決策者與漁民間的溝通以增進相互理解」</b>。<br>
             另一發現：滿意度最低的三項措施全是<b>網具類</b>（拖網禁漁區、焚寄網、刺網）；滿意度較高的是<b>監測嚴格</b>的措施。</td></tr>
-      <tr><td class="k">2015</td>
-        <td>Kusumawati &amp; Huang，〈海洋保護區成功管理的關鍵因素：印尼亞齊韋島兩處 MPA 之<b>利害關係人認知</b>比較〉<br>
+      <tr><td class="k" data-t="1">2015</td>
+        <td data-l="著作">Kusumawati &amp; Huang，〈海洋保護區成功管理的關鍵因素：印尼亞齊韋島兩處 MPA 之<b>利害關係人認知</b>比較〉<br>
             <span class="cite">Marine Policy 51: 465–475（2014 年海洋環境治理國際研討會<b>最佳論文獎</b>）</span></td>
-        <td>她 SMC Q2 答案中「範圍夠大、管制落實、時間夠長、<b>在地居民參與</b>」四項關鍵，學術根據就是這篇。</td></tr>
-      <tr><td class="k">2013</td>
-        <td>Huang &amp; You，〈台灣民眾對海洋治理與海洋資源管理的認知〉<br>
+        <td data-l="與本案的關係">她 SMC Q2 答案中「範圍夠大、管制落實、時間夠長、<b>在地居民參與</b>」四項關鍵，學術根據就是這篇。</td></tr>
+      <tr><td class="k" data-t="1">2013</td>
+        <td data-l="著作">Huang &amp; You，〈台灣民眾對海洋治理與海洋資源管理的認知〉<br>
             <span class="cite">Coastal Management 41(5): 420–438；1,120 份電話問卷</span></td>
-        <td>她 2017 投書中「218 萬至 350 萬人有海釣或岸釣經驗」的數字即出自此調查（12.3% 海釣、19.8% 岸釣）。</td></tr>
-      <tr><td class="k">2016</td>
-        <td>黃向文等，〈臺灣海洋保護區管理之探討—以東南亞國家為借鏡〉<span class="cite">航運季刊 25(1)</span></td>
-        <td>她對台灣 MPA 管理的通盤檢討。</td></tr>
+        <td data-l="與本案的關係">她 2017 投書中「218 萬至 350 萬人有海釣或岸釣經驗」的數字即出自此調查（12.3% 海釣、19.8% 岸釣）。</td></tr>
+      <tr><td class="k" data-t="1">2016</td>
+        <td data-l="著作">黃向文等，〈臺灣海洋保護區管理之探討—以東南亞國家為借鏡〉<span class="cite">航運季刊 25(1)</span></td>
+        <td data-l="與本案的關係">她對台灣 MPA 管理的通盤檢討。</td></tr>
     </tbody>
   </table>
   </div>
@@ -287,7 +353,7 @@
     ② <b>我方任何關於現場人數、行為態樣的說法，她都有比對基準。</b>不要編數字。
   </div>
 
-  <h2><span class="n">陸</span>她建立的法律架構，是我方最強的武器</h2>
+  <h2 id="s6"><span class="n">陸</span>她建立的法律架構，是我方最強的武器</h2>
 
   <p><b>海洋保育法</b>民國 113 年（2024）7 月 31 日制定公布，正是她任海保署長第六年。
   更關鍵的是施行時程：§1–§5、§18、§19 自 114 年 1 月 1 日施行；
@@ -295,20 +361,20 @@
   <b>正在她擔任政務副主任委員期間</b>。我方援引的條文，是她任內一手推動立法、又一手發動施行的。</p>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">分區</th><th>海洋保育法怎麼規定</th><th>新北草案怎麼規定</th></tr></thead>
     <tbody>
-      <tr><td class="k">核心區</td>
-        <td>§10　任何人禁止進入（公務、科研等除外）</td>
-        <td>禁止採捕；萬里另留漁會會員徒手採石花菜之例外</td></tr>
-      <tr><td class="k">緩衝區</td>
-        <td>§11　非經許可禁止：水產養殖、<b>採捕海洋生物</b>、航道工程、鋪設纜管、探礦採礦<br>
+      <tr><td class="k" data-t="1">核心區</td>
+        <td data-l="海洋保育法怎麼規定">§10　任何人禁止進入（公務、科研等除外）</td>
+        <td data-l="新北草案怎麼規定">禁止採捕；萬里另留漁會會員徒手採石花菜之例外</td></tr>
+      <tr><td class="k" data-t="1">緩衝區</td>
+        <td data-l="海洋保育法怎麼規定">§11　非經許可禁止：水產養殖、<b>採捕海洋生物</b>、航道工程、鋪設纜管、探礦採礦<br>
             §11Ⅱ　但符合公告之<b>「一定種類、數量、方式、範圍或期間」</b>者，<b>免申請許可</b></td>
-        <td>僅禁魚槍與潛水器；其餘漁具漁法不設限</td></tr>
-      <tr><td class="k">永續<br>利用區</td>
-        <td>§12　非經許可禁止：<b>航道工程、鋪設纜管、探礦採礦</b><br>
+        <td data-l="新北草案怎麼規定">僅禁魚槍與潛水器；其餘漁具漁法不設限</td></tr>
+      <tr><td class="k" data-t="1">永續<br>利用區</td>
+        <td data-l="海洋保育法怎麼規定">§12　非經許可禁止：<b>航道工程、鋪設纜管、探礦採礦</b><br>
             <b>完全沒有「採捕海洋生物」這一款</b></td>
-        <td>禁魚槍與潛水器</td></tr>
+        <td data-l="新北草案怎麼規定" data-s="1">禁魚槍與潛水器</td></tr>
     </tbody>
   </table>
   </div>
@@ -322,7 +388,7 @@
 
   <h3>該法還有五處對我方有利</h3>
   <div class="scroll">
-  <table>
+  <table class="kv">
     <tr><td class="k">§8Ⅱ</td><td>劃設海洋庇護區之審議會，<b>不具官方身分代表不得少於 1/2</b>；<b>原住民及漁民團體代表不得少於 1/3</b>；決議須出席委員 <b>2/3 同意</b>。<br>
       → 這是她親手訂下的參與標準，而<b>她本人正是該審議會的副召集人</b>。新北的「預告＋說明會」與此相距甚遠。</td></tr>
     <tr><td class="k">§8Ⅲ</td><td>核心區之劃定致既有使用人遭受<b>特別犧牲</b>之損失者，<b>應予補償</b>。<br>
@@ -335,14 +401,14 @@
   </table>
   </div>
 
-  <h2><span class="n">柒</span>2017 年那一仗：同樣的劇本，已經演過一次</h2>
+  <h2 id="s7"><span class="n">柒</span>2017 年那一仗：同樣的劇本，已經演過一次</h2>
 
   <div class="info">
     <b>本次調查最有戰略價值的背景發現。</b>2017 年，農委會漁業署做過幾乎一模一樣的事，而且失敗了。
   </div>
 
   <div class="scroll">
-  <table>
+  <table class="kv">
     <tr><td class="k">2017.3.10</td><td>漁業署預告「<b>魚槍採捕水產動物禁漁區管制措施</b>」草案。法源：<b>漁業法第 44 條第 1 項第 4 款</b>。
       內容：距岸 12 海浬內，除原住民於原住民族地區基於文化祭儀或自用、鏢旗魚漁業、經核准之學術研究外，<b>禁止一切魚槍獵捕</b>。違者依漁業法第 65 條第 6 款處 3 萬至 15 萬元罰鍰。</td></tr>
     <tr><td class="k">預告期</td><td>60 日，至 2017 年 5 月 15 日止。公共政策網路參與平臺累計 <b>352 則留言</b>。臺東、花蓮、澎湖漁村出現陳情抗議。</td></tr>
@@ -366,7 +432,7 @@
   </ul>
   <p>他並在註腳中<b>引用黃向文那篇投書</b>，作為「釣魚活動也應該制訂保育規範（bag and size limits）配套」的依據。</p>
 
-  <h2><span class="n">捌</span>一個我方不能用的論點</h2>
+  <h2 id="s8"><span class="n">捌</span>一個我方不能用的論點</h2>
 
   <div class="warn">
     <b>羅國榮當年最強的一擊，在本案條文層次可用，但實務強度有限。</b><br>
@@ -384,30 +450,30 @@
     另 §44Ⅲ：直轄市主管機關公告前，<b>應報由中央主管機關核定</b>——即本案仍須經農業部漁業署核定。
   </div>
 
-  <h2><span class="n">玖</span>真正的對手是誰</h2>
+  <h2 id="s9"><span class="n">玖</span>真正的對手是誰</h2>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th>人物</th><th>身分與立場</th></tr></thead>
     <tbody>
-      <tr><td class="k">陳義雄</td><td>
+      <tr><td class="k" data-t="1">陳義雄</td><td data-l="身分與立場">
         國立臺灣海洋大學海洋生物研究所教授。<b>長期受新北市府委託進行海洋魚類生態研究</b>——本案的科學基礎來自他。<br>
         主張：新北海域石斑、鸚哥魚、笛鯛、粗皮鯛、寒鯛等中大型經濟魚種<b>已逐漸稀缺</b>；保育區內群聚優於區外。
         <b>明確主張應管制沿岸 3 浬潛水魚槍採捕。</b><br>
         <b>這才是需要準備的對象。</b></td></tr>
-      <tr><td class="k">邵廣昭</td><td>
+      <tr><td class="k" data-t="1">邵廣昭</td><td data-l="身分與立場">
         中山大學／海洋大學榮譽講座教授、中研院生多中心前代主任。<b>四人中立場最強硬者。</b><br>
         SMC 原文：「<b>水肺潛水打魚應該就是最大的罪魁禍首</b>」、「不應以保育之名，行破壞之實，反而是對保育最大的傷害」。
         主張預防原則、槽型體長限制（slot limit）、特大型魚「留影不留魚」。<br>
         <b>注意：</b>他支持的 slot limit 與我方主張相容；可從這一點接住他，不要正面撞「最大的罪魁禍首」那句。</td></tr>
-      <tr><td class="k">陳昭倫</td><td>
+      <tr><td class="k" data-t="1">陳昭倫</td><td data-l="身分與立場">
         中研院生物多樣性研究中心研究員。<b>技術上最細緻，立場最複雜。</b><br>
         他支持禁「<b>使用潛水器</b>」的魚槍採捕（理由是人工供氣解除深度與時間限制），
         但明確區分自由潛水魚槍與水肺魚槍，並稱「<b>目前也不能在沒有在地比較資料下，就直接宣稱其整體生態衝擊必然大於垂釣</b>」。
         他也引《報導者》估計新北魚槍者<b>約數百人</b>，對照海保署估算新北海釣與潛在釣魚人口<b>約 30 至 40 萬人</b>。</td></tr>
-      <tr><td class="k">李明安</td><td>
+      <tr><td class="k" data-t="1">李明安</td><td data-l="身分與立場">
         國立臺灣海洋大學副校長。溫和派——認為劃設方向是好的，<b>但相關管制仍需更多科學資料佐證</b>；提到可思考<b>總可採捕量</b>。</td></tr>
-      <tr><td class="k">黃向文</td><td>如前述。<b>立場最接近我方，但她是裁判不是隊友。</b></td></tr>
+      <tr><td class="k" data-t="1">黃向文</td><td data-l="身分與立場">如前述。<b>立場最接近我方，但她是裁判不是隊友。</b></td></tr>
     </tbody>
   </table>
   </div>
@@ -428,7 +494,7 @@
   <p>注意：市府的論點<b>不是「魚槍抓得多」，而是「魚槍選擇性強、專打大魚」</b>。
   而黃向文在 SMC 的回答是「<b>重要的不是比較採捕方式差異</b>」——<b>她的第一句話就否定了市府論證的形式</b>。</p>
 
-  <h2><span class="n">拾</span>我方一個必須修正的說法</h2>
+  <h2 id="s10"><span class="n">拾</span>我方一個必須修正的說法</h2>
 
   <div class="warn">
     <b>「除魚槍與潛水器外，其餘漁具漁法均未設限制」——這句話會被打。</b><br>
@@ -442,7 +508,7 @@
     差別待遇的問題不在「有沒有管別人」，而在<b>管制標準不一致</b>。
   </div>
 
-  <h2><span class="n">拾壹</span>兵推：她可能怎麼出招</h2>
+  <h2 id="s11"><span class="n">拾壹</span>兵推：她可能怎麼出招</h2>
 
   <h3>情境一（最可能）　她要求「完整的管理計畫」</h3>
   <p>她 SMC Q2 已明說：劃定範圍大不代表一定成功，還需要持續科學監測、適當管制措施、確實執法、視成效定期檢討調整。</p>
@@ -485,7 +551,7 @@
     <b>這一頁準備好，就等於同時回答了她的問題、示範了登記回報制可行、也把我方變成資料提供者。</b>
   </div>
 
-  <h2><span class="n">拾貳</span>建議</h2>
+  <h2 id="s12"><span class="n">拾貳</span>建議</h2>
 
   <ul>
     <li><b>不要把她當敵人，也不要把她當盟友。</b>她是專業裁判。對她只講有出處的話，不講立場話。</li>

@@ -79,6 +79,70 @@
     @page{size:A4;margin:16mm 14mm}
     h2{page-break-after:avoid} table,tr{page-break-inside:avoid}
   }
+/* mobile-v2 */
+  .mtoc{display:none}
+  @media(max-width:680px){
+    body{font-size:16px;line-height:1.72}
+    .w,.wrap,.container{padding-left:12px;padding-right:12px}
+    .sheet,.card,.box{padding-left:14px;padding-right:14px}
+    header{padding-left:16px;padding-right:16px}
+    h2{margin-top:26px;margin-bottom:9px}
+    h3{margin-top:18px;margin-bottom:6px}
+    p{margin-bottom:9px}
+
+    /* ── 表格轉卡片 ── */
+    table{min-width:0!important;border:0;font-size:15px;display:block;width:100%}
+    thead{display:none}
+    tbody,tr,td,th{display:block;width:auto}
+    tr{border:1px solid var(--line,#ded7c9);border-radius:5px;
+       background:var(--paper,#fffdf8);margin:0 0 8px;padding:7px 0;overflow:hidden}
+    td,th{border:0;padding:3px 12px;white-space:normal!important}
+    td.k{background:transparent;width:auto;font-weight:800}
+
+    /* 有表頭者：欄名變小標 */
+    table.cards td[data-l]::before{content:attr(data-l);display:block;
+      font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);margin-bottom:1px}
+    table.cards td[data-t]{font-size:16.5px;font-weight:800;
+      color:var(--sea,#12303e);padding-top:1px;padding-bottom:4px;line-height:1.45}
+    table.cards td[data-seq]{display:none!important}
+
+    /* 短值：標籤與值同一行 */
+    table.cards td[data-s]:not([data-seq]){display:flex;flex-wrap:wrap;
+      gap:2px 7px;align-items:baseline;padding-top:1px;padding-bottom:1px;
+      line-height:1.6;min-width:0}
+    table.cards td[data-s]::before{margin-bottom:0;flex:0 0 auto;
+      min-width:4.2em;line-height:1.6}
+
+    /* 無表頭的鍵值表：第一格當小標 */
+    table.kv td.k{font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);padding-bottom:1px}
+    table.kv td.k+td{padding-top:0}
+
+    /* 含 colspan/rowspan 者不堆疊，保留原表格並可橫向捲動 */
+    table.keep{display:table;width:100%}
+    table.keep thead{display:table-header-group}
+    table.keep tbody{display:table-row-group}
+    table.keep tr{display:table-row;border:0;margin:0;padding:0;background:none}
+    table.keep td,table.keep th{display:table-cell;
+      border:1px solid var(--line,#ded7c9);padding:6px 9px}
+
+    /* 不讓任何元素撐破螢幕 */
+    html,body{max-width:100%;overflow-x:hidden}
+    td,th,p,li{overflow-wrap:break-word}
+
+    /* ── 章節快速跳轉 ── */
+    .mtoc{display:block;background:var(--paper,#fffdf8);
+      border:1px solid var(--line,#ded7c9);border-radius:6px;
+      padding:11px 13px 12px;margin:0 0 20px}
+    .mtoc .tt{font-size:11px;font-weight:800;letter-spacing:.16em;
+      color:var(--gold,#b07d2b);margin-bottom:7px}
+    .mtoc a{display:inline-block;font-size:14px;color:var(--sea,#12303e);
+      text-decoration:none;background:rgba(0,0,0,.03);
+      border:1px solid var(--line,#ded7c9);border-radius:4px;
+      padding:4px 9px;margin:0 5px 5px 0;line-height:1.4;max-width:100%}
+    .mtoc a b{color:var(--gold,#b07d2b);margin-right:4px;font-weight:800}
+  }
 </style>
 </head>
 <body>
@@ -97,7 +161,9 @@
 <div class="w">
 <div class="sheet">
 
-  <h2><span class="n">壹</span>一句話判讀</h2>
+  <nav class="mtoc"><div class="tt">章節快速跳轉</div><a href="#s1"><b>壹</b>一句話判讀</a><a href="#s2"><b>貳</b>風險換了一種：不是會不會輸，是會不會贏得難看</a><a href="#s3"><b>參</b>議題一 夜間禁「魚槍及動力魚叉」</a><a href="#s4"><b>肆</b>議題二 許可制／實名制登記</a><a href="#s5"><b>伍</b>桌上的人怎麼看</a><a href="#s6"><b>陸</b>9/8 之前要完成的六件事</a></nav>
+
+  <h2 id="s1"><span class="n">壹</span>一句話判讀</h2>
 
   <div class="lede">
     他們已經不再談「全面禁魚槍」了——現在談的是<b>在什麼條件下使用</b>。
@@ -111,7 +177,7 @@
     <b>另一個好消息：</b>協調會本身就是我方陳述意見書「請於最終公告前與相關利害關係人再行協商」這項請求的直接回應。<b>送件到召開不到三週。</b>程序上我們拿到了要的東西。
   </div>
 
-  <h2><span class="n">貳</span>風險換了一種：不是會不會輸，是會不會贏得難看</h2>
+  <h2 id="s2"><span class="n">貳</span>風險換了一種：不是會不會輸，是會不會贏得難看</h2>
 
   <div class="warn">
     <b>風險一　桌上出現兩種答案。</b>當漁業處問「夜間禁不禁」「願不願登記」，若我方代表各說各話，過去兩個月建立的可信度會在十分鐘內歸零。<br>
@@ -123,11 +189,11 @@
     請注意：<b>與會名單裡沒有釣魚團體</b>，而釣權聯盟是我們的聲援單位。
   </div>
 
-  <h2><span class="n">參</span>議題一　夜間禁「魚槍及動力魚叉」</h2>
+  <h2 id="s3"><span class="n">參</span>議題一　夜間禁「魚槍及動力魚叉」</h2>
 
   <p><b>建議：接受。</b></p>
 
-  <table>
+  <table class="kv">
     <tr><td class="k">為什麼</td><td>
       我方陳述意見書本來就提了夜間禁魚槍（日落後 30 分至日出前 30 分），加上動力魚叉是很小的增量。<br>
       更重要的是，這<b>完全符合我們的核心主張——依危害管理，不依工具名稱</b>。夜間＋動力裝置＝對休眠魚類的高效率捕獲，是真實的危害差異。
@@ -147,7 +213,7 @@
     <b>戰術價值：</b>我們會是全場<b>第一個主動接受限制的團體</b>。這在協調會上是極強的位置——之後我們對別人提任何要求，都站得住腳。
   </div>
 
-  <h2><span class="n">肆</span>議題二　許可制／實名制登記</h2>
+  <h2 id="s4"><span class="n">肆</span>議題二　許可制／實名制登記</h2>
 
   <p><b>建議：接受，但條件要談死。</b>這是本次會議真正的重點，也是我們最大的機會。</p>
 
@@ -160,7 +226,7 @@
   </ul>
 
   <h3>六個必談的條件（否則登記制會變成換皮的禁令）</h3>
-  <table>
+  <table class="kv">
     <tr><th style="width:1%">#</th><th>條件</th><th>為什麼</th></tr>
     <tr><td>1</td><td><b>登記制，非核准制</b></td><td>符合客觀要件即完成登記，不得有裁量駁回空間。否則「不予許可」就是禁令</td></tr>
     <tr><td>2</td><td><b>要件客觀可預見</b></td><td>不得綁漁會會員身分、不得綁特定證照、規費不得過高</td></tr>
@@ -176,9 +242,9 @@
   </div>
   <p>這段話同時做到三件事：<b>接受管制、不攻擊釣友、把平等原則的旗子插在那裡不拔。</b></p>
 
-  <h2><span class="n">伍</span>桌上的人怎麼看</h2>
+  <h2 id="s5"><span class="n">伍</span>桌上的人怎麼看</h2>
 
-  <table>
+  <table class="kv">
     <tr><th>團體</th><th>判讀與注意事項</th></tr>
     <tr><td class="k">生態保育團體</td><td>提「動力魚叉」而非「全面禁止」，代表在談技術細節，<b>可以合作，不要當敵人</b></td></tr>
     <tr><td class="k">山海天使協會</td><td>漁業處的合作夥伴，做珊瑚復育與海洋教育。<b>注意：不要在桌上引用「北部種得出珊瑚、種不出珊瑚礁生態系」去質疑珊瑚復育</b>——那會直接得罪主辦方的夥伴</td></tr>
@@ -186,7 +252,7 @@
     <tr><td class="k">漁會</td><td>8/10 已拜會，立場未知。萬里核心區有「僅設籍萬里之區漁會會員得徒手採石花菜」的特例，<b>本次會議不觸及此事</b>，維繫既有關係優先</td></tr>
   </table>
 
-  <h2><span class="n">陸</span>9/8 之前要完成的六件事</h2>
+  <h2 id="s6"><span class="n">陸</span>9/8 之前要完成的六件事</h2>
 
   <ol class="todo">
     <li><b>內部立場定調</b>（最優先）——夜間禁令與登記制的立場，以書面確認，代表不得在桌上另表意見</li>

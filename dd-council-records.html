@@ -50,6 +50,70 @@
     .sheet{border:0;box-shadow:none;padding:0;margin-top:14px}.w{max-width:none;padding:0}
     .scroll{overflow:visible}table{min-width:0}@page{size:A4;margin:15mm 13mm}
     h2{page-break-after:avoid}table,tr{page-break-inside:avoid}}
+/* mobile-v2 */
+  .mtoc{display:none}
+  @media(max-width:680px){
+    body{font-size:16px;line-height:1.72}
+    .w,.wrap,.container{padding-left:12px;padding-right:12px}
+    .sheet,.card,.box{padding-left:14px;padding-right:14px}
+    header{padding-left:16px;padding-right:16px}
+    h2{margin-top:26px;margin-bottom:9px}
+    h3{margin-top:18px;margin-bottom:6px}
+    p{margin-bottom:9px}
+
+    /* ── 表格轉卡片 ── */
+    table{min-width:0!important;border:0;font-size:15px;display:block;width:100%}
+    thead{display:none}
+    tbody,tr,td,th{display:block;width:auto}
+    tr{border:1px solid var(--line,#ded7c9);border-radius:5px;
+       background:var(--paper,#fffdf8);margin:0 0 8px;padding:7px 0;overflow:hidden}
+    td,th{border:0;padding:3px 12px;white-space:normal!important}
+    td.k{background:transparent;width:auto;font-weight:800}
+
+    /* 有表頭者：欄名變小標 */
+    table.cards td[data-l]::before{content:attr(data-l);display:block;
+      font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);margin-bottom:1px}
+    table.cards td[data-t]{font-size:16.5px;font-weight:800;
+      color:var(--sea,#12303e);padding-top:1px;padding-bottom:4px;line-height:1.45}
+    table.cards td[data-seq]{display:none!important}
+
+    /* 短值：標籤與值同一行 */
+    table.cards td[data-s]:not([data-seq]){display:flex;flex-wrap:wrap;
+      gap:2px 7px;align-items:baseline;padding-top:1px;padding-bottom:1px;
+      line-height:1.6;min-width:0}
+    table.cards td[data-s]::before{margin-bottom:0;flex:0 0 auto;
+      min-width:4.2em;line-height:1.6}
+
+    /* 無表頭的鍵值表：第一格當小標 */
+    table.kv td.k{font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);padding-bottom:1px}
+    table.kv td.k+td{padding-top:0}
+
+    /* 含 colspan/rowspan 者不堆疊，保留原表格並可橫向捲動 */
+    table.keep{display:table;width:100%}
+    table.keep thead{display:table-header-group}
+    table.keep tbody{display:table-row-group}
+    table.keep tr{display:table-row;border:0;margin:0;padding:0;background:none}
+    table.keep td,table.keep th{display:table-cell;
+      border:1px solid var(--line,#ded7c9);padding:6px 9px}
+
+    /* 不讓任何元素撐破螢幕 */
+    html,body{max-width:100%;overflow-x:hidden}
+    td,th,p,li{overflow-wrap:break-word}
+
+    /* ── 章節快速跳轉 ── */
+    .mtoc{display:block;background:var(--paper,#fffdf8);
+      border:1px solid var(--line,#ded7c9);border-radius:6px;
+      padding:11px 13px 12px;margin:0 0 20px}
+    .mtoc .tt{font-size:11px;font-weight:800;letter-spacing:.16em;
+      color:var(--gold,#b07d2b);margin-bottom:7px}
+    .mtoc a{display:inline-block;font-size:14px;color:var(--sea,#12303e);
+      text-decoration:none;background:rgba(0,0,0,.03);
+      border:1px solid var(--line,#ded7c9);border-radius:4px;
+      padding:4px 9px;margin:0 5px 5px 0;line-height:1.4;max-width:100%}
+    .mtoc a b{color:var(--gold,#b07d2b);margin-right:4px;font-weight:800}
+  }
 </style>
 </head>
 <body>
@@ -66,7 +130,9 @@
 <div class="sheet">
 
 
-  <h2><span class="n">壹</span>一句話結論</h2>
+  <nav class="mtoc"><div class="tt">章節快速跳轉</div><a href="#s1"><b>壹</b>一句話結論</a><a href="#s2"><b>貳</b>檢索方法</a><a href="#s3"><b>參</b>最重要的發現：陳明義議員</a><a href="#s4"><b>肆</b>刺網轉型計畫的正式數字（議會紀錄）</a><a href="#s5"><b>伍</b>漁業處的預算結構與議會壓力</a><a href="#s6"><b>陸</b>魚槍在議會的唯一脈絡：原住民族狩獵權</a><a href="#s7"><b>柒</b>卯澳與馬崗已在議會被討論</a><a href="#s8"><b>捌</b>海保署補助新北市是常態——路徑 B 的先例</a><a href="#s9"><b>玖</b>建議與待辦</a></nav>
+
+  <h2 id="s1"><span class="n">壹</span>一句話結論</h2>
 
   <div class="lede">
     <b>本案在新北市議會，從來沒有被質詢過。</b><br>
@@ -82,7 +148,7 @@
     ② <b>議會這條路是開放的。</b>沒有議員已經在這個議題上表態，代表沒有既定立場需要克服。
   </div>
 
-  <h2><span class="n">貳</span>檢索方法</h2>
+  <h2 id="s2"><span class="n">貳</span>檢索方法</h2>
 
   <div class="info">
     新北市議會議事錄系統（<span style="font-family:monospace">ntpbook.ntp.gov.tw</span>）提供全文檢索，
@@ -91,7 +157,7 @@
     本次檢索關鍵字：<b>魚槍、保育區、刺網、漁業處、漁業巡守、潛水、海洋保育</b>
   </div>
 
-  <h2><span class="n">參</span>最重要的發現：陳明義議員</h2>
+  <h2 id="s3"><span class="n">參</span>最重要的發現：陳明義議員</h2>
 
   <div class="lede" style="font-size:16.5px">
     他潛水、他認為新北的海洋生態正在恢復、他主張結合潛水人員擔任志工、
@@ -131,7 +197,7 @@
     <b>建議：這是 9/8 之後最值得經營的一條線。</b>但需先確認他的選區與委員會歸屬。
   </div>
 
-  <h2><span class="n">肆</span>刺網轉型計畫的正式數字（議會紀錄）</h2>
+  <h2 id="s4"><span class="n">肆</span>刺網轉型計畫的正式數字（議會紀錄）</h2>
 
   <div class="quote">
     <b>市府提案　案號 6　農業　第 2 屆第 6 次定期會</b><br>
@@ -148,11 +214,11 @@
     有了議會案號與金額，申請時可以指名道姓，行政機關較難推託。
   </div>
 
-  <h2><span class="n">伍</span>漁業處的預算結構與議會壓力</h2>
+  <h2 id="s5"><span class="n">伍</span>漁業處的預算結構與議會壓力</h2>
 
   <h3>114 年度預算（113 年 12 月 11 日三讀）</h3>
   <div class="scroll">
-  <table>
+  <table class="kv">
     <tr><td class="k">一般行政</td><td>46,624,000 元</td></tr>
     <tr><td class="k">漁業建設及<br>管理業務</td><td><b>436,897,000 元</b>（經資門併計）</td></tr>
   </table>
@@ -174,14 +240,14 @@
 
   <h3>議員對漁業處的實際不滿（113 年 12 月 6 日，11 筆刪減動議）</h3>
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">提案人</th><th>刪減項目與理由</th></tr></thead>
     <tbody>
-      <tr><td class="k">廖宜琨<br>林秉宥等</td><td>首長特別費刪減 152,399 元。理由：<b>對漁業處業務督導不佳</b></td></tr>
-      <tr><td class="k">張維倩<br>廖宜琨等</td><td>漁港港區規劃及檢討委外評估費刪減 10 萬元。理由：此筆費用<b>年年編列</b>，28 處漁港如何分配？已完成幾處？</td></tr>
-      <tr><td class="k">李翁月娥<br>游輝宂等</td><td>漁港環境綠美化清潔費刪減 200 萬元。理由：<b>已補助漁會辦理漁港環境清潔維護 2,835,000 元，重複編列</b></td></tr>
-      <tr><td class="k">李翁月娥<br>游輝宂等</td><td>補助漁會辦理漁業巡守、海運廢棄物、覆網、枯木等刪減 20 萬元。理由：清理枯木、淤砂等業務<b>應再加強</b></td></tr>
-      <tr><td class="k">張維倩<br>廖宜琨等</td><td>租用巡護船費用刪減 10 萬元。理由：<b>已編列預算補助五區漁會辦理本市轄內海域巡守、覆網及淤砂</b></td></tr>
+      <tr><td class="k" data-t="1">廖宜琨<br>林秉宥等</td><td data-l="刪減項目與理由">首長特別費刪減 152,399 元。理由：<b>對漁業處業務督導不佳</b></td></tr>
+      <tr><td class="k" data-t="1">張維倩<br>廖宜琨等</td><td data-l="刪減項目與理由">漁港港區規劃及檢討委外評估費刪減 10 萬元。理由：此筆費用<b>年年編列</b>，28 處漁港如何分配？已完成幾處？</td></tr>
+      <tr><td class="k" data-t="1">李翁月娥<br>游輝宂等</td><td data-l="刪減項目與理由">漁港環境綠美化清潔費刪減 200 萬元。理由：<b>已補助漁會辦理漁港環境清潔維護 2,835,000 元，重複編列</b></td></tr>
+      <tr><td class="k" data-t="1">李翁月娥<br>游輝宂等</td><td data-l="刪減項目與理由">補助漁會辦理漁業巡守、海運廢棄物、覆網、枯木等刪減 20 萬元。理由：清理枯木、淤砂等業務<b>應再加強</b></td></tr>
+      <tr><td class="k" data-t="1">張維倩<br>廖宜琨等</td><td data-l="刪減項目與理由">租用巡護船費用刪減 10 萬元。理由：<b>已編列預算補助五區漁會辦理本市轄內海域巡守、覆網及淤砂</b></td></tr>
     </tbody>
   </table>
   </div>
@@ -193,18 +259,18 @@
     講成「<b>這個公告如果報中央核定被打回來、或事後被行政救濟，會是行政瑕疵</b>」，才有壓力。
   </div>
 
-  <h2><span class="n">陸</span>魚槍在議會的唯一脈絡：原住民族狩獵權</h2>
+  <h2 id="s6"><span class="n">陸</span>魚槍在議會的唯一脈絡：原住民族狩獵權</h2>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">日期</th><th>內容</th></tr></thead>
     <tbody>
-      <tr><td class="k">109.06.09<br><span class="cite">第3屆第3次定期會</span></td>
-        <td>忠仁．達祿斯議員問新北市有多少魚槍與獵槍。<br>
+      <tr><td class="k" data-t="1">109.06.09<br><span class="cite">第3屆第3次定期會</span></td>
+        <td data-l="內容">忠仁．達祿斯議員問新北市有多少魚槍與獵槍。<br>
           <b>警察局長陳檡文答：「如果是原住民自製的獵槍是 105 支，魚槍是 23 支。」</b><br>
           該議員續問：「在我們新北市有哪些地區可以去狩獵，或者是使用魚槍的地方？」</td></tr>
-      <tr><td class="k">114.04.29<br><span class="cite">第4屆第5次定期會</span></td>
-        <td>馬見 Lahuy．Ipin 議員（自稱獵人，攜獵槍與槍證進議場）質詢原住民族狩獵權，
+      <tr><td class="k" data-t="1">114.04.29<br><span class="cite">第4屆第5次定期會</span></td>
+        <td data-l="內容">馬見 Lahuy．Ipin 議員（自稱獵人，攜獵槍與槍證進議場）質詢原住民族狩獵權，
           引司法院<b>釋字第 803 號</b>解釋，指出內政部警政署修正之
           <b>「原住民漁民自製獵槍魚槍許可及管理辦法」已於 114 年 3 月 15 日公告實施</b>。<br>
           警察局長廖訓誠答：依該辦法第 19 條，獵槍應放置於原住民地區合法申請之集中保管或個別保管處所。</td></tr>
@@ -221,7 +287,7 @@
     <span class="cite">辦法之正式名稱請以主管機關公告為準，議事錄逐字稿可能有出入，引用前務必查證。</span>
   </div>
 
-  <h2><span class="n">柒</span>卯澳與馬崗已在議會被討論</h2>
+  <h2 id="s7"><span class="n">柒</span>卯澳與馬崗已在議會被討論</h2>
 
   <div class="quote">
     我覺得<b>馬岡有做起來，卯澳反而好像相對沒有這樣帶動起來</b>，所以有機會其實兩個村距離的地點也非常的近，
@@ -237,20 +303,20 @@
     <b>市府體系內部對「自由潛水是應扶植的地方觀光資源」，是有紀錄的。</b>
   </div>
 
-  <h2><span class="n">捌</span>海保署補助新北市是常態——路徑 B 的先例</h2>
+  <h2 id="s8"><span class="n">捌</span>海保署補助新北市是常態——路徑 B 的先例</h2>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">會期</th><th>案由與金額</th></tr></thead>
     <tbody>
-      <tr><td class="k">第4屆<br>第10次臨時會</td>
-        <td>海保署補助辦理「<b>潔淨海洋－115 年新北市海洋廢棄物治理計畫（漁業及漁港事業管理處）</b>」，
+      <tr><td class="k" data-t="1">第4屆<br>第10次臨時會</td>
+        <td data-l="案由與金額">海保署補助辦理「<b>潔淨海洋－115 年新北市海洋廢棄物治理計畫（漁業及漁港事業管理處）</b>」，
           市庫先行墊付 <b>85 萬元</b></td></tr>
-      <tr><td class="k">第4屆<br>第7次臨時會<br><span class="cite">114.08.27</span></td>
-        <td>海保署補助辦理 114 年度「<b>114–115 年度新北市海洋野生動物及生態保育計畫</b>」，
+      <tr><td class="k" data-t="1">第4屆<br>第7次臨時會<br><span class="cite">114.08.27</span></td>
+        <td data-l="案由與金額">海保署補助辦理 114 年度「<b>114–115 年度新北市海洋野生動物及生態保育計畫</b>」，
           市庫先行墊付 <b>45 萬 5,000 元</b></td></tr>
-      <tr><td class="k">第4屆<br>第3次臨時會<br><span class="cite">112.08.30</span></td>
-        <td>海保署補助辦理「新北市 112 年海洋環境整體管理及維護計畫」（海洋廢棄物治理、海洋污染防治與應處、海域環境監測），
+      <tr><td class="k" data-t="1">第4屆<br>第3次臨時會<br><span class="cite">112.08.30</span></td>
+        <td data-l="案由與金額">海保署補助辦理「新北市 112 年海洋環境整體管理及維護計畫」（海洋廢棄物治理、海洋污染防治與應處、海域環境監測），
           市庫先行墊付 <b>178 萬 5,000 元</b></td></tr>
     </tbody>
   </table>
@@ -263,7 +329,7 @@
     ② 金額規模在數十萬至一百多萬元之間，<b>我方的申請規模應在此區間內較為務實</b>。
   </div>
 
-  <h2><span class="n">玖</span>建議與待辦</h2>
+  <h2 id="s9"><span class="n">玖</span>建議與待辦</h2>
 
   <ul>
     <li><b>經營陳明義議員。</b>先確認其選區、所屬審查委員會與問政風格。

@@ -78,6 +78,70 @@
     h2 .n{background:#000!important;color:#fff!important;-webkit-print-color-adjust:exact}
     .scroll{overflow:visible}table{min-width:0}@page{size:A4;margin:15mm 13mm}
     h2{page-break-after:avoid}table,tr{page-break-inside:avoid}}
+/* mobile-v2 */
+  .mtoc{display:none}
+  @media(max-width:680px){
+    body{font-size:16px;line-height:1.72}
+    .w,.wrap,.container{padding-left:12px;padding-right:12px}
+    .sheet,.card,.box{padding-left:14px;padding-right:14px}
+    header{padding-left:16px;padding-right:16px}
+    h2{margin-top:26px;margin-bottom:9px}
+    h3{margin-top:18px;margin-bottom:6px}
+    p{margin-bottom:9px}
+
+    /* ── 表格轉卡片 ── */
+    table{min-width:0!important;border:0;font-size:15px;display:block;width:100%}
+    thead{display:none}
+    tbody,tr,td,th{display:block;width:auto}
+    tr{border:1px solid var(--line,#ded7c9);border-radius:5px;
+       background:var(--paper,#fffdf8);margin:0 0 8px;padding:7px 0;overflow:hidden}
+    td,th{border:0;padding:3px 12px;white-space:normal!important}
+    td.k{background:transparent;width:auto;font-weight:800}
+
+    /* 有表頭者：欄名變小標 */
+    table.cards td[data-l]::before{content:attr(data-l);display:block;
+      font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);margin-bottom:1px}
+    table.cards td[data-t]{font-size:16.5px;font-weight:800;
+      color:var(--sea,#12303e);padding-top:1px;padding-bottom:4px;line-height:1.45}
+    table.cards td[data-seq]{display:none!important}
+
+    /* 短值：標籤與值同一行 */
+    table.cards td[data-s]:not([data-seq]){display:flex;flex-wrap:wrap;
+      gap:2px 7px;align-items:baseline;padding-top:1px;padding-bottom:1px;
+      line-height:1.6;min-width:0}
+    table.cards td[data-s]::before{margin-bottom:0;flex:0 0 auto;
+      min-width:4.2em;line-height:1.6}
+
+    /* 無表頭的鍵值表：第一格當小標 */
+    table.kv td.k{font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);padding-bottom:1px}
+    table.kv td.k+td{padding-top:0}
+
+    /* 含 colspan/rowspan 者不堆疊，保留原表格並可橫向捲動 */
+    table.keep{display:table;width:100%}
+    table.keep thead{display:table-header-group}
+    table.keep tbody{display:table-row-group}
+    table.keep tr{display:table-row;border:0;margin:0;padding:0;background:none}
+    table.keep td,table.keep th{display:table-cell;
+      border:1px solid var(--line,#ded7c9);padding:6px 9px}
+
+    /* 不讓任何元素撐破螢幕 */
+    html,body{max-width:100%;overflow-x:hidden}
+    td,th,p,li{overflow-wrap:break-word}
+
+    /* ── 章節快速跳轉 ── */
+    .mtoc{display:block;background:var(--paper,#fffdf8);
+      border:1px solid var(--line,#ded7c9);border-radius:6px;
+      padding:11px 13px 12px;margin:0 0 20px}
+    .mtoc .tt{font-size:11px;font-weight:800;letter-spacing:.16em;
+      color:var(--gold,#b07d2b);margin-bottom:7px}
+    .mtoc a{display:inline-block;font-size:14px;color:var(--sea,#12303e);
+      text-decoration:none;background:rgba(0,0,0,.03);
+      border:1px solid var(--line,#ded7c9);border-radius:4px;
+      padding:4px 9px;margin:0 5px 5px 0;line-height:1.4;max-width:100%}
+    .mtoc a b{color:var(--gold,#b07d2b);margin-right:4px;font-weight:800}
+  }
 </style>
 </head>
 <body>
@@ -183,7 +247,9 @@
   <b>「文」節</b>是我們建議的條文寫法。
 </div>
 
-  <h2><span class="n">題</span>問題與結論</h2>
+  <nav class="mtoc"><div class="tt">章節快速跳轉</div><a href="#s1">題問題與結論</a><a href="#s2">情地方怎麼感受這件事</a><a href="#s3">理為什麼守住夜間，反而會拖垮我方</a><a href="#s4">法這一步不是退讓，是把舉證責任推回去</a><a href="#s5">駁法律上可以反駁的地方</a><a href="#s6">鑑基隆全境夜間禁令：它用的不是漁業法</a><a href="#s7">界權限界線：這一題最乾淨的論點</a><a href="#s8">講桌上怎麼說</a><a href="#s9">細四個必須釘清楚的技術細節</a><a href="#s10">難一個兩難，建議這樣處理</a><a href="#s11">忌兩件這時候不要做的事</a><a href="#s12">實誠實面對成本</a><a href="#s13">文建議條文文字</a></nav>
+
+  <h2 id="s1"><span class="n">題</span>問題與結論</h2>
 
   <p>新北市漁業處來問：<b>要全面禁止夜間漁獵、禁用魚槍魚叉，我方的看法是什麼？</b></p>
 
@@ -205,7 +271,7 @@
     <b>這兩件事在會中務必分開講。</b>
   </div>
 
-  <h2><span class="n">情</span>地方怎麼感受這件事</h2>
+  <h2 id="s2"><span class="n">情</span>地方怎麼感受這件事</h2>
 
   <p>先講一件與科學無關、但決定這一題成敗的事：<b>夜間漁獵是所有爭議行為中，地方感受最直接、最無法用數據反駁的一項。</b></p>
 
@@ -242,7 +308,7 @@
     <b>情的天平是：少數人的樂趣，對上多數在地人的憂慮。</b>這一題在情上，我方守不住，也不該守。
   </div>
 
-  <h2><span class="n">理</span>為什麼守住夜間，反而會拖垮我方</h2>
+  <h2 id="s3"><span class="n">理</span>為什麼守住夜間，反而會拖垮我方</h2>
 
   <p>我方的核心主張是「<b>自潛魚槍具有高度物種與體型選擇性</b>」。</p>
 
@@ -270,22 +336,22 @@
   <h3>而且四個關鍵的人都講過這件事</h3>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">人物</th><th>立場</th><th>對我方的意義</th></tr></thead>
     <tbody>
-      <tr><td class="k">陳昭倫</td>
-        <td>夜間針對睡眠中的日行性珊瑚礁魚類採捕，採捕量已超越自用所需</td>
-        <td>他是<b>唯一主張區分自潛與水肺</b>的學者，也是妥協落點的劃線者。
+      <tr><td class="k" data-t="1">陳昭倫</td>
+        <td data-l="立場">夜間針對睡眠中的日行性珊瑚礁魚類採捕，採捕量已超越自用所需</td>
+        <td data-l="對我方的意義">他是<b>唯一主張區分自潛與水肺</b>的學者，也是妥協落點的劃線者。
           <b>這是他對魚槍最具體的指控，移除它等於移除他最強的保留。</b></td></tr>
-      <tr><td class="k">徐承堉</td>
-        <td>管理清單第一項即「<b>禁止夜間魚槍</b>」<span class="cite">（上下游，2026.08.13）</span></td>
-        <td><b>我方陣營自己列的。</b>拒絕等於自我矛盾。</td></tr>
-      <tr><td class="k">黃向文</td>
-        <td>「至於魚槍……<b>也涉及潛水安全</b>」<span class="cite">（SMC，2026.08.14）</span></td>
-        <td>夜潛風險客觀更高。<b>接受有安全上的正當性，不只是資源理由。</b></td></tr>
-      <tr><td class="k">林麗美</td>
-        <td>漁獲照片上傳網路引發地方不滿</td>
-        <td><b>那些照片多半是夜間的大量收穫。</b>接受即直接回應在地最具體的不滿。</td></tr>
+      <tr><td class="k" data-t="1">徐承堉</td>
+        <td data-l="立場">管理清單第一項即「<b>禁止夜間魚槍</b>」<span class="cite">（上下游，2026.08.13）</span></td>
+        <td data-l="對我方的意義"><b>我方陣營自己列的。</b>拒絕等於自我矛盾。</td></tr>
+      <tr><td class="k" data-t="1">黃向文</td>
+        <td data-l="立場">「至於魚槍……<b>也涉及潛水安全</b>」<span class="cite">（SMC，2026.08.14）</span></td>
+        <td data-l="對我方的意義">夜潛風險客觀更高。<b>接受有安全上的正當性，不只是資源理由。</b></td></tr>
+      <tr><td class="k" data-t="1">林麗美</td>
+        <td data-l="立場" data-s="1">漁獲照片上傳網路引發地方不滿</td>
+        <td data-l="對我方的意義"><b>那些照片多半是夜間的大量收穫。</b>接受即直接回應在地最具體的不滿。</td></tr>
     </tbody>
   </table>
   </div>
@@ -297,7 +363,7 @@
     <b>時段可以分級，體長、數量、登記就是同一套邏輯。</b>
   </div>
 
-  <h2><span class="n">法</span>這一步不是退讓，是把舉證責任推回去</h2>
+  <h2 id="s4"><span class="n">法</span>這一步不是退讓，是把舉證責任推回去</h2>
 
   <p>這是本題最重要、也最少人會想到的一層。</p>
 
@@ -370,7 +436,7 @@
     <b>漁業處以漁業法為據去禁止夜間潛水活動本身，於法無據，而且踩到別人的權限。</b>
   </div>
 
-  <h2><span class="n">駁</span>法律上可以反駁的地方</h2>
+  <h2 id="s5"><span class="n">駁</span>法律上可以反駁的地方</h2>
 
   <div class="lede">
     <b>先講結論：這些論點擋不下「夜間管制」這個概念，但可以擋下「全面禁止」這個形式。</b><br>
@@ -380,37 +446,37 @@
   <h3>決定性的對照組：基隆潮境</h3>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%"></th>
       <th>基隆潮境（113.4.1 生效）</th><th>新北草案（115.6.17）</th></tr></thead>
     <tbody>
-      <tr><td class="k">法源</td><td>§44Ⅰ<b>④⑨</b>＋§45Ⅰ</td><td>§44Ⅰ<b>④⑦⑨</b>＋§45ⅠⅡ</td></tr>
-      <tr><td class="k">罰則</td><td>§65⑥</td><td><b>相同</b></td></tr>
-      <tr><td class="k">面積</td><td><b>核心區 15 公頃＋永續利用區 3.6 公頃＝約 0.186 平方公里</b></td>
-        <td><b>200 平方公里以上</b>（逾千倍）</td></tr>
-      <tr style="background:#e8f4ed"><td class="k">時段</td>
-        <td><b>核心區 4/1–10/31 每日 7:00–18:00 開放，其餘時段禁止人員進入</b></td>
-        <td><b>無時段規定</b></td></tr>
-      <tr style="background:#e8f4ed"><td class="k">管制<br>方式</td>
-        <td><b>許可制</b>：進入須申請核准；進入水域須檢附<b>合格潛水能力證明</b>；
+      <tr><td class="k" data-t="1">法源</td><td data-l="基隆潮境（113.4.1 生效）" data-s="1">§44Ⅰ<b>④⑨</b>＋§45Ⅰ</td><td data-l="新北草案（115.6.17）" data-s="1">§44Ⅰ<b>④⑦⑨</b>＋§45ⅠⅡ</td></tr>
+      <tr><td class="k" data-t="1">罰則</td><td data-l="基隆潮境（113.4.1 生效）" data-s="1">§65⑥</td><td data-l="新北草案（115.6.17）" data-s="1"><b>相同</b></td></tr>
+      <tr><td class="k" data-t="1">面積</td><td data-l="基隆潮境（113.4.1 生效）"><b>核心區 15 公頃＋永續利用區 3.6 公頃＝約 0.186 平方公里</b></td>
+        <td data-l="新北草案（115.6.17）"><b>200 平方公里以上</b>（逾千倍）</td></tr>
+      <tr style="background:#e8f4ed"><td class="k" data-t="1">時段</td>
+        <td data-l="基隆潮境（113.4.1 生效）"><b>核心區 4/1–10/31 每日 7:00–18:00 開放，其餘時段禁止人員進入</b></td>
+        <td data-l="新北草案（115.6.17）" data-s="1"><b>無時段規定</b></td></tr>
+      <tr style="background:#e8f4ed"><td class="k" data-t="1">管制<br>方式</td>
+        <td data-l="基隆潮境（113.4.1 生效）"><b>許可制</b>：進入須申請核准；進入水域須檢附<b>合格潛水能力證明</b>；
           須由<b>本府認證合格之解說人員帶領</b>；須由<b>指定出入口</b>進出；水域須配戴<b>核准之證件套</b></td>
-        <td>無許可機制（僅學術研究與原住民族例外）</td></tr>
-      <tr style="background:#e8f4ed"><td class="k">總量<br>管制</td>
-        <td><b>陸域及潮間帶每日 200 人；水域平日 200 人、假日 400 人，上下午分流</b></td>
-        <td><b>無</b></td></tr>
-      <tr style="background:#e8f4ed"><td class="k">在地<br>保障</td>
-        <td><b>設籍長潭里、八斗里、砂子里、碧砂里、新豐里、新富里之居民，不計入總量管制</b></td>
-        <td>無對應設計</td></tr>
-      <tr style="background:#fbeee9"><td class="k">漁具<br>禁止</td>
-        <td><b>沒有針對任何特定漁具的禁令。</b>核心區為「非經許可，禁止以<b>任何方式</b>採捕
+        <td data-l="新北草案（115.6.17）">無許可機制（僅學術研究與原住民族例外）</td></tr>
+      <tr style="background:#e8f4ed"><td class="k" data-t="1">總量<br>管制</td>
+        <td data-l="基隆潮境（113.4.1 生效）"><b>陸域及潮間帶每日 200 人；水域平日 200 人、假日 400 人，上下午分流</b></td>
+        <td data-l="新北草案（115.6.17）" data-s="1"><b>無</b></td></tr>
+      <tr style="background:#e8f4ed"><td class="k" data-t="1">在地<br>保障</td>
+        <td data-l="基隆潮境（113.4.1 生效）"><b>設籍長潭里、八斗里、砂子里、碧砂里、新豐里、新富里之居民，不計入總量管制</b></td>
+        <td data-l="新北草案（115.6.17）" data-s="1">無對應設計</td></tr>
+      <tr style="background:#fbeee9"><td class="k" data-t="1">漁具<br>禁止</td>
+        <td data-l="基隆潮境（113.4.1 生效）"><b>沒有針對任何特定漁具的禁令。</b>核心區為「非經許可，禁止以<b>任何方式</b>採捕
           （<b>含徒手及沿岸垂釣等</b>）」——<b>對所有人一體適用，連釣魚都禁</b></td>
-        <td><b>核心區禁「非釣具類漁具」、魚槍、潛水器——釣具類完全不受限制</b></td></tr>
-      <tr><td class="k">滾動<br>調整</td>
-        <td><b>有</b>：「本府得視保育成效或管理需要，予以調整，必要時得調整進入人數或禁止所有人員進入」</td>
-        <td>無</td></tr>
-      <tr><td class="k">巡守<br>能量</td>
-        <td><b>81 人、114 次、912 小時、另有 100 名保育志工</b><span class="cite">（海保署 108 年度統計）</span></td>
-        <td><b>貢寮 24 人、0 次；萬里與野柳無巡守隊</b></td></tr>
+        <td data-l="新北草案（115.6.17）"><b>核心區禁「非釣具類漁具」、魚槍、潛水器——釣具類完全不受限制</b></td></tr>
+      <tr><td class="k" data-t="1">滾動<br>調整</td>
+        <td data-l="基隆潮境（113.4.1 生效）"><b>有</b>：「本府得視保育成效或管理需要，予以調整，必要時得調整進入人數或禁止所有人員進入」</td>
+        <td data-l="新北草案（115.6.17）" data-s="1">無</td></tr>
+      <tr><td class="k" data-t="1">巡守<br>能量</td>
+        <td data-l="基隆潮境（113.4.1 生效）"><b>81 人、114 次、912 小時、另有 100 名保育志工</b><span class="cite">（海保署 108 年度統計）</span></td>
+        <td data-l="新北草案（115.6.17）"><b>貢寮 24 人、0 次；萬里與野柳無巡守隊</b></td></tr>
     </tbody>
   </table>
   </div>
@@ -427,44 +493,44 @@
   <h3>五個可用的法律論點，依強度排序</h3>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">論點</th><th>內容</th><th style="width:1%">強度</th><th>風險</th></tr></thead>
     <tbody>
-      <tr><td class="k">① 比例原則<br>§7Ⅱ</td>
-        <td><b>存在同樣能達成目的、但侵害更小的手段，而且有現成範例。</b>
+      <tr><td class="k" data-t="1">① 比例原則<br>§7Ⅱ</td>
+        <td data-l="內容"><b>存在同樣能達成目的、但侵害更小的手段，而且有現成範例。</b>
           行政程序法 §7Ⅱ：「有多種同樣能達成目的之方法時，<b>應選擇對人民權益損害最少者</b>。」<br>
           基隆潮境在<b>相同法源</b>下，以許可制＋總量管制＋證照要求＋時段管制達成目的；
           新北草案的萬里石花菜條款本身也是一套完整登記制。<br>
           <b>既然同一機關、同一法源、同一份公告裡都做得到許可制，為何魚槍必須全面禁止？</b></td>
-        <td><b style="color:#20613f">最強</b></td>
-        <td>低。且與我方一貫主張一致</td></tr>
-      <tr><td class="k">② 差別待遇<br>§6</td>
-        <td><b>行政程序法 §6：「行政行為，非有正當理由，不得為差別待遇。」</b><br>
+        <td data-l="強度" data-s="1"><b style="color:#20613f">最強</b></td>
+        <td data-l="風險" data-s="1">低。且與我方一貫主張一致</td></tr>
+      <tr><td class="k" data-t="1">② 差別待遇<br>§6</td>
+        <td data-l="內容"><b>行政程序法 §6：「行政行為，非有正當理由，不得為差別待遇。」</b><br>
           若夜間禁魚槍魚叉，卻不禁夜釣、不禁夜間徒手採捕——同為夜間、同為採捕、同樣針對夜間的魚，
           <b>差別待遇的正當理由何在？</b>而市府未提出任何「夜間魚槍 vs 夜釣」之衝擊比較。<br>
           <b>對照：基隆潮境核心區「禁止以任何方式採捕（含徒手及沿岸垂釣等）」，一體適用。</b></td>
-        <td><b style="color:#20613f">強</b></td>
-        <td><b style="color:#8b3a22">高</b>——會傷及釣權聯盟與漁會。
+        <td data-l="強度" data-s="1"><b style="color:#20613f">強</b></td>
+        <td data-l="風險"><b style="color:#8b3a22">高</b>——會傷及釣權聯盟與漁會。
           <b>只能以「請求標準一致」提出，不可主張禁釣</b></td></tr>
-      <tr><td class="k">③ 授權目的<br>§44Ⅰ本文</td>
-        <td><b>漁業法 §44Ⅰ 的授權目的明文為「為資源管理及漁業結構調整」。</b><br>
+      <tr><td class="k" data-t="1">③ 授權目的<br>§44Ⅰ本文</td>
+        <td data-l="內容"><b>漁業法 §44Ⅰ 的授權目的明文為「為資源管理及漁業結構調整」。</b><br>
           若市府以「<b>潛水安全</b>」為禁止夜間漁獵之理由，<b>該理由不在 §44 的授權目的內</b>；
           潛水安全屬水域遊憩活動管理辦法（交通部）範疇。<br>
           依行政程序法 §150Ⅱ，法規命令<b>不得逾越法律授權之範圍與立法精神</b>。</td>
-        <td><b style="color:#20613f">強</b><br><span class="cite">但須先問理由</span></td>
-        <td>低。<b>會前務必先問：禁止的理由是資源還是安全？</b></td></tr>
-      <tr><td class="k">④ 科學<br>證據</td>
-        <td>市府須說明夜間採捕造成何種具體衝擊。<br>
+        <td data-l="強度"><b style="color:#20613f">強</b><br><span class="cite">但須先問理由</span></td>
+        <td data-l="風險">低。<b>會前務必先問：禁止的理由是資源還是安全？</b></td></tr>
+      <tr><td class="k" data-t="1">④ 科學<br>證據</td>
+        <td data-l="內容">市府須說明夜間採捕造成何種具體衝擊。<br>
           <b>而陳昭倫 2026 年自己說：「目前證據足以支持加強管理，但<b>還不足以將資源衰退歸因於特定漁法</b>」</b>；
           其 2017 年對夜間的描述，係基於「諮詢<b>取締違法</b>魚槍潛水器漁獵的案例」，非研究數據。</td>
-        <td><b style="color:#7a5a1e">中</b></td>
-        <td>中——會被<b>預防原則</b>反擊（邵廣昭立場）</td></tr>
-      <tr><td class="k">⑤ 明確性<br>與信賴</td>
-        <td><b>明確性：</b>「夜間」若不定義，人民無從知悉何時違法。基隆用「上午七時至下午六時」之固定鐘點。<br>
+        <td data-l="強度" data-s="1"><b style="color:#7a5a1e">中</b></td>
+        <td data-l="風險">中——會被<b>預防原則</b>反擊（邵廣昭立場）</td></tr>
+      <tr><td class="k" data-t="1">⑤ 明確性<br>與信賴</td>
+        <td data-l="內容"><b>明確性：</b>「夜間」若不定義，人民無從知悉何時違法。基隆用「上午七時至下午六時」之固定鐘點。<br>
           <b>信賴保護（§8）：</b>魚槍採捕在新北保育區<b>從未被管制過</b>（查 15 年公告，「魚槍」出現 0 次），
           此為<b>新增禁止</b>而非取締違法，應有過渡期與配套。</td>
-        <td><b style="color:#7a5a1e">中</b></td>
-        <td>低。<b>是爭取配套的依據，不是爭取不禁的依據</b></td></tr>
+        <td data-l="強度" data-s="1"><b style="color:#7a5a1e">中</b></td>
+        <td data-l="風險">低。<b>是爭取配套的依據，不是爭取不禁的依據</b></td></tr>
     </tbody>
   </table>
   </div>
@@ -510,7 +576,7 @@
     <b>建議在會中以請教方式提出，並請求記錄於會議紀錄。</b>
   </div>
 
-  <h2><span class="n">鑑</span>基隆全境夜間禁令：它用的不是漁業法</h2>
+  <h2 id="s6"><span class="n">鑑</span>基隆全境夜間禁令：它用的不是漁業法</h2>
 
   <div class="lede">
     <b>基隆市確實有全境性的夜間下水禁令。但它的法源是「發展觀光條例」，不是漁業法；
@@ -521,7 +587,7 @@
   <h3>基隆公告的四個特徵</h3>
 
   <div class="scroll">
-  <table>
+  <table class="kv">
     <tr><td class="k">公告名稱</td>
       <td>「本市所轄海域（<b>不含交通部觀光署北海岸及觀音山國家風景區範圍</b>）從事
         <b>水域遊憩活動</b>限制及禁止相關事宜」</td></tr>
@@ -564,7 +630,7 @@
   <h3>而東北角的海域，正好在風景區裡</h3>
 
   <div class="scroll">
-  <table>
+  <table class="kv">
     <tr><td class="k">東北角暨宜蘭海岸<br>國家風景區</td>
       <td>北起新北市瑞芳區南雅里，南至宜蘭縣蘇澳鎮內埤海灘；海岸線 102.5 公里。<br>
         <b>海域範圍：鼻頭角至三貂角連線，面積 4,275 公頃。</b></td></tr>
@@ -586,20 +652,20 @@
     而風管處在該海域<b>已實際派駐警力執行遊客活動巡查</b>，並非徒具名義。
   </div>
 
-  <h2><span class="n">界</span>權限界線：這一題最乾淨的論點</h2>
+  <h2 id="s7"><span class="n">界</span>權限界線：這一題最乾淨的論點</h2>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">要禁什麼</th><th>性質</th><th>法源</th><th>主管機關</th><th style="width:1%">漁業處<br>有無權限</th></tr></thead>
     <tbody>
-      <tr style="background:#e8f4ed"><td class="k">夜間<b>以魚槍魚叉<br>採捕</b></td>
-        <td>採捕行為之限制</td><td>漁業法 §44Ⅰ④（⑨）</td><td>新北市漁業處</td>
-        <td><b class="no" style="color:#20613f">有</b></td></tr>
-      <tr style="background:#fbeee9"><td class="k">夜間<b>潛水<br>（活動本身）</b></td>
-        <td>水域遊憩活動之<b>時間</b>限制</td>
-        <td>發展觀光條例 §36<br>水域遊憩活動管理辦法 §5</td>
-        <td><b>東北角風管處</b><br><span class="cite">（辦法 §4Ⅰ①）</span></td>
-        <td><b class="yes">無</b></td></tr>
+      <tr style="background:#e8f4ed"><td class="k" data-t="1">夜間<b>以魚槍魚叉<br>採捕</b></td>
+        <td data-l="性質" data-s="1">採捕行為之限制</td><td data-l="法源" data-s="1">漁業法 §44Ⅰ④（⑨）</td><td data-l="主管機關" data-s="1">新北市漁業處</td>
+        <td data-l="漁業處 有無權限" data-s="1"><b class="no" style="color:#20613f">有</b></td></tr>
+      <tr style="background:#fbeee9"><td class="k" data-t="1">夜間<b>潛水<br>（活動本身）</b></td>
+        <td data-l="性質" data-s="1">水域遊憩活動之<b>時間</b>限制</td>
+        <td data-l="法源">發展觀光條例 §36<br>水域遊憩活動管理辦法 §5</td>
+        <td data-l="主管機關"><b>東北角風管處</b><br><span class="cite">（辦法 §4Ⅰ①）</span></td>
+        <td data-l="漁業處 有無權限" data-s="1"><b class="yes">無</b></td></tr>
     </tbody>
   </table>
   </div>
@@ -634,15 +700,15 @@
   <h3>若對方援引基隆為例，三個必須指出的差異</h3>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%"></th><th>基隆市（113.4.1）</th><th>新北草案</th></tr></thead>
     <tbody>
-      <tr><td class="k">法源</td><td><b>發展觀光條例</b>（罰則 §60）</td><td>漁業法（罰則 §65⑥）</td></tr>
-      <tr><td class="k">範圍</td><td>高潮線外 <b>200 公尺</b></td><td><b>3 浬（約 5,556 公尺）</b>——27.8 倍</td></tr>
-      <tr><td class="k">對象</td><td><b>所有水域遊憩活動一體適用</b></td><td><b>僅針對魚槍、潛水器</b></td></tr>
-      <tr><td class="k">排除</td><td><b>明文排除國家風景區範圍</b></td><td>未排除，而範圍正在風景區內</td></tr>
-      <tr><td class="k">罰則</td><td>1–5 萬（營利 5–20 萬）</td><td>3–15 萬</td></tr>
-      <tr><td class="k">時段</td><td>季節性：4–10 月 7:00–18:30；11–3 月 8:30–17:30</td><td>未定</td></tr>
+      <tr><td class="k" data-t="1">法源</td><td data-l="基隆市（113.4.1）" data-s="1"><b>發展觀光條例</b>（罰則 §60）</td><td data-l="新北草案" data-s="1">漁業法（罰則 §65⑥）</td></tr>
+      <tr><td class="k" data-t="1">範圍</td><td data-l="基隆市（113.4.1）" data-s="1">高潮線外 <b>200 公尺</b></td><td data-l="新北草案"><b>3 浬（約 5,556 公尺）</b>——27.8 倍</td></tr>
+      <tr><td class="k" data-t="1">對象</td><td data-l="基隆市（113.4.1）" data-s="1"><b>所有水域遊憩活動一體適用</b></td><td data-l="新北草案" data-s="1"><b>僅針對魚槍、潛水器</b></td></tr>
+      <tr><td class="k" data-t="1">排除</td><td data-l="基隆市（113.4.1）" data-s="1"><b>明文排除國家風景區範圍</b></td><td data-l="新北草案" data-s="1">未排除，而範圍正在風景區內</td></tr>
+      <tr><td class="k" data-t="1">罰則</td><td data-l="基隆市（113.4.1）">1–5 萬（營利 5–20 萬）</td><td data-l="新北草案" data-s="1">3–15 萬</td></tr>
+      <tr><td class="k" data-t="1">時段</td><td data-l="基隆市（113.4.1）">季節性：4–10 月 7:00–18:30；11–3 月 8:30–17:30</td><td data-l="新北草案" data-s="1">未定</td></tr>
     </tbody>
   </table>
   </div>
@@ -653,7 +719,7 @@
     <b>這一句話可以直接在桌上講，而且它同時處理了法源、範圍、對象、罰則四個問題。</b>
   </div>
 
-  <h2><span class="n">講</span>桌上怎麼說</h2>
+  <h2 id="s8"><span class="n">講</span>桌上怎麼說</h2>
 
   <div class="say">
     <div class="t">建 議 講 稿</div>
@@ -671,31 +737,31 @@
     比照基隆潮境與貴處草案中萬里石花菜條款的模式。
   </div>
 
-  <h2><span class="n">細</span>四個必須釘清楚的技術細節</h2>
+  <h2 id="s9"><span class="n">細</span>四個必須釘清楚的技術細節</h2>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">項目</th><th>建議立場與理由</th></tr></thead>
     <tbody>
-      <tr><td class="k">「夜間」<br>的定義</td>
-        <td>建議主動提出「<b>日沒後至翌日日出前</b>」。<br>
+      <tr><td class="k" data-t="1">「夜間」<br>的定義</td>
+        <td data-l="建議立場與理由">建議主動提出「<b>日沒後至翌日日出前</b>」。<br>
           <b>不要用固定鐘點</b>（如 18:00–06:00）——東北角冬夏日照相差兩個多小時，
           固定鐘點在夏天會誤禁天亮後的合法採捕。<br>
           <b>主動提出可執行的定義，比爭論要不要禁更能建立專業形象。</b></td></tr>
-      <tr><td class="k">適用<br>範圍</td>
-        <td>建議<b>全區適用</b>，包含資源永續利用保育區，不要只限核心區。<br>
+      <tr><td class="k" data-t="1">適用<br>範圍</td>
+        <td data-l="建議立場與理由">建議<b>全區適用</b>，包含資源永續利用保育區，不要只限核心區。<br>
           我方要的是「這條規則有道理」，不是「這條規則管得少」。</td></tr>
-      <tr><td class="k">管制<br>對象</td>
-        <td>魚槍、魚叉、<b>動力魚叉</b>。<br>
+      <tr><td class="k" data-t="1">管制<br>對象</td>
+        <td data-l="建議立場與理由">魚槍、魚叉、<b>動力魚叉</b>。<br>
           <b>動力魚叉尤其要主動點出來接受</b>——我方願意管制動力魚叉，正好證明我方的區分不是自利的。</td></tr>
-      <tr><td class="k">例外</td>
-        <td>比照草案既有機制保留：<b>學術研究</b>（14 日前檢具計畫書報核准）、
+      <tr><td class="k" data-t="1">例外</td>
+        <td data-l="建議立場與理由">比照草案既有機制保留：<b>學術研究</b>（14 日前檢具計畫書報核准）、
           <b>原住民族傳統文化或祭儀</b>（申請核可）。</td></tr>
     </tbody>
   </table>
   </div>
 
-  <h2><span class="n">難</span>一個兩難，建議這樣處理</h2>
+  <h2 id="s10"><span class="n">難</span>一個兩難，建議這樣處理</h2>
 
   <p>如果夜間管制的理由是「保護夜間休息的定棲性生物」，
   那個理由在原則上<b>同等適用於夜間的其他採捕方式</b>——夜間徒手撿九孔、抓龍蝦，以及夜釣。</p>
@@ -716,7 +782,7 @@
   <p>這樣邏輯完整、球丟回給市府、不得罪任何盟友，
   而且<b>如果市府真的一併納管，我方是建議者，不是被管者</b>。</p>
 
-  <h2><span class="n">忌</span>兩件這時候不要做的事</h2>
+  <h2 id="s11"><span class="n">忌</span>兩件這時候不要做的事</h2>
 
   <div class="warn">
     <b>一、深澳夜釣那張牌，現在不要打。</b><br>
@@ -737,7 +803,7 @@
     如果混在一起談，會被當成整包接受。
   </div>
 
-  <h2><span class="n">實</span>誠實面對成本</h2>
+  <h2 id="s12"><span class="n">實</span>誠實面對成本</h2>
 
   <div class="warn">
     <b>夜間漁獵確實是部分成員的實際活動方式。接受這條限制有真實的成本，這不是零成本的姿態。</b><br><br>
@@ -756,7 +822,7 @@
     <b>這一題，我方應該答得比對方預期的更爽快。</b>
   </div>
 
-  <h2><span class="n">文</span>建議條文文字</h2>
+  <h2 id="s13"><span class="n">文</span>建議條文文字</h2>
 
   <div class="law">
     <b>方案一（我方主張・比照基隆潮境模式）</b><br><br>

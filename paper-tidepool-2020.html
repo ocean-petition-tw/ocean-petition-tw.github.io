@@ -71,6 +71,70 @@
     @page{size:A4;margin:15mm 13mm}
     h2{page-break-after:avoid} table,tr{page-break-inside:avoid}
   }
+/* mobile-v2 */
+  .mtoc{display:none}
+  @media(max-width:680px){
+    body{font-size:16px;line-height:1.72}
+    .w,.wrap,.container{padding-left:12px;padding-right:12px}
+    .sheet,.card,.box{padding-left:14px;padding-right:14px}
+    header{padding-left:16px;padding-right:16px}
+    h2{margin-top:26px;margin-bottom:9px}
+    h3{margin-top:18px;margin-bottom:6px}
+    p{margin-bottom:9px}
+
+    /* ── 表格轉卡片 ── */
+    table{min-width:0!important;border:0;font-size:15px;display:block;width:100%}
+    thead{display:none}
+    tbody,tr,td,th{display:block;width:auto}
+    tr{border:1px solid var(--line,#ded7c9);border-radius:5px;
+       background:var(--paper,#fffdf8);margin:0 0 8px;padding:7px 0;overflow:hidden}
+    td,th{border:0;padding:3px 12px;white-space:normal!important}
+    td.k{background:transparent;width:auto;font-weight:800}
+
+    /* 有表頭者：欄名變小標 */
+    table.cards td[data-l]::before{content:attr(data-l);display:block;
+      font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);margin-bottom:1px}
+    table.cards td[data-t]{font-size:16.5px;font-weight:800;
+      color:var(--sea,#12303e);padding-top:1px;padding-bottom:4px;line-height:1.45}
+    table.cards td[data-seq]{display:none!important}
+
+    /* 短值：標籤與值同一行 */
+    table.cards td[data-s]:not([data-seq]){display:flex;flex-wrap:wrap;
+      gap:2px 7px;align-items:baseline;padding-top:1px;padding-bottom:1px;
+      line-height:1.6;min-width:0}
+    table.cards td[data-s]::before{margin-bottom:0;flex:0 0 auto;
+      min-width:4.2em;line-height:1.6}
+
+    /* 無表頭的鍵值表：第一格當小標 */
+    table.kv td.k{font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);padding-bottom:1px}
+    table.kv td.k+td{padding-top:0}
+
+    /* 含 colspan/rowspan 者不堆疊，保留原表格並可橫向捲動 */
+    table.keep{display:table;width:100%}
+    table.keep thead{display:table-header-group}
+    table.keep tbody{display:table-row-group}
+    table.keep tr{display:table-row;border:0;margin:0;padding:0;background:none}
+    table.keep td,table.keep th{display:table-cell;
+      border:1px solid var(--line,#ded7c9);padding:6px 9px}
+
+    /* 不讓任何元素撐破螢幕 */
+    html,body{max-width:100%;overflow-x:hidden}
+    td,th,p,li{overflow-wrap:break-word}
+
+    /* ── 章節快速跳轉 ── */
+    .mtoc{display:block;background:var(--paper,#fffdf8);
+      border:1px solid var(--line,#ded7c9);border-radius:6px;
+      padding:11px 13px 12px;margin:0 0 20px}
+    .mtoc .tt{font-size:11px;font-weight:800;letter-spacing:.16em;
+      color:var(--gold,#b07d2b);margin-bottom:7px}
+    .mtoc a{display:inline-block;font-size:14px;color:var(--sea,#12303e);
+      text-decoration:none;background:rgba(0,0,0,.03);
+      border:1px solid var(--line,#ded7c9);border-radius:4px;
+      padding:4px 9px;margin:0 5px 5px 0;line-height:1.4;max-width:100%}
+    .mtoc a b{color:var(--gold,#b07d2b);margin-right:4px;font-weight:800}
+  }
 </style>
 </head>
 <body>
@@ -89,7 +153,9 @@
 <div class="w">
 <div class="sheet">
 
-  <h2><span class="n">壹</span>一句話</h2>
+  <nav class="mtoc"><div class="tt">章節快速跳轉</div><a href="#s1"><b>壹</b>一句話</a><a href="#s2"><b>貳</b>論文基本資料</a><a href="#s3"><b>參</b>三個測站，兩個在本案保育區內</a><a href="#s4"><b>肆</b>他們怎麼做的——方法決定了資料能回答什麼</a><a href="#s5"><b>伍</b>資料裡有什麼魚</a><a href="#s6"><b>陸</b>論文自己說了一句對本案極重要的話</a><a href="#s7"><b>柒</b>對本案的三層意義</a><a href="#s8"><b>捌</b>最有力的用法：以他自己的公開標準，要求市府比</a><a href="#s9"><b>玖</b>會議上可以問的三個問題</a></nav>
+
+  <h2 id="s1"><span class="n">壹</span>一句話</h2>
 
   <div class="lede">
     這是一份<b>紮實、公開、方法完整</b>的 20 年資料——而且測站就在<b>野柳與澳底</b>。<br>
@@ -97,10 +163,10 @@
     因此<b>無法回答「魚槍是否造成中大型經濟魚種稀缺」這個問題</b>。
   </div>
 
-  <h2><span class="n">貳</span>論文基本資料</h2>
+  <h2 id="s2"><span class="n">貳</span>論文基本資料</h2>
 
   <div class="scroll">
-  <table>
+  <table class="kv">
     <tr><td class="k">篇名</td><td>A long-term monitoring dataset of fish assemblages in rocky tidepools on the northern coast of Taiwan</td></tr>
     <tr><td class="k">作者</td><td>Lin-Tai Ho（海科館／海大海生所）、Shen-Chih Wang（海科館）、
       <b>Kwang-Tsao Shao 邵廣昭</b>（中研院生多中心／海大卓越海洋中心）、
@@ -115,10 +181,10 @@
   </table>
   </div>
 
-  <h2><span class="n">參</span>三個測站，兩個在本案保育區內</h2>
+  <h2 id="s3"><span class="n">參</span>三個測站，兩個在本案保育區內</h2>
 
   <div class="scroll">
-  <table>
+  <table class="keep">
     <thead><tr><th style="width:1%">測站</th><th>位置</th><th>座標（WGS84）</th><th>期間</th><th class="num">樣本</th><th class="num">物種</th></tr></thead>
     <tbody>
       <tr><td class="k">YL</td><td><b>野柳</b>　新北市萬里</td><td>25°11′60″N, 121°43′31″E</td>
@@ -139,7 +205,7 @@
     而且資料集完整上傳、可自由下載。這件事本身就很重要。
   </div>
 
-  <h2><span class="n">肆</span>他們怎麼做的——方法決定了資料能回答什麼</h2>
+  <h2 id="s4"><span class="n">肆</span>他們怎麼做的——方法決定了資料能回答什麼</h2>
 
   <div class="quote">
     <span class="en">The anesthetic used in the intertidal fish collection was clove oil mixed with alcohol in a ratio of 1:2
@@ -159,12 +225,12 @@
     這不是研究的缺點，是研究設計的範圍。
   </div>
 
-  <h2><span class="n">伍</span>資料裡有什麼魚</h2>
+  <h2 id="s5"><span class="n">伍</span>資料裡有什麼魚</h2>
 
   <p>論文列出的各站優勢種為：</p>
 
   <div class="scroll">
-  <table>
+  <table class="keep">
     <thead><tr><th style="width:1%">測站</th><th>優勢種（論文 Fig. 4–6）</th><th>類群與體型</th></tr></thead>
     <tbody>
       <tr><td class="k">YL 野柳</td>
@@ -186,7 +252,7 @@
     <b>兩者幾乎沒有重疊。潮池不是魚槍作業的場域，魚槍的目標也不住在潮池裡。</b>
   </div>
 
-  <h2><span class="n">陸</span>論文自己說了一句對本案極重要的話</h2>
+  <h2 id="s6"><span class="n">陸</span>論文自己說了一句對本案極重要的話</h2>
 
   <div class="quote">
     <span class="en">To date, Taiwan’s investment in long-term ecological monitoring of fish communities has proven inadequate.
@@ -204,7 +270,7 @@
     <b>「台灣缺乏基線生態資料」不是我方的主張，是台灣魚類學界的共識。</b>
   </div>
 
-  <h2><span class="n">柒</span>對本案的三層意義</h2>
+  <h2 id="s7"><span class="n">柒</span>對本案的三層意義</h2>
 
   <h3>第一層　資料缺口有了學界背書</h3>
   <p>本案最核心的爭點是「管制是否有科學依據」。這篇論文由<b>邵廣昭、陳義雄</b>等人共同署名，
@@ -224,7 +290,7 @@
     反而傷害我方可信度。<b>本篇的正確用途在下一節。</b>
   </div>
 
-  <h2><span class="n">捌</span>最有力的用法：以他自己的公開標準，要求市府比照</h2>
+  <h2 id="s8"><span class="n">捌</span>最有力的用法：以他自己的公開標準，要求市府比照</h2>
 
   <div class="ok">
     這篇論文做到了以下每一件事：<br><br>
@@ -244,7 +310,7 @@
     這是<b>以他自身的學術實踐為標準</b>提出的請求——既尊重，又難以拒絕。
   </div>
 
-  <h2><span class="n">玖</span>會議上可以問的三個問題</h2>
+  <h2 id="s9"><span class="n">玖</span>會議上可以問的三個問題</h2>
 
   <ol>
     <li>市府委託之調查，其<b>點位座標、調查頻度、樣本數與方法</b>，是否可比照《Scientific Data》該篇的規格公開？</li>

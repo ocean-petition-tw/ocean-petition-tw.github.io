@@ -80,6 +80,70 @@
     @page{size:A4;margin:15mm 13mm}
     h2{page-break-after:avoid} table,tr{page-break-inside:avoid}
   }
+/* mobile-v2 */
+  .mtoc{display:none}
+  @media(max-width:680px){
+    body{font-size:16px;line-height:1.72}
+    .w,.wrap,.container{padding-left:12px;padding-right:12px}
+    .sheet,.card,.box{padding-left:14px;padding-right:14px}
+    header{padding-left:16px;padding-right:16px}
+    h2{margin-top:26px;margin-bottom:9px}
+    h3{margin-top:18px;margin-bottom:6px}
+    p{margin-bottom:9px}
+
+    /* ── 表格轉卡片 ── */
+    table{min-width:0!important;border:0;font-size:15px;display:block;width:100%}
+    thead{display:none}
+    tbody,tr,td,th{display:block;width:auto}
+    tr{border:1px solid var(--line,#ded7c9);border-radius:5px;
+       background:var(--paper,#fffdf8);margin:0 0 8px;padding:7px 0;overflow:hidden}
+    td,th{border:0;padding:3px 12px;white-space:normal!important}
+    td.k{background:transparent;width:auto;font-weight:800}
+
+    /* 有表頭者：欄名變小標 */
+    table.cards td[data-l]::before{content:attr(data-l);display:block;
+      font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);margin-bottom:1px}
+    table.cards td[data-t]{font-size:16.5px;font-weight:800;
+      color:var(--sea,#12303e);padding-top:1px;padding-bottom:4px;line-height:1.45}
+    table.cards td[data-seq]{display:none!important}
+
+    /* 短值：標籤與值同一行 */
+    table.cards td[data-s]:not([data-seq]){display:flex;flex-wrap:wrap;
+      gap:2px 7px;align-items:baseline;padding-top:1px;padding-bottom:1px;
+      line-height:1.6;min-width:0}
+    table.cards td[data-s]::before{margin-bottom:0;flex:0 0 auto;
+      min-width:4.2em;line-height:1.6}
+
+    /* 無表頭的鍵值表：第一格當小標 */
+    table.kv td.k{font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);padding-bottom:1px}
+    table.kv td.k+td{padding-top:0}
+
+    /* 含 colspan/rowspan 者不堆疊，保留原表格並可橫向捲動 */
+    table.keep{display:table;width:100%}
+    table.keep thead{display:table-header-group}
+    table.keep tbody{display:table-row-group}
+    table.keep tr{display:table-row;border:0;margin:0;padding:0;background:none}
+    table.keep td,table.keep th{display:table-cell;
+      border:1px solid var(--line,#ded7c9);padding:6px 9px}
+
+    /* 不讓任何元素撐破螢幕 */
+    html,body{max-width:100%;overflow-x:hidden}
+    td,th,p,li{overflow-wrap:break-word}
+
+    /* ── 章節快速跳轉 ── */
+    .mtoc{display:block;background:var(--paper,#fffdf8);
+      border:1px solid var(--line,#ded7c9);border-radius:6px;
+      padding:11px 13px 12px;margin:0 0 20px}
+    .mtoc .tt{font-size:11px;font-weight:800;letter-spacing:.16em;
+      color:var(--gold,#b07d2b);margin-bottom:7px}
+    .mtoc a{display:inline-block;font-size:14px;color:var(--sea,#12303e);
+      text-decoration:none;background:rgba(0,0,0,.03);
+      border:1px solid var(--line,#ded7c9);border-radius:4px;
+      padding:4px 9px;margin:0 5px 5px 0;line-height:1.4;max-width:100%}
+    .mtoc a b{color:var(--gold,#b07d2b);margin-right:4px;font-weight:800}
+  }
 </style>
 </head>
 <body>
@@ -98,7 +162,9 @@
 <div class="w">
 <div class="sheet">
 
-  <h2><span class="n">壹</span>結論先講</h2>
+  <nav class="mtoc"><div class="tt">章節快速跳轉</div><a href="#s1"><b>壹</b>結論先講</a><a href="#s2"><b>貳</b>這個補助是什麼</a><a href="#s3"><b>參</b>兩個項目的官方定義——逐字看</a><a href="#s4"><b>肆</b>應備文件（五項）</a><a href="#s5"><b>伍</b>審查基準與權重</a><a href="#s6"><b>陸</b>錢怎麼撥——這是最大的財務風險</a><a href="#s7"><b>柒</b>五個容易忽略的義務</a><a href="#s8"><b>捌</b>一條可能繞過期限的例外</a><a href="#s9"><b>玖</b>建議的提案設計</a><a href="#s10"><b>拾</b>時間表（以 10/30 為目標）</a></nav>
+
+  <h2 id="s1"><span class="n">壹</span>結論先講</h2>
 
   <div class="lede">
     <b>這條路走得通，而且補助項目的官方定義幾乎是為本案量身寫的。</b><br>
@@ -106,10 +172,10 @@
     原因是 115 年度採「先執行、後撥付」，且須於 12/20 前核銷完畢，現金流與時程風險過高。
   </div>
 
-  <h2><span class="n">貳</span>這個補助是什麼</h2>
+  <h2 id="s2"><span class="n">貳</span>這個補助是什麼</h2>
 
   <div class="scroll">
-  <table>
+  <table class="kv">
     <tr><td class="k">法源</td><td>海洋保育法 §1、§4、§6、§7、§18；海洋庇護區劃定辦法 §4；
       海洋保護區以外海洋其他有效保育措施之區域認定辦法 §7；整體海洋保護區域管理政策方針</td></tr>
     <tr><td class="k">總預算</td><td>2,000 萬元（115 年度 600 萬、116 年度 1,400 萬）</td></tr>
@@ -129,7 +195,7 @@
     水產動植物繁殖保育區依海洋保育法 §6 第 5 款即為海洋保護區之一種。
   </div>
 
-  <h2><span class="n">參</span>兩個項目的官方定義——逐字看</h2>
+  <h2 id="s3"><span class="n">參</span>兩個項目的官方定義——逐字看</h2>
 
   <h3>社會經濟因子・局部基礎調查（最高 100 萬）</h3>
   <div class="quote">
@@ -161,17 +227,17 @@
 
   <h3>其他項目（供參）</h3>
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th>項目</th><th>範圍</th><th class="num">上限</th></tr></thead>
     <tbody>
-      <tr><td>生態因子・局部基礎調查</td><td>單一出海口、特定小面積海域之特定物種盤點或基礎生態調查</td><td class="num">150 萬</td></tr>
-      <tr><td>生態因子・區域進階調查</td><td>特定海域或 2–3 種不同特性複合型棲地之系統性調查與群聚分析</td><td class="num">300 萬</td></tr>
-      <tr><td>社經因子・區域進階調查</td><td>同局部但涵蓋 2–3 種不同特性之保護區或棲地</td><td class="num">200 萬</td></tr>
+      <tr><td data-t="1">生態因子・局部基礎調查</td><td data-l="範圍">單一出海口、特定小面積海域之特定物種盤點或基礎生態調查</td><td class="num" data-l="上限" data-s="1">150 萬</td></tr>
+      <tr><td data-t="1">生態因子・區域進階調查</td><td data-l="範圍">特定海域或 2–3 種不同特性複合型棲地之系統性調查與群聚分析</td><td class="num" data-l="上限" data-s="1">300 萬</td></tr>
+      <tr><td data-t="1">社經因子・區域進階調查</td><td data-l="範圍">同局部但涵蓋 2–3 種不同特性之保護區或棲地</td><td class="num" data-l="上限" data-s="1">200 萬</td></tr>
     </tbody>
   </table>
   </div>
 
-  <h2><span class="n">肆</span>應備文件（五項）</h2>
+  <h2 id="s4"><span class="n">肆</span>應備文件（五項）</h2>
 
   <ol>
     <li>補（捐）助申請表　<span style="color:#8b969e">附件三（.odt 空白表）</span></li>
@@ -189,25 +255,25 @@
     <b>這是今天就要確認的第一件事。</b>沒有這份文件，其餘都不用談。
   </div>
 
-  <h2><span class="n">伍</span>審查基準與權重</h2>
+  <h2 id="s5"><span class="n">伍</span>審查基準與權重</h2>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">權重</th><th>基準</th><th>須知原文重點</th></tr></thead>
     <tbody>
-      <tr><td class="k">30%</td><td>計畫結構之完整性</td>
-        <td>須符合海保署「<b>潔淨海水</b>」「<b>健康棲地</b>」「<b>永續資源</b>」施政願景，
+      <tr><td class="k" data-t="1">30%</td><td data-l="基準" data-s="1">計畫結構之完整性</td>
+        <td data-l="須知原文重點">須符合海保署「<b>潔淨海水</b>」「<b>健康棲地</b>」「<b>永續資源</b>」施政願景，
           助於提升 MPA 管理效能，達成「迎向韌性」「自然為本」「<b>公平包容</b>」整體目標</td></tr>
-      <tr><td class="k">20%</td><td>計畫執行之永續性</td>
-        <td>以「棲地復育」「物種保育及復育」「<b>海洋保護區生態、社經調查</b>」為核心，
+      <tr><td class="k" data-t="1">20%</td><td data-l="基準" data-s="1">計畫執行之永續性</td>
+        <td data-l="須知原文重點">以「棲地復育」「物種保育及復育」「<b>海洋保護區生態、社經調查</b>」為核心，
           提升公眾海洋保育意識</td></tr>
-      <tr><td class="k">20%</td><td>計畫價值及影響力</td>
-        <td>有益於傳達海洋生物多樣性重要性，創造生態面、科學面、經濟面或社會面之價值</td></tr>
-      <tr><td class="k">15%</td><td>計畫團隊之執行力</td>
-        <td>組織分工完整度、執行方式、專業能力、時程規劃、可行性、
+      <tr><td class="k" data-t="1">20%</td><td data-l="基準" data-s="1">計畫價值及影響力</td>
+        <td data-l="須知原文重點">有益於傳達海洋生物多樣性重要性，創造生態面、科學面、經濟面或社會面之價值</td></tr>
+      <tr><td class="k" data-t="1">15%</td><td data-l="基準" data-s="1">計畫團隊之執行力</td>
+        <td data-l="須知原文重點">組織分工完整度、執行方式、專業能力、時程規劃、可行性、
           <b>過去執行相關績效</b>及行政配合情形</td></tr>
-      <tr><td class="k">15%</td><td>創新性、策略性或政策性</td>
-        <td>計畫具創意、創新表現，或具備策略性、政策性</td></tr>
+      <tr><td class="k" data-t="1">15%</td><td data-l="基準" data-s="1">創新性、策略性或政策性</td>
+        <td data-l="須知原文重點">計畫具創意、創新表現，或具備策略性、政策性</td></tr>
     </tbody>
   </table>
   </div>
@@ -227,7 +293,7 @@
     第一個提案本身就具備須知第十三點第五款所稱的「創新性、策略性」。
   </div>
 
-  <h2><span class="n">陸</span>錢怎麼撥——這是最大的財務風險</h2>
+  <h2 id="s6"><span class="n">陸</span>錢怎麼撥——這是最大的財務風險</h2>
 
   <div class="urgent">
     <b>115 年度是「先執行、後撥付」。</b><br>
@@ -240,13 +306,13 @@
   </div>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">年度</th><th>撥款方式</th><th>期限</th></tr></thead>
     <tbody>
-      <tr><td class="k">115 年</td><td>執行後憑實際支用數撥付</td><td>115.12.20 前檢送核銷</td></tr>
-      <tr><td class="k">116 年</td><td>第一期 <b>40%</b>（預撥）</td><td>116.1.31 前檢送申請</td></tr>
-      <tr><td class="k"></td><td>第二期 <b>30%</b>（憑 40% 原始憑證申請）</td><td>—</td></tr>
-      <tr><td class="k"></td><td>第三期尾款（憑執行 100% 之憑證）</td><td>計畫結束後一個月內核銷，最遲不逾 116.12.20</td></tr>
+      <tr><td class="k" data-t="1">115 年</td><td data-l="撥款方式" data-s="1">執行後憑實際支用數撥付</td><td data-l="期限">115.12.20 前檢送核銷</td></tr>
+      <tr><td class="k" data-t="1">116 年</td><td data-l="撥款方式" data-s="1">第一期 <b>40%</b>（預撥）</td><td data-l="期限" data-s="1">116.1.31 前檢送申請</td></tr>
+      <tr><td class="k" data-t="1"></td><td data-l="撥款方式">第二期 <b>30%</b>（憑 40% 原始憑證申請）</td><td data-l="期限" data-s="1">—</td></tr>
+      <tr><td class="k" data-t="1"></td><td data-l="撥款方式">第三期尾款（憑執行 100% 之憑證）</td><td data-l="期限">計畫結束後一個月內核銷，最遲不逾 116.12.20</td></tr>
     </tbody>
   </table>
   </div>
@@ -255,10 +321,10 @@
     <b>這正是建議走 116 年度那一梯的理由：116 年度有 40% 預撥款，115 年度沒有。</b>
   </div>
 
-  <h2><span class="n">柒</span>五個容易忽略的義務</h2>
+  <h2 id="s7"><span class="n">柒</span>五個容易忽略的義務</h2>
 
   <div class="scroll">
-  <table>
+  <table class="kv">
     <tr><td class="k">行政中立</td><td>辦理計畫或活動期間<b>不得懸掛、張貼、穿戴或標示特定政黨、
       其他政治團體或公職候選人之旗幟、徽章或服飾</b><br>
       <span style="color:#8b3a22">→ 我方有議員支持，執行補助計畫期間須切割清楚</span></td></tr>
@@ -273,7 +339,7 @@
   </table>
   </div>
 
-  <h2><span class="n">捌</span>一條可能繞過期限的例外</h2>
+  <h2 id="s8"><span class="n">捌</span>一條可能繞過期限的例外</h2>
 
   <div class="quote">
     五、<b>如具重大海洋保育意義或與本署業務關聯具指標性，則視實際需求經審查核定，
@@ -289,7 +355,7 @@
     並在事前致電靳小姐時一併詢問此條的實務運用。
   </div>
 
-  <h2><span class="n">玖</span>建議的提案設計</h2>
+  <h2 id="s9"><span class="n">玖</span>建議的提案設計</h2>
 
   <div class="ok">
     <b>一案、兩個項目、上限 200 萬。</b>（每單位每年度至多一案，故不能拆成兩案）<br><br>
@@ -313,7 +379,7 @@
     最好附上<b>福連里或社區發展協會之協力同意函</b>。這同時能補強「過去執行績效」的弱項。
   </div>
 
-  <h2><span class="n">拾</span>時間表（以 10/30 為目標）</h2>
+  <h2 id="s10"><span class="n">拾</span>時間表（以 10/30 為目標）</h2>
 
   <ol class="step">
     <li><b>本週（8/22–8/31）</b>　確認立案身分與負責人證明文件；下載附件三、四、五空白表；

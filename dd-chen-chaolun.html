@@ -49,6 +49,70 @@
     .sheet{border:0;box-shadow:none;padding:0;margin-top:14px}.w{max-width:none;padding:0}
     .scroll{overflow:visible}table{min-width:0}@page{size:A4;margin:15mm 13mm}
     h2{page-break-after:avoid}table,tr{page-break-inside:avoid}}
+/* mobile-v2 */
+  .mtoc{display:none}
+  @media(max-width:680px){
+    body{font-size:16px;line-height:1.72}
+    .w,.wrap,.container{padding-left:12px;padding-right:12px}
+    .sheet,.card,.box{padding-left:14px;padding-right:14px}
+    header{padding-left:16px;padding-right:16px}
+    h2{margin-top:26px;margin-bottom:9px}
+    h3{margin-top:18px;margin-bottom:6px}
+    p{margin-bottom:9px}
+
+    /* ── 表格轉卡片 ── */
+    table{min-width:0!important;border:0;font-size:15px;display:block;width:100%}
+    thead{display:none}
+    tbody,tr,td,th{display:block;width:auto}
+    tr{border:1px solid var(--line,#ded7c9);border-radius:5px;
+       background:var(--paper,#fffdf8);margin:0 0 8px;padding:7px 0;overflow:hidden}
+    td,th{border:0;padding:3px 12px;white-space:normal!important}
+    td.k{background:transparent;width:auto;font-weight:800}
+
+    /* 有表頭者：欄名變小標 */
+    table.cards td[data-l]::before{content:attr(data-l);display:block;
+      font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);margin-bottom:1px}
+    table.cards td[data-t]{font-size:16.5px;font-weight:800;
+      color:var(--sea,#12303e);padding-top:1px;padding-bottom:4px;line-height:1.45}
+    table.cards td[data-seq]{display:none!important}
+
+    /* 短值：標籤與值同一行 */
+    table.cards td[data-s]:not([data-seq]){display:flex;flex-wrap:wrap;
+      gap:2px 7px;align-items:baseline;padding-top:1px;padding-bottom:1px;
+      line-height:1.6;min-width:0}
+    table.cards td[data-s]::before{margin-bottom:0;flex:0 0 auto;
+      min-width:4.2em;line-height:1.6}
+
+    /* 無表頭的鍵值表：第一格當小標 */
+    table.kv td.k{font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);padding-bottom:1px}
+    table.kv td.k+td{padding-top:0}
+
+    /* 含 colspan/rowspan 者不堆疊，保留原表格並可橫向捲動 */
+    table.keep{display:table;width:100%}
+    table.keep thead{display:table-header-group}
+    table.keep tbody{display:table-row-group}
+    table.keep tr{display:table-row;border:0;margin:0;padding:0;background:none}
+    table.keep td,table.keep th{display:table-cell;
+      border:1px solid var(--line,#ded7c9);padding:6px 9px}
+
+    /* 不讓任何元素撐破螢幕 */
+    html,body{max-width:100%;overflow-x:hidden}
+    td,th,p,li{overflow-wrap:break-word}
+
+    /* ── 章節快速跳轉 ── */
+    .mtoc{display:block;background:var(--paper,#fffdf8);
+      border:1px solid var(--line,#ded7c9);border-radius:6px;
+      padding:11px 13px 12px;margin:0 0 20px}
+    .mtoc .tt{font-size:11px;font-weight:800;letter-spacing:.16em;
+      color:var(--gold,#b07d2b);margin-bottom:7px}
+    .mtoc a{display:inline-block;font-size:14px;color:var(--sea,#12303e);
+      text-decoration:none;background:rgba(0,0,0,.03);
+      border:1px solid var(--line,#ded7c9);border-radius:4px;
+      padding:4px 9px;margin:0 5px 5px 0;line-height:1.4;max-width:100%}
+    .mtoc a b{color:var(--gold,#b07d2b);margin-right:4px;font-weight:800}
+  }
 </style>
 </head>
 <body>
@@ -67,7 +131,9 @@
 <div class="w">
 <div class="sheet">
 
-  <h2><span class="n">壹</span>一句話結論</h2>
+  <nav class="mtoc"><div class="tt">章節快速跳轉</div><a href="#s1"><b>壹</b>一句話結論</a><a href="#s2"><b>貳</b>人物檔案</a><a href="#s3"><b>參</b>他 2026 年的立場（SMC 原文）</a><a href="#s4"><b>肆</b>他 2017 年的立場（僅供內部理解，不得引</a><a href="#s5"><b>伍</b>他給我方的武器，與他對我方的要求</a><a href="#s6"><b>陸</b>最關鍵的內部決定：那條線我方接不接受</a><a href="#s7"><b>柒</b>兵推與建議</a></nav>
+
+  <h2 id="s1"><span class="n">壹</span>一句話結論</h2>
 
   <div class="lede">
     他是全案的樞紐。<b>任何妥協方案的落點，極可能就是他劃的那一條線：禁水肺魚槍、保留自由潛水魚槍。</b><br>
@@ -81,10 +147,10 @@
     <b>正確做法：把他 2026 年的話當成他一貫的立場來引用，過去的事一個字都不要提。</b>
   </div>
 
-  <h2><span class="n">貳</span>人物檔案</h2>
+  <h2 id="s2"><span class="n">貳</span>人物檔案</h2>
 
   <div class="scroll">
-  <table>
+  <table class="kv">
     <tr><td class="k">現職</td><td>中央研究院<b>生物多樣性研究中心</b>研究員</td></tr>
     <tr><td class="k">研究領域</td><td>海洋生態學、演化、<b>珊瑚礁生物學</b>、保育遺傳學</td></tr>
     <tr><td class="k">與本案關係</td><td>本聯盟研討會講者之一（已完成逐字稿查核）；同時是台灣科技媒體中心 2026.08.14 邀稿的四位專家之一</td></tr>
@@ -99,7 +165,7 @@
     <b>對他有效的不是立場，是證據等級。</b>
   </div>
 
-  <h2><span class="n">參</span>他 2026 年的立場（SMC 原文）</h2>
+  <h2 id="s3"><span class="n">參</span>他 2026 年的立場（SMC 原文）</h2>
 
   <h3>關於證據</h3>
   <div class="quote">
@@ -141,13 +207,13 @@
     真正有效的共管不是：民間提意見 → 政府聽完 → 公告政策。而應該是：<b>地方提出問題與知識 → 科學共同產生資料 → 主管機關接住 → 轉化為管理措施 → 執法 → 監測成效 → 再共同修正。</b>
   </div>
 
-  <h2><span class="n">肆</span>他 2017 年的立場（僅供內部理解，不得引用）</h2>
+  <h2 id="s4"><span class="n">肆</span>他 2017 年的立場（僅供內部理解，不得引用）</h2>
 
   <p>2017 年漁業署預告「魚槍採捕水產動物禁漁區管制措施」時，他撰文〈魚槍、魚線、魚網盡頭的省思〉，
   逐條反駁溫國彰、蔡政良、羅國榮的質疑。當年他的立場是：</p>
 
   <div class="scroll">
-  <table>
+  <table class="kv">
     <tr><td class="k">對「挑軟柿子」</td><td>列舉刺網、底拖、越界、休漁期、體長管制等並行措施，主張「<b>魚槍管制只是盤點台灣海洋資源管理事務過程中的一項，哪來所謂柿子挑軟的吃</b>」</td></tr>
     <tr><td class="k">對合法持有</td><td>指出《槍砲彈藥刀械許可及管理辦法》核發之許可執照上敘明應遵守《水域遊憩活動管理辦法》及《漁業法》；
       並稱漁業署<b>自 1989 年起停發「潛水器」漁業執照</b>，漁業法實施近 90 年<b>從未發放「魚槍」漁業執照</b></td></tr>
@@ -159,14 +225,14 @@
 
   <h3>九年之間，他移動了什麼</h3>
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">議題</th><th>2017</th><th>2026</th></tr></thead>
     <tbody>
-      <tr><td class="k">自潛／水肺</td><td>未區分，支持全面管制</td><td><b>明確區分，只支持禁潛水器</b></td></tr>
-      <tr><td class="k">魚槍選擇性</td><td>未論及</td><td><b>「高度物種及體型選擇性、誤捕機會低」</b></td></tr>
-      <tr><td class="k">與垂釣比較</td><td>未論及</td><td><b>「不能在沒有在地比較資料下，就直接宣稱其整體生態衝擊必然大於垂釣」</b></td></tr>
-      <tr><td class="k">分區有效性</td><td>「禁漁區是未來終極的理想」</td><td><b>引大堡礁研究：允許有限釣魚、禁止打魚的局部保護區，生物量可接近禁採區</b></td></tr>
-      <tr><td class="k">歸因</td><td>主張資源枯竭需全面管制</td><td><b>「不足以將資源衰退歸因於特定漁法」</b></td></tr>
+      <tr><td class="k" data-t="1">自潛／水肺</td><td data-l="2017" data-s="1">未區分，支持全面管制</td><td data-l="2026" data-s="1"><b>明確區分，只支持禁潛水器</b></td></tr>
+      <tr><td class="k" data-t="1">魚槍選擇性</td><td data-l="2017" data-s="1">未論及</td><td data-l="2026"><b>「高度物種及體型選擇性、誤捕機會低」</b></td></tr>
+      <tr><td class="k" data-t="1">與垂釣比較</td><td data-l="2017" data-s="1">未論及</td><td data-l="2026"><b>「不能在沒有在地比較資料下，就直接宣稱其整體生態衝擊必然大於垂釣」</b></td></tr>
+      <tr><td class="k" data-t="1">分區有效性</td><td data-l="2017" data-s="1">「禁漁區是未來終極的理想」</td><td data-l="2026"><b>引大堡礁研究：允許有限釣魚、禁止打魚的局部保護區，生物量可接近禁採區</b></td></tr>
+      <tr><td class="k" data-t="1">歸因</td><td data-l="2017" data-s="1">主張資源枯竭需全面管制</td><td data-l="2026"><b>「不足以將資源衰退歸因於特定漁法」</b></td></tr>
     </tbody>
   </table>
   </div>
@@ -180,7 +246,7 @@
     ③ <b>他始終要求同步監測。</b>2017 的公民科學資料、2026 的「管理可以先做，但監測必須同步開始」。
   </div>
 
-  <h2><span class="n">伍</span>他給我方的武器，與他對我方的要求</h2>
+  <h2 id="s5"><span class="n">伍</span>他給我方的武器，與他對我方的要求</h2>
 
   <h3>可以直接引用的三句話（皆為 2026 年 SMC 原文）</h3>
   <ul>
@@ -191,7 +257,7 @@
 
   <h3>他對我方的三個要求（必須準備好回答）</h3>
   <div class="scroll">
-  <table>
+  <table class="kv">
     <tr><td class="k">要資料</td><td>他要的是「<b>可歸因的資料</b>」：不同漁法的採捕頻率與勞力、物種組成、體長、數量、季節、採捕地點。<br>
       → <b>我方的漁獲回報制度提案，正好是他要的東西。</b>應把它包裝成「我方願意提供他所要求的可歸因資料」。</td></tr>
     <tr><td class="k">要六個維度</td><td>可到達深度 × 作業時間 × 物種選擇性 × 體型選擇性 × 採捕死亡率 × 總採捕量。<br>
@@ -201,7 +267,7 @@
   </table>
   </div>
 
-  <h2><span class="n">陸</span>最關鍵的內部決定：那條線我方接不接受</h2>
+  <h2 id="s6"><span class="n">陸</span>最關鍵的內部決定：那條線我方接不接受</h2>
 
   <div class="warn">
     <b>這是 9/8 之前必須有共識的事，目前沒有答案。</b><br>
@@ -218,7 +284,7 @@
     <b>提醒：如果我方遲遲不表態，這條線仍然會被劃下來，只是我方沒有參與劃它。</b>
   </div>
 
-  <h2><span class="n">柒</span>兵推與建議</h2>
+  <h2 id="s7"><span class="n">柒</span>兵推與建議</h2>
 
   <ul>
     <li><b>把他當技術裁判，不要當立場對手。</b>對他只講證據等級與六維度，不要講權益、不要講情感。</li>

@@ -54,6 +54,70 @@
     .sheet{border:0;box-shadow:none;padding:0;margin-top:14px}.w{max-width:none;padding:0}
     .scroll{overflow:visible}table{min-width:0}@page{size:A4;margin:14mm 11mm}
     h2{page-break-after:avoid}table,tr{page-break-inside:avoid}}
+/* mobile-v2 */
+  .mtoc{display:none}
+  @media(max-width:680px){
+    body{font-size:16px;line-height:1.72}
+    .w,.wrap,.container{padding-left:12px;padding-right:12px}
+    .sheet,.card,.box{padding-left:14px;padding-right:14px}
+    header{padding-left:16px;padding-right:16px}
+    h2{margin-top:26px;margin-bottom:9px}
+    h3{margin-top:18px;margin-bottom:6px}
+    p{margin-bottom:9px}
+
+    /* ── 表格轉卡片 ── */
+    table{min-width:0!important;border:0;font-size:15px;display:block;width:100%}
+    thead{display:none}
+    tbody,tr,td,th{display:block;width:auto}
+    tr{border:1px solid var(--line,#ded7c9);border-radius:5px;
+       background:var(--paper,#fffdf8);margin:0 0 8px;padding:7px 0;overflow:hidden}
+    td,th{border:0;padding:3px 12px;white-space:normal!important}
+    td.k{background:transparent;width:auto;font-weight:800}
+
+    /* 有表頭者：欄名變小標 */
+    table.cards td[data-l]::before{content:attr(data-l);display:block;
+      font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);margin-bottom:1px}
+    table.cards td[data-t]{font-size:16.5px;font-weight:800;
+      color:var(--sea,#12303e);padding-top:1px;padding-bottom:4px;line-height:1.45}
+    table.cards td[data-seq]{display:none!important}
+
+    /* 短值：標籤與值同一行 */
+    table.cards td[data-s]:not([data-seq]){display:flex;flex-wrap:wrap;
+      gap:2px 7px;align-items:baseline;padding-top:1px;padding-bottom:1px;
+      line-height:1.6;min-width:0}
+    table.cards td[data-s]::before{margin-bottom:0;flex:0 0 auto;
+      min-width:4.2em;line-height:1.6}
+
+    /* 無表頭的鍵值表：第一格當小標 */
+    table.kv td.k{font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);padding-bottom:1px}
+    table.kv td.k+td{padding-top:0}
+
+    /* 含 colspan/rowspan 者不堆疊，保留原表格並可橫向捲動 */
+    table.keep{display:table;width:100%}
+    table.keep thead{display:table-header-group}
+    table.keep tbody{display:table-row-group}
+    table.keep tr{display:table-row;border:0;margin:0;padding:0;background:none}
+    table.keep td,table.keep th{display:table-cell;
+      border:1px solid var(--line,#ded7c9);padding:6px 9px}
+
+    /* 不讓任何元素撐破螢幕 */
+    html,body{max-width:100%;overflow-x:hidden}
+    td,th,p,li{overflow-wrap:break-word}
+
+    /* ── 章節快速跳轉 ── */
+    .mtoc{display:block;background:var(--paper,#fffdf8);
+      border:1px solid var(--line,#ded7c9);border-radius:6px;
+      padding:11px 13px 12px;margin:0 0 20px}
+    .mtoc .tt{font-size:11px;font-weight:800;letter-spacing:.16em;
+      color:var(--gold,#b07d2b);margin-bottom:7px}
+    .mtoc a{display:inline-block;font-size:14px;color:var(--sea,#12303e);
+      text-decoration:none;background:rgba(0,0,0,.03);
+      border:1px solid var(--line,#ded7c9);border-radius:4px;
+      padding:4px 9px;margin:0 5px 5px 0;line-height:1.4;max-width:100%}
+    .mtoc a b{color:var(--gold,#b07d2b);margin-right:4px;font-weight:800}
+  }
 </style>
 </head>
 <body>
@@ -70,7 +134,9 @@
 <div class="sheet">
 
 
-  <h2><span class="n">壹</span>一句話結論</h2>
+  <nav class="mtoc"><div class="tt">章節快速跳轉</div><a href="#s1"><b>壹</b>一句話結論</a><a href="#s2"><b>貳</b>完整對照表</a><a href="#s3"><b>參</b>2017 年為什麼擋得下來</a><a href="#s4"><b>肆</b>為什麼 2026 不能複製 2017</a><a href="#s5"><b>伍</b>可以繼承的三件事</a><a href="#s6"><b>陸</b>兩個爭點的法律強度對比</a><a href="#s7"><b>柒</b>一個必須警惕的連動風險</a><a href="#s8"><b>捌</b>待查證</a></nav>
+
+  <h2 id="s1"><span class="n">壹</span>一句話結論</h2>
 
   <div class="warn">
     <b>本版修正（115.08.26）</b><br>
@@ -95,116 +161,116 @@
     本表真正的價值在於：<b>找出哪些論點可以繼承、哪些已經失效、以及這次的爭點在法律強度上弱在哪裡。</b>
   </div>
 
-  <h2><span class="n">貳</span>完整對照表</h2>
+  <h2 id="s2"><span class="n">貳</span>完整對照表</h2>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%"></th>
       <th class="a">2017　農委會漁業署<br><span style="font-weight:400">魚槍採捕水產動物禁漁區管制措施（草案）</span></th>
       <th class="b">2026　新北市政府<br><span style="font-weight:400">貢寮、萬里、瑞芳水產動植物繁殖保育區及有關限制事項</span></th></tr></thead>
     <tbody>
-      <tr class="diff"><td class="k">提案機關</td>
-        <td class="a"><b>中央</b>——行政院農業委員會漁業署</td>
-        <td class="b"><b>地方</b>——新北市政府（漁業及漁港事業管理處）<br>
+      <tr class="diff"><td class="k" data-t="1">提案機關</td>
+        <td class="a" data-l="2017 農委會漁業署 魚槍採捕水產動物禁漁區管制措施（草案）"><b>中央</b>——行政院農業委員會漁業署</td>
+        <td class="b" data-l="2026 新北市政府 貢寮、萬里、瑞芳水產動植物繁殖保育區及有關限制事項"><b>地方</b>——新北市政府（漁業及漁港事業管理處）<br>
           <b>須依漁業法 §44Ⅲ 報農業部漁業署核定</b></td></tr>
-      <tr><td class="k">預告日期</td>
-        <td class="a">民國 106 年（2017）<b>3 月 10 日</b></td>
-        <td class="b">民國 115 年（2026）<b>6 月 17 日</b></td></tr>
-      <tr><td class="k">意見期限</td>
-        <td class="a">60 日，至 2017 年 <b>5 月 15 日</b></td>
-        <td class="b">至 2026 年 <b>8 月 17 日</b>（約 2 個月）</td></tr>
-      <tr class="diff"><td class="k">適用範圍</td>
-        <td class="a"><b>全國</b>，距岸 <b>12 海浬</b>內</td>
-        <td class="b"><b>新北市萬里、瑞芳、貢寮</b>，沿岸平均高潮線向外延伸 <b>3 海浬</b>帶狀</td></tr>
-      <tr><td class="k">法源</td>
-        <td class="a">漁業法 <b>§44Ⅰ 第 4 款</b>（漁區、漁期之限制或禁止）</td>
-        <td class="b">漁業法 <b>§44Ⅰ 第 4 款、第 7 款、第 9 款</b>及 <b>§45Ⅰ、Ⅱ</b><br>
+      <tr><td class="k" data-t="1">預告日期</td>
+        <td class="a" data-l="2017 農委會漁業署 魚槍採捕水產動物禁漁區管制措施（草案）">民國 106 年（2017）<b>3 月 10 日</b></td>
+        <td class="b" data-l="2026 新北市政府 貢寮、萬里、瑞芳水產動植物繁殖保育區及有關限制事項">民國 115 年（2026）<b>6 月 17 日</b></td></tr>
+      <tr><td class="k" data-t="1">意見期限</td>
+        <td class="a" data-l="2017 農委會漁業署 魚槍採捕水產動物禁漁區管制措施（草案）">60 日，至 2017 年 <b>5 月 15 日</b></td>
+        <td class="b" data-l="2026 新北市政府 貢寮、萬里、瑞芳水產動植物繁殖保育區及有關限制事項">至 2026 年 <b>8 月 17 日</b>（約 2 個月）</td></tr>
+      <tr class="diff"><td class="k" data-t="1">適用範圍</td>
+        <td class="a" data-l="2017 農委會漁業署 魚槍採捕水產動物禁漁區管制措施（草案）" data-s="1"><b>全國</b>，距岸 <b>12 海浬</b>內</td>
+        <td class="b" data-l="2026 新北市政府 貢寮、萬里、瑞芳水產動植物繁殖保育區及有關限制事項"><b>新北市萬里、瑞芳、貢寮</b>，沿岸平均高潮線向外延伸 <b>3 海浬</b>帶狀</td></tr>
+      <tr><td class="k" data-t="1">法源</td>
+        <td class="a" data-l="2017 農委會漁業署 魚槍採捕水產動物禁漁區管制措施（草案）">漁業法 <b>§44Ⅰ 第 4 款</b>（漁區、漁期之限制或禁止）</td>
+        <td class="b" data-l="2026 新北市政府 貢寮、萬里、瑞芳水產動植物繁殖保育區及有關限制事項">漁業法 <b>§44Ⅰ 第 4 款、第 7 款、第 9 款</b>及 <b>§45Ⅰ、Ⅱ</b><br>
           <span class="cite">已自市府公告原件確認。<b>兩案均未援引第 3 款（漁具、漁法）</b></span></td></tr>
-      <tr><td class="k">罰則</td>
-        <td class="a">漁業法 <b>§65 第 6 款</b>：3 萬至 15 萬元罰鍰</td>
-        <td class="b">同引 <b>§65⑥</b>（依現有資料）</td></tr>
-      <tr class="diff"><td class="k">分區</td>
-        <td class="a"><b>無分區。</b>全部條文僅 4 點</td>
-        <td class="b"><b>三級分區</b>：核心保育區、緩衝保育區、資源永續利用保育區</td></tr>
-      <tr class="diff"><td class="k">管制對象</td>
-        <td class="a"><b>只有魚槍</b>——單一漁具</td>
-        <td class="b"><b>魚槍與潛水器</b>；另訂九孔、龍蝦、海膽、珊瑚礁魚類之<b>採捕體長與殼徑下限</b>、
+      <tr><td class="k" data-t="1">罰則</td>
+        <td class="a" data-l="2017 農委會漁業署 魚槍採捕水產動物禁漁區管制措施（草案）">漁業法 <b>§65 第 6 款</b>：3 萬至 15 萬元罰鍰</td>
+        <td class="b" data-l="2026 新北市政府 貢寮、萬里、瑞芳水產動植物繁殖保育區及有關限制事項" data-s="1">同引 <b>§65⑥</b>（依現有資料）</td></tr>
+      <tr class="diff"><td class="k" data-t="1">分區</td>
+        <td class="a" data-l="2017 農委會漁業署 魚槍採捕水產動物禁漁區管制措施（草案）" data-s="1"><b>無分區。</b>全部條文僅 4 點</td>
+        <td class="b" data-l="2026 新北市政府 貢寮、萬里、瑞芳水產動植物繁殖保育區及有關限制事項"><b>三級分區</b>：核心保育區、緩衝保育區、資源永續利用保育區</td></tr>
+      <tr class="diff"><td class="k" data-t="1">管制對象</td>
+        <td class="a" data-l="2017 農委會漁業署 魚槍採捕水產動物禁漁區管制措施（草案）" data-s="1"><b>只有魚槍</b>——單一漁具</td>
+        <td class="b" data-l="2026 新北市政府 貢寮、萬里、瑞芳水產動植物繁殖保育區及有關限制事項"><b>魚槍與潛水器</b>；另訂九孔、龍蝦、海膽、珊瑚礁魚類之<b>採捕體長與殼徑下限</b>、
           石花菜與麒麟菜之<b>禁採期</b>、嚴禁採捕<b>大法螺及珊瑚</b></td></tr>
-      <tr class="diff"><td class="k">例外</td>
-        <td class="a">① 原住民<b>於原住民族地區</b>基於文化、祭儀或自用<br>② 鏢旗魚漁業<br>③ 經核准之學術研究</td>
-        <td class="b">① 原住民族因傳統文化或祭儀需求之<b>申請核可機制</b>（不限地區）<br>
+      <tr class="diff"><td class="k" data-t="1">例外</td>
+        <td class="a" data-l="2017 農委會漁業署 魚槍採捕水產動物禁漁區管制措施（草案）">① 原住民<b>於原住民族地區</b>基於文化、祭儀或自用<br>② 鏢旗魚漁業<br>③ 經核准之學術研究</td>
+        <td class="b" data-l="2026 新北市政府 貢寮、萬里、瑞芳水產動植物繁殖保育區及有關限制事項">① 原住民族因傳統文化或祭儀需求之<b>申請核可機制</b>（不限地區）<br>
           ② <b>萬里漁會會員徒手採石花菜</b></td></tr>
-      <tr class="diff"><td class="k">核心爭點</td>
-        <td class="a"><b>種族差別待遇</b>——原住民可、非原住民不可。<br>
+      <tr class="diff"><td class="k" data-t="1">核心爭點</td>
+        <td class="a" data-l="2017 農委會漁業署 魚槍採捕水產動物禁漁區管制措施（草案）"><b>種族差別待遇</b>——原住民可、非原住民不可。<br>
           憲法第 7 條平等原則層次</td>
-        <td class="b"><b>工具差別待遇</b>——魚槍不可、釣具可。<br>
+        <td class="b" data-l="2026 新北市政府 貢寮、萬里、瑞芳水產動植物繁殖保育區及有關限制事項"><b>工具差別待遇</b>——魚槍不可、釣具可。<br>
           行政法上平等原則與比例原則層次</td></tr>
-      <tr class="diff"><td class="k">在地漁民<br>／漁會立場</td>
-        <td class="a"><b>反對。</b>臺東、花蓮、澎湖漁村出現陳情抗議</td>
-        <td class="b"><b>支持。</b>貢寮區漁會總幹事林麗美 2026/7/23 公開表態：
+      <tr class="diff"><td class="k" data-t="1">在地漁民<br>／漁會立場</td>
+        <td class="a" data-l="2017 農委會漁業署 魚槍採捕水產動物禁漁區管制措施（草案）"><b>反對。</b>臺東、花蓮、澎湖漁村出現陳情抗議</td>
+        <td class="b" data-l="2026 新北市政府 貢寮、萬里、瑞芳水產動植物繁殖保育區及有關限制事項"><b>支持。</b>貢寮區漁會總幹事林麗美 2026/7/23 公開表態：
           「保育不應只要求漁民配合」「<b>我們是靠海生活，你們是來玩的</b>」</td></tr>
-      <tr><td class="k">民間意見<br>規模</td>
-        <td class="a">公共政策網路參與平臺累計 <b>352 則留言</b></td>
-        <td class="b">台灣海洋永續休閒採捕聯盟成立，陳述意見書 <b>845 位連署</b></td></tr>
-      <tr><td class="k">學者投入</td>
-        <td class="a">環境資訊中心論戰：<b>溫國彰、蔡政良、陳昭倫</b>、白尚儒、王南昕；
+      <tr><td class="k" data-t="1">民間意見<br>規模</td>
+        <td class="a" data-l="2017 農委會漁業署 魚槍採捕水產動物禁漁區管制措施（草案）">公共政策網路參與平臺累計 <b>352 則留言</b></td>
+        <td class="b" data-l="2026 新北市政府 貢寮、萬里、瑞芳水產動植物繁殖保育區及有關限制事項">台灣海洋永續休閒採捕聯盟成立，陳述意見書 <b>845 位連署</b></td></tr>
+      <tr><td class="k" data-t="1">學者投入</td>
+        <td class="a" data-l="2017 農委會漁業署 魚槍採捕水產動物禁漁區管制措施（草案）">環境資訊中心論戰：<b>溫國彰、蔡政良、陳昭倫</b>、白尚儒、王南昕；
           花蓮地檢署檢察官<b>羅國榮</b>提出法律批評；黃向文投書談娛樂漁業管理辦法</td>
-        <td class="b">台灣科技媒體中心邀稿：<b>黃向文、陳昭倫、邵廣昭、溫國彰</b>；
+        <td class="b" data-l="2026 新北市政府 貢寮、萬里、瑞芳水產動植物繁殖保育區及有關限制事項">台灣科技媒體中心邀稿：<b>黃向文、陳昭倫、邵廣昭、溫國彰</b>；
           另有李明安、陳義雄於媒體發言</td></tr>
-      <tr><td class="k">程序節點</td>
-        <td class="a">2017/5/25 公聽會</td>
-        <td class="b">2026/9/8 協調會（新北市漁業處）</td></tr>
-      <tr class="diff"><td class="k">結果</td>
-        <td class="a">公聽會結論「<b>於有效管理之前提下進一步研究分析</b>」，
+      <tr><td class="k" data-t="1">程序節點</td>
+        <td class="a" data-l="2017 農委會漁業署 魚槍採捕水產動物禁漁區管制措施（草案）" data-s="1">2017/5/25 公聽會</td>
+        <td class="b" data-l="2026 新北市政府 貢寮、萬里、瑞芳水產動植物繁殖保育區及有關限制事項">2026/9/8 協調會（新北市漁業處）</td></tr>
+      <tr class="diff"><td class="k" data-t="1">結果</td>
+        <td class="a" data-l="2017 農委會漁業署 魚槍採捕水產動物禁漁區管制措施（草案）">公聽會結論「<b>於有效管理之前提下進一步研究分析</b>」，
           作為後續研擬參考。<b>從未發布施行，亦未正式撤回</b></td>
-        <td class="b"><b>進行中</b></td></tr>
+        <td class="b" data-l="2026 新北市政府 貢寮、萬里、瑞芳水產動植物繁殖保育區及有關限制事項" data-s="1"><b>進行中</b></td></tr>
     </tbody>
   </table>
   </div>
 
-  <h2><span class="n">參</span>2017 年為什麼擋得下來</h2>
+  <h2 id="s3"><span class="n">參</span>2017 年為什麼擋得下來</h2>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">因素</th><th>說明</th></tr></thead>
     <tbody>
-      <tr><td class="k">① 憲法層次<br>的爭點</td>
-        <td>草案以「原住民族地區」與「持槍者種族」作為准許門檻，直接觸及<b>憲法第 7 條平等原則</b>。
+      <tr><td class="k" data-t="1">① 憲法層次<br>的爭點</td>
+        <td data-l="說明">草案以「原住民族地區」與「持槍者種族」作為准許門檻，直接觸及<b>憲法第 7 條平等原則</b>。
           羅國榮檢察官指其為以「<b>種族之尺</b>」代替「魚尺」，並批評「<b>嚴禁立法者直接以種族作為差別待遇的依據</b>」。
           <b>這是強度最高的一種法律攻擊。</b></td></tr>
-      <tr><td class="k">② 授權<br>不符</td>
-        <td>草案僅援引 §44Ⅰ④「漁區、漁期之限制或禁止」，卻在管制<b>漁具</b>。
+      <tr><td class="k" data-t="1">② 授權<br>不符</td>
+        <td data-l="說明">草案僅援引 §44Ⅰ④「漁區、漁期之限制或禁止」，卻在管制<b>漁具</b>。
           羅國榮指「本款只授權漁區、漁期之限制，<b>並未授權漁具（魚槍）之限制</b>」。
           且總說明稱「有明定禁漁區之必要」，實則<b>根本沒有劃設任何禁漁區</b>。<br>
           <span class="cite">註：後者（未劃設禁漁區）是 2017 年該案特有的瑕疵；
           新北草案確實劃設了保育區，此點不適用。</span></td></tr>
-      <tr><td class="k">③ 漁民<br>反對</td>
-        <td>臺東、花蓮、澎湖漁村陳情抗議。<b>全國性、涵蓋原住民族地區的禁令，使漁民與魚槍使用者站在同一邊。</b></td></tr>
-      <tr><td class="k">④ 比例<br>失衡</td>
-        <td>「台灣人主要消費食用的魚類並非珊瑚礁魚類……主管機關反而<b>挑軟柿子</b>針對比例微乎其微的魚槍獵捕
+      <tr><td class="k" data-t="1">③ 漁民<br>反對</td>
+        <td data-l="說明">臺東、花蓮、澎湖漁村陳情抗議。<b>全國性、涵蓋原住民族地區的禁令，使漁民與魚槍使用者站在同一邊。</b></td></tr>
+      <tr><td class="k" data-t="1">④ 比例<br>失衡</td>
+        <td data-l="說明">「台灣人主要消費食用的魚類並非珊瑚礁魚類……主管機關反而<b>挑軟柿子</b>針對比例微乎其微的魚槍獵捕
           採取幾近全面禁絕的粗糙方式」；且未同步處理歐盟黃牌等更大的漁業治理問題。</td></tr>
-      <tr><td class="k">⑤ 無配套</td>
-        <td>四點條文，沒有分區、沒有體長、沒有季節、沒有數量、沒有登記、沒有過渡期。</td></tr>
+      <tr><td class="k" data-t="1">⑤ 無配套</td>
+        <td data-l="說明">四點條文，沒有分區、沒有體長、沒有季節、沒有數量、沒有登記、沒有過渡期。</td></tr>
     </tbody>
   </table>
   </div>
 
-  <h2><span class="n">肆</span>為什麼 2026 不能複製 2017</h2>
+  <h2 id="s4"><span class="n">肆</span>為什麼 2026 不能複製 2017</h2>
 
   <div class="warn">
     <b>2017 年的五項成功因素，四項已經不成立或大幅減弱；但 2026 年有一項 2017 年沒有的新爭點。</b>
   </div>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">因素</th><th>2026 年的狀態</th><th>可用性</th></tr></thead>
     <tbody>
-      <tr><td class="k">① 憲法<br>爭點</td>
-        <td>新北草案的原住民族例外是<b>申請核可制、不限地區</b>，不再以「原住民族地區」與「種族」為門檻。
+      <tr><td class="k" data-t="1">① 憲法<br>爭點</td>
+        <td data-l="2026 年的狀態">新北草案的原住民族例外是<b>申請核可制、不限地區</b>，不再以「原住民族地區」與「種族」為門檻。
           <b>種族差別待遇的爭點基本消失。</b></td>
-        <td><b style="color:#8b3a22">已失效</b></td></tr>
-      <tr><td class="k">② 授權<br>不符</td>
-        <td><b>法理上成立，實務上很弱——本欄已於 115.08.26 修正。</b><br>
+        <td data-l="可用性" data-s="1"><b style="color:#8b3a22">已失效</b></td></tr>
+      <tr><td class="k" data-t="1">② 授權<br>不符</td>
+        <td data-l="2026 年的狀態"><b>法理上成立，實務上很弱——本欄已於 115.08.26 修正。</b><br>
           草案援引 §44Ⅰ<b>④⑦⑨</b>，未引第 3 款；2017 年僅引第 4 款。條文層次上，
           禁止漁具本應循第 3 款專款。<br>
           <b>但查漁業署官網彙整之新北市歷年公告：自民國 100 年起，管制漁具（流刺網、投網、扒網、拖網、
@@ -213,9 +279,9 @@
           <b>且本次草案之法源與罰則，與其擬廢止之現行公告（109.9.11）完全相同</b>，
           並由漁業署彙整公布，中央知悉未表反對。<br>
           <b>以此為主攻，很可能被一句「歷來皆如此」擋回。宜作為提問，不宜作為主張。</b></td>
-        <td><b style="color:#7a5a1e">可問<br>不宜主攻</b></td></tr>
-      <tr style="background:#e8f4ed"><td class="k">⑥ 管制範圍<br>之擴張<br><span class="cite">（本版新增）</span></td>
-        <td><b>這才是 2026 年真正站得住的地方，2017 年沒有這個問題。</b><br>
+        <td data-l="可用性"><b style="color:#7a5a1e">可問<br>不宜主攻</b></td></tr>
+      <tr style="background:#e8f4ed"><td class="k" data-t="1">⑥ 管制範圍<br>之擴張<br><span class="cite">（本版新增）</span></td>
+        <td data-l="2026 年的狀態"><b>這才是 2026 年真正站得住的地方，2017 年沒有這個問題。</b><br>
           2017 年是全新的全國性禁令，無新舊可比。<b>2026 年則是「修正既有公告」，
           因此新舊對照本身就是證據</b>：<br>
           ・<b>魚槍：現行公告完全未規定 → 新草案全區禁止</b>（查 15 年公告，「魚槍」出現 0 次）<br>
@@ -224,20 +290,20 @@
           <b>而市府未提出任何「魚槍造成何種具體衝擊」之評估。</b><br>
           可據以主張<b>比例原則（行政程序法 §7Ⅱ）</b>與<b>信賴保護（§8）</b>——
           <b>魚槍採捕從未被禁止過，此為新增禁止而非取締違法，故過渡期與配套之請求有法律依據。</b></td>
-        <td><b style="color:#20613f">最強</b></td></tr>
-      <tr><td class="k">③ 漁民<br>反對</td>
-        <td><b>反轉。</b>貢寮區漁會公開支持管制，理由是「保育不應只要求漁民配合」。
+        <td data-l="可用性" data-s="1"><b style="color:#20613f">最強</b></td></tr>
+      <tr><td class="k" data-t="1">③ 漁民<br>反對</td>
+        <td data-l="2026 年的狀態"><b>反轉。</b>貢寮區漁會公開支持管制，理由是「保育不應只要求漁民配合」。
           <b>2017 年最關鍵的那股力量，這次站在對面。</b></td>
-        <td><b style="color:#8b3a22">已反轉</b></td></tr>
-      <tr><td class="k">④ 比例<br>失衡</td>
-        <td><b>仍然成立，且證據更強。</b>陳昭倫引《報導者》估計新北魚槍者<b>約數百人</b>，
+        <td data-l="可用性" data-s="1"><b style="color:#8b3a22">已反轉</b></td></tr>
+      <tr><td class="k" data-t="1">④ 比例<br>失衡</td>
+        <td data-l="2026 年的狀態"><b>仍然成立，且證據更強。</b>陳昭倫引《報導者》估計新北魚槍者<b>約數百人</b>，
           對照海保署估算新北海釣與潛在釣魚人口<b>約 30 至 40 萬人</b>。<br>
           但「挑軟柿子」的說法在 2017 年被陳昭倫親自反駁過，<b>改用「管制標準不一致」較安全。</b></td>
-        <td><b style="color:#20613f">可用</b></td></tr>
-      <tr><td class="k">⑤ 無配套</td>
-        <td><b>大幅減弱。</b>新北草案有三級分區、體長下限、殼徑下限、禁採期、物種名單，
+        <td data-l="可用性" data-s="1"><b style="color:#20613f">可用</b></td></tr>
+      <tr><td class="k" data-t="1">⑤ 無配套</td>
+        <td data-l="2026 年的狀態"><b>大幅減弱。</b>新北草案有三級分區、體長下限、殼徑下限、禁採期、物種名單，
           <b>配套遠比 2017 年完整。</b>「粗糙」的指控難以成立。</td>
-        <td><b style="color:#8b3a22">大幅減弱</b></td></tr>
+        <td data-l="可用性" data-s="1"><b style="color:#8b3a22">大幅減弱</b></td></tr>
     </tbody>
   </table>
   </div>
@@ -248,7 +314,7 @@
     <b>我方若把策略建立在「上次擋下來了」的類比上，會誤判形勢。</b>
   </div>
 
-  <h2><span class="n">伍</span>可以繼承的三件事</h2>
+  <h2 id="s5"><span class="n">伍</span>可以繼承的三件事</h2>
 
   <div class="ok">
     <b>一、公聽會結論本身是可引用的先例。</b><br>
@@ -276,28 +342,28 @@
     <b>這是同時取得學者與漁會認同的唯一論點。</b>
   </div>
 
-  <h2><span class="n">陸</span>兩個爭點的法律強度對比</h2>
+  <h2 id="s6"><span class="n">陸</span>兩個爭點的法律強度對比</h2>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%"></th><th>2017：種族差別待遇</th><th>2026：工具差別待遇</th></tr></thead>
     <tbody>
-      <tr><td class="k">審查<br>基準</td>
-        <td class="a">憲法第 7 條平等原則。以種族為分類，屬<b>可疑分類</b>，
+      <tr><td class="k" data-t="1">審查<br>基準</td>
+        <td class="a" data-l="2017：種族差別待遇">憲法第 7 條平等原則。以種族為分類，屬<b>可疑分類</b>，
           須有<b>極重大之公共利益</b>始能合理化</td>
-        <td class="b">行政法上平等原則與比例原則。以行為方式為分類，
+        <td class="b" data-l="2026：工具差別待遇">行政法上平等原則與比例原則。以行為方式為分類，
           <b>行政機關享有較大之判斷餘地</b></td></tr>
-      <tr><td class="k">舉證<br>負擔</td>
-        <td class="a">由<b>行政機關</b>證明差別待遇之正當性</td>
-        <td class="b">實務上多由<b>爭執者</b>證明差別待遇顯不合理</td></tr>
-      <tr><td class="k">可援引<br>之權利</td>
-        <td class="a">原住民族基本法、憲法增修條文第 10 條、
+      <tr><td class="k" data-t="1">舉證<br>負擔</td>
+        <td class="a" data-l="2017：種族差別待遇">由<b>行政機關</b>證明差別待遇之正當性</td>
+        <td class="b" data-l="2026：工具差別待遇">實務上多由<b>爭執者</b>證明差別待遇顯不合理</td></tr>
+      <tr><td class="k" data-t="1">可援引<br>之權利</td>
+        <td class="a" data-l="2017：種族差別待遇">原住民族基本法、憲法增修條文第 10 條、
           司法院釋字第 803 號（原住民族狩獵文化權）</td>
-        <td class="b">工作權／一般行動自由（強度較低）；
+        <td class="b" data-l="2026：工具差別待遇">工作權／一般行動自由（強度較低）；
           <b>魚槍多屬休閒使用，難以主張生存權或工作權</b></td></tr>
-      <tr><td class="k">強度<br>評估</td>
-        <td class="a"><b style="color:#20613f">高</b></td>
-        <td class="b"><b style="color:#8b3a22">明顯較低</b></td></tr>
+      <tr><td class="k" data-t="1">強度<br>評估</td>
+        <td class="a" data-l="2017：種族差別待遇" data-s="1"><b style="color:#20613f">高</b></td>
+        <td class="b" data-l="2026：工具差別待遇" data-s="1"><b style="color:#8b3a22">明顯較低</b></td></tr>
     </tbody>
   </table>
   </div>
@@ -311,7 +377,7 @@
     詳見 <b>dd-fisheries-agency.html 第肆節</b>。
   </div>
 
-  <h2><span class="n">柒</span>一個必須警惕的連動風險</h2>
+  <h2 id="s7"><span class="n">柒</span>一個必須警惕的連動風險</h2>
 
   <div class="warn">
     <b>2017 年的草案並未撤回，只是「進一步研究分析」。</b><br>
@@ -325,7 +391,7 @@
     最新的屏東琉球（114/6/20）與最成功的臺東富山，管的都是<b>區域、物種、人數、時段</b>。
   </div>
 
-  <h2><span class="n">捌</span>待查證</h2>
+  <h2 id="s8"><span class="n">捌</span>待查證</h2>
 
   <div class="info">
     <ul>

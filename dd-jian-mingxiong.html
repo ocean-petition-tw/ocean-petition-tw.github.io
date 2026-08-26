@@ -49,6 +49,70 @@
     .sheet{border:0;box-shadow:none;padding:0;margin-top:14px}.w{max-width:none;padding:0}
     .scroll{overflow:visible}table{min-width:0}@page{size:A4;margin:15mm 13mm}
     h2{page-break-after:avoid}table,tr{page-break-inside:avoid}}
+/* mobile-v2 */
+  .mtoc{display:none}
+  @media(max-width:680px){
+    body{font-size:16px;line-height:1.72}
+    .w,.wrap,.container{padding-left:12px;padding-right:12px}
+    .sheet,.card,.box{padding-left:14px;padding-right:14px}
+    header{padding-left:16px;padding-right:16px}
+    h2{margin-top:26px;margin-bottom:9px}
+    h3{margin-top:18px;margin-bottom:6px}
+    p{margin-bottom:9px}
+
+    /* ── 表格轉卡片 ── */
+    table{min-width:0!important;border:0;font-size:15px;display:block;width:100%}
+    thead{display:none}
+    tbody,tr,td,th{display:block;width:auto}
+    tr{border:1px solid var(--line,#ded7c9);border-radius:5px;
+       background:var(--paper,#fffdf8);margin:0 0 8px;padding:7px 0;overflow:hidden}
+    td,th{border:0;padding:3px 12px;white-space:normal!important}
+    td.k{background:transparent;width:auto;font-weight:800}
+
+    /* 有表頭者：欄名變小標 */
+    table.cards td[data-l]::before{content:attr(data-l);display:block;
+      font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);margin-bottom:1px}
+    table.cards td[data-t]{font-size:16.5px;font-weight:800;
+      color:var(--sea,#12303e);padding-top:1px;padding-bottom:4px;line-height:1.45}
+    table.cards td[data-seq]{display:none!important}
+
+    /* 短值：標籤與值同一行 */
+    table.cards td[data-s]:not([data-seq]){display:flex;flex-wrap:wrap;
+      gap:2px 7px;align-items:baseline;padding-top:1px;padding-bottom:1px;
+      line-height:1.6;min-width:0}
+    table.cards td[data-s]::before{margin-bottom:0;flex:0 0 auto;
+      min-width:4.2em;line-height:1.6}
+
+    /* 無表頭的鍵值表：第一格當小標 */
+    table.kv td.k{font-size:11px;font-weight:800;letter-spacing:.1em;
+      color:var(--gold,#b07d2b);padding-bottom:1px}
+    table.kv td.k+td{padding-top:0}
+
+    /* 含 colspan/rowspan 者不堆疊，保留原表格並可橫向捲動 */
+    table.keep{display:table;width:100%}
+    table.keep thead{display:table-header-group}
+    table.keep tbody{display:table-row-group}
+    table.keep tr{display:table-row;border:0;margin:0;padding:0;background:none}
+    table.keep td,table.keep th{display:table-cell;
+      border:1px solid var(--line,#ded7c9);padding:6px 9px}
+
+    /* 不讓任何元素撐破螢幕 */
+    html,body{max-width:100%;overflow-x:hidden}
+    td,th,p,li{overflow-wrap:break-word}
+
+    /* ── 章節快速跳轉 ── */
+    .mtoc{display:block;background:var(--paper,#fffdf8);
+      border:1px solid var(--line,#ded7c9);border-radius:6px;
+      padding:11px 13px 12px;margin:0 0 20px}
+    .mtoc .tt{font-size:11px;font-weight:800;letter-spacing:.16em;
+      color:var(--gold,#b07d2b);margin-bottom:7px}
+    .mtoc a{display:inline-block;font-size:14px;color:var(--sea,#12303e);
+      text-decoration:none;background:rgba(0,0,0,.03);
+      border:1px solid var(--line,#ded7c9);border-radius:4px;
+      padding:4px 9px;margin:0 5px 5px 0;line-height:1.4;max-width:100%}
+    .mtoc a b{color:var(--gold,#b07d2b);margin-right:4px;font-weight:800}
+  }
 </style>
 </head>
 <body>
@@ -67,7 +131,9 @@
 <div class="w">
 <div class="sheet">
 
-  <h2><span class="n">壹</span>一句話結論</h2>
+  <nav class="mtoc"><div class="tt">章節快速跳轉</div><a href="#s1"><b>壹</b>一句話結論</a><a href="#s2"><b>貳</b>人物檔案</a><a href="#s3"><b>參</b>本案的承辦體系：誰真正在辦這件事</a><a href="#s4"><b>肆</b>刺網先例：本案最強的論點</a><a href="#s5"><b>伍</b>3 海浬這條線是怎麼來的</a><a href="#s6"><b>陸</b>他手上還有什麼牌</a><a href="#s7"><b>柒</b>兵推與建議</a></nav>
+
+  <h2 id="s1"><span class="n">壹</span>一句話結論</h2>
 
   <div class="lede">
     這份草案不是為魚槍量身訂做的——<b>它是把「刺網退出東北角 3 浬」那套已經跑了九年的圖層與程序，直接套用到魚槍身上</b>。<br>
@@ -79,10 +145,10 @@
     <b>同一個機關、同一片海域、同一個目的，為什麼商業刺網有九年過渡期和補償，休閒魚槍卻是零過渡期、零補償、零登記選項？</b>
   </div>
 
-  <h2><span class="n">貳</span>人物檔案</h2>
+  <h2 id="s2"><span class="n">貳</span>人物檔案</h2>
 
   <div class="scroll">
-  <table>
+  <table class="kv">
     <tr><td class="k">姓名職稱</td><td><b>簡明雄</b>，新北市政府漁業及漁港事業管理處<b>處長</b>，綜理本處業務</td></tr>
     <tr><td class="k">學歷</td><td><b>國立臺灣海洋大學水產養殖學系碩士</b></td></tr>
     <tr><td class="k">經歷</td><td>新北市政府農業局科長<br>新北市政府漁業及漁港事業管理處<b>秘書</b><br><b>臺北縣政府農業局科長、股長、技士</b></td></tr>
@@ -103,26 +169,26 @@
     <b>這代表 9/8 桌上若黃向文發言，其份量對他而言不只是學者意見。</b>（重疊年份尚未查證，不要在公開場合斷言。）
   </div>
 
-  <h2><span class="n">參</span>本案的承辦體系：誰真正在辦這件事</h2>
+  <h2 id="s3"><span class="n">參</span>本案的承辦體系：誰真正在辦這件事</h2>
 
   <p>漁業處下設漁港工程課、<b>漁業管理課</b>、漁業技術課、北海岸漁港管理所、東北角漁港管理所、秘書室。
   依官網業務分工，<b>本案由漁業管理課承辦</b>。</p>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">分機</th><th>職務</th><th>與本案的關係</th></tr></thead>
     <tbody>
-      <tr><td class="k">170</td><td>處長　簡明雄</td><td>綜理處務</td></tr>
-      <tr><td class="k">167</td><td>秘書　蕭莉芳</td><td>督辦本處業務</td></tr>
-      <tr><td class="k">107</td><td>專員　李曉玲</td><td>督辦本處及<b>新聞聯絡業務</b>　←　媒體窗口</td></tr>
-      <tr><td class="k">169</td><td>技正　李克昌</td><td>督辦本處業務</td></tr>
-      <tr><td class="k">147</td><td>漁業管理課課長　洪先生</td><td>綜理漁業管理課業務　←　<b>本案課級主管</b></td></tr>
-      <tr><td class="k">146</td><td>彭小姐</td><td><b>海洋委員會窗口</b>、<b>保育區巡守隊</b>、瑞芳區漁業執照、新北海派（含萬里蟹、萬里區休閒漁業）</td></tr>
-      <tr><td class="k">132</td><td>詹先生</td><td>貢寮區漁業執照、<b>漁業資源保育綜合</b></td></tr>
-      <tr><td class="k">140</td><td>許先生</td><td><b>刺網實名制計畫及刺網漁業權收購專案</b>、<b>管制漁業管理</b>、漁業調查統計</td></tr>
-      <tr><td class="k">2931</td><td>吳小姐</td><td><b>刺網實名制計畫協辦、查核</b></td></tr>
-      <tr><td class="k">143</td><td>林先生</td><td><b>漁業巡護專案</b></td></tr>
-      <tr><td class="k">137</td><td>郭小姐</td><td>漁業權管理、休漁業務總窗口</td></tr>
+      <tr><td class="k" data-t="1">170</td><td data-l="職務" data-s="1">處長　簡明雄</td><td data-l="與本案的關係" data-s="1">綜理處務</td></tr>
+      <tr><td class="k" data-t="1">167</td><td data-l="職務" data-s="1">秘書　蕭莉芳</td><td data-l="與本案的關係" data-s="1">督辦本處業務</td></tr>
+      <tr><td class="k" data-t="1">107</td><td data-l="職務" data-s="1">專員　李曉玲</td><td data-l="與本案的關係">督辦本處及<b>新聞聯絡業務</b>　←　媒體窗口</td></tr>
+      <tr><td class="k" data-t="1">169</td><td data-l="職務" data-s="1">技正　李克昌</td><td data-l="與本案的關係" data-s="1">督辦本處業務</td></tr>
+      <tr><td class="k" data-t="1">147</td><td data-l="職務" data-s="1">漁業管理課課長　洪先生</td><td data-l="與本案的關係">綜理漁業管理課業務　←　<b>本案課級主管</b></td></tr>
+      <tr><td class="k" data-t="1">146</td><td data-l="職務" data-s="1">彭小姐</td><td data-l="與本案的關係"><b>海洋委員會窗口</b>、<b>保育區巡守隊</b>、瑞芳區漁業執照、新北海派（含萬里蟹、萬里區休閒漁業）</td></tr>
+      <tr><td class="k" data-t="1">132</td><td data-l="職務" data-s="1">詹先生</td><td data-l="與本案的關係">貢寮區漁業執照、<b>漁業資源保育綜合</b></td></tr>
+      <tr><td class="k" data-t="1">140</td><td data-l="職務" data-s="1">許先生</td><td data-l="與本案的關係"><b>刺網實名制計畫及刺網漁業權收購專案</b>、<b>管制漁業管理</b>、漁業調查統計</td></tr>
+      <tr><td class="k" data-t="1">2931</td><td data-l="職務" data-s="1">吳小姐</td><td data-l="與本案的關係" data-s="1"><b>刺網實名制計畫協辦、查核</b></td></tr>
+      <tr><td class="k" data-t="1">143</td><td data-l="職務" data-s="1">林先生</td><td data-l="與本案的關係" data-s="1"><b>漁業巡護專案</b></td></tr>
+      <tr><td class="k" data-t="1">137</td><td data-l="職務" data-s="1">郭小姐</td><td data-l="與本案的關係" data-s="1">漁業權管理、休漁業務總窗口</td></tr>
     </tbody>
   </table>
   </div>
@@ -135,20 +201,20 @@
     <b>市府有現成的實名制行政能量與制度模板。</b>對方若說「登記制做不到」，這就是反證。
   </div>
 
-  <h2><span class="n">肆</span>刺網先例：本案最強的論點</h2>
+  <h2 id="s4"><span class="n">肆</span>刺網先例：本案最強的論點</h2>
 
   <p>新北市對<b>刺網</b>的處理，是一套跑了九年的完整配套。以下均為市府與漁業署公開資料：</p>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%">年</th><th>作為</th></tr></thead>
     <tbody>
-      <tr><td class="k">2016.5</td><td>漁業署要求地方政府及漁會積極<b>輔導、收回刺網漁業執照</b></td></tr>
-      <tr><td class="k">2017</td><td>新北市與漁業署合作推動<b>刺網漁業輔導轉型計畫</b></td></tr>
-      <tr><td class="k">歷年</td><td><b>離漁與轉型獎勵</b>：漁民放棄經營刺網、改作釣具類等低破壞性漁法者，<b>專營每艘補助 20 萬元、兼營每艘補助 15 萬元</b></td></tr>
-      <tr><td class="k">歷年</td><td><b>刺網漁具實名制</b>（設專責人力主辦與查核）；另有<b>刺網漁業權收購專案</b></td></tr>
-      <tr><td class="k">迄今</td><td>累計輔導<b>約 70%</b>、共 <b>592 艘</b>刺網漁船轉型</td></tr>
-      <tr><td class="k">2026.1.1</td><td>刺網漁具<b>全面退出東北角 3 浬</b>正式實施</td></tr>
+      <tr><td class="k" data-t="1">2016.5</td><td data-l="作為">漁業署要求地方政府及漁會積極<b>輔導、收回刺網漁業執照</b></td></tr>
+      <tr><td class="k" data-t="1">2017</td><td data-l="作為">新北市與漁業署合作推動<b>刺網漁業輔導轉型計畫</b></td></tr>
+      <tr><td class="k" data-t="1">歷年</td><td data-l="作為"><b>離漁與轉型獎勵</b>：漁民放棄經營刺網、改作釣具類等低破壞性漁法者，<b>專營每艘補助 20 萬元、兼營每艘補助 15 萬元</b></td></tr>
+      <tr><td class="k" data-t="1">歷年</td><td data-l="作為"><b>刺網漁具實名制</b>（設專責人力主辦與查核）；另有<b>刺網漁業權收購專案</b></td></tr>
+      <tr><td class="k" data-t="1">迄今</td><td data-l="作為">累計輔導<b>約 70%</b>、共 <b>592 艘</b>刺網漁船轉型</td></tr>
+      <tr><td class="k" data-t="1">2026.1.1</td><td data-l="作為">刺網漁具<b>全面退出東北角 3 浬</b>正式實施</td></tr>
     </tbody>
   </table>
   </div>
@@ -156,15 +222,15 @@
   <h3>同一機關、同一海域、同一目的，兩套完全不同的待遇</h3>
 
   <div class="scroll">
-  <table>
+  <table class="cards">
     <thead><tr><th style="width:1%"></th><th>刺網（商業性）</th><th>魚槍（休閒性）</th></tr></thead>
     <tbody>
-      <tr><td class="k">過渡期</td><td><b>約九年</b>（2017–2026）</td><td><b>無</b></td></tr>
-      <tr><td class="k">經濟補償</td><td><b>每艘 15–20 萬元</b>轉型補助；另有漁業權收購</td><td><b>無</b></td></tr>
-      <tr><td class="k">替代出路</td><td>輔導轉作釣具類等漁法</td><td><b>無</b></td></tr>
-      <tr><td class="k">實名制／登記</td><td><b>有</b>，設專責人力主辦與查核</td><td><b>未提供此選項</b></td></tr>
-      <tr><td class="k">分級管理</td><td>依專營／兼營差別給付</td><td><b>不分自潛／水肺、不分魚種、不分體長、不分數量，一律禁止</b></td></tr>
-      <tr><td class="k">達成率</td><td>先做到約 70% 轉型，才正式禁止</td><td>直接禁止</td></tr>
+      <tr><td class="k" data-t="1">過渡期</td><td data-l="刺網（商業性）" data-s="1"><b>約九年</b>（2017–2026）</td><td data-l="魚槍（休閒性）" data-s="1"><b>無</b></td></tr>
+      <tr><td class="k" data-t="1">經濟補償</td><td data-l="刺網（商業性）"><b>每艘 15–20 萬元</b>轉型補助；另有漁業權收購</td><td data-l="魚槍（休閒性）" data-s="1"><b>無</b></td></tr>
+      <tr><td class="k" data-t="1">替代出路</td><td data-l="刺網（商業性）" data-s="1">輔導轉作釣具類等漁法</td><td data-l="魚槍（休閒性）" data-s="1"><b>無</b></td></tr>
+      <tr><td class="k" data-t="1">實名制／登記</td><td data-l="刺網（商業性）" data-s="1"><b>有</b>，設專責人力主辦與查核</td><td data-l="魚槍（休閒性）" data-s="1"><b>未提供此選項</b></td></tr>
+      <tr><td class="k" data-t="1">分級管理</td><td data-l="刺網（商業性）" data-s="1">依專營／兼營差別給付</td><td data-l="魚槍（休閒性）"><b>不分自潛／水肺、不分魚種、不分體長、不分數量，一律禁止</b></td></tr>
+      <tr><td class="k" data-t="1">達成率</td><td data-l="刺網（商業性）">先做到約 70% 轉型，才正式禁止</td><td data-l="魚槍（休閒性）" data-s="1">直接禁止</td></tr>
     </tbody>
   </table>
   </div>
@@ -184,12 +250,12 @@
     要主張的是<b>「程序上的一致性」</b>：過渡期、登記制、分級標準、先建立資料再管制。這三樣都不涉及金錢，市府沒有理由拒絕。
   </div>
 
-  <h2><span class="n">伍</span>3 海浬這條線是怎麼來的</h2>
+  <h2 id="s5"><span class="n">伍</span>3 海浬這條線是怎麼來的</h2>
 
   <p>依漁業處官網「資源保育」項下的分類，新北市既有的海域管制區共四類：</p>
 
   <div class="scroll">
-  <table>
+  <table class="kv">
     <tr><td class="k">人工魚礁禁漁區</td><td>7 處：林口、八里、淡水、跳石、萬里、深澳、澳底</td></tr>
     <tr><td class="k">保護礁禁漁區</td><td>2 處：林口、瑞芳</td></tr>
     <tr><td class="k">禁刺網區</td><td>5 處：三芝至林口、萬里、金山、<b>瑞芳三海浬</b>、<b>貢寮三海浬</b></td></tr>
@@ -208,10 +274,10 @@
     可請市府說明選擇標準——若依據是資源衰退與棲地價值，為何野柳不納入？這是一個溫和但有力的程序提問。
   </div>
 
-  <h2><span class="n">陸</span>他手上還有什麼牌</h2>
+  <h2 id="s6"><span class="n">陸</span>他手上還有什麼牌</h2>
 
   <div class="scroll">
-  <table>
+  <table class="kv">
     <tr><td class="k">既有巡守量能</td><td>市府自陳：自 2012 年起清除逾 <b>36 公噸</b>海底覆網、復育 <b>3,500 株</b>珊瑚、放流逾 <b>909 萬尾</b>魚苗，
       並透過 <b>532 次海上巡護與地方漁會岸際巡守隊</b>落實違規取締。<br>
       → <b>注意：現行巡守隊是「地方漁會」的岸際巡守隊。</b>我方若要參與巡守，制度上的接口是漁會，不是市府直接對我方。</td></tr>
@@ -224,7 +290,7 @@
   </table>
   </div>
 
-  <h2><span class="n">柒</span>兵推與建議</h2>
+  <h2 id="s7"><span class="n">柒</span>兵推與建議</h2>
 
   <h3>他最需要的是什麼</h3>
   <p>科班文官在這種案子上，最怕的不是政策被批評，而是<b>程序瑕疵、上級交代不過去、以及公告後被行政救濟推翻</b>。
